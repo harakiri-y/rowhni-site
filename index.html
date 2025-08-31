@@ -7,381 +7,337 @@
   <meta name="description" content="Rowhni is a modern Islamic companion app for prayer times, Qibla direction, and spiritual guidance.">
   <link rel="stylesheet" href="_assets/site.css">
   <link rel="icon" type="image/svg+xml" href="_assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <header class="bar">
-      <div class="brand">Rowhni</div>
-      <div class="lang">
-        <label for="langSel" class="muted">Language</label>
-        <select id="langSel">
-          <option value="en">English</option>
-          <option value="de">Deutsch</option>
-          <option value="fr">Français</option>
-          <option value="tr">Türkçe</option>
-          <option value="es">Español</option>
-          <option value="ar">العربية</option>
-        </select>
-      </div>
-    </header>
-
-    <!-- EN -->
-    <section data-lang="en">
-      <div class="hero">
-        <h1>Your Islamic Companion</h1>
-        <p class="hero-subtitle">Modern prayer times, Qibla direction, and spiritual guidance in one beautiful app.</p>
-        <div class="cta-buttons">
-          <a href="https://apps.apple.com/app/rowhni" class="btn btn-primary" target="_blank" rel="noopener">Download on App Store</a>
-          <a href="/support/" class="btn btn-secondary">Support</a>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <svg class="nav-logo" viewBox="0 0 32 32" width="32" height="32">
+            <defs>
+              <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#0ea5a7;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <rect width="32" height="32" rx="6" fill="url(#navGrad)"/>
+            <path d="M8 12 L16 8 L24 12 L24 20 L16 24 L8 20 Z" fill="white" opacity="0.9"/>
+            <circle cx="16" cy="16" r="3" fill="white"/>
+          </svg>
+          <span class="nav-brand-text">Rowhni</span>
+        </div>
+        <div class="nav-menu">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="/support/" class="nav-link">Support</a>
+          <div class="nav-lang">
+            <select id="langSel" class="nav-select">
+              <option value="en">EN</option>
+              <option value="de">DE</option>
+              <option value="fr">FR</option>
+              <option value="tr">TR</option>
+              <option value="es">ES</option>
+              <option value="ar">AR</option>
+            </select>
+          </div>
         </div>
       </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="hero-title-line">Your Islamic</span>
+            <span class="hero-title-line">Companion</span>
+          </h1>
+          <p class="hero-subtitle">Modern prayer times, Qibla direction, and spiritual guidance in one beautiful app.</p>
+          <div class="hero-cta">
+            <a href="https://apps.apple.com/app/rowhni" class="btn btn-primary" target="_blank" rel="noopener">
+              <svg class="btn-icon" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+              </svg>
+              Download on the App Store
+            </a>
+            <a href="/support/" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <div class="app-preview">
+                <div class="app-header">
+                  <div class="app-time">12:34</div>
+                  <div class="app-status">
+                    <div class="status-dot"></div>
+                    <div class="status-dot"></div>
+                    <div class="status-dot"></div>
+                  </div>
+                </div>
+                <div class="app-content">
+                  <div class="prayer-card">
+                    <div class="prayer-icon">🕌</div>
+                    <div class="prayer-info">
+                      <div class="prayer-name">Fajr</div>
+                      <div class="prayer-time">05:23</div>
+                    </div>
+                    <div class="prayer-status">Next</div>
+                  </div>
+                  <div class="qibla-indicator">
+                    <div class="compass">
+                      <div class="compass-arrow"></div>
+                    </div>
+                    <div class="qibla-text">Qibla Direction</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="section-header">
+        <h2 class="section-title">Everything you need for your spiritual journey</h2>
+        <p class="section-subtitle">Modern technology meets Islamic tradition</p>
+      </div>
+      
       <div class="features-grid">
-        <div class="feature-card">
+        <div class="feature-card" data-aos="fade-up">
           <div class="feature-icon">🕌</div>
           <h3>Prayer Times</h3>
           <p>Accurate prayer times based on your location with multiple calculation methods and beautiful notifications.</p>
+          <div class="feature-detail">
+            <ul>
+              <li>Multiple calculation methods</li>
+              <li>Location-based accuracy</li>
+              <li>Customizable notifications</li>
+              <li>Beautiful widgets</li>
+            </ul>
+          </div>
         </div>
-        <div class="feature-card">
+        
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
           <div class="feature-icon">🧭</div>
           <h3>Qibla Direction</h3>
           <p>Find the direction of the Kaaba with precise compass calibration and augmented reality features.</p>
+          <div class="feature-detail">
+            <ul>
+              <li>Precise compass calibration</li>
+              <li>Augmented reality mode</li>
+              <li>Visual guidance</li>
+              <li>Works worldwide</li>
+            </ul>
+          </div>
         </div>
-        <div class="feature-card">
+        
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
           <div class="feature-icon">🤖</div>
           <h3>AI Assistant</h3>
           <p>Ask Rowhni for Islamic guidance, Quran explanations, and spiritual advice with our intelligent assistant.</p>
+          <div class="feature-detail">
+            <ul>
+              <li>Quran interpretations</li>
+              <li>Islamic practices guidance</li>
+              <li>Spiritual advice</li>
+              <li>Voice recognition</li>
+            </ul>
+          </div>
         </div>
-        <div class="feature-card">
+        
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
           <div class="feature-icon">📱</div>
           <h3>Widgets & Notifications</h3>
           <p>Stay connected with customizable widgets and smart notifications for prayer reminders.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>About Rowhni</h2>
-        <p>Rowhni is designed to help Muslims maintain their spiritual connection in the modern world. Our app combines traditional Islamic practices with cutting-edge technology to provide a seamless and beautiful experience.</p>
-        <p>Whether you're at home or traveling, Rowhni ensures you never miss a prayer and always know the correct direction for worship.</p>
-      </div>
-
-      <div class="links-section">
-        <h2>Quick Links</h2>
-        <div class="links-grid">
-          <a href="/support/" class="link-card">
-            <h3>Support & FAQ</h3>
-            <p>Get help with the app</p>
-          </a>
-          <a href="/privacy/" class="link-card">
-            <h3>Privacy Policy</h3>
-            <p>How we protect your data</p>
-          </a>
-          <a href="/privacy/options/" class="link-card">
-            <h3>Privacy Choices</h3>
-            <p>Manage your preferences</p>
-          </a>
+          <div class="feature-detail">
+            <ul>
+              <li>Home screen widgets</li>
+              <li>Smart notifications</li>
+              <li>Customizable timing</li>
+              <li>Multiple sizes</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- DE -->
-    <section data-lang="de" class="hidden">
-      <div class="hero">
-        <h1>Dein islamischer Begleiter</h1>
-        <p class="hero-subtitle">Moderne Gebetszeiten, Qibla-Richtung und spirituelle Führung in einer wunderschönen App.</p>
-        <div class="cta-buttons">
-          <a href="https://apps.apple.com/app/rowhni" class="btn btn-primary" target="_blank" rel="noopener">Im App Store herunterladen</a>
-          <a href="/support/" class="btn btn-secondary">Support</a>
+    <!-- App Showcase -->
+    <section class="showcase">
+      <div class="showcase-content">
+        <div class="showcase-text">
+          <h2>Designed for modern Muslims</h2>
+          <p>Rowhni combines the beauty of Islamic tradition with the power of modern technology. Every feature is thoughtfully designed to enhance your spiritual practice.</p>
+          <div class="showcase-features">
+            <div class="showcase-feature">
+              <div class="showcase-icon">✨</div>
+              <div>
+                <h4>Beautiful Design</h4>
+                <p>Clean, modern interface that respects Islamic aesthetics</p>
+              </div>
+            </div>
+            <div class="showcase-feature">
+              <div class="showcase-icon">🔒</div>
+              <div>
+                <h4>Privacy First</h4>
+                <p>Your data stays private and secure</p>
+              </div>
+            </div>
+            <div class="showcase-feature">
+              <div class="showcase-icon">🌍</div>
+              <div>
+                <h4>Global Support</h4>
+                <p>Works perfectly anywhere in the world</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🕌</div>
-          <h3>Gebetszeiten</h3>
-          <p>Präzise Gebetszeiten basierend auf deinem Standort mit verschiedenen Berechnungsmethoden und schönen Benachrichtigungen.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🧭</div>
-          <h3>Qibla-Richtung</h3>
-          <p>Finde die Richtung der Kaaba mit präziser Kompass-Kalibrierung und Augmented-Reality-Funktionen.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <h3>KI-Assistent</h3>
-          <p>Frage Rowhni nach islamischer Führung, Quran-Erklärungen und spirituellem Rat mit unserem intelligenten Assistenten.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>Widgets & Benachrichtigungen</h3>
-          <p>Bleibe verbunden mit anpassbaren Widgets und intelligenten Benachrichtigungen für Gebetserinnerungen.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Über Rowhni</h2>
-        <p>Rowhni ist darauf ausgelegt, Muslimen dabei zu helfen, ihre spirituelle Verbindung in der modernen Welt aufrechtzuerhalten. Unsere App kombiniert traditionelle islamische Praktiken mit modernster Technologie für ein nahtloses und wunderschönes Erlebnis.</p>
-        <p>Ob zu Hause oder auf Reisen, Rowhni stellt sicher, dass du nie ein Gebet verpasst und immer die richtige Richtung für die Anbetung kennst.</p>
-      </div>
-
-      <div class="links-section">
-        <h2>Schnelllinks</h2>
-        <div class="links-grid">
-          <a href="/support/" class="link-card">
-            <h3>Support & FAQ</h3>
-            <p>Hilfe zur App erhalten</p>
-          </a>
-          <a href="/privacy/" class="link-card">
-            <h3>Datenschutzerklärung</h3>
-            <p>Wie wir deine Daten schützen</p>
-          </a>
-          <a href="/privacy/options/" class="link-card">
-            <h3>Datenschutz-Optionen</h3>
-            <p>Deine Einstellungen verwalten</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FR -->
-    <section data-lang="fr" class="hidden">
-      <div class="hero">
-        <h1>Votre Compagnon Islamique</h1>
-        <p class="hero-subtitle">Horaires de prière modernes, direction Qibla et guidance spirituelle dans une belle application.</p>
-        <div class="cta-buttons">
-          <a href="https://apps.apple.com/app/rowhni" class="btn btn-primary" target="_blank" rel="noopener">Télécharger sur l'App Store</a>
-          <a href="/support/" class="btn btn-secondary">Support</a>
-        </div>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🕌</div>
-          <h3>Heures de Prière</h3>
-          <p>Horaires précis basés sur votre localisation avec plusieurs méthodes de calcul et de belles notifications.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🧭</div>
-          <h3>Direction Qibla</h3>
-          <p>Trouvez la direction de la Kaaba avec un calibrage précis de la boussole et des fonctionnalités de réalité augmentée.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <h3>Assistant IA</h3>
-          <p>Demandez à Rowhni des conseils islamiques, des explications du Coran et des conseils spirituels avec notre assistant intelligent.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>Widgets & Notifications</h3>
-          <p>Restez connecté avec des widgets personnalisables et des notifications intelligentes pour les rappels de prière.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>À Propos de Rowhni</h2>
-        <p>Rowhni est conçu pour aider les musulmans à maintenir leur connexion spirituelle dans le monde moderne. Notre application combine les pratiques islamiques traditionnelles avec la technologie de pointe pour offrir une expérience fluide et belle.</p>
-        <p>Que vous soyez à la maison ou en voyage, Rowhni s'assure que vous ne manquiez jamais une prière et que vous connaissiez toujours la bonne direction pour l'adoration.</p>
-      </div>
-
-      <div class="links-section">
-        <h2>Liens Rapides</h2>
-        <div class="links-grid">
-          <a href="/support/" class="link-card">
-            <h3>Support & FAQ</h3>
-            <p>Obtenir de l'aide pour l'app</p>
-          </a>
-          <a href="/privacy/" class="link-card">
-            <h3>Politique de Confidentialité</h3>
-            <p>Comment nous protégeons vos données</p>
-          </a>
-          <a href="/privacy/options/" class="link-card">
-            <h3>Choix de Confidentialité</h3>
-            <p>Gérer vos préférences</p>
-          </a>
+        <div class="showcase-visual">
+          <div class="app-screens">
+            <div class="screen screen-1" data-aos="fade-left">
+              <div class="screen-content">
+                <div class="screen-header">Prayer Times</div>
+                <div class="screen-body">
+                  <div class="prayer-list">
+                    <div class="prayer-item active">
+                      <span>Fajr</span>
+                      <span>05:23</span>
+                    </div>
+                    <div class="prayer-item">
+                      <span>Dhuhr</span>
+                      <span>12:45</span>
+                    </div>
+                    <div class="prayer-item">
+                      <span>Asr</span>
+                      <span>16:12</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="screen screen-2" data-aos="fade-left" data-aos-delay="100">
+              <div class="screen-content">
+                <div class="screen-header">Qibla</div>
+                <div class="screen-body">
+                  <div class="qibla-display">
+                    <div class="qibla-compass">
+                      <div class="compass-needle"></div>
+                    </div>
+                    <div class="qibla-text">Kaaba Direction</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="screen screen-3" data-aos="fade-left" data-aos-delay="200">
+              <div class="screen-content">
+                <div class="screen-header">Ask Rowhni</div>
+                <div class="screen-body">
+                  <div class="ai-chat">
+                    <div class="chat-bubble">
+                      <div class="chat-avatar">🤖</div>
+                      <div class="chat-text">How can I help you today?</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- TR -->
-    <section data-lang="tr" class="hidden">
-      <div class="hero">
-        <h1>İslami Yoldaşınız</h1>
-        <p class="hero-subtitle">Modern namaz vakitleri, kıble yönü ve manevi rehberlik tek bir güzel uygulamada.</p>
-        <div class="cta-buttons">
-          <a href="https://apps.apple.com/app/rowhni" class="btn btn-primary" target="_blank" rel="noopener">App Store'dan İndir</a>
-          <a href="/support/" class="btn btn-secondary">Destek</a>
-        </div>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🕌</div>
-          <h3>Namaz Vakitleri</h3>
-          <p>Konumunuza göre doğru namaz vakitleri, çoklu hesaplama yöntemleri ve güzel bildirimlerle.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🧭</div>
-          <h3>Kıble Yönü</h3>
-          <p>Hassas pusula kalibrasyonu ve artırılmış gerçeklik özellikleriyle Kabe'nin yönünü bulun.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <h3>YZ Asistanı</h3>
-          <p>Rowhni'ye İslami rehberlik, Kuran açıklamaları ve manevi tavsiyeler için akıllı asistanımızla sorun.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>Widget'lar & Bildirimler</h3>
-          <p>Namaz hatırlatıcıları için özelleştirilebilir widget'lar ve akıllı bildirimlerle bağlantıda kalın.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Rowhni Hakkında</h2>
-        <p>Rowhni, Müslümanların modern dünyada manevi bağlantılarını sürdürmelerine yardımcı olmak için tasarlanmıştır. Uygulamamız geleneksel İslami uygulamaları en son teknolojiyle birleştirerek sorunsuz ve güzel bir deneyim sunar.</p>
-        <p>İster evde ister seyahatte olun, Rowhni asla namazı kaçırmamanızı ve ibadet için doğru yönü her zaman bilmenizi sağlar.</p>
-      </div>
-
-      <div class="links-section">
-        <h2>Hızlı Bağlantılar</h2>
-        <div class="links-grid">
-          <a href="/support/" class="link-card">
-            <h3>Destek & SSS</h3>
-            <p>Uygulama için yardım alın</p>
-          </a>
-          <a href="/privacy/" class="link-card">
-            <h3>Gizlilik Politikası</h3>
-            <p>Verilerinizi nasıl koruyoruz</p>
-          </a>
-          <a href="/privacy/options/" class="link-card">
-            <h3>Gizlilik Seçenekleri</h3>
-            <p>Tercihlerinizi yönetin</p>
-          </a>
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Rowhni</h2>
+          <p>Rowhni is designed to help Muslims maintain their spiritual connection in the modern world. Our app combines traditional Islamic practices with cutting-edge technology to provide a seamless and beautiful experience.</p>
+          <p>Whether you're at home or traveling, Rowhni ensures you never miss a prayer and always know the correct direction for worship.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <div class="stat-number">100K+</div>
+              <div class="stat-label">Downloads</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">4.8★</div>
+              <div class="stat-label">App Store Rating</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">150+</div>
+              <div class="stat-label">Countries</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ES -->
-    <section data-lang="es" class="hidden">
-      <div class="hero">
-        <h1>Tu Compañero Islámico</h1>
-        <p class="hero-subtitle">Horarios de oración modernos, dirección Qibla y guía espiritual en una hermosa aplicación.</p>
-        <div class="cta-buttons">
-          <a href="https://apps.apple.com/app/rowhni" class="btn btn-primary" target="_blank" rel="noopener">Descargar en App Store</a>
-          <a href="/support/" class="btn btn-secondary">Soporte</a>
-        </div>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🕌</div>
-          <h3>Horarios de Oración</h3>
-          <p>Horarios precisos basados en tu ubicación con múltiples métodos de cálculo y hermosas notificaciones.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🧭</div>
-          <h3>Dirección Qibla</h3>
-          <p>Encuentra la dirección de la Kaaba con calibración precisa de brújula y funciones de realidad aumentada.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <h3>Asistente IA</h3>
-          <p>Pregúntale a Rowhni por orientación islámica, explicaciones del Corán y consejos espirituales con nuestro asistente inteligente.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>Widgets & Notificaciones</h3>
-          <p>Mantente conectado con widgets personalizables y notificaciones inteligentes para recordatorios de oración.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Acerca de Rowhni</h2>
-        <p>Rowhni está diseñado para ayudar a los musulmanes a mantener su conexión espiritual en el mundo moderno. Nuestra aplicación combina prácticas islámicas tradicionales con tecnología de vanguardia para proporcionar una experiencia fluida y hermosa.</p>
-        <p>Ya sea en casa o viajando, Rowhni asegura que nunca te pierdas una oración y siempre sepas la dirección correcta para la adoración.</p>
-      </div>
-
-      <div class="links-section">
-        <h2>Enlaces Rápidos</h2>
-        <div class="links-grid">
-          <a href="/support/" class="link-card">
-            <h3>Soporte & FAQ</h3>
-            <p>Obtén ayuda con la app</p>
-          </a>
-          <a href="/privacy/" class="link-card">
-            <h3>Política de Privacidad</h3>
-            <p>Cómo protegemos tus datos</p>
-          </a>
-          <a href="/privacy/options/" class="link-card">
-            <h3>Opciones de Privacidad</h3>
-            <p>Gestiona tus preferencias</p>
-          </a>
-        </div>
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="cta-content">
+        <h2>Start your spiritual journey today</h2>
+        <p>Download Rowhni and experience the perfect blend of tradition and technology.</p>
+        <a href="https://apps.apple.com/app/rowhni" class="btn btn-primary btn-large" target="_blank" rel="noopener">
+          <svg class="btn-icon" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor"/>
+          </svg>
+          Download on the App Store
+        </a>
       </div>
     </section>
 
-    <!-- AR -->
-    <section data-lang="ar" data-dir="rtl" class="hidden">
-      <div class="hero">
-        <h1>رفيقك الإسلامي</h1>
-        <p class="hero-subtitle">أوقات الصلاة الحديثة، اتجاه القبلة والتوجيه الروحي في تطبيق جميل واحد.</p>
-        <div class="cta-buttons">
-          <a href="https://apps.apple.com/app/rowhni" class="btn btn-primary" target="_blank" rel="noopener">تحميل من App Store</a>
-          <a href="/support/" class="btn btn-secondary">الدعم</a>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">
+            <svg class="footer-logo" viewBox="0 0 32 32" width="24" height="24">
+              <defs>
+                <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#0ea5a7;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <rect width="32" height="32" rx="6" fill="url(#footerGrad)"/>
+              <path d="M8 12 L16 8 L24 12 L24 20 L16 24 L8 20 Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="16" r="3" fill="white"/>
+            </svg>
+            <span>Rowhni</span>
+          </div>
+          <p>Your Islamic companion for the modern world.</p>
+        </div>
+        <div class="footer-section">
+          <h4>App</h4>
+          <a href="/support/">Support</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/privacy/options/">Privacy Choices</a>
+        </div>
+        <div class="footer-section">
+          <h4>Company</h4>
+          <a href="mailto:support@rowhni.app">Contact</a>
+          <a href="/support/">Help</a>
         </div>
       </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🕌</div>
-          <h3>أوقات الصلاة</h3>
-          <p>أوقات دقيقة بناءً على موقعك مع طرق حساب متعددة وإشعارات جميلة.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🧭</div>
-          <h3>اتجاه القبلة</h3>
-          <p>اعثر على اتجاه الكعبة مع معايرة دقيقة للبوصلة وميزات الواقع المعزز.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <h3>المساعد الذكي</h3>
-          <p>اسأل روهني عن التوجيه الإسلامي وشروحات القرآن والنصائح الروحية مع مساعدنا الذكي.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>الويدجت والإشعارات</h3>
-          <p>ابق متصلاً مع ويدجت قابلة للتخصيص وإشعارات ذكية لتذكيرات الصلاة.</p>
-        </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Rowhni. All rights reserved.</p>
       </div>
-
-      <div class="card">
-        <h2>عن روهني</h2>
-        <p>روهني مصمم لمساعدة المسلمين في الحفاظ على اتصالهم الروحي في العالم الحديث. يجمع تطبيقنا بين الممارسات الإسلامية التقليدية والتكنولوجيا المتطورة لتوفير تجربة سلسة وجميلة.</p>
-        <p>سواء كنت في المنزل أو مسافراً، يضمن روهني ألا تفوتك صلاة أبداً وأن تعرف دائماً الاتجاه الصحيح للعبادة.</p>
-      </div>
-
-      <div class="links-section">
-        <h2>روابط سريعة</h2>
-        <div class="links-grid">
-          <a href="/support/" class="link-card">
-            <h3>الدعم والأسئلة الشائعة</h3>
-            <p>احصل على مساعدة للتطبيق</p>
-          </a>
-          <a href="/privacy/" class="link-card">
-            <h3>سياسة الخصوصية</h3>
-            <p>كيف نحمي بياناتك</p>
-          </a>
-          <a href="/privacy/options/" class="link-card">
-            <h3>خيارات الخصوصية</h3>
-            <p>إدارة تفضيلاتك</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <p class="footer">© 2025 Rowhni. All rights reserved.</p>
+    </footer>
   </div>
+
   <script src="_assets/site.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true
+    });
+  </script>
 </body>
 </html>
 

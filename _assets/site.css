@@ -90,11 +90,11 @@ body {
   font-feature-settings: 'cv01' on, 'cv02' on, 'cv03' on, 'cv04' on, 'calt' on;
 }
 
-/* Container */
+/* Full Width Layout - No Container Restrictions */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Navigation */
@@ -113,9 +113,8 @@ body {
 }
 
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
+  width: 100%;
+  padding: 0 var(--space-6);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -252,9 +251,8 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: var(--space-20);
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
+  width: 100%;
+  padding: 0 var(--space-6);
   position: relative;
   z-index: 1;
 }
@@ -617,9 +615,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-10);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
+  width: 100%;
+  padding: 0 var(--space-6);
 }
 
 .feature-card {
@@ -715,9 +712,8 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: var(--space-20);
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
+  width: 100%;
+  padding: 0 var(--space-6);
 }
 
 .showcase-text h2 {
@@ -945,9 +941,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-10);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
+  width: 100%;
+  padding: 0 var(--space-6);
 }
 
 .gallery-item {
@@ -1002,10 +997,9 @@ body {
 }
 
 .about-content {
-  max-width: 900px;
-  margin: 0 auto;
+  width: 100%;
   text-align: center;
-  padding: 0 var(--space-4);
+  padding: 0 var(--space-6);
 }
 
 .about-text h2 {
@@ -1077,9 +1071,9 @@ body {
 }
 
 .cta-content {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
+  width: 100%;
+  text-align: center;
+  padding: 0 var(--space-6);
   position: relative;
   z-index: 1;
 }
@@ -1109,10 +1103,8 @@ body {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: var(--space-10);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
-  margin-bottom: var(--space-10);
+  width: 100%;
+  padding: 0 var(--space-6) var(--space-10);
 }
 
 .footer-brand {
@@ -1267,7 +1259,7 @@ body {
   }
   
   .hero-content {
-    padding: 0 var(--space-3);
+    padding: 0 var(--space-4);
     gap: var(--space-16);
   }
   
@@ -1297,7 +1289,7 @@ body {
   .features-grid {
     grid-template-columns: 1fr;
     gap: var(--space-6);
-    padding: 0 var(--space-3);
+    padding: 0 var(--space-4);
   }
   
   .feature-card {
@@ -1307,14 +1299,14 @@ body {
   .gallery-grid {
     grid-template-columns: 1fr;
     gap: var(--space-6);
-    padding: 0 var(--space-3);
+    padding: 0 var(--space-4);
   }
   
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
     gap: var(--space-8);
-    padding: 0 var(--space-3);
+    padding: 0 var(--space-4) var(--space-10);
   }
   
   .hero-cta {
@@ -1352,21 +1344,17 @@ body {
   }
   
   .showcase-content {
-    padding: 0 var(--space-3);
+    padding: 0 var(--space-4);
   }
   
   .cta-content {
-    padding: 0 var(--space-3);
+    padding: 0 var(--space-4);
   }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 0 var(--space-2);
-  }
-  
   .nav-container {
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-3);
     height: 70px;
   }
   
@@ -1393,7 +1381,7 @@ body {
   }
   
   .hero-content {
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-3);
     gap: var(--space-12);
   }
   
@@ -1421,7 +1409,7 @@ body {
   }
   
   .features-grid {
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-3);
     gap: var(--space-5);
   }
   
@@ -1440,7 +1428,7 @@ body {
   }
   
   .gallery-grid {
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-3);
     gap: var(--space-5);
   }
   
@@ -1466,11 +1454,11 @@ body {
   }
   
   .about-content {
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-3);
   }
   
   .showcase-content {
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-3);
   }
   
   .cta {
@@ -1478,11 +1466,11 @@ body {
   }
   
   .cta-content {
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-3);
   }
   
   .footer-content {
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-3) var(--space-10);
     gap: var(--space-6);
   }
 }

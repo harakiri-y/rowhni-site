@@ -242,27 +242,42 @@
     });
   }
 
-  // Dynamic Typography Scaling (Stryds Style)
+  // Ultra-Dynamic Typography Scaling (Pure Stryds Style)
   function initDynamicTypography() {
     const heroTitle = document.querySelector('.hero-title');
     const heroSubtitle = document.querySelector('.hero-subtitle');
+    const sectionTitles = document.querySelectorAll('.section-title');
     
     function updateTypography() {
       const vw = window.innerWidth / 100;
       const vh = window.innerHeight / 100;
       const scrollY = window.scrollY;
+      const scrollRatio = Math.min(scrollY / window.innerHeight, 1);
       
+      // Hero Title - Massive dynamic scaling like Stryds
       if (heroTitle) {
-        const dynamicSize = Math.max(6 * vw + 6 * vh * 0.5, 48);
-        const scrollEffect = Math.max(1 - scrollY / 1000, 0.8);
-        heroTitle.style.fontSize = `${dynamicSize * scrollEffect}px`;
+        const baseSize = Math.max(8 * vw + 4 * vh + 0.5, 60);
+        const scrollEffect = Math.max(1 - scrollRatio * 0.3, 0.7);
+        const responsiveEffect = Math.min(vw * 0.8, 50);
+        heroTitle.style.fontSize = `${baseSize * scrollEffect + responsiveEffect}px`;
+        heroTitle.style.lineHeight = '0.9';
+        heroTitle.style.letterSpacing = `${-0.04 - vw * 0.001}em`;
       }
       
+      // Hero Subtitle - Responsive scaling
       if (heroSubtitle) {
-        const dynamicSize = Math.max(2 * vw + 1 * vh * 0.5, 18);
-        const scrollEffect = Math.max(1 - scrollY / 800, 0.9);
-        heroSubtitle.style.fontSize = `${dynamicSize * scrollEffect}px`;
+        const baseSize = Math.max(1.5 * vw + 1 * vh + 0.2, 16);
+        const scrollEffect = Math.max(1 - scrollRatio * 0.2, 0.85);
+        heroSubtitle.style.fontSize = `${baseSize * scrollEffect}px`;
+        heroSubtitle.style.opacity = Math.max(1 - scrollRatio * 0.5, 0.6);
       }
+      
+      // Section Titles - Dynamic scaling
+      sectionTitles.forEach(title => {
+        const baseSize = Math.max(4 * vw + 2 * vh + 0.3, 32);
+        title.style.fontSize = `${Math.min(baseSize, 80)}px`;
+        title.style.letterSpacing = `${-0.03 - vw * 0.0005}em`;
+      });
     }
     
     window.addEventListener('scroll', updateTypography, { passive: true });

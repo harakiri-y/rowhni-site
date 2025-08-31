@@ -1,13 +1,16 @@
-/* Ultra-Modern Minimalist CSS - Stryds Style */
+/* Corporate Identity from Rowhni Logo */
 :root {
-  /* Minimal, refined color palette */
-  --primary: #000000;
-  --primary-soft: #1a1a1a;
-  --accent: #0ea5a7;
-  --accent-light: rgba(14, 165, 167, 0.1);
-  --success: #10b981;
-  --warning: #f59e0b;
-  --error: #ef4444;
+  /* Logo-based color palette - Green/Yellow from Logo */
+  --brand-green: #2d5d3d;      /* Dark green from logo */
+  --brand-green-light: #3d7d5d; /* Medium green */
+  --brand-green-soft: #5d9d7d;  /* Soft green */
+  --brand-yellow: #ffd700;      /* Golden yellow from logo */
+  --brand-yellow-soft: #fff3a0; /* Soft yellow */
+  --accent: #2d5d3d;            /* Primary brand color */
+  --accent-light: rgba(45, 93, 61, 0.1);
+  --success: #2d5d3d;
+  --warning: #ffd700;
+  --error: #dc2626;
   
   /* Minimal color system */
   --white: #FFFFFF;
@@ -23,19 +26,19 @@
   --gray-800: #27272a;
   --gray-900: #18181b;
   
-  /* Minimal background colors */
+  /* Brand-aligned background colors */
   --bg-primary: #ffffff;
-  --bg-secondary: #fafafa;
-  --bg-tertiary: #f4f4f5;
-  --bg-dark: #000000;
-  --bg-dark-soft: #0a0a0a;
+  --bg-secondary: #f8fdf9;      /* Very light green tint */
+  --bg-tertiary: #f0f9f2;       /* Light green tint */
+  --bg-brand: #2d5d3d;          /* Brand green background */
+  --bg-brand-soft: rgba(45, 93, 61, 0.05);
   
-  /* Minimal text colors */
-  --text-primary: #18181b;
-  --text-secondary: #71717a;
-  --text-tertiary: #a1a1aa;
-  --text-dark: #ffffff;
-  --text-dark-secondary: #a1a1aa;
+  /* Brand-aligned text colors */
+  --text-primary: #1a2e1a;      /* Dark green-tinted text */
+  --text-secondary: #4a6b4a;    /* Medium green-tinted text */
+  --text-tertiary: #7a9b7a;     /* Light green-tinted text */
+  --text-brand: #2d5d3d;        /* Brand green text */
+  --text-on-brand: #ffffff;     /* White text on brand backgrounds */
   
   /* Minimal shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -100,7 +103,7 @@ body {
   padding: 0;
 }
 
-/* Ultra-Clean Navigation */
+/* Brand-Aligned Navigation */
 .nav {
   position: fixed;
   top: 0;
@@ -110,7 +113,7 @@ body {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid var(--accent-light);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -331,9 +334,9 @@ body {
 }
 
 .android-badge:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: var(--primary);
-  color: var(--primary);
+  background: rgba(45, 93, 61, 0.15);
+  border-color: var(--accent);
+  color: var(--accent);
   transform: translateY(-1px);
 }
 
@@ -537,32 +540,32 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-light) 100%);
   color: var(--white);
   box-shadow: 
-    0 4px 14px 0 rgba(14, 165, 167, 0.4),
-    0 0 0 1px rgba(14, 165, 167, 0.2);
+    0 4px 14px 0 rgba(45, 93, 61, 0.4),
+    0 0 0 1px rgba(45, 93, 61, 0.2);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  background: linear-gradient(135deg, var(--brand-green-light) 0%, var(--brand-green) 100%);
   transform: translateY(-2px);
   box-shadow: 
-    0 8px 25px 0 rgba(14, 165, 167, 0.5),
-    0 0 0 1px rgba(14, 165, 167, 0.3);
+    0 8px 25px 0 rgba(45, 93, 61, 0.5),
+    0 0 0 1px rgba(45, 93, 61, 0.3);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-primary);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(45, 93, 61, 0.1);
+  color: var(--text-brand);
+  border: 1px solid var(--accent-light);
   backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: var(--primary);
-  color: var(--primary);
+  background: rgba(45, 93, 61, 0.15);
+  border-color: var(--accent);
+  color: var(--accent);
   transform: translateY(-2px);
 }
 
@@ -1473,6 +1476,159 @@ body {
     padding: 0 var(--space-3) var(--space-10);
     gap: var(--space-6);
   }
+}
+
+/* Modern Privacy Pages Styles */
+.privacy-main {
+  padding-top: 100px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.privacy-section {
+  width: 100%;
+  padding: 0 var(--space-6);
+}
+
+.privacy-hero {
+  text-align: center;
+  padding: var(--space-20) 0 var(--space-16);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.privacy-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: var(--space-6);
+  color: var(--text-brand);
+  letter-spacing: -0.03em;
+}
+
+.privacy-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: var(--space-8);
+}
+
+.privacy-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.privacy-card {
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--accent-light);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.privacy-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-4);
+  filter: drop-shadow(0 2px 4px rgba(45, 93, 61, 0.3));
+}
+
+.privacy-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  color: var(--text-brand);
+  letter-spacing: -0.02em;
+}
+
+.privacy-card > p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+}
+
+.rights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.right-item {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid var(--accent-light);
+}
+
+.right-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+
+.right-icon {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-3);
+}
+
+.right-item h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  color: var(--text-brand);
+}
+
+.right-item p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.privacy-footer {
+  background: var(--bg-brand);
+  color: var(--text-on-brand);
+  padding: var(--space-8) 0;
+  margin-top: var(--space-20);
+}
+
+.privacy-footer .footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.footer-links a {
+  color: var(--text-on-brand);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
 }
 
 /* Support Page Styles */

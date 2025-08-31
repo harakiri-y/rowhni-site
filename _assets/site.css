@@ -131,6 +131,7 @@ body {
   width: 36px;
   height: 36px;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  object-fit: contain;
 }
 
 .nav-menu {
@@ -1020,6 +1021,7 @@ body {
 .footer-logo {
   width: 28px;
   height: 28px;
+  object-fit: contain;
 }
 
 .footer-section p {

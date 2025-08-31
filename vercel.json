@@ -1,7 +1,4 @@
 {
-  "trailingSlash": true,
-  "redirects": [
-    { "source": "/", "destination": "/support/" }
-  ]
+  "trailingSlash": true
 }
 

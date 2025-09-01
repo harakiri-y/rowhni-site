@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rowhni - Islamic Companion</title>
-  <meta name="description" content="The most advanced Islamic companion app. Prayer times, digital Tasbih with voice recognition, Qibla compass, and comprehensive Islamic tools.">
+  <title>Rowhni - Your Islamic Companion</title>
+  <meta name="description" content="Voice-powered Tasbih, precise prayer times, and comprehensive Islamic tools. The most advanced Islamic companion app.">
   <link rel="stylesheet" href="_assets/site.css">
   <link rel="icon" type="image/svg+xml" href="_assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -29,176 +28,165 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Stryds Style -->
     <section class="hero">
       <div class="hero-content">
-        <h1 class="hero-title">
-          Prayer apps are basic.<br>
-          Social apps are distracting.<br>
-          <span class="hero-accent">Rowhni is spiritual.</span>
-        </h1>
-        
-        <div class="hero-subtitle">
-          The most advanced Islamic companion with voice-powered Tasbih,<br>
-          precision prayer times, and comprehensive spiritual tools.
+        <div class="hero-left">
+          <h1 class="hero-title">
+            <span class="hero-line">Count Your</span>
+            <span class="hero-line">Dhikr</span>
+          </h1>
+          
+          <h2 class="hero-subtitle">
+            <span class="hero-line">Find Your</span>
+            <span class="hero-line">Qibla</span>
+          </h2>
+
+          <div class="hero-description">
+            <p>Level up your spiritual practice with voice-powered counting and precision prayer tools.</p>
+          </div>
+
+          <div class="hero-cta">
+            <div class="stryds-logo">
+              <img src="rowhni_logo_day.png" alt="Rowhni" class="stryds-icon">
+              <span>Rowhni</span>
+            </div>
+            <a href="https://apps.apple.com/app/rowhni" class="join-btn" target="_blank" rel="noopener">
+              Download
+            </a>
+          </div>
         </div>
 
-        <div class="hero-cta">
-          <a href="https://apps.apple.com/app/rowhni" class="btn btn-primary" target="_blank" rel="noopener">
-            Download for iOS
-          </a>
-          <div class="hero-note">Free with Pro features available</div>
-        </div>
-      </div>
-      
-      <div class="hero-visual">
-        <div class="hero-phone">
-          <img src="Screenshots/image1.jpg" alt="Rowhni App Interface" class="hero-screenshot">
+        <div class="hero-right">
+          <div class="floating-elements">
+            <!-- Voice Recognition Pill -->
+            <div class="floating-pill voice-pill">
+              <div class="pill-avatar">
+                <img src="Screenshots/image1.jpg" alt="Voice" class="pill-image">
+              </div>
+              <div class="pill-content">
+                <span class="pill-number">33</span>
+                <span class="pill-label">SubhanAllah</span>
+              </div>
+            </div>
+
+            <!-- Prayer Time Pill -->
+            <div class="floating-pill prayer-pill">
+              <div class="pill-content">
+                <span class="pill-number">Maghrib</span>
+                <span class="pill-label">18:42</span>
+              </div>
+            </div>
+
+            <!-- Qibla Direction Element -->
+            <div class="floating-element qibla-element">
+              <div class="compass-ring">
+                <div class="compass-needle"></div>
+              </div>
+            </div>
+
+            <!-- Progress Ring -->
+            <div class="floating-element progress-ring">
+              <svg width="80" height="80" viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="35" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4"/>
+                <circle cx="40" cy="40" r="35" fill="none" stroke="#00D4AA" stroke-width="4" stroke-dasharray="220" stroke-dashoffset="66" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <!-- Mosque Finder -->
+            <div class="floating-pill mosque-pill">
+              <div class="pill-avatar">
+                <img src="Screenshots/image5.jpg" alt="Mosque" class="pill-image">
+              </div>
+              <span class="pill-label">Nearby Mosques</span>
+            </div>
+
+            <!-- Zakat Calculator -->
+            <div class="floating-element zakat-element">
+              <div class="zakat-display">
+                <span class="zakat-amount">€2,450</span>
+                <span class="zakat-label">Zakat Due</span>
+              </div>
+            </div>
+
+            <!-- Hijri Date -->
+            <div class="floating-pill hijri-pill">
+              <span class="hijri-date">15 Muharram</span>
+              <span class="hijri-year">1446</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Core Features -->
+    <!-- Features Section -->
     <section class="features">
-      <div class="features-container">
+      <div class="features-content">
+        <h2 class="features-title">Everything you need for your spiritual journey</h2>
         
-        <div class="feature-block">
-          <div class="feature-visual">
-            <img src="Screenshots/image5.jpg" alt="Mosque Finder" class="feature-image">
-          </div>
-          <div class="feature-content">
-            <h2 class="feature-title">Find Your Community</h2>
-            <p class="feature-description">
-              Discover nearby mosques with detailed information, prayer schedules, and directions. 
-              Connect with your local Muslim community wherever you are.
-            </p>
-          </div>
-        </div>
-
-        <div class="feature-block reverse">
-          <div class="feature-visual">
-            <img src="Screenshots/image6.jpg" alt="Prophets Encyclopedia" class="feature-image">
-          </div>
-          <div class="feature-content">
-            <h2 class="feature-title">Learn & Grow</h2>
-            <p class="feature-description">
-              Access comprehensive stories and teachings of all Prophets. 
-              Deepen your knowledge with authentic Islamic content and scholarly references.
-            </p>
-          </div>
-        </div>
-
-        <div class="feature-block">
-          <div class="feature-visual">
-            <img src="Screenshots/image7.jpg" alt="Theme Selection" class="feature-image">
-          </div>
-          <div class="feature-content">
-            <h2 class="feature-title">Personalize Your Experience</h2>
-            <p class="feature-description">
-              Choose from beautiful themes that reflect your style. 
-              Customize your spiritual companion to match your preferences.
-            </p>
-          </div>
-        </div>
-
-        <div class="feature-block reverse">
-          <div class="feature-visual">
-            <img src="Screenshots/image8.jpg" alt="Multiple Features" class="feature-image">
-          </div>
-          <div class="feature-content">
-            <h2 class="feature-title">Complete Islamic Toolkit</h2>
-            <p class="feature-description">
-              Zakat Calculator, Interactive Quiz, Hijri Calendar, and dozens of other tools. 
-              Everything you need for your spiritual journey in one app.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Why Rowhni -->
-    <section class="why-rowhni">
-      <div class="why-content">
-        <h2 class="section-title">Why choose Rowhni?</h2>
-        
-        <div class="why-grid">
-          <div class="why-item">
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-number">01</div>
             <h3>Voice-Powered Tasbih</h3>
-            <p>Revolutionary voice recognition automatically counts your dhikr. Say "SubhanAllah" and watch it count.</p>
+            <p>Revolutionary voice recognition automatically counts your dhikr. Just say "SubhanAllah" and watch it count.</p>
           </div>
-          
-          <div class="why-item">
+
+          <div class="feature-item">
+            <div class="feature-number">02</div>
             <h3>Precision Prayer Times</h3>
-            <p>20+ calculation methods with location-based accuracy. Never miss a prayer with Live Activities.</p>
+            <p>20+ calculation methods with Live Activities. Never miss a prayer with location-based accuracy.</p>
           </div>
-          
-          <div class="why-item">
+
+          <div class="feature-item">
+            <div class="feature-number">03</div>
+            <h3>Comprehensive Tools</h3>
+            <p>Mosque finder, Zakat calculator, Hijri calendar, Prophets encyclopedia, and community challenges.</p>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-number">04</div>
             <h3>Privacy First</h3>
             <p>All voice processing happens on your device. Your spiritual data stays private and secure.</p>
           </div>
-          
-          <div class="why-item">
-            <h3>Comprehensive Tools</h3>
-            <p>From Qibla compass to Zakat calculator, everything you need for Islamic practice.</p>
-          </div>
-          
-          <div class="why-item">
-            <h3>Beautiful Design</h3>
-            <p>Modern glassmorphic interface that respects Islamic aesthetics and traditions.</p>
-          </div>
-          
-          <div class="why-item">
-            <h3>Global Community</h3>
-            <p>Connect with Muslims worldwide through leaderboards and shared spiritual goals.</p>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section">
-      <div class="cta-content">
-        <h2 class="cta-title">Start your spiritual journey today</h2>
-        <p class="cta-subtitle">
-          Join thousands of Muslims using Rowhni to enhance their daily practice
-        </p>
-        <a href="https://apps.apple.com/app/rowhni" class="btn btn-primary btn-large" target="_blank" rel="noopener">
-          Download Rowhni
-        </a>
-        <div class="cta-note">Available on iOS • Coming soon to Android</div>
+    <!-- App Preview -->
+    <section class="app-preview">
+      <div class="app-content">
+        <div class="app-images">
+          <div class="app-screen primary">
+            <img src="Screenshots/image1.jpg" alt="Rowhni Main Interface" class="screen-img">
+          </div>
+          <div class="app-screen secondary">
+            <img src="Screenshots/image8.jpg" alt="Rowhni Features" class="screen-img">
+          </div>
+        </div>
+        <div class="app-info">
+          <h3>Built for modern Muslims</h3>
+          <p>Rowhni combines traditional Islamic practices with cutting-edge technology. From voice-powered dhikr counting to community challenges, everything is designed to enhance your spiritual practice.</p>
+          <a href="https://apps.apple.com/app/rowhni" class="download-btn" target="_blank" rel="noopener">
+            Download for iOS
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
-        <div class="footer-main">
-          <div class="footer-brand">
-            <img src="rowhni_logo_day.png" alt="Rowhni" class="footer-logo">
-            <span>Rowhni</span>
-          </div>
-          <p class="footer-description">
-            Your advanced Islamic companion for the modern world
-          </p>
+        <div class="footer-brand">
+          <img src="rowhni_logo_day.png" alt="Rowhni" class="footer-logo">
+          <span>Rowhni</span>
         </div>
-        
         <div class="footer-links">
-          <div class="footer-section">
-            <h4>App</h4>
-            <a href="/support/">Support</a>
-            <a href="/privacy/">Privacy Policy</a>
-          </div>
-          <div class="footer-section">
-            <h4>Company</h4>
-            <a href="/support/">Contact</a>
-            <a href="/support/">Help</a>
-          </div>
+          <a href="/support/">Support</a>
+          <a href="/privacy/">Privacy</a>
         </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Rowhni. Built with respect for Islamic tradition.</p>
+        <div class="footer-note">
+          Built with respect for Islamic tradition
+        </div>
       </div>
     </footer>
   </div>

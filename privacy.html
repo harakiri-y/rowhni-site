@@ -8,72 +8,134 @@
   <link rel="stylesheet" href="_assets/site.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
 </head>
 <body>
+  <!-- Magnetic Cursor -->
+  <div class="magnetic-cursor">
+    <div class="cursor-inner"></div>
+  </div>
+
   <!-- Navigation -->
   <nav class="nav">
-    <div class="nav-container">
-      <div class="nav-brand">
-        <img src="rowhni_logo_day.png" alt="Rowhni" class="nav-logo">
-        <span class="nav-title">Rowhni</span>
-      </div>
-      <div class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="index.html#features" class="nav-link">Features</a>
-        <a href="index.html#progress" class="nav-link">Progress</a>
-        <a href="support.html" class="nav-link">Support</a>
-        <a href="privacy.html" class="nav-link">Privacy</a>
-      </div>
-      <div class="nav-cta">
-        <a href="https://apps.apple.com/app/rowhni" class="btn-download">Download</a>
+    <div class="nav-background"></div>
+    <div class="container">
+      <div class="nav-content">
+        <div class="nav-brand" data-animate-up>
+          <img src="rowhni_logo_day.png" alt="Rowhni" class="nav-logo">
+          <span class="nav-title">Rowhni</span>
+        </div>
+        
+        <div class="nav-links" data-animate-stagger>
+          <a href="index.html" class="nav-link" data-smooth-scroll>Home</a>
+          <a href="index.html#features" class="nav-link" data-smooth-scroll>Features</a>
+          <a href="index.html#progress" class="nav-link" data-smooth-scroll>Progress</a>
+          <a href="support.html" class="nav-link">Support</a>
+          <a href="privacy.html" class="nav-link active">Privacy</a>
+        </div>
+        
+        <div class="nav-cta" data-animate-up>
+          <a href="https://apps.apple.com/app/rowhni" class="btn btn-download magnetic-btn">
+            Download iOS
+          </a>
+        </div>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="privacy-hero">
+  <section class="hero privacy-hero">
     <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title">
+        <div class="hero-badge" data-animate-up>
+          <span>Privacy by Design</span>
+        </div>
+        
+        <h1 class="hero-title section-title">
           <span class="title-line">Your Privacy</span>
           <span class="title-line gradient-text">Matters</span>
         </h1>
-        <p class="hero-subtitle">
+        
+        <p class="hero-subtitle" data-animate-up>
           At Rowhni, we believe your personal data should remain personal. Learn about our commitment to protecting your privacy and spiritual data.
         </p>
-        <div class="privacy-highlights">
-          <div class="highlight-item">
-            <span class="highlight-icon">⚫</span>
+        
+        <div class="hero-actions" data-animate-stagger>
+          <a href="#overview" class="btn btn-primary magnetic-btn" data-smooth-scroll>Read Policy</a>
+          <a href="#rights" class="btn btn-secondary magnetic-btn" data-smooth-scroll>Your Rights</a>
+        </div>
+        
+        <div class="privacy-highlights" data-animate-stagger>
+          <div class="highlight-item glass-card">
+            <span class="highlight-icon">🔒</span>
             <span>On-Device Processing</span>
           </div>
-          <div class="highlight-item">
-            <span class="highlight-icon">☁</span>
+          <div class="highlight-item glass-card">
+            <span class="highlight-icon">☁️</span>
             <span>Secure iCloud Sync</span>
           </div>
-          <div class="highlight-item">
-            <span class="highlight-icon">⚠</span>
+          <div class="highlight-item glass-card">
+            <span class="highlight-icon">🚫</span>
             <span>No Data Sales</span>
           </div>
         </div>
       </div>
+      
+      <!-- Floating Privacy Pills -->
+      <div class="floating-pills">
+        <div class="pill privacy-pill" data-float>
+          <div class="pill-content">
+            <div class="pill-icon">🛡️</div>
+            <div class="pill-text">
+              <div class="pill-title">Encrypted</div>
+              <div class="pill-subtitle">End-to-End</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pill privacy-pill" data-float>
+          <div class="pill-content">
+            <div class="pill-icon">📱</div>
+            <div class="pill-text">
+              <div class="pill-title">Local Storage</div>
+              <div class="pill-subtitle">Your Device</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pill privacy-pill" data-float>
+          <div class="pill-content">
+            <div class="pill-icon">🍎</div>
+            <div class="pill-text">
+              <div class="pill-title">Apple Standards</div>
+              <div class="pill-subtitle">Privacy First</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Gradient Dividers -->
+    <div class="section-divider">
+      <div class="gradient-line"></div>
     </div>
   </section>
 
   <!-- Privacy Overview -->
-  <section class="privacy-overview">
+  <section id="overview" class="privacy-overview">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">
+        <h2 class="section-title" data-animate-up>
           <span class="title-line">Privacy Policy</span>
-          <span class="title-line">Overview</span>
+          <span class="title-line gradient-text">Overview</span>
         </h2>
-        <div class="last-updated">Last updated: January 15, 2024</div>
+        <div class="last-updated" data-animate-up>Last updated: January 15, 2024</div>
       </div>
 
-      <div class="overview-content">
+      <div class="overview-content glass-card" data-animate-up>
         <div class="overview-text">
           <p>This Privacy Policy describes how Rowhni ("we", "our", or "us") collects, uses, and protects your information when you use our Islamic companion mobile application ("Service"). We are committed to protecting your privacy and ensuring the security of your personal information.</p>
           
@@ -84,18 +146,22 @@
         </div>
       </div>
     </div>
+    
+    <div class="section-divider">
+      <div class="gradient-line"></div>
+    </div>
   </section>
 
   <!-- Information Collection -->
   <section class="privacy-section">
     <div class="container">
-      <div class="privacy-card">
+      <div class="privacy-card glass-card" data-hover-lift data-animate-up>
         <div class="section-icon">📊</div>
         <h2>Information We Collect</h2>
         
         <div class="info-category">
           <h3>Information You Provide</h3>
-          <div class="info-list">
+          <div class="info-list" data-animate-stagger>
             <div class="info-item">
               <strong>Account Information:</strong> If you choose to create an account using Sign in with Apple, we receive only a unique identifier and optionally your email address (if you choose to share it).
             </div>
@@ -113,7 +179,7 @@
 
         <div class="info-category">
           <h3>Information Automatically Collected</h3>
-          <div class="info-list">
+          <div class="info-list" data-animate-stagger>
             <div class="info-item">
               <strong>Location Data:</strong> Your approximate location to calculate accurate prayer times (processed on your device only).
             </div>
@@ -135,11 +201,11 @@
   <!-- Data Usage -->
   <section class="privacy-section">
     <div class="container">
-      <div class="privacy-card">
-        <div class="section-icon">⚙</div>
+      <div class="privacy-card glass-card" data-hover-lift data-animate-up>
+        <div class="section-icon">⚙️</div>
         <h2>How We Use Your Information</h2>
         
-        <div class="usage-grid">
+        <div class="usage-grid" data-animate-stagger>
           <div class="usage-item">
             <h3>Essential App Functions</h3>
             <p>We use your location to calculate accurate prayer times and Qibla direction. This processing happens entirely on your device.</p>
@@ -177,11 +243,11 @@
   <!-- Data Security -->
   <section class="privacy-section">
     <div class="container">
-      <div class="privacy-card">
+      <div class="privacy-card glass-card" data-hover-lift data-animate-up>
         <div class="section-icon">🔒</div>
         <h2>Data Storage & Security</h2>
         
-        <div class="security-features">
+        <div class="security-features" data-animate-stagger>
           <div class="security-item">
             <h3>On-Device Storage</h3>
             <p>Most of your data, including dhikr counts, preferences, and downloaded Islamic content, is stored securely on your device using iOS encryption.</p>
@@ -214,7 +280,7 @@
   <!-- Data Sharing -->
   <section class="privacy-section">
     <div class="container">
-      <div class="privacy-card">
+      <div class="privacy-card glass-card" data-hover-lift data-animate-up>
         <div class="section-icon">🤝</div>
         <h2>Data Sharing & Third Parties</h2>
         
@@ -223,7 +289,7 @@
           <p>We never sell, rent, or trade your personal information to third parties for advertising or marketing purposes.</p>
         </div>
         
-        <div class="third-party-services">
+        <div class="third-party-services" data-animate-stagger>
           <h3>Third-Party Services We Use</h3>
           <div class="service-item">
             <h4>Apple Services</h4>
@@ -250,13 +316,13 @@
   </section>
 
   <!-- Privacy Rights -->
-  <section class="privacy-section">
+  <section id="rights" class="privacy-section">
     <div class="container">
-      <div class="privacy-card">
+      <div class="privacy-card glass-card" data-hover-lift data-animate-up>
         <div class="section-icon">👤</div>
         <h2>Your Privacy Rights</h2>
         
-        <div class="rights-grid">
+        <div class="rights-grid" data-animate-stagger>
           <div class="right-item">
             <h3>Access Your Data</h3>
             <p>You can view and manage your data directly within the Rowhni app settings. Most of your data is stored locally on your device.</p>
@@ -289,44 +355,52 @@
         </div>
       </div>
     </div>
+    
+    <div class="section-divider">
+      <div class="gradient-line"></div>
+    </div>
   </section>
 
   <!-- Trust Section -->
   <section class="trust-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">
+        <h2 class="section-title" data-animate-up>
           <span class="title-line">Built with</span>
           <span class="title-line gradient-text">Privacy in Mind</span>
         </h2>
-        <p class="section-subtitle">Rowhni follows Apple's App Store Guidelines and Privacy Standards</p>
+        <p class="section-subtitle" data-animate-up>Rowhni follows Apple's App Store Guidelines and Privacy Standards</p>
       </div>
       
-      <div class="trust-grid">
-        <div class="trust-item">
-          <div class="trust-icon">🛡</div>
+      <div class="trust-grid" data-animate-stagger>
+        <div class="trust-item glass-card" data-hover-lift>
+          <div class="trust-icon">🛡️</div>
           <h3>App Store Approved</h3>
           <p>Rowhni is reviewed and approved by Apple, meeting their strict privacy and security standards.</p>
         </div>
         
-        <div class="trust-item">
+        <div class="trust-item glass-card" data-hover-lift>
           <div class="trust-icon">🍎</div>
           <h3>Sign in with Apple</h3>
           <p>Use Apple's privacy-focused authentication system that protects your identity and email address.</p>
         </div>
         
-        <div class="trust-item">
+        <div class="trust-item glass-card" data-hover-lift>
           <div class="trust-icon">📱</div>
           <h3>iOS Native</h3>
           <p>Built using iOS native frameworks and following Apple's privacy-by-design principles.</p>
         </div>
         
-        <div class="trust-item">
+        <div class="trust-item glass-card" data-hover-lift>
           <div class="trust-icon">🔐</div>
           <h3>End-to-End Encryption</h3>
           <p>Your data synced via iCloud is protected with Apple's end-to-end encryption technology.</p>
         </div>
       </div>
+    </div>
+    
+    <div class="section-divider">
+      <div class="gradient-line"></div>
     </div>
   </section>
 
@@ -334,27 +408,29 @@
   <section class="privacy-contact">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">
+        <h2 class="section-title" data-animate-up>
           <span class="title-line">Contact Us</span>
         </h2>
-        <p class="section-subtitle">
+        <p class="section-subtitle" data-animate-up>
           If you have any questions about this Privacy Policy or our privacy practices, please contact us:
         </p>
       </div>
       
-      <div class="contact-methods">
-        <div class="contact-method">
+      <div class="contact-methods" data-animate-stagger>
+        <div class="contact-method glass-card" data-hover-lift>
           <h4>For Privacy Questions:</h4>
           <p>Use the "Contact Developer" option in the App Store listing for Rowhni, or reach out through Apple's App Store Support system.</p>
+          <a href="https://apps.apple.com/app/rowhni" class="btn btn-primary magnetic-btn">Contact via App Store</a>
         </div>
         
-        <div class="contact-method">
+        <div class="contact-method glass-card" data-hover-lift>
           <h4>For General Support:</h4>
           <p>Visit our Support page or use the support options within the Rowhni app.</p>
+          <a href="support.html" class="btn btn-secondary magnetic-btn">Visit Support</a>
         </div>
       </div>
       
-      <div class="gdpr-notice">
+      <div class="gdpr-notice glass-card" data-animate-up>
         <h4>GDPR Notice for EU Users</h4>
         <p>If you are located in the European Union, you have additional rights under the General Data Protection Regulation (GDPR), including the right to access, correct, delete, or port your data, and the right to object to or restrict certain processing. Contact us through the App Store if you wish to exercise these rights.</p>
       </div>
@@ -365,12 +441,13 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-brand">
+        <div class="footer-brand" data-animate-up>
           <img src="rowhni_logo_day.png" alt="Rowhni" class="footer-logo">
           <h3>Rowhni</h3>
           <p>Your complete Islamic companion</p>
         </div>
-        <div class="footer-links">
+        
+        <div class="footer-links" data-animate-stagger>
           <div class="link-column">
             <h4>Features</h4>
             <a href="index.html#features">Voice Tasbih</a>
@@ -391,7 +468,9 @@
           </div>
         </div>
       </div>
+      
       <div class="footer-bottom">
+        <div class="gradient-line"></div>
         <p>&copy; 2024 Rowhni. All rights reserved.</p>
       </div>
     </div>

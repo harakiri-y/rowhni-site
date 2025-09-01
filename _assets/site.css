@@ -214,7 +214,7 @@ a:hover {
   filter: blur(1px);
 }
 
-/* Button System */
+/* Button System - Enhanced Visibility */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -226,39 +226,67 @@ a:hover {
   font-weight: 600;
   font-size: var(--font-size-base);
   text-decoration: none;
-  border: none;
+  border: 2px solid transparent;
   cursor: none;
   position: relative;
   overflow: hidden;
   transition: all 0.4s var(--ease-smooth);
+  backdrop-filter: blur(10px);
+  z-index: 1;
 }
 
 .btn-primary,
 .btn-download {
   background: var(--gradient-accent);
-  color: var(--background);
-  box-shadow: var(--shadow-medium);
+  color: #1B4D3E;
+  font-weight: 700;
+  border: 2px solid #F4D03F;
+  box-shadow: var(--shadow-medium), 0 0 20px rgba(244, 208, 63, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover,
 .btn-download:hover {
+  background: linear-gradient(135deg, #F7DC6F 0%, #F4D03F 50%, #F1C40F 100%);
   transform: translateY(-4px) scale(1.02);
-  box-shadow: var(--shadow-large), var(--shadow-glow);
+  box-shadow: var(--shadow-large), 0 0 30px rgba(244, 208, 63, 0.5);
+  border-color: #F1C40F;
+}
+
+.btn-secondary {
+  background: rgba(27, 77, 62, 0.8);
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  box-shadow: var(--shadow-medium), 0 0 15px rgba(244, 208, 63, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(27, 77, 62, 0.9);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-large), 0 0 25px rgba(244, 208, 63, 0.4);
+  border-color: #F7DC6F;
+  color: #F7DC6F;
 }
 
 .btn-primary-large {
   background: var(--gradient-accent);
-  color: var(--background);
+  color: #1B4D3E;
   padding: var(--space-lg) var(--space-2xl);
   font-size: var(--font-size-lg);
   font-weight: 700;
   border-radius: var(--border-radius-large);
-  box-shadow: var(--shadow-large);
+  border: 3px solid #F4D03F;
+  box-shadow: var(--shadow-large), 0 0 25px rgba(244, 208, 63, 0.4);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary-large:hover {
+  background: linear-gradient(135deg, #F7DC6F 0%, #F4D03F 50%, #F1C40F 100%);
   transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 20px 60px rgba(244, 208, 63, 0.4);
+  box-shadow: 0 25px 70px rgba(244, 208, 63, 0.6);
+  border-color: #F1C40F;
 }
 
 /* Magnetic Button Effect */

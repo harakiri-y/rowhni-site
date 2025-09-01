@@ -243,6 +243,7 @@ a:hover {
   color: #0A0F0C;
   font-weight: 800;
   border: 3px solid #F4D03F;
+  border-radius: var(--border-radius-pill);
   box-shadow: 
     0 8px 32px rgba(244, 208, 63, 0.4),
     0 4px 16px rgba(244, 208, 63, 0.3),
@@ -281,6 +282,7 @@ a:hover {
   background: linear-gradient(135deg, rgba(27, 77, 62, 0.95) 0%, rgba(46, 107, 79, 0.95) 100%);
   color: #F4D03F;
   border: 3px solid #F4D03F;
+  border-radius: var(--border-radius-pill);
   backdrop-filter: blur(15px);
   font-weight: 700;
   box-shadow: 

@@ -971,6 +971,21 @@ class RowhniExperience {
             });
         });
 
+        // Reduced animations for privacy and support pages
+        if (window.location.pathname.includes('privacy') || window.location.pathname.includes('support')) {
+            gsap.globalTimeline.timeScale(0.2); // Much slower animations
+            
+            // Disable floating animations
+            gsap.utils.toArray('[data-float]').forEach(el => {
+                gsap.killTweensOf(el);
+            });
+            
+            // Disable complex parallax effects
+            gsap.utils.toArray('.floating-pills').forEach(el => {
+                gsap.set(el, { opacity: 0.3 });
+            });
+        }
+
         // Intersection Observer for better performance
         const observerOptions = {
             rootMargin: '100px',

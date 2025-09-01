@@ -1,580 +1,641 @@
-// Modern JavaScript for Rowhni - Monks.com inspired professional design
-// Professional animations and interactions with Islamic app functionality
+// Rowhni - DoublePlay.studio Inspired Interactive Experience
+// GSAP-powered animations and Islamic app demonstrations
 
-class RowhniApp {
+gsap.registerPlugin(ScrollTrigger);
+
+class RowhniExperience {
     constructor() {
         this.init();
     }
 
     init() {
-        this.initializeNavigation();
-        this.initializeAnimations();
-        this.initializeIntersectionObserver();
-        this.initializeSmoothScrolling();
-        this.initializeInteractiveElements();
+        this.setupGSAPDefaults();
+        this.initializeScrollAnimations();
         this.initializeVoiceDemo();
-        this.initializeIslamicFeatures();
+        this.initializeQuranProgress();
+        this.initializeQuizDemo();
+        this.initializePrayerTimes();
+        this.initializeDhikrProgress();
+        this.initializeNavigation();
+        this.initializeCounterAnimations();
     }
 
-    initializeNavigation() {
-        const nav = document.querySelector('.floating-nav');
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        // Mobile navigation toggle
-        if (navToggle) {
-            navToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-
-        // Navigation scroll effect
-        let lastScrollY = window.scrollY;
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-
-            // Hide/show nav on scroll
-            if (currentScrollY > lastScrollY && currentScrollY > 200) {
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
-            lastScrollY = currentScrollY;
-        });
-    }
-
-    initializeAnimations() {
-        // Staggered animations for solution cards
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const animateCards = (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const cards = entry.target.querySelectorAll('.solution-card');
-                    cards.forEach((card, index) => {
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, index * 150);
-                    });
-                }
-            });
-        };
-
-        const solutionsObserver = new IntersectionObserver(animateCards, observerOptions);
-        const solutionsGrid = document.querySelector('.solutions-grid');
-        if (solutionsGrid) {
-            solutionsObserver.observe(solutionsGrid);
-        }
-
-        // Stats counter animation
-        this.animateCounters();
-
-        // Gradient shift animation trigger
-        this.initializeGradientShift();
-    }
-
-    animateCounters() {
-        const counters = document.querySelectorAll('.stat-number');
+    setupGSAPDefaults() {
+        gsap.set("body", { opacity: 1 });
         
-        const animateCounter = (counter) => {
-            const target = parseInt(counter.getAttribute('data-count') || counter.textContent.replace(/\D/g, ''));
-            const duration = 2000;
-            const start = 0;
-            const increment = target / (duration / 16);
-            let current = start;
-            
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    counter.textContent = Math.floor(current).toLocaleString() + (counter.textContent.includes('M') ? 'M+' : '+');
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    counter.textContent = target.toLocaleString() + (counter.textContent.includes('M') ? 'M+' : '+');
-                }
-            };
-            
-            updateCounter();
-        };
-
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    animateCounter(counter);
-                    counterObserver.unobserve(counter);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counters.forEach(counter => {
-            counterObserver.observe(counter);
-        });
+        // Set initial states for animations
+        gsap.set(".title-line", { y: 30, opacity: 0 });
+        gsap.set(".hero-subtitle", { y: 20, opacity: 0 });
+        gsap.set(".hero-actions", { y: 20, opacity: 0 });
+        gsap.set(".hero-stats", { y: 20, opacity: 0 });
+        gsap.set(".hero-visual", { x: 50, opacity: 0 });
     }
 
-    initializeGradientShift() {
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            setInterval(() => {
-                hero.style.background = `linear-gradient(135deg, 
-                    hsl(${Math.random() * 60 + 240}, 75%, ${Math.random() * 20 + 10}%) 0%, 
-                    hsl(${Math.random() * 60 + 280}, 65%, ${Math.random() * 15 + 8}%) 100%)`;
-            }, 8000);
-        }
-    }
-
-    initializeIntersectionObserver() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '-10%'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        const elementsToAnimate = document.querySelectorAll(
-            '.hero-content, .section-header, .tech-feature, .community-stat, .cta-content'
-        );
+    initializeScrollAnimations() {
+        // Hero entrance animations
+        const heroTl = gsap.timeline();
         
-        elementsToAnimate.forEach(el => {
-            observer.observe(el);
-        });
-    }
+        heroTl.to(".title-line", {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out"
+        })
+        .to(".hero-subtitle", {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out"
+        }, "-=0.4")
+        .to(".hero-actions", {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out"
+        }, "-=0.4")
+        .to(".hero-stats", {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out"
+        }, "-=0.4")
+        .to(".hero-visual", {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out"
+        }, "-=0.6");
 
-    initializeSmoothScrolling() {
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(anchor.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Section headers
+        gsap.utils.toArray(".section-header").forEach(header => {
+            gsap.fromTo(header, 
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: header,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        });
+
+        // Feature blocks
+        gsap.utils.toArray(".feature-block").forEach((block, index) => {
+            const content = block.querySelector(".feature-content");
+            const demo = block.querySelector(".feature-demo");
+            
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: block,
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none none"
                 }
             });
+
+            tl.fromTo(content, 
+                { x: block.classList.contains('reverse') ? 50 : -50, opacity: 0 },
+                { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+            )
+            .fromTo(demo,
+                { x: block.classList.contains('reverse') ? -50 : 50, opacity: 0 },
+                { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+                "-=0.4"
+            );
         });
-    }
 
-    initializeInteractiveElements() {
-        // Interactive buttons
-        this.initializeButtons();
-
-        // Parallax effects
-        this.initializeParallax();
-
-        // Prayer times demo functionality
-        this.updatePrayerTimes();
-        
-        // Tasbih counter demo
-        this.initializeTasbihDemo();
-    }
-
-    updatePrayerTimes() {
-        const prayerTimes = {
-            Fajr: '05:42',
-            Dhuhr: '12:18',
-            Asr: '15:34',
-            Maghrib: '18:07',
-            Isha: '19:28'
-        };
-
-        const prayerElements = document.querySelectorAll('.prayer-time');
-        prayerElements.forEach(element => {
-            const prayerName = element.dataset.prayer;
-            if (prayerTimes[prayerName]) {
-                element.textContent = prayerTimes[prayerName];
-            }
-        });
-    }
-
-    initializeTasbihDemo() {
-        const tasbihButton = document.querySelector('.tasbih-demo');
-        const counterDisplay = document.querySelector('.tasbih-count');
-        let count = 0;
-
-        if (tasbihButton && counterDisplay) {
-            tasbihButton.addEventListener('click', () => {
-                count++;
-                counterDisplay.textContent = count;
-                
-                // Visual feedback
-                tasbihButton.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    tasbihButton.style.transform = 'scale(1)';
-                }, 100);
-
-                // Haptic feedback simulation
-                if (navigator.vibrate) {
-                    navigator.vibrate(50);
+        // Progress cards
+        gsap.utils.toArray(".progress-card").forEach((card, index) => {
+            gsap.fromTo(card,
+                { y: 60, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    delay: index * 0.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    }
                 }
-            });
-        }
-    }
-
-    initializeButtons() {
-        // Enhanced button interactions
-        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-            button.addEventListener('mouseenter', () => {
-                button.style.transform = 'translateY(-2px) scale(1.02)';
-            });
-
-            button.addEventListener('mouseleave', () => {
-                button.style.transform = 'translateY(0) scale(1)';
-            });
-
-            button.addEventListener('click', (e) => {
-                // Ripple effect
-                const ripple = document.createElement('span');
-                const rect = button.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255, 255, 255, 0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    pointer-events: none;
-                `;
-                
-                button.style.position = 'relative';
-                button.style.overflow = 'hidden';
-                button.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
+            );
         });
-    }
 
-    initializeParallax() {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-
-            // Parallax for hero mockup
-            const mockup = document.querySelector('.mockup-container');
-            if (mockup) {
-                mockup.style.transform = `translateY(${rate * 0.3}px)`;
-            }
-
-            // Parallax for floating elements
-            const floatingElements = document.querySelectorAll('.floating-element');
-            floatingElements.forEach((element, index) => {
-                const speed = (index + 1) * 0.1;
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
+        // Stat cards
+        gsap.utils.toArray(".stat-card").forEach((card, index) => {
+            gsap.fromTo(card,
+                { y: 40, opacity: 0, scale: 0.9 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    ease: "back.out(1.7)",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
         });
     }
 
     initializeVoiceDemo() {
-        const voiceDemoBtn = document.querySelector('.voice-demo-btn');
-        if (voiceDemoBtn) {
-            voiceDemoBtn.addEventListener('click', () => {
-                // Simulate voice recognition
-                voiceDemoBtn.textContent = 'Listening...';
-                voiceDemoBtn.classList.add('listening');
-                
-                setTimeout(() => {
-                    voiceDemoBtn.textContent = 'SubhanAllah recognized!';
-                    voiceDemoBtn.classList.remove('listening');
-                    voiceDemoBtn.classList.add('recognized');
-                    
-                    setTimeout(() => {
-                        voiceDemoBtn.textContent = 'Try Voice Tasbih';
-                        voiceDemoBtn.classList.remove('recognized');
-                    }, 2000);
-                }, 3000);
-            });
-        }
-    }
+        const voiceContainer = document.querySelector('.voice-demo-container');
+        if (!voiceContainer) return;
 
-    initializeIslamicFeatures() {
-        // Islamic app-specific functionality
-        this.initializeQiblaCompass();
-        this.initializeDhikrCounter();
-        this.initializePrayerNotifications();
-    }
+        const waves = voiceContainer.querySelectorAll('.wave-line');
+        const dhikrText = voiceContainer.querySelector('.dhikr-text');
+        const counterNumber = voiceContainer.querySelector('.counter-number');
 
-    initializeQiblaCompass() {
-        const compassDemo = document.querySelector('.qibla-compass');
-        if (compassDemo) {
-            // Simulate compass rotation
-            let rotation = 0;
-            setInterval(() => {
-                rotation = (rotation + 1) % 360;
-                compassDemo.style.transform = `rotate(${rotation}deg)`;
-            }, 100);
-        }
-    }
+        // Animate waves
+        gsap.set(waves, { height: 10 });
+        
+        const waveTimeline = gsap.timeline({ repeat: -1 });
+        waves.forEach((wave, index) => {
+            waveTimeline.to(wave, {
+                height: 40,
+                duration: 0.3,
+                ease: "power2.inOut"
+            }, index * 0.1)
+            .to(wave, {
+                height: 10,
+                duration: 0.3,
+                ease: "power2.inOut"
+            }, index * 0.1 + 0.3);
+        });
 
-    initializeDhikrCounter() {
-        // Modern dhikr counter with Islamic authenticity
-        const dhikrData = {
-            'subhanallah': {
-                arabic: 'سُبْحَانَ اللّٰهِ',
-                transliteration: 'SubhanAllah',
-                translation: 'Glory be to Allah',
-                target: 33
-            },
-            'alhamdulillah': {
-                arabic: 'الْحَمْدُ لِلّٰهِ',
-                transliteration: 'Alhamdulillah',
-                translation: 'Praise be to Allah',
-                target: 33
-            },
-            'allahu-akbar': {
-                arabic: 'اللّٰهُ أَكْبَرُ',
-                transliteration: 'Allahu Akbar',
-                translation: 'Allah is the Greatest',
-                target: 34
+        // Trigger voice recognition simulation on scroll
+        ScrollTrigger.create({
+            trigger: voiceContainer,
+            start: "top 60%",
+            onEnter: () => {
+                this.simulateVoiceRecognition(dhikrText, counterNumber);
             }
+        });
+
+        // Click interaction
+        voiceContainer.addEventListener('click', () => {
+            this.simulateVoiceRecognition(dhikrText, counterNumber);
+        });
+    }
+
+    simulateVoiceRecognition(textElement, counterElement) {
+        const dhikrWords = ['SubhanAllah', 'Alhamdulillah', 'Allahu Akbar'];
+        const randomWord = dhikrWords[Math.floor(Math.random() * dhikrWords.length)];
+        
+        // Fade in dhikr text
+        gsap.fromTo(textElement, 
+            { opacity: 0, scale: 0.8 },
+            { 
+                opacity: 1, 
+                scale: 1, 
+                duration: 0.5,
+                ease: "back.out(1.7)",
+                onComplete: () => {
+                    textElement.textContent = randomWord;
+                }
+            }
+        );
+
+        // Animate counter
+        setTimeout(() => {
+            const currentCount = parseInt(counterElement.textContent) || 0;
+            const newCount = Math.min(currentCount + 1, 33);
+            
+            gsap.to(counterElement, {
+                textContent: newCount,
+                duration: 0.8,
+                ease: "power2.out",
+                snap: { textContent: 1 },
+                onUpdate: function() {
+                    counterElement.textContent = Math.round(this.targets()[0].textContent);
+                }
+            });
+        }, 500);
+    }
+
+    initializeQuranProgress() {
+        const progressFill = document.querySelector('.progress-fill');
+        if (!progressFill) return;
+
+        // Set initial state
+        gsap.set(progressFill, { strokeDashoffset: 251.2 });
+
+        // Animate progress fill on scroll
+        ScrollTrigger.create({
+            trigger: '.semicircle-container',
+            start: "top 70%",
+            onEnter: () => {
+                gsap.to(progressFill, {
+                    strokeDashoffset: 125.6, // 50% progress
+                    duration: 2,
+                    ease: "power2.out"
+                });
+
+                // Animate percentage text
+                const percentage = document.querySelector('.progress-percentage');
+                if (percentage) {
+                    gsap.fromTo(percentage, 
+                        { textContent: 0 },
+                        {
+                            textContent: 50,
+                            duration: 2,
+                            ease: "power2.out",
+                            snap: { textContent: 1 },
+                            onUpdate: function() {
+                                percentage.textContent = Math.round(this.targets()[0].textContent) + '%';
+                            }
+                        }
+                    );
+                }
+            }
+        });
+    }
+
+    initializeQuizDemo() {
+        const quizCard = document.querySelector('.quiz-card');
+        if (!quizCard) return;
+
+        const arabicName = quizCard.querySelector('.arabic-name');
+        const options = quizCard.querySelectorAll('.quiz-option');
+
+        // Names of Allah data
+        const names = [
+            { arabic: 'الرَّحْمٰنُ', options: ['The Merciful', 'The Compassionate', 'The Forgiving'], correct: 1 },
+            { arabic: 'الرَّحِيمُ', options: ['The Loving', 'The Merciful', 'The Generous'], correct: 1 },
+            { arabic: 'الْمَلِكُ', options: ['The King', 'The Creator', 'The Sustainer'], correct: 0 },
+            { arabic: 'الْقُدُّوسُ', options: ['The Pure', 'The Holy', 'The Sacred'], correct: 1 }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        const showQuestion = (index) => {
+            const question = names[index];
+            
+            // Animate Arabic name
+            gsap.fromTo(arabicName,
+                { opacity: 0, y: 20 },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 0.6,
+                    ease: "power2.out",
+                    onStart: () => {
+                        arabicName.textContent = question.arabic;
+                    }
+                }
+            );
+
+            // Animate options
+            options.forEach((option, i) => {
+                option.classList.remove('correct');
+                option.textContent = question.options[i];
+                
+                gsap.fromTo(option,
+                    { opacity: 0, x: -20 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.4,
+                        delay: 0.2 + (i * 0.1),
+                        ease: "power2.out"
+                    }
+                );
+
+                // Add click handler
+                option.onclick = () => {
+                    if (i === question.correct) {
+                        option.classList.add('correct');
+                        
+                        setTimeout(() => {
+                            currentQuestionIndex = (currentQuestionIndex + 1) % names.length;
+                            showQuestion(currentQuestionIndex);
+                        }, 1500);
+                    } else {
+                        gsap.to(option, {
+                            x: -10,
+                            duration: 0.1,
+                            yoyo: true,
+                            repeat: 5,
+                            ease: "power2.inOut"
+                        });
+                    }
+                };
+            });
         };
 
-        // Store dhikr data for other methods to use
-        this.dhikrData = dhikrData;
+        // Start quiz when in view
+        ScrollTrigger.create({
+            trigger: quizCard,
+            start: "top 70%",
+            onEnter: () => {
+                showQuestion(0);
+            }
+        });
+
+        // Auto-cycle questions
+        setInterval(() => {
+            currentQuestionIndex = (currentQuestionIndex + 1) % names.length;
+            showQuestion(currentQuestionIndex);
+        }, 8000);
     }
 
-    initializePrayerNotifications() {
-        // Demo prayer time notifications
-        const notificationDemo = document.querySelector('.prayer-notification-demo');
-        if (notificationDemo) {
-            notificationDemo.addEventListener('click', () => {
-                this.showPrayerNotification();
+    initializePrayerTimes() {
+        const prayerCards = document.querySelectorAll('.prayer-card');
+        if (prayerCards.length === 0) return;
+
+        let currentPrayerIndex = 0;
+
+        const updateActivePrayer = () => {
+            prayerCards.forEach((card, index) => {
+                if (index === currentPrayerIndex) {
+                    card.classList.add('active');
+                    gsap.to(card, {
+                        scale: 1.05,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                } else {
+                    card.classList.remove('active');
+                    gsap.to(card, {
+                        scale: 1,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                }
             });
+
+            currentPrayerIndex = (currentPrayerIndex + 1) % prayerCards.length;
+        };
+
+        // Initial animation
+        ScrollTrigger.create({
+            trigger: '.prayer-times-demo',
+            start: "top 70%",
+            onEnter: () => {
+                updateActivePrayer();
+            }
+        });
+
+        // Auto-cycle prayers
+        setInterval(updateActivePrayer, 3000);
+    }
+
+    initializeDhikrProgress() {
+        const dhikrFills = document.querySelectorAll('.dhikr-fill');
+        if (dhikrFills.length === 0) return;
+
+        ScrollTrigger.create({
+            trigger: '.dhikr-breakdown',
+            start: "top 70%",
+            onEnter: () => {
+                dhikrFills.forEach((fill, index) => {
+                    const targetWidth = fill.style.width || '0%';
+                    
+                    gsap.fromTo(fill,
+                        { width: '0%' },
+                        {
+                            width: targetWidth,
+                            duration: 1.5,
+                            delay: index * 0.3,
+                            ease: "power2.out"
+                        }
+                    );
+                });
+            }
+        });
+    }
+
+    initializeNavigation() {
+        const nav = document.querySelector('.nav');
+        
+        // Navbar scroll effect
+        ScrollTrigger.create({
+            start: "top -80",
+            end: 99999,
+            onUpdate: (self) => {
+                if (self.direction === -1) {
+                    // Scrolling up
+                    gsap.to(nav, { y: 0, duration: 0.3 });
+                } else if (self.direction === 1 && self.progress > 0.1) {
+                    // Scrolling down
+                    gsap.to(nav, { y: -80, duration: 0.3 });
+                }
+            }
+        });
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    gsap.to(window, {
+                        duration: 1.5,
+                        scrollTo: { y: target, offsetY: 80 },
+                        ease: "power2.inOut"
+                    });
+                }
+            });
+        });
+    }
+
+    initializeCounterAnimations() {
+        // Animate stat numbers
+        gsap.utils.toArray('.stat-number').forEach(number => {
+            ScrollTrigger.create({
+                trigger: number,
+                start: "top 80%",
+                onEnter: () => {
+                    const targetText = number.textContent;
+                    const targetNumber = parseInt(targetText.replace(/[^\d]/g, '')) || 0;
+                    
+                    gsap.fromTo(number,
+                        { textContent: 0 },
+                        {
+                            textContent: targetNumber,
+                            duration: 2,
+                            ease: "power2.out",
+                            snap: { textContent: 1 },
+                            onUpdate: function() {
+                                const current = Math.round(this.targets()[0].textContent);
+                                if (targetText.includes('M+')) {
+                                    number.textContent = (current / 1000000).toFixed(1) + 'M+';
+                                } else if (targetText.includes('+')) {
+                                    number.textContent = current.toLocaleString() + '+';
+                                } else {
+                                    number.textContent = current.toLocaleString();
+                                }
+                            }
+                        }
+                    );
+                }
+            });
+        });
+
+        // Large percentage animations
+        gsap.utils.toArray('.percentage-large').forEach(percentage => {
+            ScrollTrigger.create({
+                trigger: percentage,
+                start: "top 80%",
+                onEnter: () => {
+                    const target = parseInt(percentage.textContent) || 0;
+                    
+                    gsap.fromTo(percentage,
+                        { textContent: 0 },
+                        {
+                            textContent: target,
+                            duration: 2,
+                            ease: "power2.out",
+                            snap: { textContent: 1 },
+                            onUpdate: function() {
+                                percentage.textContent = Math.round(this.targets()[0].textContent) + '%';
+                            }
+                        }
+                    );
+                }
+            });
+        });
+    }
+
+    // Public methods for external interactions
+    triggerVoiceDemo() {
+        const voiceContainer = document.querySelector('.voice-demo-container');
+        if (voiceContainer) {
+            const dhikrText = voiceContainer.querySelector('.dhikr-text');
+            const counterNumber = voiceContainer.querySelector('.counter-number');
+            this.simulateVoiceRecognition(dhikrText, counterNumber);
         }
     }
 
-    showPrayerNotification() {
-        // Create a professional notification demo
-        const notification = document.createElement('div');
-        notification.className = 'prayer-notification';
-        notification.innerHTML = `
-            <div class="notification-content">
-                <div class="notification-icon">▲</div>
-                <div class="notification-text">
-                    <strong>Maghrib Prayer Time</strong>
-                    <p>It's time for Maghrib prayer</p>
-                </div>
-            </div>
-        `;
+    resetQuranProgress() {
+        const progressFill = document.querySelector('.progress-fill');
+        const percentage = document.querySelector('.progress-percentage');
         
-        document.body.appendChild(notification);
-        
-        // Animate in
-        setTimeout(() => {
-            notification.classList.add('show');
-        }, 100);
-        
-        // Remove after 3 seconds
-        setTimeout(() => {
-            notification.classList.add('hide');
-            setTimeout(() => {
-                notification.remove();
-            }, 300);
-        }, 3000);
+        if (progressFill) {
+            gsap.set(progressFill, { strokeDashoffset: 251.2 });
+        }
+        if (percentage) {
+            percentage.textContent = '0%';
+        }
     }
 }
 
-// CSS Animation definitions for professional interactions
-const animationStyles = `
-    @keyframes ripple {
-        to {
-            transform: scale(2);
-            opacity: 0;
-        }
-    }
-
-    @keyframes animate-in {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .animate-in {
-        animation: animate-in 0.8s ease-out forwards;
-    }
-
-    .listening {
-        background: linear-gradient(45deg, var(--accent), var(--secondary)) !important;
-        animation: pulse 1.5s infinite;
-    }
-
-    .recognized {
-        background: var(--success) !important;
-    }
-
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-    }
-
-    .solution-card {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease-out;
-    }
-
-    .floating-nav.scrolled {
-        background: rgba(17, 17, 24, 0.95) !important;
-        backdrop-filter: blur(20px) !important;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
-    }
-
-    .prayer-notification {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: rgba(17, 17, 24, 0.95);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(139, 92, 246, 0.2);
-        border-radius: 16px;
-        padding: 1rem;
-        color: var(--text-primary);
-        transform: translateX(100%);
-        opacity: 0;
-        transition: all 0.3s ease;
-        z-index: 10000;
-        max-width: 300px;
-    }
-
-    .prayer-notification.show {
-        transform: translateX(0);
-        opacity: 1;
-    }
-
-    .prayer-notification.hide {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-    .notification-content {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .notification-icon {
-        font-size: 1.5rem;
-        color: var(--accent);
-    }
-
-    .notification-text strong {
-        display: block;
-        color: var(--accent);
-        margin-bottom: 0.25rem;
-    }
-
-    .notification-text p {
-        margin: 0;
-        font-size: 0.875rem;
-        opacity: 0.8;
-    }
-
-    @media (max-width: 768px) {
-        .nav-links {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            background: rgba(17, 17, 24, 0.98);
-            backdrop-filter: blur(20px);
-            padding: 2rem;
-            transform: translateY(-100%);
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .nav-links.active {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .nav-toggle {
-            display: flex;
-            flex-direction: column;
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-        }
-
-        .nav-toggle span {
-            width: 100%;
-            height: 2px;
-            background: var(--text-primary);
-            margin: 2px 0;
-            transition: all 0.3s ease;
-        }
-
-        .prayer-notification {
-            left: 20px;
-            right: 20px;
-            max-width: none;
-        }
-    }
-`;
-
-// Inject animation styles
-const styleSheet = document.createElement('style');
-styleSheet.textContent = animationStyles;
-document.head.appendChild(styleSheet);
-
-// Initialize app when DOM is loaded
+// Enhanced button interactions
 document.addEventListener('DOMContentLoaded', () => {
-    new RowhniApp();
-});
+    // Initialize main experience
+    const experience = new RowhniExperience();
 
-// Performance optimization - Intersection Observer for lazy loading
-const lazyLoadImages = () => {
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
+    // Button hover effects
+    gsap.utils.toArray('.btn-primary, .btn-download, .btn-primary-large').forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            gsap.to(button, {
+                y: -3,
+                scale: 1.02,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+
+        button.addEventListener('mouseleave', () => {
+            gsap.to(button, {
+                y: 0,
+                scale: 1,
+                duration: 0.3,
+                ease: "power2.out"
+            });
         });
     });
 
-    images.forEach(img => imageObserver.observe(img));
-};
+    // Demo button interaction
+    const demoButton = document.querySelector('.btn-demo');
+    if (demoButton) {
+        demoButton.addEventListener('click', () => {
+            experience.triggerVoiceDemo();
+        });
+    }
 
-// Initialize lazy loading
-document.addEventListener('DOMContentLoaded', lazyLoadImages);
+    // Card hover effects
+    gsap.utils.toArray('.stat-card, .progress-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                y: -8,
+                scale: 1.02,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
 
-// Export for module usage if needed
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = RowhniApp;
-}
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                y: 0,
+                scale: 1,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+    });
+
+    // Parallax effect for hero mockup
+    gsap.to('.mockup-image', {
+        y: -50,
+        scrollTrigger: {
+            trigger: '.hero',
+            start: "top top",
+            end: "bottom top",
+            scrub: 1
+        }
+    });
+
+    // Performance optimizations
+    gsap.config({
+        force3D: true,
+        nullTargetWarn: false
+    });
+
+    // Export for console access
+    window.rowhniExperience = experience;
+});
+
+// Additional scroll-triggered animations for mobile
+gsap.matchMedia().add("(max-width: 768px)", () => {
+    // Simplified mobile animations
+    gsap.utils.toArray(".feature-demo").forEach(demo => {
+        gsap.fromTo(demo,
+            { opacity: 0, y: 30 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: demo,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                }
+            }
+        );
+    });
+});
+
+// Page visibility optimization
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        // Pause animations when page is not visible
+        gsap.globalTimeline.pause();
+    } else {
+        // Resume animations when page becomes visible
+        gsap.globalTimeline.resume();
+    }
+});

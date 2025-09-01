@@ -28,7 +28,6 @@ class RowhniExperience {
         this.initializeNavigation();
         this.initializeMicroInteractions();
         this.initializeFloatingElements();
-        this.initializeDynamicShapes();
         this.optimizePerformance();
     }
 
@@ -932,117 +931,6 @@ class RowhniExperience {
         });
     }
 
-    initializeDynamicShapes() {
-        // Initialize shape containers with staggered entrance
-        gsap.set('.shape-container', { 
-            opacity: 0, 
-            scale: 0.5, 
-            rotation: "random(-30, 30)" 
-        });
-
-        // Animate shapes entrance
-        ScrollTrigger.create({
-            trigger: '.dynamic-shapes',
-            start: "top 80%",
-            onEnter: () => {
-                gsap.to('.shape-container', {
-                    opacity: 0.9,
-                    scale: 1,
-                    rotation: 0,
-                    duration: 0.8,
-                    stagger: { 
-                        each: 0.2,
-                        from: "random"
-                    },
-                    ease: "back.out(1.7)"
-                });
-
-                // Animate progress circles
-                this.animateProgressRings();
-            }
-        });
-
-        // Enhanced floating animation for shapes
-        gsap.utils.toArray('.shape-container').forEach((shape, index) => {
-            const floatTl = gsap.timeline({ repeat: -1, delay: index * 0.5 });
-            
-            const moveDistance = 15 + Math.random() * 10;
-            const duration = 4 + Math.random() * 2;
-            
-            floatTl
-                .to(shape, {
-                    y: -moveDistance,
-                    x: moveDistance * 0.5,
-                    rotation: 2,
-                    duration: duration,
-                    ease: "power2.inOut"
-                })
-                .to(shape, {
-                    y: moveDistance * 0.5,
-                    x: -moveDistance * 0.3,
-                    rotation: -2,
-                    duration: duration,
-                    ease: "power2.inOut"
-                })
-                .to(shape, {
-                    y: 0,
-                    x: 0,
-                    rotation: 0,
-                    duration: duration,
-                    ease: "power2.inOut"
-                });
-        });
-
-        // Parallax effect for shapes
-        gsap.utils.toArray('.shape-container').forEach((shape, index) => {
-            gsap.to(shape, {
-                y: -50 * (index % 3 + 1),
-                scrollTrigger: {
-                    trigger: '.hero',
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: 1 + index * 0.2
-                }
-            });
-        });
-    }
-
-    animateProgressRings() {
-        gsap.utils.toArray('.progress-ring-progress').forEach(ring => {
-            const progress = parseInt(ring.getAttribute('data-progress')) || 0;
-            const circumference = 2 * Math.PI * parseFloat(ring.getAttribute('r'));
-            const offset = circumference - (progress / 100) * circumference;
-
-            gsap.set(ring, { strokeDasharray: circumference });
-            
-            gsap.fromTo(ring, 
-                { strokeDashoffset: circumference },
-                {
-                    strokeDashoffset: offset,
-                    duration: 2.5,
-                    delay: Math.random() * 0.5,
-                    ease: "power2.out"
-                }
-            );
-        });
-
-        // Animate progress numbers
-        gsap.utils.toArray('.progress-number').forEach(number => {
-            const targetValue = parseInt(number.textContent) || 0;
-            
-            gsap.fromTo({ count: 0 }, 
-                { count: targetValue },
-                {
-                    duration: 2.5,
-                    delay: Math.random() * 0.3,
-                    ease: "power2.out",
-                    onUpdate: function() {
-                        number.textContent = Math.round(this.targets()[0].count);
-                    }
-                }
-            );
-        });
-    }
 
     optimizePerformance() {
         // Refresh ScrollTrigger on resize

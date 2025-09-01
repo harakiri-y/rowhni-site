@@ -8,191 +8,196 @@
   <link rel="stylesheet" href="_assets/site.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" data-scroll>
     <div class="nav-container">
-      <div class="nav-brand">
+      <div class="nav-brand" data-animate>
         <img src="rowhni_logo_day.png" alt="Rowhni" class="nav-logo">
         <span class="nav-title">Rowhni</span>
       </div>
-      <div class="nav-links">
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#progress" class="nav-link">Progress</a>
-        <a href="#community" class="nav-link">Community</a>
+      <div class="nav-links" data-animate-stagger>
+        <a href="#features" class="nav-link" data-smooth-scroll>Features</a>
+        <a href="#progress" class="nav-link" data-smooth-scroll>Progress</a>
+        <a href="#community" class="nav-link" data-smooth-scroll>Community</a>
         <a href="support.html" class="nav-link">Support</a>
       </div>
-      <div class="nav-cta">
-        <a href="https://apps.apple.com/app/rowhni" class="btn-download">Download</a>
+      <div class="nav-cta" data-animate>
+        <a href="https://apps.apple.com/app/rowhni" class="btn-download magnetic-btn">Download</a>
       </div>
     </div>
+    <div class="nav-background"></div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" data-scroll-section>
+    <div class="hero-background">
+      <div class="floating-pills">
+        <div class="pill pill-prayer" data-pill-text="Fajr 05:42"></div>
+        <div class="pill pill-dhikr" data-pill-text="67 SubhanAllah"></div>
+        <div class="pill pill-quran" data-pill-text="15/30 Juz"></div>
+        <div class="pill pill-assistant" data-pill-text="Ask Rowhni"></div>
+      </div>
+    </div>
     <div class="hero-container">
       <div class="hero-content">
-        <h1 class="hero-title">
+        <div class="hero-badge" data-animate-up>Islamic Companion</div>
+        <h1 class="hero-title" data-animate-text>
           <span class="title-line">Your Complete</span>
           <span class="title-line gradient-text">Islamic Companion</span>
         </h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle" data-animate-up data-delay="200">
           Voice-powered Tasbih counting, precise prayer times, Quran progress tracking, 
-          and comprehensive Islamic guidance in one elegant app.
+          and AI-powered Islamic guidance in one elegant app.
         </p>
-        <div class="hero-actions">
-          <a href="https://apps.apple.com/app/rowhni" class="btn-primary">
-            Download for iOS
+        <div class="hero-actions" data-animate-up data-delay="400">
+          <a href="https://apps.apple.com/app/rowhni" class="btn-primary magnetic-btn">
+            <span>Download for iOS</span>
+            <div class="btn-background"></div>
           </a>
-          <button class="btn-demo" data-demo="voice">
-            Watch Voice Demo
-          </button>
         </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-number">1M+</span>
-            <span class="stat-label">Muslims</span>
+        <div class="hero-stats" data-animate-stagger data-delay="600">
+          <div class="stat" data-counter="1247892">
+            <span class="stat-number">1.2M+</span>
+            <span class="stat-label">Active Users</span>
           </div>
-          <div class="stat">
-            <span class="stat-number">50M+</span>
+          <div class="stat" data-counter="52846291">
+            <span class="stat-number">52M+</span>
             <span class="stat-label">Dhikr Counted</span>
           </div>
-          <div class="stat">
-            <span class="stat-number">150+</span>
+          <div class="stat" data-counter="156">
+            <span class="stat-number">156</span>
             <span class="stat-label">Countries</span>
           </div>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="app-mockup">
-          <img src="_assets/3.png" alt="Rowhni App" class="mockup-image">
+      <div class="hero-visual" data-parallax>
+        <div class="app-showcase">
+          <div class="app-mockup main-mockup" data-float>
+            <img src="Screenshots/image1.jpg" alt="Rowhni Quran Progress" class="mockup-image">
+          </div>
+          <div class="app-mockup secondary-mockup" data-float data-delay="200">
+            <img src="Screenshots/image3.jpg" alt="Rowhni Voice Tasbih" class="mockup-image">
+          </div>
         </div>
       </div>
+    </div>
+    <div class="scroll-indicator" data-animate-bounce>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
   <!-- Features Section -->
-  <section class="features" id="features">
+  <section class="features" id="features" data-scroll-section>
+    <div class="section-divider"></div>
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">
+      <div class="section-header" data-animate-up>
+        <div class="section-badge">Core Features</div>
+        <h2 class="section-title" data-split-text>
           <span class="title-line">Everything you need</span>
           <span class="title-line">for your spiritual journey</span>
         </h2>
       </div>
 
       <!-- Voice Tasbih Feature -->
-      <div class="feature-block">
-        <div class="feature-content">
-          <div class="feature-badge">Voice Recognition</div>
+      <div class="feature-block" data-feature-parallax>
+        <div class="feature-content" data-animate-left>
+          <div class="feature-badge gradient-badge">Voice Recognition</div>
           <h3 class="feature-title">Voice-Powered Tasbih</h3>
           <p class="feature-description">
             Simply speak SubhanAllah, Alhamdulillah, or Allahu Akbar and watch your count 
             increase automatically. No need to tap - just focus on your dhikr.
           </p>
-          <div class="feature-list">
-            <div class="feature-item">
-              <span class="check-icon"></span>
-              <span>Recognizes Arabic and transliteration</span>
+          <div class="feature-highlights" data-animate-stagger>
+            <div class="highlight-pill">
+              <span class="highlight-text">Arabic & Transliteration</span>
             </div>
-            <div class="feature-item">
-              <span class="check-icon"></span>
-              <span>Works while walking or driving</span>
+            <div class="highlight-pill">
+              <span class="highlight-text">99.7% Accuracy</span>
             </div>
-            <div class="feature-item">
-              <span class="check-icon"></span>
-              <span>99.7% accuracy rate</span>
+            <div class="highlight-pill">
+              <span class="highlight-text">Hands-Free Operation</span>
             </div>
           </div>
         </div>
-        <div class="feature-demo">
-          <div class="voice-demo-container">
-            <div class="voice-wave">
-              <div class="wave-line"></div>
-              <div class="wave-line"></div>
-              <div class="wave-line"></div>
-              <div class="wave-line"></div>
-              <div class="wave-line"></div>
-            </div>
-            <div class="dhikr-text">SubhanAllah</div>
-            <div class="counter-display">
-              <span class="counter-number">33</span>
-              <span class="counter-label">of 33</span>
+        <div class="feature-visual" data-animate-right>
+          <div class="app-frame">
+            <img src="Screenshots/image3.jpg" alt="Voice Tasbih Interface" class="feature-screenshot">
+            <div class="voice-overlay">
+              <div class="voice-indicator" data-voice-pulse></div>
+              <div class="dhikr-counter" data-counter-animate>33</div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Prayer Times Feature -->
-      <div class="feature-block reverse">
-        <div class="feature-content">
-          <div class="feature-badge">Precision Timing</div>
+      <div class="feature-block reverse" data-feature-parallax>
+        <div class="feature-content" data-animate-right>
+          <div class="feature-badge gradient-badge">Precision Timing</div>
           <h3 class="feature-title">Accurate Prayer Times</h3>
           <p class="feature-description">
-            Get precise prayer times based on your exact location with multiple calculation 
-            methods including Umm al-Qura, Egyptian, and custom high-latitude adjustments.
+            Get precise prayer times with beautiful sun path visualization and multiple 
+            calculation methods. Track your prayer consistency and never miss a prayer.
           </p>
-          <div class="feature-stats">
-            <div class="stat-item">
+          <div class="feature-stats" data-animate-stagger>
+            <div class="stat-pill">
               <span class="stat-value">±1min</span>
               <span class="stat-desc">Accuracy</span>
             </div>
-            <div class="stat-item">
+            <div class="stat-pill">
               <span class="stat-value">12+</span>
               <span class="stat-desc">Methods</span>
             </div>
           </div>
         </div>
-        <div class="feature-demo">
-          <div class="prayer-times-demo">
-            <div class="prayer-card active">
-              <span class="prayer-name">Maghrib</span>
-              <span class="prayer-time">18:07</span>
-              <span class="prayer-status">Now</span>
-            </div>
-            <div class="prayer-card">
-              <span class="prayer-name">Isha</span>
-              <span class="prayer-time">19:28</span>
-              <span class="prayer-status">in 1h 21m</span>
-            </div>
-            <div class="prayer-card">
-              <span class="prayer-name">Fajr</span>
-              <span class="prayer-time">05:42</span>
-              <span class="prayer-status">in 11h 35m</span>
+        <div class="feature-visual" data-animate-left>
+          <div class="app-frame">
+            <img src="Screenshots/image2.jpg" alt="Prayer Times Interface" class="feature-screenshot">
+            <div class="prayer-overlay">
+              <div class="sun-path" data-sun-animate></div>
+              <div class="next-prayer-pill" data-prayer-pulse>
+                <span>Maghrib in 2h 15m</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Names of Allah Quiz Feature -->
-      <div class="feature-block">
-        <div class="feature-content">
-          <div class="feature-badge">Learning</div>
-          <h3 class="feature-title">99 Names of Allah Quiz</h3>
+      <!-- AI Assistant Feature -->
+      <div class="feature-block" data-feature-parallax>
+        <div class="feature-content" data-animate-left>
+          <div class="feature-badge gradient-badge">AI Assistant</div>
+          <h3 class="feature-title">Ask Rowhni</h3>
           <p class="feature-description">
-            Learn and memorize the beautiful 99 Names of Allah through interactive quizzes 
-            with Arabic text, meanings, and pronunciation guides.
+            Your personal Islamic AI assistant ready to answer questions about prayers, 
+            fasting, Hajj, and Islamic teachings with authentic scholarly references.
           </p>
-          <div class="feature-progress">
-            <div class="progress-label">Your Progress</div>
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
+          <div class="feature-highlights" data-animate-stagger>
+            <div class="highlight-pill">
+              <span class="highlight-text">Islamic Knowledge Base</span>
             </div>
-            <div class="progress-text">67 of 99 Names Mastered</div>
+            <div class="highlight-pill">
+              <span class="highlight-text">Scholarly References</span>
+            </div>
+            <div class="highlight-pill">
+              <span class="highlight-text">24/7 Available</span>
+            </div>
           </div>
         </div>
-        <div class="feature-demo">
-          <div class="quiz-demo">
-            <div class="quiz-card">
-              <div class="arabic-name">الرَّحْمٰنُ</div>
-              <div class="quiz-options">
-                <button class="quiz-option">The Merciful</button>
-                <button class="quiz-option correct">The Compassionate</button>
-                <button class="quiz-option">The Forgiving</button>
+        <div class="feature-visual" data-animate-right>
+          <div class="app-frame">
+            <img src="Screenshots/image4.jpg" alt="Ask Rowhni AI Assistant" class="feature-screenshot">
+            <div class="ai-overlay">
+              <div class="typing-indicator" data-typing-animate>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
               </div>
             </div>
           </div>
@@ -202,119 +207,98 @@
   </section>
 
   <!-- Progress Section -->
-  <section class="progress-section" id="progress">
+  <section class="progress-section" id="progress" data-scroll-section>
+    <div class="section-divider reverse"></div>
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">
+      <div class="section-header" data-animate-up>
+        <div class="section-badge">Progress Tracking</div>
+        <h2 class="section-title" data-split-text>
           <span class="title-line">Track your</span>
           <span class="title-line gradient-text">spiritual progress</span>
         </h2>
-        <p class="section-subtitle">
+        <p class="section-subtitle" data-animate-up data-delay="200">
           Monitor your Quran reading, dhikr counting, and prayer consistency 
           with beautiful, motivating progress visualizations.
         </p>
       </div>
 
-      <div class="progress-grid">
-        <!-- Quran Progress -->
-        <div class="progress-card">
-          <div class="progress-header">
-            <h3>Quran Reading Progress</h3>
-            <p>Track your journey through the Holy Quran</p>
-          </div>
-          <div class="quran-progress-demo">
-            <div class="semicircle-container">
-              <svg class="progress-semicircle" viewBox="0 0 200 100">
-                <path class="progress-bg" d="M 20 80 A 80 80 0 0 1 180 80" stroke="#2D4535" stroke-width="8" fill="none"/>
-                <path class="progress-fill" d="M 20 80 A 80 80 0 0 1 180 80" stroke="#F4D03F" stroke-width="8" fill="none" stroke-dasharray="251.2" stroke-dashoffset="125.6"/>
+      <div class="progress-showcase" data-progress-parallax>
+        <!-- Main Progress Visual -->
+        <div class="main-progress-card" data-animate-up data-delay="400">
+          <div class="progress-visual">
+            <div class="quran-progress-container">
+              <svg class="progress-circle" viewBox="0 0 200 200" data-circle-animate>
+                <circle class="progress-bg" cx="100" cy="100" r="80" stroke="#2D4535" stroke-width="8" fill="none"/>
+                <circle class="progress-fill" cx="100" cy="100" r="80" stroke="#F4D03F" stroke-width="8" fill="none" stroke-dasharray="502.4" stroke-dashoffset="251.2" data-progress="50"/>
               </svg>
               <div class="progress-center">
-                <span class="progress-percentage">50%</span>
-                <span class="progress-detail">15 of 30 Juz</span>
+                <div class="progress-main" data-counter="15">15</div>
+                <div class="progress-total">of 30 Juz</div>
+                <div class="progress-surah">Al-Kahf 45/110</div>
               </div>
             </div>
-            <div class="surah-info">
-              <div class="current-surah">Currently Reading</div>
-              <div class="surah-name">Surah Al-Kahf</div>
-              <div class="surah-progress">Ayah 45 of 110</div>
+          </div>
+          <div class="progress-details">
+            <h3>Quran Reading Progress</h3>
+            <div class="progress-pills" data-animate-stagger>
+              <div class="progress-pill">
+                <span class="pill-label">Daily Goal</span>
+                <span class="pill-value">2 Pages</span>
+              </div>
+              <div class="progress-pill">
+                <span class="pill-label">Streak</span>
+                <span class="pill-value">12 Days</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Dhikr Progress -->
-        <div class="progress-card">
-          <div class="progress-header">
-            <h3>Daily Dhikr Goal</h3>
-            <p>Your daily remembrance of Allah</p>
-          </div>
-          <div class="dhikr-progress-demo">
-            <div class="dhikr-stats">
-              <div class="dhikr-stat">
-                <span class="dhikr-count">267</span>
-                <span class="dhikr-label">Today</span>
-              </div>
-              <div class="dhikr-stat">
-                <span class="dhikr-count">8,943</span>
-                <span class="dhikr-label">This Month</span>
-              </div>
+        <!-- Dhikr Progress Grid -->
+        <div class="dhikr-grid" data-animate-stagger data-delay="600">
+          <div class="dhikr-card">
+            <div class="dhikr-header">
+              <span class="dhikr-title">SubhanAllah</span>
+              <span class="dhikr-count" data-counter="33">33</span>
             </div>
-            <div class="dhikr-breakdown">
-              <div class="dhikr-item">
-                <span class="dhikr-name">SubhanAllah</span>
-                <div class="dhikr-bar">
-                  <div class="dhikr-fill" style="width: 100%"></div>
-                </div>
-                <span class="dhikr-number">33/33</span>
-              </div>
-              <div class="dhikr-item">
-                <span class="dhikr-name">Alhamdulillah</span>
-                <div class="dhikr-bar">
-                  <div class="dhikr-fill" style="width: 100%"></div>
-                </div>
-                <span class="dhikr-number">33/33</span>
-              </div>
-              <div class="dhikr-item">
-                <span class="dhikr-name">Allahu Akbar</span>
-                <div class="dhikr-bar">
-                  <div class="dhikr-fill" style="width: 85%"></div>
-                </div>
-                <span class="dhikr-number">29/34</span>
-              </div>
+            <div class="dhikr-progress-bar">
+              <div class="dhikr-progress-fill" data-progress="100"></div>
+            </div>
+          </div>
+          <div class="dhikr-card">
+            <div class="dhikr-header">
+              <span class="dhikr-title">Alhamdulillah</span>
+              <span class="dhikr-count" data-counter="33">33</span>
+            </div>
+            <div class="dhikr-progress-bar">
+              <div class="dhikr-progress-fill" data-progress="100"></div>
+            </div>
+          </div>
+          <div class="dhikr-card active">
+            <div class="dhikr-header">
+              <span class="dhikr-title">Allahu Akbar</span>
+              <span class="dhikr-count" data-counter="29">29</span>
+            </div>
+            <div class="dhikr-progress-bar">
+              <div class="dhikr-progress-fill" data-progress="85"></div>
             </div>
           </div>
         </div>
 
         <!-- Prayer Consistency -->
-        <div class="progress-card">
-          <div class="progress-header">
-            <h3>Prayer Consistency</h3>
-            <p>Your commitment to the five daily prayers</p>
+        <div class="prayer-consistency-card" data-animate-up data-delay="800">
+          <div class="consistency-header">
+            <h4>Prayer Consistency</h4>
+            <div class="consistency-percentage" data-counter="94">94%</div>
           </div>
-          <div class="prayer-consistency-demo">
-            <div class="consistency-percentage">
-              <span class="percentage-large">94%</span>
-              <span class="percentage-label">This Month</span>
-            </div>
-            <div class="prayer-calendar">
-              <div class="calendar-week">
-                <div class="day completed"></div>
-                <div class="day completed"></div>
-                <div class="day completed"></div>
-                <div class="day completed"></div>
-                <div class="day partial"></div>
-                <div class="day completed"></div>
-                <div class="day completed"></div>
-              </div>
-              <div class="calendar-legend">
-                <div class="legend-item">
-                  <div class="legend-dot completed"></div>
-                  <span>All 5 prayers</span>
-                </div>
-                <div class="legend-item">
-                  <div class="legend-dot partial"></div>
-                  <span>Partial</span>
-                </div>
-              </div>
+          <div class="prayer-calendar">
+            <div class="calendar-days" data-animate-stagger>
+              <div class="day completed" data-animate-scale></div>
+              <div class="day completed" data-animate-scale></div>
+              <div class="day completed" data-animate-scale></div>
+              <div class="day completed" data-animate-scale></div>
+              <div class="day partial" data-animate-scale></div>
+              <div class="day completed" data-animate-scale></div>
+              <div class="day completed" data-animate-scale></div>
             </div>
           </div>
         </div>
@@ -323,46 +307,46 @@
   </section>
 
   <!-- Community Section -->
-  <section class="community" id="community">
+  <section class="community" id="community" data-scroll-section>
+    <div class="section-divider"></div>
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">
+      <div class="section-header" data-animate-up>
+        <div class="section-badge">Global Community</div>
+        <h2 class="section-title" data-split-text>
           <span class="title-line">Join millions of Muslims</span>
           <span class="title-line gradient-text">worldwide</span>
         </h2>
       </div>
 
-      <div class="community-stats">
-        <div class="stat-card">
-          <div class="stat-visual">
-            <div class="stat-icon users-icon"></div>
-          </div>
-          <div class="stat-content">
-            <h3 class="stat-number">1,247,892</h3>
-            <p class="stat-label">Active Users</p>
-            <span class="stat-growth">+12% this month</span>
-          </div>
+      <div class="community-grid" data-animate-stagger data-delay="400">
+        <div class="stat-card" data-hover-lift>
+          <div class="stat-number" data-counter="1247892">1,247,892</div>
+          <div class="stat-label">Active Users</div>
+          <div class="stat-growth">+12% this month</div>
+          <div class="stat-background"></div>
         </div>
         
-        <div class="stat-card">
-          <div class="stat-visual">
-            <div class="stat-icon dhikr-icon"></div>
-          </div>
-          <div class="stat-content">
-            <h3 class="stat-number">52,846,291</h3>
-            <p class="stat-label">Dhikr Counted</p>
-            <span class="stat-growth">+2.1M today</span>
-          </div>
+        <div class="stat-card featured" data-hover-lift>
+          <div class="stat-number" data-counter="52846291">52,846,291</div>
+          <div class="stat-label">Dhikr Counted</div>
+          <div class="stat-growth">+2.1M today</div>
+          <div class="stat-background"></div>
         </div>
         
-        <div class="stat-card">
-          <div class="stat-visual">
-            <div class="stat-icon globe-icon"></div>
-          </div>
-          <div class="stat-content">
-            <h3 class="stat-number">156</h3>
-            <p class="stat-label">Countries</p>
-            <span class="stat-growth">Global reach</span>
+        <div class="stat-card" data-hover-lift>
+          <div class="stat-number" data-counter="156">156</div>
+          <div class="stat-label">Countries</div>
+          <div class="stat-growth">Global reach</div>
+          <div class="stat-background"></div>
+        </div>
+      </div>
+
+      <div class="community-showcase" data-animate-up data-delay="800">
+        <div class="showcase-text">
+          <p>"Rowhni has transformed my daily worship. The voice recognition for Tasbih is incredible, and I love tracking my Quran progress."</p>
+          <div class="showcase-author">
+            <span class="author-name">Ahmad M.</span>
+            <span class="author-location">London, UK</span>
           </div>
         </div>
       </div>
@@ -370,42 +354,54 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="cta">
+  <section class="cta" data-scroll-section>
+    <div class="section-divider reverse"></div>
+    <div class="cta-background">
+      <div class="floating-elements">
+        <div class="float-element" data-float-slow></div>
+        <div class="float-element" data-float-medium></div>
+        <div class="float-element" data-float-fast></div>
+      </div>
+    </div>
     <div class="container">
-      <div class="cta-content">
-        <h2 class="cta-title">
+      <div class="cta-content" data-animate-up>
+        <h2 class="cta-title" data-split-text>
           <span class="title-line">Ready to enhance</span>
           <span class="title-line gradient-text">your spiritual journey?</span>
         </h2>
-        <p class="cta-description">
+        <p class="cta-description" data-animate-up data-delay="200">
           Join millions of Muslims worldwide who have transformed their Islamic practice 
           with Rowhni's intelligent companion features.
         </p>
-        <div class="cta-actions">
-          <a href="https://apps.apple.com/app/rowhni" class="btn-primary-large">
-            Download for iOS
+        <div class="cta-actions" data-animate-up data-delay="400">
+          <a href="https://apps.apple.com/app/rowhni" class="btn-primary-large magnetic-btn">
+            <span>Download for iOS</span>
+            <div class="btn-glow"></div>
           </a>
+        </div>
+        <div class="cta-note" data-animate-up data-delay="600">
+          Free download • No subscription required • Available on App Store
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" data-scroll-section>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-brand">
+        <div class="footer-brand" data-animate-up>
           <img src="rowhni_logo_day.png" alt="Rowhni" class="footer-logo">
           <h3>Rowhni</h3>
-          <p>Your complete Islamic companion</p>
+          <p>Your complete Islamic companion for prayer, dhikr, and spiritual growth</p>
         </div>
-        <div class="footer-links">
+        <div class="footer-links" data-animate-stagger>
           <div class="link-column">
             <h4>Features</h4>
-            <a href="#features">Voice Tasbih</a>
-            <a href="#features">Prayer Times</a>
-            <a href="#features">Quran Reader</a>
-            <a href="#features">99 Names Quiz</a>
+            <a href="#features" data-smooth-scroll>Voice Tasbih</a>
+            <a href="#features" data-smooth-scroll>Prayer Times</a>
+            <a href="#progress" data-smooth-scroll>Quran Progress</a>
+            <a href="#features" data-smooth-scroll>AI Assistant</a>
           </div>
           <div class="link-column">
             <h4>Support</h4>
@@ -415,17 +411,28 @@
           </div>
           <div class="link-column">
             <h4>Community</h4>
-            <a href="https://apps.apple.com/app/rowhni">Download</a>
-            <a href="#community">Statistics</a>
+            <a href="https://apps.apple.com/app/rowhni">Download App</a>
+            <a href="#community" data-smooth-scroll>Statistics</a>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Rowhni. All rights reserved.</p>
+      <div class="footer-bottom" data-animate-up data-delay="400">
+        <div class="footer-copyright">
+          <p>&copy; 2024 Rowhni. All rights reserved.</p>
+        </div>
+        <div class="footer-badges">
+          <div class="app-store-badge">Available on the App Store</div>
+        </div>
       </div>
     </div>
+    <div class="footer-gradient"></div>
   </footer>
 
   <script src="_assets/site.js"></script>
+  
+  <!-- Magnetic Cursor -->
+  <div class="magnetic-cursor" data-cursor>
+    <div class="cursor-inner"></div>
+  </div>
 </body>
 </html>

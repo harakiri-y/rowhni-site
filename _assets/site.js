@@ -375,7 +375,7 @@ class RowhniApp {
         notification.className = 'prayer-notification';
         notification.innerHTML = `
             <div class="notification-content">
-                <div class="notification-icon">🕌</div>
+                <div class="notification-icon">▲</div>
                 <div class="notification-text">
                     <strong>Maghrib Prayer Time</strong>
                     <p>It's time for Maghrib prayer</p>
@@ -485,6 +485,7 @@ const animationStyles = `
 
     .notification-icon {
         font-size: 1.5rem;
+        color: var(--accent);
     }
 
     .notification-text strong {

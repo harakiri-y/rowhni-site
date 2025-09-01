@@ -1,20 +1,20 @@
 /* Rowhni - Professional Design System (Monks.com Inspired) */
 
 :root {
-  /* Modern Purple/Violet Palette (Monks.com inspired) */
-  --primary: #3C0C60;
-  --primary-light: #5B1A85;
-  --primary-dark: #2A0842;
-  --accent: #8B5CF6;
-  --accent-light: #A78BFA;
-  --secondary: #14B8A6;
-  --secondary-light: #5EEAD4;
+  /* Rowhni App Color Palette (Green-Gold Islamic Theme) */
+  --primary: #1B4D3E;
+  --primary-light: #2E6B54;
+  --primary-dark: #0F3529;
+  --accent: #F4D03F;
+  --accent-light: #F7DC6F;
+  --secondary: #52C41A;
+  --secondary-light: #73D13D;
   
-  /* Neutral Grays */
-  --background: #0A0A0F;
-  --surface: #111118;
-  --surface-elevated: #1C1C23;
-  --surface-card: #252530;
+  /* Dark Green Neutral Theme */
+  --background: #0D1B14;
+  --surface: #1A2F21;
+  --surface-elevated: #233A2B;
+  --surface-card: #2D4535;
   --text-primary: #FFFFFF;
   --text-secondary: #B4B4BF;
   --text-tertiary: #86868B;

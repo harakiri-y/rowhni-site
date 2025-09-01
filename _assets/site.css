@@ -272,8 +272,8 @@ p {
 /* Prayer Times Container */
 .prayer-times-container {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -285,10 +285,10 @@ p {
 }
 
 .kaaba-image {
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
-  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
   animation: float 6s ease-in-out infinite;
 }
 
@@ -300,8 +300,8 @@ p {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-xl);
-  padding: var(--space-3);
-  min-width: 80px;
+  padding: var(--space-4);
+  min-width: 100px;
   text-align: center;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -323,7 +323,7 @@ p {
 
 /* Positioning the 5 prayer cards in symmetric layout */
 .prayer-card.top {
-  top: 0;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
   animation: cardFloat 4s ease-in-out infinite;
@@ -331,54 +331,50 @@ p {
 }
 
 .prayer-card.top-right {
-  top: 15%;
-  right: 10%;
+  top: 80px;
+  right: 40px;
   animation: cardFloat 4s ease-in-out infinite;
   animation-delay: 0.8s;
 }
 
 .prayer-card.bottom-right {
-  bottom: 15%;
-  right: 10%;
+  bottom: 80px;
+  right: 40px;
   animation: cardFloat 4s ease-in-out infinite;
   animation-delay: 1.6s;
 }
 
 .prayer-card.bottom-left {
-  bottom: 15%;
-  left: 10%;
+  bottom: 80px;
+  left: 40px;
   animation: cardFloat 4s ease-in-out infinite;
   animation-delay: 2.4s;
 }
 
 .prayer-card.top-left {
-  top: 15%;
-  left: 10%;
+  top: 80px;
+  left: 40px;
   animation: cardFloat 4s ease-in-out infinite;
   animation-delay: 3.2s;
 }
 
 /* Prayer card content */
-.prayer-icon {
-  font-size: 18px;
-  margin-bottom: var(--space-1);
-}
-
 .prayer-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
+  text-align: center;
 }
 
 .prayer-name {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--text-primary);
   opacity: 0.9;
 }
 
 .prayer-time {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--accent);
 }
@@ -769,13 +765,13 @@ p {
   }
   
   .prayer-times-container {
-    width: 320px;
-    height: 320px;
+    width: 400px;
+    height: 400px;
   }
   
   .kaaba-image {
-    width: 100px;
-    height: 100px;
+    width: 160px;
+    height: 160px;
   }
   
   .showcase-highlight {
@@ -856,30 +852,26 @@ p {
   }
   
   .prayer-times-container {
-    width: 280px;
-    height: 280px;
+    width: 350px;
+    height: 350px;
   }
   
   .kaaba-image {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
   }
   
   .prayer-card {
-    padding: var(--space-2);
-    min-width: 70px;
-  }
-  
-  .prayer-icon {
-    font-size: 14px;
+    padding: var(--space-3);
+    min-width: 80px;
   }
   
   .prayer-name {
-    font-size: 10px;
+    font-size: var(--font-size-xs);
   }
   
   .prayer-time {
-    font-size: 11px;
+    font-size: var(--font-size-sm);
   }
   
   .stats-grid {

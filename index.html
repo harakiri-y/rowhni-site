@@ -3,274 +3,420 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rowhni - Your Islamic Companion</title>
-  <meta name="description" content="The most beautiful Islamic companion app. Voice-powered Tasbih, precise prayer times, and comprehensive Islamic guidance - all in one elegant app.">
+  <title>Rowhni - Accelerating Islamic Growth Through Technology</title>
+  <meta name="description" content="The most advanced Islamic companion app powered by voice AI. Prayer times, intelligent Tasbih counting, and comprehensive Islamic guidance in one elegant platform.">
   <link rel="stylesheet" href="_assets/site.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="nav-container">
       <div class="nav-brand">
         <img src="rowhni_logo_day.png" alt="Rowhni" class="nav-logo">
         <span class="nav-title">Rowhni</span>
       </div>
-      <div class="nav-actions">
-        <a href="https://apps.apple.com/app/rowhni" class="nav-cta">Download App</a>
+      <div class="nav-menu">
+        <a href="#solutions" class="nav-link">Solutions</a>
+        <a href="#technology" class="nav-link">Technology</a>
+        <a href="#community" class="nav-link">Community</a>
+        <a href="support.html" class="nav-link">Support</a>
+        <div class="nav-cta">
+          <a href="https://apps.apple.com/app/rowhni" class="btn-primary">Download App</a>
+        </div>
       </div>
+      <button class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- Main Experience -->
-  <main class="app-experience">
-    
-    <!-- Hero Section -->
-    <section class="hero">
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-gradient"></div>
+      <div class="hero-pattern"></div>
+    </div>
+    <div class="container">
       <div class="hero-content">
-        <div class="hero-text">
-          <h1 class="hero-title">
-            Your Islamic Companion<br>
-            <span class="hero-accent">Reimagined</span>
-          </h1>
-          <p class="hero-subtitle">Voice-powered Tasbih counting, precise prayer times, and comprehensive Islamic guidance—all in one beautifully designed app.</p>
-          <div class="hero-actions">
-            <a href="https://apps.apple.com/app/rowhni" class="cta-primary">
-              <span class="cta-text">Download for iOS</span>
-              <span class="cta-sub">Free • 4.9⭐ Rating</span>
-            </a>
-          </div>
+        <div class="hero-badge">
+          <span class="badge-text">🎤 Voice AI Powered</span>
         </div>
-        
-        <div class="hero-visual">
-          <div class="app-showcase">
-            <div class="app-preview-container">
-              <!-- Background Prayer Cards (behind Kaaba) -->
-              <div class="prayer-cards-background">
-                
-                <!-- Top Card -->
-                <div class="prayer-card-large top-card">
-                  <div class="card-icon">🌅</div>
-                  <div class="card-time">05:24</div>
-                </div>
-                
-                <!-- Left Card -->
-                <div class="prayer-card-large left-card current">
-                  <div class="card-icon current-prayer">🌙</div>
-                  <div class="card-label">Isha</div>
-                  <div class="card-time">22:21</div>
-                </div>
-                
-                <!-- Right Card -->
-                <div class="prayer-card-large right-card">
-                  <div class="card-icon">☀️</div>
-                  <div class="card-time">12:18</div>
-                </div>
-                
-                <!-- Bottom Left Card -->
-                <div class="prayer-card-large bottom-left-card">
-                  <div class="card-icon">🧭</div>
-                  <div class="card-action">Next</div>
-                </div>
-                
-                <!-- Bottom Right Card -->
-                <div class="prayer-card-large bottom-right-card">
-                  <div class="card-icon orange">☀️</div>
-                  <div class="card-action orange-bg">Next</div>
-                </div>
-                
-              </div>
-              
-              <!-- Kaaba in Foreground -->
-              <div class="kaaba-foreground">
-                <img src="_assets/3.png" alt="Kaaba" class="kaaba-image-app">
-              </div>
-            </div>
-            
-            <div class="showcase-highlight">
-              <span class="highlight-badge">Prayer Times</span>
-              <p class="highlight-text">Beautiful glass cards with precise timing based on your location</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-      <div class="section-content">
-        <div class="section-header">
-          <h2>Everything you need for your Islamic journey</h2>
-        </div>
-        
-        <div class="features-grid">
-          
-          <div class="feature-item">
-            <div class="feature-visual">
-              <div class="feature-icon">🎤</div>
-            </div>
-            <div class="feature-content">
-              <h3>Voice-Powered Tasbih</h3>
-              <p>Revolutionary speech recognition counts your dhikr automatically as you recite. Just speak—we'll count.</p>
-            </div>
-          </div>
-          
-          <div class="feature-item">
-            <div class="feature-visual">
-              <div class="feature-icon">🕌</div>
-            </div>
-            <div class="feature-content">
-              <h3>Precise Prayer Times</h3>
-              <p>Beautiful interface with accurate times based on your location. Real-time notifications keep you connected.</p>
-            </div>
-          </div>
-          
-          <div class="feature-item">
-            <div class="feature-visual">
-              <div class="feature-icon">🧭</div>
-            </div>
-            <div class="feature-content">
-              <h3>Qibla Direction</h3>
-              <p>Find the exact direction to Mecca with our precise digital compass from anywhere in the world.</p>
-            </div>
-          </div>
-          
-          <div class="feature-item">
-            <div class="feature-visual">
-              <div class="feature-icon">📖</div>
-            </div>
-            <div class="feature-content">
-              <h3>Complete Quran Reader</h3>
-              <p>Read the Holy Quran with beautiful typography, progress tracking, and authentic translations.</p>
-            </div>
-          </div>
-          
-          <div class="feature-item">
-            <div class="feature-visual">
-              <div class="feature-icon">🕋</div>
-            </div>
-            <div class="feature-content">
-              <h3>Islamic Encyclopedia</h3>
-              <p>Comprehensive knowledge base with Prophets, Pillars of Islam, authentic Hadiths, and more.</p>
-            </div>
-          </div>
-          
-          <div class="feature-item">
-            <div class="feature-visual">
-              <div class="feature-icon">💰</div>
-            </div>
-            <div class="feature-content">
-              <h3>Zakat Calculator</h3>
-              <p>Calculate your Zakat obligations with support for multiple currencies and various asset types.</p>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-    
-    <!-- Demo Section -->
-    <section class="demo">
-      <div class="section-content">
-        <div class="section-header">
-          <h2>Experience Voice Recognition</h2>
-          <p>Try our revolutionary Tasbih counter that listens as you recite</p>
-        </div>
-        
-        <div class="demo-widget">
-          <div class="demo-counter">
-            <div class="counter-display">
-              <span id="currentCount" class="count-number">0</span>
-              <span class="count-label">/ <span id="targetCount">33</span></span>
-            </div>
-            
-            <div class="dhikr-display">
-              <div class="arabic-text" id="arabicText">سُبْحَانَ اللّٰهِ</div>
-              <div class="transliteration" id="transliteration">SubhanAllah</div>
-              <div class="translation" id="translation">Glory be to Allah</div>
-            </div>
-          </div>
-          
-          <div class="demo-controls">
-            <select id="dhikrSelect" class="dhikr-select">
-              <option value="subhanallah">SubhanAllah</option>
-              <option value="alhamdulillah">Alhamdulillah</option>
-              <option value="allahu-akbar">Allahu Akbar</option>
-              <option value="la-ilaha-illallah">La ilaha illallah</option>
-            </select>
-            
-            <div class="control-buttons">
-              <button id="tapButton" class="btn-primary">
-                <span>Tap to Count</span>
-              </button>
-              <button id="voiceButton" class="btn-secondary">
-                <span>🎤 Voice Mode</span>
-              </button>
-              <button id="resetButton" class="btn-tertiary">Reset</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-      <div class="section-content">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number">1M+</div>
-            <div class="stat-label">Active Users</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">50M+</div>
-            <div class="stat-label">Dhikr Counted</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">150+</div>
-            <div class="stat-label">Countries</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">4.9⭐</div>
-            <div class="stat-label">App Store Rating</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="cta">
-      <div class="section-content">
-        <div class="cta-content">
-          <h2>Ready to begin?</h2>
-          <p>Join millions of Muslims worldwide who trust Rowhni for their daily Islamic practice.</p>
-          <a href="https://apps.apple.com/app/rowhni" class="cta-primary large">
-            <span class="cta-text">Download for iOS</span>
-            <span class="cta-sub">Free • Start your journey today</span>
+        <h1 class="hero-title">
+          Accelerating Islamic Growth
+          <span class="gradient-text">Through Technology</span>
+        </h1>
+        <p class="hero-description">
+          Revolutionary voice-powered Tasbih counting, precision prayer times, and comprehensive Islamic guidance. 
+          Experience the future of Islamic practice with our AI-enhanced companion app.
+        </p>
+        <div class="hero-actions">
+          <a href="https://apps.apple.com/app/rowhni" class="btn-primary-large">
+            <span class="btn-text">Download for iOS</span>
+            <span class="btn-subtitle">Free • 4.9⭐ Rating</span>
           </a>
+          <button class="btn-secondary" id="watchDemo">
+            <span>Watch Demo</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L12 8L6 13V3Z" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">1M+</span>
+            <span class="stat-label">Active Users</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">50M+</span>
+            <span class="stat-label">Dhikr Counted</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">150+</span>
+            <span class="stat-label">Countries</span>
+          </div>
         </div>
       </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="section-content">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <img src="rowhni_logo_day.png" alt="Rowhni" class="footer-logo">
-          <span class="footer-title">Rowhni</span>
-        </div>
-        <div class="footer-links">
-          <a href="support.html" class="footer-link">Support</a>
-          <a href="privacy.html" class="footer-link">Privacy</a>
+      <div class="hero-visual">
+        <div class="app-mockup">
+          <div class="mockup-frame">
+            <img src="_assets/3.png" alt="Rowhni App Interface" class="mockup-image">
+            <div class="mockup-glow"></div>
+          </div>
+          <div class="floating-elements">
+            <div class="float-card voice-card">
+              <div class="card-icon">🎤</div>
+              <div class="card-text">Voice Recognition</div>
+            </div>
+            <div class="float-card prayer-card">
+              <div class="card-icon">🕌</div>
+              <div class="card-text">Prayer Times</div>
+            </div>
+            <div class="float-card qibla-card">
+              <div class="card-icon">🧭</div>
+              <div class="card-text">Qibla Direction</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="solutions" id="solutions">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Our Solutions</div>
+        <h2 class="section-title">
+          Everything you need for your
+          <span class="gradient-text">Islamic journey</span>
+        </h2>
+        <p class="section-description">
+          Advanced AI technology meets authentic Islamic practice in our comprehensive digital platform
+        </p>
+      </div>
+      
+      <div class="solutions-grid">
+        <div class="solution-card featured" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-header">
+            <div class="card-icon-large">🎤</div>
+            <h3>Voice-Powered Tasbih</h3>
+          </div>
+          <p class="card-description">
+            Revolutionary AI speech recognition automatically counts your dhikr as you recite. 
+            No manual tapping required - just speak naturally.
+          </p>
+          <div class="card-features">
+            <div class="feature-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" fill="currentColor"/>
+              </svg>
+              <span>Multi-language support</span>
+            </div>
+            <div class="feature-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" fill="currentColor"/>
+              </svg>
+              <span>Offline processing</span>
+            </div>
+            <div class="feature-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" fill="currentColor"/>
+              </svg>
+              <span>Privacy-first design</span>
+            </div>
+          </div>
+          <div class="card-demo">
+            <button class="btn-demo" id="voiceDemo">Try Voice Demo</button>
+          </div>
+        </div>
+
+        <div class="solution-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-header">
+            <div class="card-icon-large">🕌</div>
+            <h3>Precision Prayer Times</h3>
+          </div>
+          <p class="card-description">
+            Astronomically accurate prayer times with multiple calculation methods and real-time notifications.
+          </p>
+          <div class="card-stats">
+            <div class="stat">
+              <span class="stat-value">±1min</span>
+              <span class="stat-desc">Accuracy</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">12+</span>
+              <span class="stat-desc">Methods</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="solution-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-header">
+            <div class="card-icon-large">🧭</div>
+            <h3>Intelligent Qibla</h3>
+          </div>
+          <p class="card-description">
+            AI-enhanced compass with AR visualization for precise Qibla direction anywhere in the world.
+          </p>
+          <div class="card-highlight">
+            <span class="highlight-badge">AR Enhanced</span>
+          </div>
+        </div>
+
+        <div class="solution-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-header">
+            <div class="card-icon-large">📖</div>
+            <h3>Smart Quran Reader</h3>
+          </div>
+          <p class="card-description">
+            Intelligent reading progress, AI-powered insights, and personalized study recommendations.
+          </p>
+        </div>
+
+        <div class="solution-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-header">
+            <div class="card-icon-large">🕋</div>
+            <h3>Islamic Encyclopedia</h3>
+          </div>
+          <p class="card-description">
+            Comprehensive knowledge base with AI-powered search and contextual learning paths.
+          </p>
+        </div>
+
+        <div class="solution-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="card-header">
+            <div class="card-icon-large">💰</div>
+            <h3>Zakat Calculator</h3>
+          </div>
+          <p class="card-description">
+            Advanced calculation engine with real-time currency conversion and donation tracking.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Section -->
+  <section class="technology" id="technology">
+    <div class="tech-bg">
+      <div class="tech-grid"></div>
+      <div class="tech-gradient"></div>
+    </div>
+    <div class="container">
+      <div class="tech-content">
+        <div class="tech-text">
+          <div class="section-badge">Advanced Technology</div>
+          <h2 class="section-title">
+            Powered by
+            <span class="gradient-text">Artificial Intelligence</span>
+          </h2>
+          <p class="section-description">
+            Our cutting-edge AI engine processes speech recognition, contextual understanding, 
+            and personalized Islamic guidance to create an unparalleled spiritual companion.
+          </p>
+          
+          <div class="tech-features">
+            <div class="tech-feature">
+              <div class="feature-icon">🧠</div>
+              <div class="feature-content">
+                <h4>Neural Voice Processing</h4>
+                <p>Advanced deep learning models for accurate dhikr recognition across dialects</p>
+              </div>
+            </div>
+            <div class="tech-feature">
+              <div class="feature-icon">🔒</div>
+              <div class="feature-content">
+                <h4>Privacy-First Architecture</h4>
+                <p>All processing happens on-device. Your spiritual practice remains completely private</p>
+              </div>
+            </div>
+            <div class="tech-feature">
+              <div class="feature-icon">⚡</div>
+              <div class="feature-content">
+                <h4>Real-Time Processing</h4>
+                <p>Instant recognition and counting with zero latency for seamless experience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tech-visual">
+          <div class="tech-animation">
+            <div class="ai-nodes">
+              <div class="node node-1"></div>
+              <div class="node node-2"></div>
+              <div class="node node-3"></div>
+              <div class="node node-4"></div>
+              <div class="connection con-1"></div>
+              <div class="connection con-2"></div>
+              <div class="connection con-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section class="community" id="community">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Global Community</div>
+        <h2 class="section-title">
+          Join millions of Muslims
+          <span class="gradient-text">worldwide</span>
+        </h2>
+        <p class="section-description">
+          Connect with a thriving community of believers enhancing their Islamic practice through technology
+        </p>
+      </div>
+
+      <div class="community-stats">
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-visual">
+            <div class="stat-chart users-chart"></div>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number">1,247,892</h3>
+            <p class="stat-label">Active Users</p>
+            <span class="stat-growth">+12% this month</span>
+          </div>
+        </div>
+        
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-visual">
+            <div class="stat-chart dhikr-chart"></div>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number">52,846,291</h3>
+            <p class="stat-label">Dhikr Counted</p>
+            <span class="stat-growth">+2.1M today</span>
+          </div>
+        </div>
+        
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-visual">
+            <div class="stat-chart countries-chart"></div>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number">156</h3>
+            <p class="stat-label">Countries</p>
+            <span class="stat-growth">Global reach</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="cta-bg">
+      <div class="cta-gradient"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">
+          Ready to transform your
+          <span class="gradient-text">spiritual journey?</span>
+        </h2>
+        <p class="cta-description">
+          Join millions of Muslims worldwide who have elevated their Islamic practice with Rowhni's 
+          AI-powered spiritual companion.
+        </p>
+        <div class="cta-actions">
+          <a href="https://apps.apple.com/app/rowhni" class="btn-primary-large">
+            <span class="btn-text">Download for iOS</span>
+            <span class="btn-subtitle">Free • Start your journey today</span>
+          </a>
+        </div>
+        <div class="cta-features">
+          <div class="cta-feature">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M16.707 5.293a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 1.414-1.414L8 12.586l7.293-7.293a1 1 0 0 1 1.414 0z" fill="currentColor"/>
+            </svg>
+            <span>Voice-powered Tasbih</span>
+          </div>
+          <div class="cta-feature">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M16.707 5.293a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 1.414-1.414L8 12.586l7.293-7.293a1 1 0 0 1 1.414 0z" fill="currentColor"/>
+            </svg>
+            <span>Precision prayer times</span>
+          </div>
+          <div class="cta-feature">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M16.707 5.293a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 1.414-1.414L8 12.586l7.293-7.293a1 1 0 0 1 1.414 0z" fill="currentColor"/>
+            </svg>
+            <span>Complete Islamic guidance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="rowhni_logo_day.png" alt="Rowhni" class="footer-logo">
+          <h3>Rowhni</h3>
+          <p>Accelerating Islamic growth through technology</p>
+        </div>
+        <div class="footer-links">
+          <div class="link-column">
+            <h4>Solutions</h4>
+            <a href="#solutions">Voice Tasbih</a>
+            <a href="#solutions">Prayer Times</a>
+            <a href="#solutions">Qibla Direction</a>
+            <a href="#solutions">Quran Reader</a>
+          </div>
+          <div class="link-column">
+            <h4>Support</h4>
+            <a href="support.html">Help Center</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="support.html">Contact Us</a>
+            <a href="support.html">FAQ</a>
+          </div>
+          <div class="link-column">
+            <h4>Community</h4>
+            <a href="https://apps.apple.com/app/rowhni">Download App</a>
+            <a href="#community">Global Stats</a>
+            <a href="support.html">User Stories</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Rowhni. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
-  
+
+  <!-- Scripts -->
   <script src="_assets/site.js"></script>
 </body>
 </html>

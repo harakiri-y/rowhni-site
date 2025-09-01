@@ -269,12 +269,132 @@ p {
   align-items: center;
 }
 
-.app-image {
-  width: 300px;
-  height: 300px;
+/* Prayer Times Container */
+.prayer-times-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kaaba-center {
+  position: relative;
+  z-index: 10;
+}
+
+.kaaba-image {
+  width: 120px;
+  height: 120px;
   object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3));
   animation: float 6s ease-in-out infinite;
+}
+
+/* Floating Prayer Cards */
+.prayer-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3);
+  min-width: 80px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+
+.prayer-card:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(107, 139, 71, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.prayer-card.current {
+  background: rgba(107, 139, 71, 0.2);
+  border-color: rgba(107, 139, 71, 0.5);
+  box-shadow: 0 8px 32px rgba(107, 139, 71, 0.2);
+}
+
+/* Positioning the 5 prayer cards in symmetric layout */
+.prayer-card.top {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: cardFloat 4s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.prayer-card.top-right {
+  top: 15%;
+  right: 10%;
+  animation: cardFloat 4s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.prayer-card.bottom-right {
+  bottom: 15%;
+  right: 10%;
+  animation: cardFloat 4s ease-in-out infinite;
+  animation-delay: 1.6s;
+}
+
+.prayer-card.bottom-left {
+  bottom: 15%;
+  left: 10%;
+  animation: cardFloat 4s ease-in-out infinite;
+  animation-delay: 2.4s;
+}
+
+.prayer-card.top-left {
+  top: 15%;
+  left: 10%;
+  animation: cardFloat 4s ease-in-out infinite;
+  animation-delay: 3.2s;
+}
+
+/* Prayer card content */
+.prayer-icon {
+  font-size: 18px;
+  margin-bottom: var(--space-1);
+}
+
+.prayer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.prayer-name {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+  opacity: 0.9;
+}
+
+.prayer-time {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.current-indicator {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--accent);
+  color: var(--text-primary);
+  font-size: 8px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--radius-md);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .showcase-highlight {
@@ -627,6 +747,15 @@ p {
   }
 }
 
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .hero-content {
@@ -639,9 +768,14 @@ p {
     order: -1;
   }
   
-  .app-image {
-    width: 240px;
-    height: 240px;
+  .prayer-times-container {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .kaaba-image {
+    width: 100px;
+    height: 100px;
   }
   
   .showcase-highlight {
@@ -721,9 +855,31 @@ p {
     padding: var(--space-20) 0 var(--space-12);
   }
   
-  .app-image {
-    width: 200px;
-    height: 200px;
+  .prayer-times-container {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .kaaba-image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .prayer-card {
+    padding: var(--space-2);
+    min-width: 70px;
+  }
+  
+  .prayer-icon {
+    font-size: 14px;
+  }
+  
+  .prayer-name {
+    font-size: 10px;
+  }
+  
+  .prayer-time {
+    font-size: 11px;
   }
   
   .stats-grid {

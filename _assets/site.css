@@ -1,4 +1,4 @@
-/* Exact Stryds Website Recreation - Dark Theme */
+/* Rowhni App Experience - Interactive Widgets */
 
 /* Reset and Base */
 * {
@@ -22,80 +22,70 @@ body {
   overflow-x: hidden;
 }
 
-.container {
+.app-experience {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
-/* Navigation - Minimal Dark */
-.nav {
+/* Navigation */
+.floating-nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1000;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(20px);
-  padding: 0;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 2rem;
 }
 
 .nav-brand {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  text-decoration: none;
   color: #ffffff;
   font-weight: 600;
-  font-size: 1.125rem;
 }
 
 .nav-logo {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
 }
 
 .nav-download {
-  background: #ffffff;
+  background: #00FF88;
   color: #000000;
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
   font-weight: 600;
   font-size: 0.875rem;
   transition: all 0.2s ease;
 }
 
 .nav-download:hover {
-  background: #f0f0f0;
+  background: #00e67a;
   transform: translateY(-1px);
 }
 
-/* Hero Section - Stryds Style */
-.hero {
+/* Hero Section */
+.hero-demo {
   min-height: 100vh;
-  padding: 100px 2rem 0;
+  padding: 120px 2rem 0;
   display: flex;
   align-items: center;
-  position: relative;
-  overflow: hidden;
 }
 
 .hero-content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: 4rem;
   align-items: center;
   width: 100%;
@@ -106,255 +96,232 @@ body {
 }
 
 .hero-title {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(3rem, 8vw, 5rem);
   font-weight: 900;
-  line-height: 0.9;
-  margin-bottom: 1rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
   color: #ffffff;
 }
 
-.hero-subtitle {
-  font-size: clamp(2rem, 6vw, 4rem);
-  font-weight: 900;
-  line-height: 0.9;
-  margin-bottom: 2rem;
-  color: #ffffff;
-}
-
-.hero-line {
+.hero-accent {
+  color: #00FF88;
   display: block;
 }
 
 .hero-description {
-  margin-bottom: 3rem;
-}
-
-.hero-description p {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: #999;
+  margin-bottom: 2rem;
   line-height: 1.6;
 }
 
-.hero-cta {
+.hero-stats {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
-.stryds-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #999;
-}
-
-.stryds-icon {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-}
-
-.join-btn {
-  background: #00FF88;
-  color: #000000;
-  text-decoration: none;
-  padding: 0.875rem 2rem;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-}
-
-.join-btn:hover {
-  background: #00e67a;
-  transform: translateY(-2px);
-}
-
-/* Floating Elements - Stryds Style */
-.hero-right {
-  position: relative;
-  height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.floating-elements {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.floating-pill {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
-  padding: 1rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  animation: float 6s ease-in-out infinite;
-  transition: all 0.3s ease;
-}
-
-.floating-pill:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-4px);
-}
-
-.voice-pill {
-  top: 10%;
-  right: 20%;
-  background: linear-gradient(135deg, #FF6B35, #F7931E);
-  animation-delay: 0s;
-}
-
-.prayer-pill {
-  top: 25%;
-  left: 10%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  animation-delay: 1s;
-}
-
-.mosque-pill {
-  bottom: 30%;
-  right: 10%;
-  background: linear-gradient(135deg, #ffeaa7, #fab1a0);
-  animation-delay: 2s;
-}
-
-.hijri-pill {
-  bottom: 15%;
-  left: 20%;
-  background: linear-gradient(135deg, #a8edea, #fed6e3);
-  color: #333;
-  flex-direction: column;
-  animation-delay: 3s;
-}
-
-.pill-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.pill-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.pill-content {
+.stat-item {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.pill-number {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.pill-label {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Floating Elements */
-.floating-element {
-  position: absolute;
-  animation: float 8s ease-in-out infinite;
-}
-
-.qibla-element {
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation-delay: 1.5s;
-}
-
-.compass-ring {
-  width: 80px;
-  height: 80px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  position: relative;
-  background: rgba(0, 255, 136, 0.1);
-}
-
-.compass-needle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 4px;
-  height: 30px;
-  background: #00FF88;
-  border-radius: 2px;
-  transform: translate(-50%, -50%) rotate(45deg);
-  animation: compassSpin 4s linear infinite;
-}
-
-.progress-ring {
-  top: 15%;
-  left: 30%;
-  animation-delay: 2.5s;
-}
-
-.zakat-element {
-  top: 60%;
-  left: 70%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 1rem;
-  text-align: center;
-  animation-delay: 4s;
-}
-
-.zakat-display {
-  display: flex;
-  flex-direction: column;
-}
-
-.zakat-amount {
-  font-size: 1.5rem;
+.stat-number {
+  font-size: 2rem;
   font-weight: 700;
   color: #00FF88;
 }
 
-.zakat-label {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
+.stat-label {
+  font-size: 0.875rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.hijri-date {
-  font-size: 1rem;
+/* App Simulator */
+.app-simulator {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Tasbih Widget */
+.tasbih-widget {
+  text-align: center;
+}
+
+.tasbih-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.tasbih-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.dhikr-dropdown {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.dhikr-dropdown option {
+  background: #111;
+  color: #fff;
+}
+
+.tasbih-counter {
+  margin-bottom: 2rem;
+}
+
+.progress-ring {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.progress-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.counter-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.count-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #00FF88;
+  display: block;
+  line-height: 1;
+}
+
+.count-target {
+  font-size: 1.125rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.tasbih-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tap-button {
+  background: #00FF88;
+  color: #000000;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tap-button:hover {
+  background: #00e67a;
+  transform: translateY(-2px);
+}
+
+.tap-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.reset-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.voice-button {
+  background: rgba(255, 107, 53, 0.2);
+  color: #FF6B35;
+  border: 1px solid #FF6B35;
+  border-radius: 25px;
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.voice-button:hover {
+  background: rgba(255, 107, 53, 0.3);
+  transform: scale(1.05);
+}
+
+.voice-button.listening {
+  animation: pulse 1.5s infinite;
+}
+
+.dhikr-text {
+  text-align: center;
+}
+
+.arabic-text {
+  font-size: 1.875rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
-.hijri-year {
-  font-size: 0.875rem;
-  opacity: 0.7;
+.transliteration {
+  font-size: 1.125rem;
+  color: #00FF88;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
 }
 
-/* Features Section */
-.features {
+.translation {
+  font-size: 1rem;
+  color: #999;
+}
+
+/* Features Demo Section */
+.features-demo {
   padding: 8rem 2rem;
   background: #111111;
 }
 
-.features-content {
-  max-width: 1200px;
+.features-container {
+  max-width: 1400px;
   margin: 0 auto;
 }
 
-.features-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   text-align: center;
   margin-bottom: 4rem;
@@ -363,271 +330,540 @@ body {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
 }
 
-.feature-item {
+/* Feature Widget Base */
+.feature-widget {
   background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 2rem;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
   transition: all 0.3s ease;
 }
 
-.feature-item:hover {
+.feature-widget:hover {
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
-.feature-number {
-  font-size: 0.875rem;
-  color: #00FF88;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.feature-item h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-.feature-item p {
-  color: #999;
-  line-height: 1.6;
-}
-
-/* App Preview Section */
-.app-preview {
-  padding: 8rem 2rem;
-  background: #000000;
-}
-
-.app-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.app-images {
-  position: relative;
-}
-
-.app-screen {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.app-screen.primary {
-  transform: rotate(-5deg);
-}
-
-.app-screen.secondary {
-  position: absolute;
-  top: 20%;
-  right: -20%;
-  width: 60%;
-  transform: rotate(10deg);
-}
-
-.screen-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.app-info h3 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
-}
-
-.app-info p {
-  font-size: 1.125rem;
-  color: #999;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-.download-btn {
-  background: #ffffff;
-  color: #000000;
-  text-decoration: none;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-  display: inline-block;
-}
-
-.download-btn:hover {
-  background: #f0f0f0;
-  transform: translateY(-2px);
-}
-
-/* Footer */
-.footer {
-  background: #111111;
-  padding: 3rem 2rem 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: auto;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
+.widget-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
+.widget-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #ffffff;
 }
 
-.footer-logo {
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
-}
-
-.footer-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.footer-links a {
-  color: #999;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: #ffffff;
-}
-
-.footer-note {
+/* Prayer Times Widget */
+.location-indicator {
   font-size: 0.875rem;
   color: #666;
 }
 
-/* Animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+.prayer-times-list {
+  margin-bottom: 1.5rem;
 }
 
-@keyframes compassSpin {
-  0% {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(405deg);
+.prayer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.prayer-item:last-child {
+  border-bottom: none;
+}
+
+.prayer-item.current {
+  background: rgba(0, 255, 136, 0.1);
+  border-radius: 8px;
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.prayer-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.prayer-icon {
+  font-size: 1.25rem;
+}
+
+.prayer-name {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.prayer-time {
+  font-weight: 600;
+  color: #00FF88;
+  font-size: 1.125rem;
+}
+
+.time-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  border-radius: 2px;
+}
+
+.time-indicator.current {
+  background: #00FF88;
+}
+
+.time-indicator.passed {
+  background: #666;
+}
+
+.next-prayer-countdown {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 255, 136, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.countdown-label {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+#nextPrayerName {
+  color: #00FF88;
+  font-weight: 600;
+  margin: 0 0.5rem;
+}
+
+#nextPrayerCountdown {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Qibla Compass Widget */
+.direction-indicator {
+  font-size: 0.875rem;
+  color: #00FF88;
+  font-weight: 600;
+}
+
+.compass-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.compass-ring {
+  width: 150px;
+  height: 150px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+}
+
+.compass-markers {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.marker {
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.marker.north { top: 5px; left: 50%; transform: translateX(-50%); }
+.marker.east { right: 5px; top: 50%; transform: translateY(-50%); }
+.marker.south { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.marker.west { left: 5px; top: 50%; transform: translateY(-50%); }
+
+.compass-needle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 60px;
+  background: linear-gradient(180deg, #FF6B35 0%, #666 100%);
+  border-radius: 2px;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transform-origin: center center;
+  transition: transform 0.5s ease;
+  animation: compassRotate 8s linear infinite;
+}
+
+.qibla-indicator {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(42deg);
+  font-size: 1.25rem;
+  color: #00FF88;
+}
+
+.compass-info {
+  text-align: center;
+}
+
+.distance-to-mecca {
+  margin-bottom: 1rem;
+}
+
+.distance-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00FF88;
+}
+
+.distance-unit {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.calibrate-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calibrate-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Zakat Calculator Widget */
+.currency-selector select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  outline: none;
+}
+
+.currency-selector option {
+  background: #111;
+  color: #fff;
+}
+
+.zakat-inputs {
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.875rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+}
+
+.input-group input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 0.75rem;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+  border-color: #00FF88;
+  box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
+}
+
+.zakat-result {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 255, 136, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.amount-label {
+  color: #666;
+  font-size: 0.875rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.amount-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00FF88;
+  display: block;
+}
+
+.nisab-status {
+  font-size: 0.875rem;
+  color: #999;
+  margin-top: 0.5rem;
+}
+
+/* Hijri Calendar Widget */
+.calendar-toggle .toggle-button {
+  background: #00FF88;
+  color: #000000;
+  border: none;
+  border-radius: 15px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hijri-display {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.hijri-date {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hijri-day {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #00FF88;
+}
+
+.hijri-month {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.hijri-year {
+  font-size: 1rem;
+  color: #666;
+}
+
+.gregorian-date {
+  font-size: 0.875rem;
+  color: #999;
+}
+
+.islamic-events {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-item.upcoming {
+  background: rgba(255, 107, 53, 0.1);
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+.event-date {
+  font-size: 0.875rem;
+  color: #00FF88;
+  font-weight: 600;
+}
+
+.event-name {
+  font-size: 0.875rem;
+  color: #ffffff;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 8rem 2rem;
+  text-align: center;
+  background: #000000;
+}
+
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.cta-content p {
+  font-size: 1.125rem;
+  color: #999;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.download-button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  background: #00FF88;
+  color: #000000;
+  text-decoration: none;
+  padding: 1.25rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.download-button:hover {
+  background: #00e67a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.3);
+}
+
+.download-text {
+  font-size: 1.125rem;
+}
+
+.download-subtitle {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes compassRotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes countUp {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.count-animation {
+  animation: countUp 0.3s ease-out;
+}
+
+/* Ripple Effect */
+.ripple-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
   }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .nav-container {
-    padding: 1rem;
-  }
-  
-  .hero {
-    padding: 80px 1rem 0;
-  }
-  
   .hero-content {
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
   }
-  
+
   .hero-title {
     font-size: clamp(2rem, 10vw, 4rem);
   }
-  
-  .hero-subtitle {
-    font-size: clamp(1.5rem, 8vw, 3rem);
-  }
-  
-  .hero-right {
-    height: 400px;
-  }
-  
-  .floating-pill {
-    position: relative;
-    display: inline-flex;
-    margin: 0.5rem;
-    animation: none;
-  }
-  
-  .floating-elements {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    position: static;
-  }
-  
-  .floating-element {
-    position: relative;
-    animation: none;
-  }
-  
-  .features,
-  .app-preview {
-    padding: 4rem 1rem;
-  }
-  
+
   .features-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
-  .app-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .app-screen.secondary {
-    position: relative;
-    top: 0;
-    right: 0;
-    width: 80%;
-    margin: 1rem auto 0;
-  }
-  
-  .footer-content {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
-  
-  .footer-links {
-    order: -1;
-  }
-}
 
-/* Performance Optimizations */
-.floating-pill,
-.floating-element {
-  will-change: transform;
+  .features-demo,
+  .cta-section {
+    padding: 4rem 1rem;
+  }
+
+  .app-simulator {
+    padding: 1.5rem;
+  }
+
+  .progress-ring {
+    width: 150px;
+    height: 150px;
+  }
+
+  .count-number {
+    font-size: 2rem;
+  }
+
+  .tasbih-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .compass-ring {
+    width: 120px;
+    height: 120px;
+  }
+
+  .floating-nav {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    justify-content: space-between;
+  }
 }
 
 /* Accessibility */
@@ -637,4 +873,22 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .feature-widget {
+    border-color: #ffffff;
+  }
+  
+  .progress-ring circle {
+    stroke: #ffffff;
+  }
+}
+
+/* Performance optimizations */
+.progress-ring,
+.compass-needle,
+.tap-button {
+  will-change: transform;
 }

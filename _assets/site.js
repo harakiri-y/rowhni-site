@@ -331,60 +331,59 @@
     });
   }
 
-  // Professional Cursor with GSAP
-  function initGSAPCursor() {
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      const cursor = document.createElement('div');
-      const follower = document.createElement('div');
-      
-      cursor.classList.add('custom-cursor');
-      follower.classList.add('cursor-follower');
-      
-      document.body.appendChild(cursor);
-      document.body.appendChild(follower);
-      
-      let mouse = { x: 0, y: 0 };
-      let followerPos = { x: 0, y: 0 };
-      
-      // GSAP cursor movement
-      document.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-        
-        gsap.to(cursor, {
-          x: mouse.x,
-          y: mouse.y,
-          duration: 0.1,
-          ease: "power2.out"
-        });
-      });
-      
-      // Smooth follower with GSAP
-      gsap.ticker.add(() => {
-        const dt = 1.0 - Math.pow(1.0 - 0.18, gsap.ticker.deltaRatio());
-        followerPos.x += (mouse.x - followerPos.x) * dt;
-        followerPos.y += (mouse.y - followerPos.y) * dt;
-        
-        gsap.set(follower, {
-          x: followerPos.x,
-          y: followerPos.y
-        });
-      });
-      
-      // Hover animations
-      const hoverElements = 'a, button, .btn, .feature-card, .gallery-item';
-      document.querySelectorAll(hoverElements).forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          gsap.to(cursor, { scale: 1.5, duration: 0.3 });
-          gsap.to(follower, { scale: 1.8, duration: 0.3 });
-        });
-        
-        el.addEventListener('mouseleave', () => {
-          gsap.to(cursor, { scale: 1, duration: 0.3 });
-          gsap.to(follower, { scale: 1, duration: 0.3 });
-        });
-      });
+  // SIMPLE WORKING CURSOR
+  function initSimpleCursor() {
+    // Only on desktop
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      return;
     }
+
+    // Create cursor elements
+    const cursor = document.createElement('div');
+    const follower = document.createElement('div');
+    
+    cursor.className = 'custom-cursor';
+    follower.className = 'cursor-follower';
+    
+    // Add to body
+    document.body.appendChild(cursor);
+    document.body.appendChild(follower);
+    
+    // Log for debugging
+    console.log('✅ Custom cursor elements created and added to DOM');
+    console.log('Cursor:', cursor);
+    console.log('Follower:', follower);
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let followerX = 0;
+    let followerY = 0;
+    
+    // Track mouse movement
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      // Update cursor position immediately
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top = mouseY + 'px';
+    });
+    
+    // Animate follower with smooth delay
+    function animateFollower() {
+      const speed = 0.1;
+      followerX += (mouseX - followerX) * speed;
+      followerY += (mouseY - followerY) * speed;
+      
+      follower.style.left = followerX + 'px';
+      follower.style.top = followerY + 'px';
+      
+      requestAnimationFrame(animateFollower);
+    }
+    
+    animateFollower();
+    
+    console.log('✅ Cursor animation started');
   }
 
   // Dynamic Typography with GSAP Responsive Updates
@@ -750,7 +749,7 @@
     // Initialize professional GSAP animations (Stryds.com style)
     initGSAPAnimations();
     initGSAPScrollAnimations();
-    initGSAPCursor();
+    initSimpleCursor();
     initDynamicTypography();
     initAdvancedHoverAnimations();
     initTextRevealAnimations();

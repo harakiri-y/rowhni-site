@@ -28,6 +28,7 @@ class RowhniExperience {
         this.initializeNavigation();
         this.initializeMicroInteractions();
         this.initializeFloatingElements();
+        this.initializeDesignShowcase();
         this.optimizePerformance();
     }
 
@@ -154,6 +155,26 @@ class RowhniExperience {
                 });
             });
         }
+
+        // Typewriter effect for invitation text
+        const typewriterTexts = document.querySelectorAll('.typewriter-text');
+        typewriterTexts.forEach((text, index) => {
+            const originalText = text.getAttribute('data-text');
+            const delay = parseFloat(text.getAttribute('data-delay')) || 0;
+            
+            gsap.delayedCall(delay, () => {
+                let currentText = '';
+                const targetText = originalText;
+                const interval = setInterval(() => {
+                    if (currentText.length < targetText.length) {
+                        currentText += targetText[currentText.length];
+                        text.textContent = currentText;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 80);
+            });
+        });
 
         // Animate section titles on scroll
         gsap.utils.toArray('.section-title').forEach(title => {
@@ -566,57 +587,129 @@ class RowhniExperience {
     }
 
     initializeQuranProgress() {
-        const progressContainer = document.querySelector('.quran-progress-container');
-        if (!progressContainer) return;
+        const semicircleProgress = document.querySelector('.semicircle-progress');
+        if (!semicircleProgress) return;
 
         ScrollTrigger.create({
-            trigger: progressContainer,
+            trigger: semicircleProgress,
             start: "top 70%",
             onEnter: () => {
-                // Animate the circle progress
-                const progressFill = progressContainer.querySelector('.progress-fill');
-                if (progressFill) {
-                    gsap.fromTo(progressFill, 
-                        { strokeDashoffset: 502.4 },
+                // Animate the semicircle progress bar with elastic bounce
+                const semicircleBar = semicircleProgress.querySelector('.semicircle-bar');
+                if (semicircleBar) {
+                    const progress = parseInt(semicircleBar.getAttribute('data-progress')) || 50;
+                    const circumference = 377; // π * 120 (größerer Radius)
+                    const targetOffset = circumference - (circumference * progress / 100);
+                    
+                    gsap.fromTo(semicircleBar, 
+                        { strokeDashoffset: circumference },
                         {
-                            strokeDashoffset: 251.2,
-                            duration: 2.5,
-                            ease: "power2.out"
+                            strokeDashoffset: targetOffset,
+                            duration: 1.2,
+                            ease: "elastic.out(1, 0.5)"
                         }
                     );
                 }
 
-                // Animate progress center content
-                const progressMain = progressContainer.querySelector('.progress-main');
-                const progressTotal = progressContainer.querySelector('.progress-total');
-                const progressSurah = progressContainer.querySelector('.progress-surah');
+                // Animate progress center content with snappy counter
+                const currentJuz = semicircleProgress.querySelector('.current-juz');
+                const totalJuz = semicircleProgress.querySelector('.total-juz');
+                const quranLabel = semicircleProgress.querySelector('.quran-label');
+                const currentSurah = semicircleProgress.querySelector('.current-surah');
                 
-                if (progressMain) {
+                if (currentJuz) {
+                    const targetJuz = parseInt(currentJuz.textContent) || 15;
                     gsap.fromTo({ count: 0 },
-                        { count: 15 },
+                        { count: targetJuz },
                         {
-                            duration: 2.5,
-                            ease: "power2.out",
+                            duration: 0.8,
+                            ease: "power3.out",
                             onUpdate: function() {
-                                progressMain.textContent = Math.round(this.targets()[0].count);
+                                currentJuz.textContent = Math.round(this.targets()[0].count);
                             }
                         }
                     );
                 }
 
-                // Stagger animation for additional text
-                gsap.fromTo([progressTotal, progressSurah],
-                    { opacity: 0, y: 10 },
+                // Quick stagger animation for additional content
+                gsap.fromTo([quranLabel, currentSurah],
+                    { opacity: 0, y: 15, scale: 0.95 },
                     { 
                         opacity: 1, 
                         y: 0, 
-                        duration: 0.6,
-                        stagger: 0.2,
-                        delay: 1.5,
-                        ease: "power2.out" 
+                        scale: 1,
+                        duration: 0.4,
+                        stagger: 0.1,
+                        delay: 0.6,
+                        ease: "back.out(1.7)" 
                     }
                 );
+
+                // Fast animated reading stats with bounce
+                const statNumbers = semicircleProgress.parentElement.querySelectorAll('.stat-number');
+                statNumbers.forEach((stat, index) => {
+                    const targetValue = parseInt(stat.textContent.replace(/,/g, '')) || 0;
+                    gsap.fromTo({ count: 0 },
+                        { count: targetValue },
+                        {
+                            duration: 0.6,
+                            ease: "power2.out",
+                            delay: 0.8 + (index * 0.1),
+                            onUpdate: function() {
+                                const value = Math.round(this.targets()[0].count);
+                                stat.textContent = value.toLocaleString();
+                            }
+                        }
+                    );
+                    
+                    // Add bounce effect to stat cards
+                    gsap.fromTo(stat.parentElement,
+                        { scale: 0.8, opacity: 0 },
+                        { 
+                            scale: 1, 
+                            opacity: 1, 
+                            duration: 0.5, 
+                            delay: 0.8 + (index * 0.1),
+                            ease: "back.out(1.7)" 
+                        }
+                    );
+                });
             }
+        });
+
+        // Add snappy hover interactions for quran features
+        gsap.utils.toArray('.quran-feature').forEach((feature) => {
+            const icon = feature.querySelector('.icon-circle');
+            
+            feature.addEventListener('mouseenter', () => {
+                gsap.to(icon, {
+                    scale: 1.15,
+                    rotation: 8,
+                    duration: 0.2,
+                    ease: "power2.out"
+                });
+                
+                gsap.to(feature, {
+                    y: -3,
+                    duration: 0.2,
+                    ease: "power2.out"
+                });
+            });
+            
+            feature.addEventListener('mouseleave', () => {
+                gsap.to(icon, {
+                    scale: 1,
+                    rotation: 0,
+                    duration: 0.2,
+                    ease: "power2.out"
+                });
+                
+                gsap.to(feature, {
+                    y: 0,
+                    duration: 0.2,
+                    ease: "power2.out"
+                });
+            });
         });
     }
 
@@ -931,6 +1024,179 @@ class RowhniExperience {
         });
     }
 
+    initializeDesignShowcase() {
+        // iOS 26 Glass Design showcase animations
+        const designShowcase = document.querySelector('.design-showcase');
+        if (!designShowcase) return;
+
+        // Animate design features with stagger effect
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: '.design-showcase',
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse'
+            }
+        })
+        .from('.design-text .section-badge', {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.6,
+            ease: "back.out(1.7)"
+        })
+        .from('.design-text .section-title .title-line', {
+            opacity: 0,
+            y: 50,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power3.out"
+        }, '-=0.3')
+        .from('.design-text .section-subtitle', {
+            opacity: 0,
+            y: 30,
+            duration: 0.6,
+            ease: "power2.out"
+        }, '-=0.4')
+        .from('.design-feature', {
+            opacity: 0,
+            x: -50,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power3.out"
+        }, '-=0.2');
+
+        // Animate showcase device with glass effect
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: '.design-visual',
+                start: 'top 70%',
+                end: 'bottom 30%',
+                toggleActions: 'play none none reverse'
+            }
+        })
+        .from('.design-highlight', {
+            opacity: 0,
+            y: -20,
+            duration: 0.5,
+            ease: "power2.out"
+        })
+        .from('.showcase-device', {
+            opacity: 0,
+            scale: 0.9,
+            y: 30,
+            duration: 0.8,
+            ease: "power3.out"
+        }, '-=0.3')
+        .from('.glass-tabbar', {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: "power2.out"
+        }, '-=0.4');
+
+        // Animate tab bar items with stagger
+        gsap.from('.tab-item', {
+            scrollTrigger: {
+                trigger: '.glass-tabbar',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            opacity: 0,
+            scale: 0.8,
+            y: 10,
+            duration: 0.4,
+            stagger: 0.1,
+            ease: "back.out(1.7)",
+            delay: 0.3
+        });
+
+        // Add hover interactions for design features
+        gsap.utils.toArray('.design-feature').forEach((feature) => {
+            const icon = feature.querySelector('.design-feature-icon');
+            
+            feature.addEventListener('mouseenter', () => {
+                gsap.to(icon, {
+                    scale: 1.1,
+                    rotation: 5,
+                    duration: 0.3,
+                    ease: "back.out(1.7)"
+                });
+            });
+            
+            feature.addEventListener('mouseleave', () => {
+                gsap.to(icon, {
+                    scale: 1,
+                    rotation: 0,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+        });
+
+        // Glass morphism animation
+        const glassTabs = document.querySelectorAll('.tab-item');
+        glassTabs.forEach((tab, index) => {
+            if (tab.classList.contains('active')) {
+                // Animate active tab glow effect
+                gsap.timeline({ repeat: -1, yoyo: true })
+                    .to(tab, {
+                        background: 'rgba(244, 208, 63, 0.25)',
+                        duration: 2,
+                        ease: "power2.inOut"
+                    });
+            }
+        });
+
+        // Parallax effect for design showcase
+        gsap.to('.design-showcase::before', {
+            scrollTrigger: {
+                trigger: '.design-showcase',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1
+            },
+            y: -100,
+            ease: "none"
+        });
+
+        // New badge pulse animation
+        const newBadge = document.querySelector('.new-badge');
+        if (newBadge) {
+            gsap.timeline({ repeat: -1 })
+                .to(newBadge, {
+                    scale: 1.05,
+                    duration: 1.5,
+                    ease: "power2.inOut"
+                })
+                .to(newBadge, {
+                    scale: 1,
+                    duration: 1.5,
+                    ease: "power2.inOut"
+                });
+        }
+
+        // Glass effect hover interaction for showcase device
+        const showcaseDevice = document.querySelector('.showcase-device');
+        if (showcaseDevice) {
+            showcaseDevice.addEventListener('mouseenter', () => {
+                gsap.to('.glass-background', {
+                    opacity: 0.8,
+                    scale: 1.05,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            });
+            
+            showcaseDevice.addEventListener('mouseleave', () => {
+                gsap.to('.glass-background', {
+                    opacity: 0.6,
+                    scale: 1,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            });
+        }
+    }
 
     optimizePerformance() {
         // Refresh ScrollTrigger on resize

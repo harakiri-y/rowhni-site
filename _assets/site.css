@@ -1674,11 +1674,154 @@ section {
   animation-delay: 0.4s;
 }
 
-/* Progress Section - Redesigned */
+/* Progress Section - Dhikr Tracking */
 .progress-section {
-  padding: var(--space-3xl) 0;
-  background: var(--surface);
+  padding: var(--space-5xl) 0;
+  background: linear-gradient(135deg, rgba(27, 77, 62, 0.05) 0%, rgba(46, 107, 79, 0.05) 100%);
+}
+
+.progress-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
+.dhikr-progress {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-circle-svg {
+  width: 300px;
+  height: 300px;
+}
+
+.progress-track {
+  fill: none;
+  stroke: rgba(244, 208, 63, 0.2);
+  stroke-width: 12;
+}
+
+.progress-bar {
+  fill: none;
+  stroke: url(#progressGradient);
+  stroke-width: 12;
+  stroke-linecap: round;
+  stroke-dasharray: 754; /* 2π * 120 */
+  stroke-dashoffset: 754;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 2.5s var(--ease-smooth);
+}
+
+.progress-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #F4D03F;
+}
+
+.progress-stats {
+  margin-bottom: 8px;
+}
+
+.current-progress {
+  font-size: 48px;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.total-progress {
+  font-size: 24px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.progress-label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.daily-goal {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.progress-insights h3 {
+  color: #F4D03F;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.progress-insights > p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.insight-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.insight-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: rgba(27, 77, 62, 0.3);
+  border: 1px solid rgba(244, 208, 63, 0.2);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+}
+
+.insight-icon {
+  font-size: 20px;
+  min-width: 30px;
+}
+
+.insight-content h4 {
+  color: #F4D03F;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.insight-content p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .progress-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  
+  .progress-circle-svg {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .current-progress {
+    font-size: 36px;
+  }
+  
+  .insight-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 .progress-showcase {

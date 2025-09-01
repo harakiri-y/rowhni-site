@@ -26,7 +26,7 @@
         <a href="#features" class="nav-link" data-smooth-scroll>Features</a>
         <a href="#progress" class="nav-link" data-smooth-scroll>Progress</a>
         <a href="#community" class="nav-link" data-smooth-scroll>Community</a>
-        <a href="support" class="nav-link">Support</a>
+        <a href="support/" class="nav-link">Support</a>
       </div>
       <div class="nav-cta" data-animate>
         <a href="https://apps.apple.com/app/rowhni" class="btn-download magnetic-btn">Download</a>
@@ -38,13 +38,6 @@
   <!-- Hero Section -->
   <section class="hero" data-scroll-section>
     <div class="hero-background">
-      <div class="floating-pills">
-        <div class="pill pill-prayer" data-pill-text="Fajr 05:42"></div>
-        <div class="pill pill-dhikr" data-pill-text="67 SubhanAllah"></div>
-        <div class="pill pill-quran" data-pill-text="15/30 Juz"></div>
-        <div class="pill pill-assistant" data-pill-text="Ask Rowhni"></div>
-      </div>
-      
       <!-- Dynamic Islamic Shapes -->
       <div class="dynamic-shapes">
         <!-- Quran Progress Circle -->
@@ -287,98 +280,182 @@
     <div class="section-divider reverse"></div>
     <div class="container">
       <div class="section-header" data-animate-up>
-        <div class="section-badge">Progress Tracking</div>
-        <h2 class="section-title" data-split-text>
-          <span class="title-line">Track your</span>
-          <span class="title-line gradient-text">spiritual progress</span>
+        <h2 class="section-title">
+          <span class="title-line">Track Your</span>
+          <span class="title-line gradient-text">Dhikr Progress</span>
         </h2>
-        <p class="section-subtitle" data-animate-up data-delay="200">
-          Monitor your Quran reading, dhikr counting, and prayer consistency 
-          with beautiful, motivating progress visualizations.
+        <p class="section-subtitle">
+          Monitor your daily dhikr and tasbih counting with voice-powered tracking and personalized spiritual insights.
         </p>
       </div>
-
-      <div class="progress-showcase" data-progress-parallax>
-        <!-- Main Progress Visual -->
-        <div class="main-progress-card" data-animate-up data-delay="400">
-          <div class="progress-visual">
-            <div class="quran-progress-container">
-              <svg class="progress-circle" viewBox="0 0 200 200" data-circle-animate>
-                <circle class="progress-bg" cx="100" cy="100" r="80" stroke="#2D4535" stroke-width="8" fill="none"/>
-                <circle class="progress-fill" cx="100" cy="100" r="80" stroke="#F4D03F" stroke-width="8" fill="none" stroke-dasharray="502.4" stroke-dashoffset="251.2" data-progress="50"/>
-              </svg>
-              <div class="progress-center">
-                <div class="progress-main" data-counter="15">15</div>
-                <div class="progress-total">of 30 Juz</div>
-                <div class="progress-surah">Al-Kahf 45/110</div>
+      
+      <div class="progress-container">
+        <div class="progress-visual" data-animate-right>
+          <div class="dhikr-progress">
+            <svg class="progress-circle-svg" viewBox="0 0 300 300">
+              <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#F4D03F;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#52C41A;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <circle class="progress-track" cx="150" cy="150" r="120" />
+              <circle class="progress-bar" cx="150" cy="150" r="120" data-progress="73" />
+            </svg>
+            <div class="progress-center">
+              <div class="progress-stats">
+                <span class="current-progress">732</span>
+                <span class="total-progress">/ 1000</span>
               </div>
-            </div>
-          </div>
-          <div class="progress-details">
-            <h3>Quran Reading Progress</h3>
-            <div class="progress-pills" data-animate-stagger>
-              <div class="progress-pill">
-                <span class="pill-label">Daily Goal</span>
-                <span class="pill-value">2 Pages</span>
-              </div>
-              <div class="progress-pill">
-                <span class="pill-label">Streak</span>
-                <span class="pill-value">12 Days</span>
+              <div class="progress-label">Dhikr Today</div>
+              <div class="daily-goal">
+                <span>Daily Goal: 1000 dhikr</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Dhikr Progress Grid -->
-        <div class="dhikr-grid" data-animate-stagger data-delay="600">
-          <div class="dhikr-card">
-            <div class="dhikr-header">
-              <span class="dhikr-title">SubhanAllah</span>
-              <span class="dhikr-count" data-counter="33">33</span>
-            </div>
-            <div class="dhikr-progress-bar">
-              <div class="dhikr-progress-fill" data-progress="100"></div>
-            </div>
-          </div>
-          <div class="dhikr-card">
-            <div class="dhikr-header">
-              <span class="dhikr-title">Alhamdulillah</span>
-              <span class="dhikr-count" data-counter="33">33</span>
-            </div>
-            <div class="dhikr-progress-bar">
-              <div class="dhikr-progress-fill" data-progress="100"></div>
-            </div>
-          </div>
-          <div class="dhikr-card active">
-            <div class="dhikr-header">
-              <span class="dhikr-title">Allahu Akbar</span>
-              <span class="dhikr-count" data-counter="29">29</span>
-            </div>
-            <div class="dhikr-progress-bar">
-              <div class="dhikr-progress-fill" data-progress="85"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Prayer Consistency -->
-        <div class="prayer-consistency-card" data-animate-up data-delay="800">
-          <div class="consistency-header">
-            <h4>Prayer Consistency</h4>
-            <div class="consistency-percentage" data-counter="94">94%</div>
-          </div>
-          <div class="prayer-calendar">
-            <div class="calendar-days" data-animate-stagger>
-              <div class="day completed" data-animate-scale></div>
-              <div class="day completed" data-animate-scale></div>
-              <div class="day completed" data-animate-scale></div>
-              <div class="day completed" data-animate-scale></div>
-              <div class="day partial" data-animate-scale></div>
-              <div class="day completed" data-animate-scale></div>
-              <div class="day completed" data-animate-scale></div>
+        <div class="progress-details" data-animate-left>
+          <div class="progress-insights">
+            <h3>Your Dhikr Journey</h3>
+            <p>Excellent progress with your daily dhikr! Your voice-powered counting is helping build a strong spiritual routine.</p>
+            
+            <div class="insight-cards">
+              <div class="insight-card">
+                <div class="insight-icon">🎤</div>
+                <div class="insight-content">
+                  <h4>Voice Recognition</h4>
+                  <p>99.7% accuracy</p>
+                </div>
+              </div>
+              
+              <div class="insight-card">
+                <div class="insight-icon">⭐</div>
+                <div class="insight-content">
+                  <h4>Dhikr Streak</h4>
+                  <p>22 days in a row</p>
+                </div>
+              </div>
+              
+              <div class="insight-card">
+                <div class="insight-icon">⏱</div>
+                <div class="insight-content">
+                  <h4>Average Daily</h4>
+                  <p>847 dhikr per day</p>
+                </div>
+              </div>
+              
+              <div class="insight-card">
+                <div class="insight-icon">🎯</div>
+                <div class="insight-content">
+                  <h4>Weekly Goal</h4>
+                  <p>73% completed</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Quran Reading Progress -->
+  <section class="quran-reader-section" data-scroll-section>
+    <div class="container">
+      <div class="quran-content">
+        <div class="quran-text-content" data-animate-left>
+          <div class="section-header">
+            <h2 class="section-title">
+              <span class="title-line">Holy Quran</span>
+              <span class="title-line gradient-text">Reading Progress</span>
+            </h2>
+            <p class="section-subtitle">
+              Track your journey through the Holy Quran with intelligent progress monitoring and beautiful reading experience.
+            </p>
+          </div>
+          
+          <div class="quran-features">
+            <div class="quran-feature">
+              <div class="feature-icon">📖</div>
+              <div class="feature-text">
+                <h4>Smart Tracking</h4>
+                <p>Automatically tracks your reading progress through Juz, Surahs, and individual Ayahs</p>
+              </div>
+            </div>
+            
+            <div class="quran-feature">
+              <div class="feature-icon">🌍</div>
+              <div class="feature-text">
+                <h4>40+ Translations</h4>
+                <p>Word-by-word translations in multiple languages with audio recitations</p>
+              </div>
+            </div>
+            
+            <div class="quran-feature">
+              <div class="feature-icon">🎯</div>
+              <div class="feature-text">
+                <h4>Personalized Goals</h4>
+                <p>Set daily reading goals and receive AI-powered study recommendations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="quran-progress-visual" data-animate-right>
+          <div class="semicircle-progress">
+            <svg class="semicircle-svg" viewBox="0 0 200 120">
+              <defs>
+                <linearGradient id="quranGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#F4D03F;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#52C41A;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <path class="semicircle-track" 
+                    d="M 20 100 A 80 80 0 0 1 180 100" 
+                    stroke="rgba(244, 208, 63, 0.2)" 
+                    stroke-width="16" 
+                    fill="none" />
+              <path class="semicircle-bar" 
+                    d="M 20 100 A 80 80 0 0 1 180 100" 
+                    stroke="url(#quranGradient)" 
+                    stroke-width="16" 
+                    fill="none"
+                    stroke-linecap="round"
+                    data-progress="50" />
+            </svg>
+            <div class="semicircle-content">
+              <div class="quran-stats">
+                <span class="current-juz">15</span>
+                <span class="total-juz">/ 30</span>
+              </div>
+              <div class="quran-label">Juz Complete</div>
+              <div class="current-surah">
+                <span>Currently reading:</span>
+                <span class="surah-name">Al-Kahf (18)</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="reading-stats">
+            <div class="stat-item">
+              <span class="stat-number">127</span>
+              <span class="stat-label">Surahs Read</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2,847</span>
+              <span class="stat-label">Ayahs Completed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">18</span>
+              <span class="stat-label">Reading Streak</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-divider">
+      <div class="gradient-line"></div>
     </div>
   </section>
 
@@ -481,9 +558,9 @@
           </div>
           <div class="link-column">
             <h4>Support</h4>
-            <a href="support">Help Center</a>
-            <a href="privacy">Privacy Policy</a>
-            <a href="support">Contact</a>
+            <a href="support/">Help Center</a>
+            <a href="privacy/">Privacy Policy</a>
+            <a href="support/">Contact</a>
           </div>
           <div class="link-column">
             <h4>Community</h4>

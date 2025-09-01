@@ -269,128 +269,143 @@ p {
   align-items: center;
 }
 
-/* Prayer Times Container */
-.prayer-times-container {
+/* App Preview Container - Exact App Design */
+.app-preview-container {
   position: relative;
-  width: 500px;
+  width: 400px;
   height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.kaaba-center {
-  position: relative;
-  z-index: 10;
-}
-
-.kaaba-image {
-  width: 200px;
-  height: 200px;
-  object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Floating Prayer Cards */
-.prayer-card {
+/* Background Prayer Cards */
+.prayer-cards-background {
   position: absolute;
-  background: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Large Prayer Cards - Like App */
+.prayer-card-large {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-xl);
-  padding: var(--space-4);
-  min-width: 100px;
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  z-index: 5;
-}
-
-.prayer-card:hover {
-  transform: translateY(-4px) scale(1.05);
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(107, 139, 71, 0.4);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
-
-.prayer-card.current {
-  background: rgba(107, 139, 71, 0.2);
-  border-color: rgba(107, 139, 71, 0.5);
-  box-shadow: 0 8px 32px rgba(107, 139, 71, 0.2);
-}
-
-/* Positioning the 5 prayer cards in symmetric layout */
-.prayer-card.top {
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: cardFloat 4s ease-in-out infinite;
-  animation-delay: 0s;
-}
-
-.prayer-card.top-right {
-  top: 80px;
-  right: 40px;
-  animation: cardFloat 4s ease-in-out infinite;
-  animation-delay: 0.8s;
-}
-
-.prayer-card.bottom-right {
-  bottom: 80px;
-  right: 40px;
-  animation: cardFloat 4s ease-in-out infinite;
-  animation-delay: 1.6s;
-}
-
-.prayer-card.bottom-left {
-  bottom: 80px;
-  left: 40px;
-  animation: cardFloat 4s ease-in-out infinite;
-  animation-delay: 2.4s;
-}
-
-.prayer-card.top-left {
-  top: 80px;
-  left: 40px;
-  animation: cardFloat 4s ease-in-out infinite;
-  animation-delay: 3.2s;
-}
-
-/* Prayer card content */
-.prayer-info {
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.prayer-name {
-  font-size: var(--font-size-sm);
+/* Top Card */
+.top-card {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 80px;
+}
+
+/* Left Card - Current Prayer */
+.left-card {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 120px;
+}
+
+.left-card.current {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Right Card */
+.right-card {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 120px;
+}
+
+/* Bottom Left Card */
+.bottom-left-card {
+  bottom: 0;
+  left: 20%;
+  width: 80px;
+  height: 100px;
+}
+
+/* Bottom Right Card */
+.bottom-right-card {
+  bottom: 0;
+  right: 20%;
+  width: 80px;
+  height: 100px;
+}
+
+/* Card Content */
+.card-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.card-icon.current-prayer {
+  font-size: 28px;
+}
+
+.card-icon.orange {
+  filter: hue-rotate(25deg) brightness(1.2);
+}
+
+.card-label {
+  font-size: 12px;
   font-weight: 600;
   color: var(--text-primary);
-  opacity: 0.9;
+  margin-bottom: 4px;
 }
 
-.prayer-time {
-  font-size: var(--font-size-base);
+.card-time {
+  font-size: 14px;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--text-primary);
 }
 
-.current-indicator {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: var(--accent);
-  color: var(--text-primary);
-  font-size: 8px;
+.card-action {
+  font-size: 12px;
   font-weight: 600;
-  padding: 2px 6px;
-  border-radius: var(--radius-md);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.card-action.orange-bg {
+  background: rgba(255, 165, 0, 0.8);
+  color: white;
+}
+
+/* Kaaba in Foreground */
+.kaaba-foreground {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.kaaba-image-app {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+  animation: float 6s ease-in-out infinite;
 }
 
 .showcase-highlight {
@@ -764,14 +779,33 @@ p {
     order: -1;
   }
   
-  .prayer-times-container {
-    width: 400px;
-    height: 400px;
+  .app-preview-container {
+    width: 350px;
+    height: 450px;
   }
   
-  .kaaba-image {
-    width: 160px;
-    height: 160px;
+  .kaaba-image-app {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .prayer-card-large {
+    border-radius: 16px;
+  }
+  
+  .top-card {
+    width: 100px;
+    height: 70px;
+  }
+  
+  .left-card, .right-card {
+    width: 70px;
+    height: 100px;
+  }
+  
+  .bottom-left-card, .bottom-right-card {
+    width: 70px;
+    height: 80px;
   }
   
   .showcase-highlight {
@@ -851,27 +885,38 @@ p {
     padding: var(--space-20) 0 var(--space-12);
   }
   
-  .prayer-times-container {
-    width: 350px;
-    height: 350px;
+  .app-preview-container {
+    width: 320px;
+    height: 400px;
   }
   
-  .kaaba-image {
-    width: 120px;
-    height: 120px;
+  .kaaba-image-app {
+    width: 100px;
+    height: 100px;
   }
   
-  .prayer-card {
-    padding: var(--space-3);
-    min-width: 80px;
+  .top-card {
+    width: 90px;
+    height: 60px;
   }
   
-  .prayer-name {
-    font-size: var(--font-size-xs);
+  .left-card, .right-card {
+    width: 60px;
+    height: 90px;
   }
   
-  .prayer-time {
-    font-size: var(--font-size-sm);
+  .bottom-left-card, .bottom-right-card {
+    width: 60px;
+    height: 70px;
+  }
+  
+  .card-icon {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  
+  .card-time {
+    font-size: 12px;
   }
   
   .stats-grid {

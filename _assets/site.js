@@ -436,18 +436,24 @@ class RowhniExperience {
             }
         });
 
-        // Smooth scrolling for nav links
+        // Smooth scrolling for nav links (only for anchor links)
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
-                    gsap.to(window, {
-                        duration: 1.5,
-                        scrollTo: { y: target, offsetY: 80 },
-                        ease: "power2.inOut"
-                    });
+                const href = link.getAttribute('href');
+                
+                // Only prevent default and smooth scroll if it's an anchor link (starts with #)
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        gsap.to(window, {
+                            duration: 1.5,
+                            scrollTo: { y: target, offsetY: 80 },
+                            ease: "power2.inOut"
+                        });
+                    }
                 }
+                // For external links like support.html, let the browser handle them normally
             });
         });
     }

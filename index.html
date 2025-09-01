@@ -3,262 +3,192 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rowhni - Experience the App</title>
-  <meta name="description" content="Experience Rowhni's features directly in your browser. Interactive Tasbih counter, live prayer times, and Qibla compass.">
+  <title>Rowhni - Islamic Companion</title>
+  <meta name="description" content="Experience Rowhni's beautiful interface with animated prayer times and interactive Tasbih counter.">
   <link rel="stylesheet" href="_assets/site.css">
-  <link rel="icon" type="image/svg+xml" href="_assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="app-experience">
-    <!-- Hero Section with Live Demo -->
-    <section class="hero-demo">
-      <div class="hero-content">
-        <div class="hero-left">
-          <h1 class="hero-title">
-            Experience
-            <span class="hero-accent">Rowhni</span>
-            Live
-          </h1>
-          <p class="hero-description">
-            Try the most advanced Islamic companion directly in your browser. 
-            No download needed.
-          </p>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-number" id="totalDhikr">0</span>
-              <span class="stat-label">Total Dhikr</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number" id="activePrayers">5</span>
-              <span class="stat-label">Daily Prayers</span>
-            </div>
-          </div>
-        </div>
+  <!-- Navigation -->
+  <nav class="floating-nav">
+    <div class="nav-brand">
+      <img src="rowhni_logo_day.png" alt="Rowhni" class="nav-logo">
+      <span>Rowhni</span>
+    </div>
+    <a href="https://apps.apple.com/app/rowhni" class="nav-download">Download</a>
+  </nav>
 
-        <div class="hero-right">
-          <div class="app-simulator">
-            <!-- Interactive Tasbih Counter -->
-            <div class="tasbih-widget" id="tasbihWidget">
-              <div class="tasbih-header">
-                <h3>Digital Tasbih</h3>
-                <div class="dhikr-selector">
-                  <select id="dhikrSelect" class="dhikr-dropdown">
-                    <option value="subhanallah">SubhanAllah</option>
-                    <option value="alhamdulillah">Alhamdulillah</option>
-                    <option value="allahu-akbar">Allahu Akbar</option>
-                    <option value="la-ilaha-illallah">La ilaha illallah</option>
-                  </select>
-                </div>
-              </div>
+  <!-- Main Experience -->
+  <main class="app-experience">
+    
+    <!-- Hero Section with Kaaba & Prayer Times (Like ModernHomeView) -->
+    <section class="home-section" id="homeSection">
+      <div class="home-container">
+        
+        <!-- Kaaba Illustration with Animation -->
+        <div class="kaaba-container">
+          <div class="kaaba-illustration">
+            <svg viewBox="0 0 400 300" class="kaaba-svg">
+              <!-- Kaaba Base -->
+              <defs>
+                <linearGradient id="kaabaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#1a1a1a"/>
+                  <stop offset="100%" style="stop-color:#000000"/>
+                </linearGradient>
+                <pattern id="kaabaPattern" patternUnits="userSpaceOnUse" width="20" height="20">
+                  <rect width="20" height="20" fill="#000000"/>
+                  <path d="M2,2 L18,2 L18,18 L2,18 Z" fill="#B8860B" stroke="#DAA520" stroke-width="0.5"/>
+                </pattern>
+              </defs>
               
-              <div class="tasbih-counter">
-                <div class="progress-ring" id="progressRing">
-                  <svg viewBox="0 0 120 120">
-                    <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4"/>
-                    <circle id="progressCircle" cx="60" cy="60" r="54" fill="none" stroke="#00D4AA" stroke-width="4" stroke-dasharray="339.292" stroke-dashoffset="339.292" stroke-linecap="round"/>
-                  </svg>
-                  <div class="counter-display">
-                    <span id="currentCount" class="count-number">0</span>
-                    <span class="count-target">/ <span id="targetCount">33</span></span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="tasbih-controls">
-                <button id="tapButton" class="tap-button">
-                  <span class="button-text">Tap to Count</span>
-                  <div class="ripple-container"></div>
-                </button>
-                <button id="resetButton" class="reset-button">Reset</button>
-                <button id="voiceButton" class="voice-button" title="Voice Recognition (Demo)">
-                  🎤
-                </button>
-              </div>
-
-              <div class="dhikr-text">
-                <div class="arabic-text" id="arabicText">سُبْحَانَ اللّٰهِ</div>
-                <div class="transliteration" id="transliteration">SubhanAllah</div>
-                <div class="translation" id="translation">Glory be to Allah</div>
-              </div>
-            </div>
+              <!-- Kaaba Cube -->
+              <g class="kaaba-cube">
+                <rect x="150" y="120" width="100" height="80" fill="url(#kaabaGradient)" stroke="#DAA520" stroke-width="2"/>
+                <!-- Golden Band -->
+                <rect x="150" y="140" width="100" height="8" fill="#DAA520" opacity="0.8"/>
+                <rect x="150" y="170" width="100" height="8" fill="#DAA520" opacity="0.8"/>
+                <!-- Arabic Calligraphy Placeholder -->
+                <text x="200" y="165" text-anchor="middle" fill="#DAA520" font-size="12" font-family="serif">لا إله إلا الله</text>
+              </g>
+              
+              <!-- Pilgrims Circle (Animated) -->
+              <g class="pilgrims-circle">
+                <circle cx="200" cy="160" r="140" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <circle cx="200" y="160" r="120" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                <!-- Animated Dots for Pilgrims -->
+                <g class="pilgrim-dots">
+                  <circle class="pilgrim-dot" cx="340" cy="160" r="2" fill="#ffffff" opacity="0.6"/>
+                  <circle class="pilgrim-dot" cx="320" cy="120" r="1.5" fill="#ffffff" opacity="0.4"/>
+                  <circle class="pilgrim-dot" cx="280" cy="100" r="1" fill="#ffffff" opacity="0.3"/>
+                  <circle class="pilgrim-dot" cx="200" cy="90" r="1.5" fill="#ffffff" opacity="0.5"/>
+                  <circle class="pilgrim-dot" cx="120" cy="100" r="1" fill="#ffffff" opacity="0.3"/>
+                  <circle class="pilgrim-dot" cx="80" cy="120" r="1.5" fill="#ffffff" opacity="0.4"/>
+                  <circle class="pilgrim-dot" cx="60" cy="160" r="2" fill="#ffffff" opacity="0.6"/>
+                  <circle class="pilgrim-dot" cx="80" cy="200" r="1.5" fill="#ffffff" opacity="0.4"/>
+                  <circle class="pilgrim-dot" cx="120" cy="220" r="1" fill="#ffffff" opacity="0.3"/>
+                  <circle class="pilgrim-dot" cx="200" cy="230" r="1.5" fill="#ffffff" opacity="0.5"/>
+                  <circle class="pilgrim-dot" cx="280" cy="220" r="1" fill="#ffffff" opacity="0.3"/>
+                  <circle class="pilgrim-dot" cx="320" cy="200" r="1.5" fill="#ffffff" opacity="0.4"/>
+                </g>
+              </g>
+            </svg>
           </div>
         </div>
+
+        <!-- Glass Prayer Times Cards (Like ModernHomeView) -->
+        <div class="prayer-cards-container">
+          <div class="prayer-card fajr" data-prayer="fajr">
+            <div class="prayer-icon">🌅</div>
+            <div class="prayer-info">
+              <span class="prayer-name">Fajr</span>
+              <span class="prayer-time">05:24</span>
+            </div>
+            <div class="prayer-status"></div>
+          </div>
+
+          <div class="prayer-card dhuhr current" data-prayer="dhuhr">
+            <div class="prayer-icon">☀️</div>
+            <div class="prayer-info">
+              <span class="prayer-name">Dhuhr</span>
+              <span class="prayer-time">12:18</span>
+            </div>
+            <div class="prayer-status current-indicator">Current</div>
+          </div>
+
+          <div class="prayer-card asr" data-prayer="asr">
+            <div class="prayer-icon">🌤️</div>
+            <div class="prayer-info">
+              <span class="prayer-name">Asr</span>
+              <span class="prayer-time">15:42</span>
+            </div>
+            <div class="prayer-status">in 3h 24m</div>
+          </div>
+
+          <div class="prayer-card maghrib" data-prayer="maghrib">
+            <div class="prayer-icon">🌇</div>
+            <div class="prayer-info">
+              <span class="prayer-name">Maghrib</span>
+              <span class="prayer-time">18:35</span>
+            </div>
+            <div class="prayer-status">in 6h 17m</div>
+          </div>
+
+          <div class="prayer-card isha" data-prayer="isha">
+            <div class="prayer-icon">🌙</div>
+            <div class="prayer-info">
+              <span class="prayer-name">Isha</span>
+              <span class="prayer-time">20:12</span>
+            </div>
+            <div class="prayer-status">in 7h 54m</div>
+          </div>
+        </div>
+
+        <!-- Location Info -->
+        <div class="location-info">
+          <span class="location-text">📍 Berlin, Germany</span>
+          <span class="calculation-method">Muslim World League</span>
+        </div>
+
       </div>
     </section>
 
-    <!-- Interactive Features Section -->
-    <section class="features-demo">
-      <div class="features-container">
-        <h2 class="section-title">Try All Features</h2>
+    <!-- Tasbih Counter Section -->
+    <section class="tasbih-section" id="tasbihSection">
+      <div class="tasbih-container">
         
-        <div class="features-grid">
-          <!-- Prayer Times Widget -->
-          <div class="feature-widget prayer-widget" id="prayerWidget">
-            <div class="widget-header">
-              <h3>Prayer Times</h3>
-              <span class="location-indicator" id="locationText">Berlin, Germany</span>
-            </div>
-            
-            <div class="prayer-times-list">
-              <div class="prayer-item" data-prayer="fajr">
-                <div class="prayer-info">
-                  <span class="prayer-icon">🌅</span>
-                  <span class="prayer-name">Fajr</span>
-                </div>
-                <span class="prayer-time" id="fajrTime">05:24</span>
-                <div class="time-indicator" id="fajrIndicator"></div>
-              </div>
-              
-              <div class="prayer-item" data-prayer="dhuhr">
-                <div class="prayer-info">
-                  <span class="prayer-icon">☀️</span>
-                  <span class="prayer-name">Dhuhr</span>
-                </div>
-                <span class="prayer-time" id="dhuhrTime">12:18</span>
-                <div class="time-indicator" id="dhuhrIndicator"></div>
-              </div>
-              
-              <div class="prayer-item" data-prayer="asr">
-                <div class="prayer-info">
-                  <span class="prayer-icon">🌤️</span>
-                  <span class="prayer-name">Asr</span>
-                </div>
-                <span class="prayer-time" id="asrTime">15:42</span>
-                <div class="time-indicator" id="asrIndicator"></div>
-              </div>
-              
-              <div class="prayer-item" data-prayer="maghrib">
-                <div class="prayer-info">
-                  <span class="prayer-icon">🌇</span>
-                  <span class="prayer-name">Maghrib</span>
-                </div>
-                <span class="prayer-time" id="maghribTime">18:35</span>
-                <div class="time-indicator" id="maghribIndicator"></div>
-              </div>
-              
-              <div class="prayer-item" data-prayer="isha">
-                <div class="prayer-info">
-                  <span class="prayer-icon">🌙</span>
-                  <span class="prayer-name">Isha</span>
-                </div>
-                <span class="prayer-time" id="ishaTime">20:12</span>
-                <div class="time-indicator" id="ishaIndicator"></div>
-              </div>
-            </div>
-            
-            <div class="next-prayer-countdown">
-              <span class="countdown-label">Next Prayer:</span>
-              <span id="nextPrayerName">Maghrib</span>
-              <span id="nextPrayerCountdown">in 2h 15m</span>
-            </div>
+        <div class="section-header">
+          <h2>Digital Tasbih</h2>
+          <p>Experience voice-powered dhikr counting</p>
+        </div>
+
+        <!-- Interactive Tasbih Counter -->
+        <div class="tasbih-widget">
+          
+          <!-- Dhikr Selection -->
+          <div class="dhikr-selector">
+            <select id="dhikrSelect" class="dhikr-dropdown">
+              <option value="subhanallah">SubhanAllah</option>
+              <option value="alhamdulillah">Alhamdulillah</option>
+              <option value="allahu-akbar">Allahu Akbar</option>
+              <option value="la-ilaha-illallah">La ilaha illallah</option>
+            </select>
           </div>
 
-          <!-- Qibla Compass Widget -->
-          <div class="feature-widget qibla-widget" id="qiblaWidget">
-            <div class="widget-header">
-              <h3>Qibla Direction</h3>
-              <span class="direction-indicator" id="qiblaDirection">NE 42°</span>
-            </div>
-            
-            <div class="compass-container">
-              <div class="compass-ring">
-                <div class="compass-markers">
-                  <div class="marker north">N</div>
-                  <div class="marker east">E</div>
-                  <div class="marker south">S</div>
-                  <div class="marker west">W</div>
-                </div>
-                <div class="compass-needle" id="compassNeedle"></div>
-                <div class="qibla-indicator" id="qiblaIndicator">
-                  <div class="kaaba-icon">🕋</div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="compass-info">
-              <div class="distance-to-mecca">
-                <span class="distance-value" id="distanceValue">5,847</span>
-                <span class="distance-unit">km to Mecca</span>
-              </div>
-              <button class="calibrate-button" id="calibrateButton">
-                Calibrate Compass
-              </button>
-            </div>
-          </div>
-
-          <!-- Zakat Calculator Widget -->
-          <div class="feature-widget zakat-widget" id="zakatWidget">
-            <div class="widget-header">
-              <h3>Zakat Calculator</h3>
-              <span class="currency-selector">
-                <select id="currencySelect">
-                  <option value="EUR">EUR (€)</option>
-                  <option value="USD">USD ($)</option>
-                  <option value="GBP">GBP (£)</option>
-                </select>
-              </span>
-            </div>
-            
-            <div class="zakat-inputs">
-              <div class="input-group">
-                <label for="cashInput">Cash & Bank</label>
-                <input type="number" id="cashInput" placeholder="0" min="0" step="100">
-              </div>
-              <div class="input-group">
-                <label for="goldInput">Gold (grams)</label>
-                <input type="number" id="goldInput" placeholder="0" min="0" step="10">
-              </div>
-              <div class="input-group">
-                <label for="silverInput">Silver (grams)</label>
-                <input type="number" id="silverInput" placeholder="0" min="0" step="10">
-              </div>
-            </div>
-            
-            <div class="zakat-result">
-              <div class="zakat-amount">
-                <span class="amount-label">Zakat Due:</span>
-                <span id="zakatAmount" class="amount-value">€0</span>
-              </div>
-              <div class="nisab-status" id="nisabStatus">
-                Enter your assets to calculate
+          <!-- Progress Ring Counter -->
+          <div class="tasbih-counter">
+            <div class="progress-ring">
+              <svg viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+                <circle id="progressCircle" cx="100" cy="100" r="90" fill="none" stroke="#00D4AA" stroke-width="8" stroke-dasharray="565.48" stroke-dashoffset="565.48" stroke-linecap="round"/>
+              </svg>
+              <div class="counter-display">
+                <span id="currentCount" class="count-number">0</span>
+                <span class="count-target">/ <span id="targetCount">33</span></span>
               </div>
             </div>
           </div>
 
-          <!-- Hijri Calendar Widget -->
-          <div class="feature-widget hijri-widget" id="hijriWidget">
-            <div class="widget-header">
-              <h3>Islamic Calendar</h3>
-              <span class="calendar-toggle">
-                <button id="calendarToggle" class="toggle-button active">Hijri</button>
-              </span>
-            </div>
-            
-            <div class="hijri-display">
-              <div class="hijri-date">
-                <span class="hijri-day" id="hijriDay">15</span>
-                <span class="hijri-month" id="hijriMonth">Muharram</span>
-                <span class="hijri-year" id="hijriYear">1446</span>
-              </div>
-              <div class="gregorian-date" id="gregorianDate">
-                September 1, 2025
-              </div>
-            </div>
-            
-            <div class="islamic-events">
-              <div class="event-item">
-                <span class="event-date">10 Muharram</span>
-                <span class="event-name">Day of Ashura</span>
-              </div>
-              <div class="event-item upcoming">
-                <span class="event-date">12 Rabi' al-Awwal</span>
-                <span class="event-name">Mawlid al-Nabi</span>
-              </div>
-            </div>
+          <!-- Dhikr Text -->
+          <div class="dhikr-text">
+            <div class="arabic-text" id="arabicText">سُبْحَانَ اللّٰهِ</div>
+            <div class="transliteration" id="transliteration">SubhanAllah</div>
+            <div class="translation" id="translation">Glory be to Allah</div>
           </div>
+
+          <!-- Controls -->
+          <div class="tasbih-controls">
+            <button id="tapButton" class="tap-button">
+              <span class="button-text">Tap to Count</span>
+              <div class="ripple-container"></div>
+            </button>
+            <button id="voiceButton" class="voice-button" title="Voice Recognition">
+              🎤 Voice Mode
+            </button>
+            <button id="resetButton" class="reset-button">Reset</button>
+          </div>
+
         </div>
       </div>
     </section>
@@ -266,24 +196,16 @@
     <!-- Call to Action -->
     <section class="cta-section">
       <div class="cta-content">
-        <h2>Get the Full Experience</h2>
-        <p>This is just a preview. Download Rowhni for the complete Islamic companion with voice recognition, offline support, and much more.</p>
-        <a href="https://apps.apple.com/app/rowhni" class="download-button" target="_blank" rel="noopener">
+        <h2>Get the Full Rowhni Experience</h2>
+        <p>This is just a preview. Download the complete Islamic companion with advanced features.</p>
+        <a href="https://apps.apple.com/app/rowhni" class="download-button">
           <span class="download-text">Download for iOS</span>
           <span class="download-subtitle">Free with Pro features</span>
         </a>
       </div>
     </section>
 
-    <!-- Navigation (Minimal) -->
-    <nav class="floating-nav">
-      <div class="nav-brand">
-        <img src="rowhni_logo_day.png" alt="Rowhni" class="nav-logo">
-        <span>Rowhni</span>
-      </div>
-      <a href="#cta" class="nav-download">Download</a>
-    </nav>
-  </div>
+  </main>
 
   <script src="_assets/site.js"></script>
 </body>

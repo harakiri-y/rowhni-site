@@ -133,7 +133,7 @@ body {
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
+  cursor: auto;
 }
 
 /* Enhanced Typography for Support and Privacy Pages */
@@ -446,7 +446,7 @@ a:hover {
   font-size: 15px;
   text-decoration: none;
   border: 3px solid transparent;
-  cursor: none;
+  cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: all 0.4s var(--ease-smooth);
@@ -4254,7 +4254,7 @@ button:focus {
 }
 
 .cursor-none {
-  cursor: none;
+  cursor: pointer;
 }
 
 /* Image Optimization */

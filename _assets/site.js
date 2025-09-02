@@ -859,23 +859,15 @@ class RowhniExperience {
     }
 
     initializeTextAnimations() {
-        // Split text for hero title
+        // Ensure text is visible immediately - remove destructive text splitting
         const heroTitle = document.querySelector('.hero-title');
         if (heroTitle) {
-            const lines = heroTitle.querySelectorAll('.title-line');
+            const lines = heroTitle.querySelectorAll('.title-line-primary, .title-line-gradient');
             
+            // Make sure text is immediately visible
             lines.forEach(line => {
-                const text = line.textContent;
-                line.innerHTML = '';
-                
-                [...text].forEach(char => {
-                    const span = document.createElement('span');
-                    span.textContent = char === ' ' ? '\u00A0' : char;
-                    span.style.display = 'inline-block';
-                    span.style.transform = 'translateY(100px)';
-                    span.style.opacity = '0';
-                    line.appendChild(span);
-                });
+                line.style.opacity = '1';
+                line.style.transform = 'translateY(0)';
             });
         }
 

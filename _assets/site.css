@@ -2529,10 +2529,15 @@ section {
   color: #FFED4E !important;
   font-weight: 700;
   position: relative;
-  text-shadow: none; /* remove glow to prevent blurry rendering */
+  text-shadow: none; /* keep crisp */
+  /* OVERRIDES to counter parent gradient text */
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #FFED4E !important; /* force visible fill */
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
 .subtitle-highlight::after {

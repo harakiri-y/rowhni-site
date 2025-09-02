@@ -2059,6 +2059,193 @@ section {
   }
 }
 
+/* Professional Support & Privacy Page Styles */
+.important-notice {
+  background: rgba(244, 208, 63, 0.1);
+  border: 1px solid rgba(244, 208, 63, 0.3);
+  border-radius: var(--border-radius-large);
+  padding: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.important-notice p {
+  margin: 0;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.legal-notice {
+  background: rgba(27, 77, 62, 0.1);
+  border: 1px solid rgba(27, 77, 62, 0.3);
+  border-radius: var(--border-radius-medium);
+  padding: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.legal-notice p {
+  margin-bottom: var(--space-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.legal-notice ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: var(--space-sm) 0;
+}
+
+.legal-notice li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-xs);
+  color: var(--text-secondary);
+}
+
+.legal-notice li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.exercise-right {
+  background: rgba(82, 196, 26, 0.1);
+  color: var(--secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-small);
+  margin-top: var(--space-sm);
+  border-left: 3px solid var(--secondary);
+}
+
+.legal-basis {
+  display: block;
+  background: rgba(27, 77, 62, 0.2);
+  color: var(--primary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-small);
+  margin-top: var(--space-sm);
+}
+
+.support-item ul, .purpose-item ul, .service-item ul, .transfer-item ul, .retention-item ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: var(--space-sm) 0;
+}
+
+.support-item li, .purpose-item li, .service-item li, .transfer-item li, .retention-item li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-xs);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.support-item li::before, .purpose-item li::before, .service-item li::before, .transfer-item li::before, .retention-item li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.faq-answer ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: var(--space-sm) 0;
+}
+
+.faq-answer li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-xs);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.faq-answer li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.contact-card {
+  background: var(--gradient-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-large);
+  padding: var(--space-xl);
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(244, 208, 63, 0.4);
+  box-shadow: var(--shadow-medium);
+}
+
+.contact-card h3 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+  line-height: 1.3;
+}
+
+.contact-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-sm);
+}
+
+.contact-card strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Enhanced Right Cards */
+.right-card {
+  background: var(--gradient-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-large);
+  padding: var(--space-lg);
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.right-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244, 208, 63, 0.3);
+  box-shadow: var(--shadow-small);
+}
+
+.right-card h4 {
+  color: var(--text);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  line-height: 1.4;
+}
+
+.right-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-sm);
+}
+
 /* Progress Section - Dhikr Tracking */
 .progress-section {
   padding: var(--space-5xl) 0;

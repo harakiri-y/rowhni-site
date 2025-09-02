@@ -864,61 +864,18 @@ class RowhniExperience {
     }
 
     initializeTextAnimations() {
-        // Ensure text is visible immediately - remove destructive text splitting
-        const heroTitle = document.querySelector('.hero-title');
-        if (heroTitle) {
-            const lines = heroTitle.querySelectorAll('.title-line-primary, .title-line-gradient');
-            
-            // Make sure text is immediately visible
-            lines.forEach(line => {
-                line.style.opacity = '1';
-                line.style.transform = 'translateY(0)';
-            });
-        }
-
-        // Typewriter effect for invitation text
-        const typewriterTexts = document.querySelectorAll('.typewriter-text');
-        typewriterTexts.forEach((text, index) => {
-            const originalText = text.getAttribute('data-text');
-            const delay = parseFloat(text.getAttribute('data-delay')) || 0;
-            
-            gsap.delayedCall(delay, () => {
-                let currentText = '';
-                const targetText = originalText;
-                const interval = setInterval(() => {
-                    if (currentText.length < targetText.length) {
-                        currentText += targetText[currentText.length];
-                        text.textContent = currentText;
-                    } else {
-                        clearInterval(interval);
-                    }
-                }, 80);
-            });
+        // DISABLED - Text animations were breaking the display
+        console.log('📝 Text animations disabled to prevent text destruction');
+        
+        // Ensure all text elements are immediately visible
+        const textElements = document.querySelectorAll('.hero-title, .hero-subtitle, .title-line-primary, .title-line-gradient, .subtitle-highlight');
+        textElements.forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+            el.style.visibility = 'visible';
         });
-
-        // Animate section titles on scroll
-        gsap.utils.toArray('.section-title').forEach(title => {
-            ScrollTrigger.create({
-                trigger: title,
-                start: "top 85%",
-                onEnter: () => {
-                    const words = title.textContent.split(' ');
-                    title.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
-                    
-                    gsap.fromTo(title.querySelectorAll('.word'), 
-                        { opacity: 0, y: 50, rotationX: 90 },
-                        { 
-                            opacity: 1, 
-                            y: 0, 
-                            rotationX: 0,
-                            duration: 0.8,
-                            stagger: 0.1,
-                            ease: "back.out(1.7)" 
-                        }
-                    );
-                }
-            });
-        });
+        
+        console.log('✅ All text elements are now visible without destructive animations');
     }
 
     initializeScrollAnimations() {

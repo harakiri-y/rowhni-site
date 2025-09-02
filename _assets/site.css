@@ -2526,10 +2526,10 @@ section {
 }
 
 .subtitle-highlight {
-  color: #F4D03F !important;
-  font-weight: 600;
+  color: #FFED4E !important;
+  font-weight: 700;
   position: relative;
-  text-shadow: 0 0 4px rgba(244, 208, 63, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 8px rgba(255, 237, 78, 0.6);
 }
 
 .subtitle-highlight::after {

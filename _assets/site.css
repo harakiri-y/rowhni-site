@@ -433,13 +433,13 @@ a:hover {
   filter: blur(1px);
 }
 
-/* Button System - Ultra High Visibility */
+/* Button System - Mobile-First Touch Optimized */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-xs);
-  padding: 14px 24px;
+  padding: 16px 28px;
   border-radius: var(--border-radius-pill);
   font-family: var(--font-primary);
   font-weight: 700;
@@ -453,7 +453,9 @@ a:hover {
   z-index: 10;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  min-height: 48px;
+  min-height: 56px; /* Increased for better touch targets */
+  touch-action: manipulation; /* Prevents 300ms click delay on mobile */
+  -webkit-tap-highlight-color: transparent; /* Remove iOS blue highlight */
 }
 
 .btn-primary,
@@ -465,7 +467,7 @@ a:hover {
   border-radius: 50px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: var(--space-md) var(--space-2xl);
+  padding: var(--space-lg) var(--space-2xl);
   box-shadow: 
     0 0 40px rgba(244, 208, 63, 0.6),
     0 0 60px rgba(244, 208, 63, 0.4),
@@ -473,10 +475,12 @@ a:hover {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: visible;
-  min-height: 56px;
+  min-height: 64px; /* Increased for mobile touch targets */
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-primary::before,
@@ -3792,9 +3796,11 @@ section {
   }
 }
 
+/* Mobile Navigation - Touch Optimized */
 @media (max-width: 768px) {
   .nav-container {
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-lg);
+    height: 70px; /* Increased touch area */
   }
   
   .nav-links {
@@ -3802,16 +3808,51 @@ section {
   }
   
   .nav-brand {
-    gap: var(--space-sm);
+    gap: var(--space-md);
+    padding: var(--space-sm);
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .nav-brand:active {
+    background-color: rgba(244, 208, 63, 0.1);
   }
   
   .nav-logo {
-    width: 28px;
-    height: 28px;
+    width: 36px; /* Larger for better visibility */
+    height: 36px;
   }
   
   .nav-title {
-    font-size: var(--font-size-lg);
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  /* Mobile Download Button - Larger Touch Target */
+  .nav-actions .btn-download {
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  
+  /* Mobile Theme Toggle - Larger Touch Area */
+  .theme-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    padding: var(--space-sm);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .theme-toggle:active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(0.95);
   }
 }
 
@@ -3834,16 +3875,34 @@ section {
   }
 }
 
+/* Mobile Hero - Touch-First Design */
 @media (max-width: 768px) {
   .hero-container {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: var(--space-2xl);
     text-align: center;
-    padding: var(--space-xl) var(--space-md);
+    padding: var(--space-2xl) var(--space-lg);
+    min-height: calc(100vh - 70px); /* Account for nav height */
+  }
+  
+  .hero-content {
+    padding-top: var(--space-xl);
+  }
+  
+  /* Mobile Title Optimization */
+  .title-line-primary,
+  .title-line-gradient {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: var(--space-sm);
   }
   
   .hero-subtitle {
     max-width: 100%;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: var(--space-2xl);
+    padding: 0 var(--space-md);
   }
   
   .hero-invitation {
@@ -3851,47 +3910,96 @@ section {
     margin-bottom: var(--space-2xl);
   }
   
-  .typewriter-text {
-    font-size: var(--font-size-4xl);
+  /* Mobile CTA Buttons - Larger Touch Targets */
+  .hero-cta-section {
+    margin: var(--space-2xl) 0;
   }
   
-  .scroll-hint {
-    margin-top: var(--space-lg);
+  .btn-hero-primary {
+    min-height: 64px;
+    padding: 18px 32px;
+    font-size: 16px;
+    font-weight: 800;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto var(--space-lg) auto;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
   
-  .btn-primary {
-    padding: var(--space-md) var(--space-xl);
-    font-size: var(--font-size-base);
+  .btn-hero-primary:active {
+    transform: scale(0.98);
   }
   
-  .hero-stats {
-    justify-content: center;
-    gap: var(--space-lg);
-  }
-  
-  .hero-trust {
-    justify-content: center;
+  /* Trust Signals - Mobile Optimized */
+  .hero-trust-signal {
+    flex-direction: column;
     gap: var(--space-md);
+    margin-bottom: var(--space-xl);
   }
   
+  .trust-badge {
+    padding: var(--space-md) var(--space-lg);
+    font-size: 14px;
+    border-radius: 30px;
+    min-height: 44px;
+  }
+  
+  .trust-rating {
+    font-size: 16px;
+  }
+  
+  /* Benefits - Touch Friendly */
+  .hero-benefits {
+    flex-direction: column;
+    gap: var(--space-md);
+    margin: var(--space-xl) auto;
+    max-width: 280px;
+  }
+  
+  .benefit-item {
+    padding: var(--space-md);
+    background: rgba(244, 208, 63, 0.1);
+    border-radius: 16px;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+  
+  /* Mobile App Showcase */
   .app-showcase {
-    height: 400px;
+    height: 350px;
+    margin-top: var(--space-xl);
   }
   
   .main-mockup {
-    width: 200px;
+    width: 220px;
     position: relative;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   }
   
-  .secondary-mockup {
-    display: none;
-  }
-  
+  .secondary-mockup,
   .floating-pills {
     display: none;
+  }
+  
+  /* iOS 18 Requirement Badge - Prominent on Mobile */
+  .ios-requirement-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    color: white;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin: var(--space-md) 0;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
   }
 }
 
@@ -5494,19 +5602,110 @@ img {
   }
 }
 
-/* Additional Mobile Optimizations */
+/* Mobile Performance Optimizations */
 @media (max-width: 768px) {
+  /* Disable heavy animations on mobile */
+  .floating-pills,
+  .floating-elements,
+  [data-parallax] {
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  /* Simplified shadows for better performance */
+  .btn-primary,
+  .btn-download {
+    box-shadow: 0 4px 15px rgba(244, 208, 63, 0.3);
+  }
+  
+  /* Reduce blur effects on mobile */
+  .nav {
+    backdrop-filter: blur(10px);
+  }
+  
+  .chatbot-window {
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Touch-optimized feature blocks */
   .feature-benefits {
-    gap: var(--space-sm);
+    gap: var(--space-md);
+    padding: var(--space-md);
   }
   
   .benefit-check {
-    padding: var(--space-sm);
-    font-size: 0.9rem;
+    padding: var(--space-md);
+    font-size: 14px;
     text-align: left;
+    min-height: 48px;
+    border-radius: 12px;
+    background: rgba(244, 208, 63, 0.05);
+    transition: background-color 0.2s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
   
-  /* Section Headers Mobile */
+  .benefit-check:active {
+    background: rgba(244, 208, 63, 0.1);
+  }
+  
+  /* Mobile-optimized quick buttons */
+  .quick-btn {
+    min-height: 44px;
+    padding: 12px 16px;
+    font-size: 13px;
+    margin: 4px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .quick-btn:active {
+    transform: scale(0.95);
+  }
+  
+  /* Improved mobile scrolling */
+  .chatbot-messages {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Mobile viewport optimizations */
+  .hero-container {
+    min-height: 100svh; /* Use small viewport height for mobile */
+  }
+  
+  /* Prevent zoom on inputs */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 8px;
+  }
+  
+  /* Mobile-friendly focus states */
+  button:focus,
+  a:focus,
+  input:focus {
+    outline: 3px solid rgba(244, 208, 63, 0.6);
+    outline-offset: 2px;
+  }
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Section Headers Mobile */
+@media (max-width: 768px) {
   .section-title-hero {
     font-size: clamp(2.2rem, 9vw, 3.5rem);
     text-align: center;

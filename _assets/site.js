@@ -766,14 +766,16 @@ class RowhniExperience {
         gsap.set("body", { opacity: 1 });
         document.body.classList.remove('loading');
 
-        // Set initial states for hero animations
-        gsap.set(".hero-badge", { opacity: 0, y: 30 });
-        gsap.set(".hero-title .title-line", { opacity: 0, y: 100 });
-        gsap.set(".hero-subtitle", { opacity: 0, y: 50 });
-        gsap.set(".hero-actions", { opacity: 0, y: 40 });
-        gsap.set(".hero-stats .stat", { opacity: 0, y: 30, scale: 0.8 });
-        gsap.set(".app-showcase", { opacity: 0, x: 100, rotationY: 15 });
-        gsap.set(".floating-pills .pill", { opacity: 0, scale: 0, rotation: "random(-15, 15)" });
+        // DISABLED - Set initial states for hero animations (was hiding text)
+        // gsap.set(".hero-badge", { opacity: 0, y: 30 });
+        // gsap.set(".hero-title .title-line", { opacity: 0, y: 100 });
+        // gsap.set(".hero-subtitle", { opacity: 0, y: 50 }); // ← This was hiding the text!
+        // gsap.set(".hero-actions", { opacity: 0, y: 40 });
+        // gsap.set(".hero-stats .stat", { opacity: 0, y: 30, scale: 0.8 });
+        // gsap.set(".app-showcase", { opacity: 0, x: 100, rotationY: 15 });
+        // gsap.set(".floating-pills .pill", { opacity: 0, scale: 0, rotation: "random(-15, 15)" });
+        
+        console.log('🚫 GSAP initial states disabled - text should be visible now');
 
         // Set initial states for sections
         gsap.set("[data-animate-up]", { opacity: 0, y: 60 });
@@ -870,10 +872,20 @@ class RowhniExperience {
         // Ensure all text elements are immediately visible
         const textElements = document.querySelectorAll('.hero-title, .hero-subtitle, .title-line-primary, .title-line-gradient, .subtitle-highlight');
         textElements.forEach(el => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-            el.style.visibility = 'visible';
+            el.style.opacity = '1 !important';
+            el.style.transform = 'translateY(0) !important';
+            el.style.visibility = 'visible !important';
+            el.style.display = 'inline !important';
+            console.log('🔍 Fixed element:', el.className, el.textContent);
         });
+        
+        // Also fix the hero subtitle paragraph specifically
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        if (heroSubtitle) {
+            heroSubtitle.style.opacity = '1 !important';
+            heroSubtitle.style.visibility = 'visible !important';
+            console.log('🔍 Hero subtitle content:', heroSubtitle.innerHTML);
+        }
         
         console.log('✅ All text elements are now visible without destructive animations');
     }

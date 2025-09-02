@@ -5,21 +5,354 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rowhni - Your Complete Islamic Companion</title>
   <meta name="description" content="Voice-powered Tasbih counting, precise prayer times, Quran progress tracking, and comprehensive Islamic guidance. Experience the future of Islamic practice.">
+  
+  <!-- Favicon and Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png">
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#1B4D3E">
+  <meta name="msapplication-TileColor" content="#1B4D3E">
+  <meta name="msapplication-config" content="browserconfig.xml">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rowhni - Your Complete Islamic Companion">
+  <meta property="og:description" content="Voice-powered Tasbih counting, precise prayer times, Quran progress tracking, and comprehensive Islamic guidance. Experience the future of Islamic practice.">
+  <meta property="og:url" content="https://rowhni.com">
+  <meta property="og:site_name" content="Rowhni">
+  <meta property="og:image" content="https://rowhni.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Rowhni Islamic App - Voice Tasbih, Prayer Times, Quran Progress">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rowhni - Your Complete Islamic Companion">
+  <meta name="twitter:description" content="Voice-powered Tasbih counting, precise prayer times, Quran progress tracking, and comprehensive Islamic guidance. Experience the future of Islamic practice.">
+  <meta name="twitter:image" content="https://rowhni.com/images/twitter-card.jpg">
+  <meta name="twitter:image:alt" content="Rowhni Islamic App - Voice Tasbih, Prayer Times, Quran Progress">
+  <meta name="twitter:creator" content="@rowhniapp">
+  <meta name="twitter:site" content="@rowhniapp">
+  
+  <!-- Additional Meta Tags -->
+  <meta name="keywords" content="Islamic app, Tasbih counter, Prayer times, Quran tracker, Voice dhikr, Muslim app, Islamic companion, Prayer reminder, Quran progress, Islamic guidance">
+  <meta name="author" content="Rowhni Team">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://rowhni.com">
+  
+  <!-- Apple-specific Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Rowhni">
+  
+  <!-- Microsoft-specific Meta Tags -->
+  <meta name="msapplication-navbutton-color" content="#1B4D3E">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="msapplication-tooltip" content="Rowhni - Islamic Companion App">
   <link rel="stylesheet" href="_assets/site.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Resource Hints for Performance -->
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="//apps.apple.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="_assets/site.css" as="style">
+  <link rel="preload" href="_assets/site.js" as="script">
+  <link rel="preload" href="rowhni_logo_day.png" as="image" type="image/png">
+  <link rel="preload" href="Screenshots/image1.jpg" as="image" type="image/jpeg">
+  
+  <!-- Preload Critical Fonts -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/spacegrotesk/v13/V8mQQoyDLAp5cP2D2lNP65C3E0-sJp4S.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v32/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDPYA.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Prefetch Next-page Resources -->
+  <link rel="prefetch" href="support/">
+  <link rel="prefetch" href="privacy/">
+  <link rel="prefetch" href="Screenshots/image2.jpg">
+  <link rel="prefetch" href="Screenshots/image3.jpg">
+  <link rel="prefetch" href="Screenshots/image4.jpg">
+  
+  <!-- Critical CSS Inline for LCP Optimization -->
+  <style>
+    /* Critical Above-the-fold CSS */
+    :root {
+      --primary: #1B4D3E;
+      --accent: #F4D03F;
+      --secondary: #52C41A;
+      --background: #0A0F0C;
+      --surface: #1A2E22;
+      --text: #FFFFFF;
+      --text-secondary: #9DB89D;
+      --font-primary: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --space-xs: 0.5rem;
+      --space-sm: 0.75rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      --space-4xl: 6rem;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background: var(--background);
+      color: var(--text);
+      font-family: var(--font-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+    }
+    
+    /* Critical Navigation Styles */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 15, 12, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(77, 138, 104, 0.1);
+      transition: all 0.3s var(--ease-smooth);
+    }
+    
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+    }
+    
+    .nav-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+    
+    /* Critical Hero Styles */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at center, rgba(27, 77, 62, 0.1) 0%, transparent 70%);
+      z-index: -1;
+    }
+    
+    .hero-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: center;
+      width: 100%;
+    }
+    
+    .hero-content {
+      max-width: 640px;
+    }
+    
+    .hero-trust-signal {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-2xl);
+      opacity: 0;
+    }
+    
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(244, 208, 63, 0.15);
+      border: 1px solid rgba(244, 208, 63, 0.4);
+      border-radius: 24px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    .title-line-primary {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 9vw, 5.5rem);
+      font-weight: 300;
+      line-height: 0.85;
+      color: var(--text);
+      opacity: 0;
+      display: block;
+    }
+    
+    .title-line-gradient {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 9vw, 5.5rem);
+      font-weight: 800;
+      line-height: 0.85;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 50%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      display: block;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+    
+    .hero-subtitle-wrapper {
+      max-width: 620px;
+      margin-bottom: var(--space-2xl);
+      opacity: 0;
+    }
+    
+    .subtitle-highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    /* Prevent layout shift */
+    .app-showcase {
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .mockup-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 24px;
+    }
+    
+    /* Mobile Critical Styles */
+    @media (max-width: 768px) {
+      .nav-container { padding: 0 var(--space-md); height: 70px; }
+      .nav-logo { width: 32px; height: 32px; }
+      .hero-container { 
+        grid-template-columns: 1fr; 
+        gap: var(--space-2xl);
+        text-align: center;
+        padding: 0 var(--space-md);
+      }
+      .hero-trust-signal {
+        flex-direction: column;
+        gap: var(--space-md);
+        align-items: center;
+      }
+      .title-line-primary,
+      .title-line-gradient {
+        font-size: clamp(2.2rem, 10vw, 4rem);
+      }
+    }
+  </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  
+  <!-- Structured Data for App -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Rowhni",
+    "description": "Voice-powered Tasbih counting, precise prayer times, Quran progress tracking, and comprehensive Islamic guidance. Experience the future of Islamic practice.",
+    "url": "https://rowhni.com",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "iOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "12847",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Rowhni Team"
+    },
+    "downloadUrl": "https://apps.apple.com/app/rowhni",
+    "screenshot": [
+      "https://rowhni.com/Screenshots/image1.jpg",
+      "https://rowhni.com/Screenshots/image2.jpg",
+      "https://rowhni.com/Screenshots/image3.jpg",
+      "https://rowhni.com/Screenshots/image4.jpg"
+    ],
+    "featureList": [
+      "Voice-powered Dhikr counting with 99.7% accuracy",
+      "Precise prayer times with ±1min accuracy",
+      "Quran progress tracking with 40+ translations",
+      "AI Islamic assistant for guidance",
+      "100% on-device privacy protection",
+      "iOS 26 Glass Design interface"
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Navigation -->
   <nav class="nav" data-scroll>
     <div class="nav-container">
       <div class="nav-brand" data-animate>
-        <img src="rowhni_logo_day.png" alt="Rowhni" class="nav-logo">
+        <img src="rowhni_logo_day.png" alt="Rowhni" class="nav-logo" loading="eager">
         <span class="nav-title">Rowhni</span>
       </div>
       <div class="nav-links" data-animate-stagger>
@@ -28,8 +361,26 @@
         <a href="#community" class="nav-link" data-smooth-scroll>Community</a>
         <a href="support/" class="nav-link">Support</a>
       </div>
-      <div class="nav-cta" data-animate>
+      <div class="nav-actions" data-animate>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+          <div class="theme-toggle-track">
+            <div class="theme-toggle-thumb">
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <path d="m12 7-1-1m0-2v-2m0 16v-2m0-2l1-1m3-8l1-1m-2 0h2m-16 0h2m3 8l-1 1"/>
+              </svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </div>
+          </div>
+        </button>
         <a href="https://apps.apple.com/app/rowhni" class="btn-download magnetic-btn">Download</a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </div>
     </div>
     <div class="nav-background"></div>
@@ -41,46 +392,98 @@
     </div>
     <div class="hero-container">
       <div class="hero-content">
-        <div class="hero-badge" data-animate-up>Islamic Companion</div>
-        <h1 class="hero-title" data-animate-text>
-          <span class="title-line">Your Complete</span>
-          <span class="title-line gradient-text">Islamic Companion</span>
-        </h1>
-        <p class="hero-subtitle" data-animate-up data-delay="200">
-          Voice-powered Tasbih counting, precise prayer times, Quran progress tracking, 
-          and AI-powered Islamic guidance in one elegant app.
-        </p>
-        
-        <!-- Hero Invitation Text -->
-        <div class="hero-invitation" data-animate-up data-delay="300">
-          <div class="invitation-text">
-            <span class="typewriter-text" data-text="Inspired by faith,"></span>
-            <br>
-            <span class="typewriter-text" data-text="driven by innovation." data-delay="1.5"></span>
+        <!-- Trust Signal -->
+        <div class="hero-trust-signal" data-animate-up data-delay="100">
+          <div class="trust-badge">
+            <span class="trust-indicator">●</span>
+            <span>Trusted by 2M+ Muslims worldwide</span>
           </div>
-          <div class="scroll-hint">
-            <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 13l5 5 5-5"/>
-              <path d="M7 6l5 5 5-5"/>
-            </svg>
-            <span>Scroll to explore</span>
+          <div class="trust-rating">
+            <div class="stars">★★★★★</div>
+            <span>4.8 • App Store</span>
           </div>
         </div>
         
-        <div class="hero-actions" data-animate-up data-delay="600">
-          <a href="https://apps.apple.com/app/rowhni" class="btn-primary magnetic-btn">
-            <span>Download for iOS</span>
-            <div class="btn-background"></div>
-          </a>
+        <!-- Main Hero Content -->
+        <div class="hero-main" data-animate-cascade>
+          <h1 class="hero-title">
+            <span class="title-line-primary" data-reveal-line>Where faith meets</span>
+            <span class="title-line-gradient" data-reveal-line data-delay="400">innovation</span>
+            <div class="title-decoration" data-animate-draw></div>
+          </h1>
+          
+          <div class="hero-subtitle-wrapper" data-animate-up data-delay="800">
+            <p class="hero-subtitle">
+              Experience the perfect blend of Islamic tradition and cutting-edge technology. 
+              <span class="subtitle-highlight">Voice-powered dhikr counting</span>, 
+              <span class="subtitle-highlight">precision prayer times</span>, and 
+              <span class="subtitle-highlight">intelligent Quran progress tracking</span> 
+              in one beautifully crafted app.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Key Benefits -->
+        <div class="hero-benefits" data-animate-up data-delay="1000">
+          <div class="benefit-item" data-animate-scale>
+            <div class="benefit-icon voice-icon"></div>
+            <span>99.7% voice accuracy</span>
+          </div>
+          <div class="benefit-item" data-animate-scale data-delay="100">
+            <div class="benefit-icon precision-icon"></div>
+            <span>±1min prayer precision</span>
+          </div>
+          <div class="benefit-item" data-animate-scale data-delay="200">
+            <div class="benefit-icon privacy-icon"></div>
+            <span>100% on-device privacy</span>
+          </div>
+        </div>
+        
+        <!-- CTA Section -->
+        <div class="hero-cta-section" data-animate-up data-delay="1200">
+          <div class="cta-primary">
+            <a href="https://apps.apple.com/app/rowhni" class="btn-hero-primary magnetic-btn">
+              <div class="btn-content">
+                <span class="btn-text">Start Your Spiritual Journey</span>
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M7 17L17 7"/>
+                  <path d="M7 7h10v10"/>
+                </svg>
+              </div>
+              <div class="btn-gradient-bg"></div>
+              <div class="btn-shimmer"></div>
+            </a>
+            <p class="cta-subtitle">Free download • No ads in Pro • iOS 17+</p>
+          </div>
+          
+          <div class="cta-secondary" data-animate-up data-delay="1400">
+            <div class="social-proof">
+              <div class="user-avatars">
+                <div class="avatar avatar-1"></div>
+                <div class="avatar avatar-2"></div>
+                <div class="avatar avatar-3"></div>
+                <div class="avatar-count">+2M</div>
+              </div>
+              <p class="social-proof-text">Join millions building consistent Islamic practices</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="hero-scroll-indicator" data-animate-bounce data-delay="1600">
+          <div class="scroll-text">Discover the features</div>
+          <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+          </div>
         </div>
       </div>
       <div class="hero-visual" data-parallax>
         <div class="app-showcase">
           <div class="app-mockup main-mockup" data-float>
-            <img src="Screenshots/image1.jpg" alt="Rowhni Quran Progress" class="mockup-image">
+            <img src="Screenshots/image1.jpg" alt="Rowhni Quran Progress" class="mockup-image" loading="lazy">
           </div>
           <div class="app-mockup secondary-mockup" data-float data-delay="200">
-            <img src="Screenshots/image3.jpg" alt="Rowhni Voice Tasbih" class="mockup-image">
+            <img src="Screenshots/image3.jpg" alt="Rowhni Voice Tasbih" class="mockup-image" loading="lazy">
           </div>
         </div>
       </div>
@@ -95,37 +498,72 @@
     <div class="section-divider"></div>
     <div class="container">
       <div class="section-header" data-animate-up>
-        <div class="section-badge">Core Features</div>
-        <h2 class="section-title" data-split-text>
-          <span class="title-line">Everything you need</span>
-          <span class="title-line">for your spiritual journey</span>
+        <div class="section-badge-premium">
+          <span class="badge-icon">✨</span>
+          <span>Revolutionary Features</span>
+          <div class="badge-glow"></div>
+        </div>
+        <h2 class="section-title-hero" data-split-text>
+          <span class="title-line">The future of</span>
+          <span class="title-line gradient-text-premium">Islamic practice</span>
         </h2>
+        <p class="section-subtitle-premium" data-animate-up data-delay="400">
+          Breakthrough technology that transforms how Muslims connect with their faith. 
+          Every feature designed with love, precision, and deep respect for Islamic tradition.
+        </p>
       </div>
 
       <!-- Voice Tasbih Feature -->
-      <div class="feature-block" data-feature-parallax>
-        <div class="feature-content" data-animate-left>
-          <div class="feature-badge gradient-badge">Voice Recognition</div>
-          <h3 class="feature-title">Voice-Powered Tasbih</h3>
-          <p class="feature-description">
-            Simply speak SubhanAllah, Alhamdulillah, or Allahu Akbar and watch your count 
-            increase automatically. No need to tap - just focus on your dhikr.
+      <div class="feature-block-premium" data-feature-parallax>
+        <div class="feature-content-premium" data-animate-left>
+          <div class="feature-badge-hero">
+            <div class="badge-pulse"></div>
+            <span class="badge-text">🎤 World's First Voice Dhikr</span>
+          </div>
+          <h3 class="feature-title-hero">
+            Just speak, we'll count
+            <div class="title-underline"></div>
+          </h3>
+          <p class="feature-description-hero">
+            Revolutionary voice recognition technology that understands your dhikr in perfect harmony with your spiritual rhythm. 
+            <strong>SubhanAllah, Alhamdulillah, Allahu Akbar</strong> — spoken in Arabic or English, counted with 99.7% precision.
           </p>
-          <div class="feature-highlights" data-animate-stagger>
-            <div class="highlight-pill">
-              <span class="highlight-text">Arabic & Transliteration</span>
+          
+          <div class="feature-proof" data-animate-up data-delay="200">
+            <div class="proof-stat">
+              <span class="proof-number">99.7%</span>
+              <span class="proof-label">Recognition accuracy</span>
             </div>
-            <div class="highlight-pill">
-              <span class="highlight-text">99.7% Accuracy</span>
+            <div class="proof-stat">
+              <span class="proof-number">2M+</span>
+              <span class="proof-label">Dhikr sessions counted</span>
             </div>
-            <div class="highlight-pill">
-              <span class="highlight-text">Hands-Free Operation</span>
+          </div>
+          
+          <div class="feature-benefits" data-animate-stagger data-delay="400">
+            <div class="benefit-check">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span>Works in Arabic and transliteration</span>
+            </div>
+            <div class="benefit-check">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span>100% private, on-device processing</span>
+            </div>
+            <div class="benefit-check">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span>Perfect for meditation and focus</span>
             </div>
           </div>
         </div>
         <div class="feature-visual" data-animate-right>
           <div class="app-frame">
-            <img src="Screenshots/image3.jpg" alt="Voice Tasbih Interface" class="feature-screenshot">
+            <img src="Screenshots/image3.jpg" alt="Voice Tasbih Interface" class="feature-screenshot" loading="lazy">
             <div class="voice-overlay">
               <div class="voice-indicator" data-voice-pulse></div>
               <div class="dhikr-counter" data-counter-animate>33</div>
@@ -135,28 +573,57 @@
       </div>
 
       <!-- Prayer Times Feature -->
-      <div class="feature-block reverse" data-feature-parallax>
-        <div class="feature-content" data-animate-right>
-          <div class="feature-badge gradient-badge">Precision Timing</div>
-          <h3 class="feature-title">Accurate Prayer Times</h3>
-          <p class="feature-description">
-            Get precise prayer times with beautiful sun path visualization and multiple 
-            calculation methods. Track your prayer consistency and never miss a prayer.
+      <div class="feature-block-premium reverse" data-feature-parallax>
+        <div class="feature-content-premium" data-animate-right>
+          <div class="feature-badge-hero">
+            <div class="badge-pulse secondary"></div>
+            <span class="badge-text">🕌 Astronomical Precision</span>
+          </div>
+          <h3 class="feature-title-hero">
+            Never miss a prayer again
+            <div class="title-underline secondary"></div>
+          </h3>
+          <p class="feature-description-hero">
+            Powered by advanced astronomical calculations, get prayer times accurate to the minute. 
+            <strong>12+ calculation methods</strong> ensure perfect alignment with your local mosque, 
+            whether you're in <strong>Makkah or Minnesota</strong>.
           </p>
-          <div class="feature-stats" data-animate-stagger>
-            <div class="stat-pill">
-              <span class="stat-value">±1min</span>
-              <span class="stat-desc">Accuracy</span>
+          
+          <div class="feature-proof" data-animate-up data-delay="200">
+            <div class="proof-stat">
+              <span class="proof-number">±1min</span>
+              <span class="proof-label">Timing precision</span>
             </div>
-            <div class="stat-pill">
-              <span class="stat-value">12+</span>
-              <span class="stat-desc">Methods</span>
+            <div class="proof-stat">
+              <span class="proof-number">12+</span>
+              <span class="proof-label">Calculation methods</span>
+            </div>
+          </div>
+          
+          <div class="feature-benefits" data-animate-stagger data-delay="400">
+            <div class="benefit-check">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span>Works worldwide with GPS precision</span>
+            </div>
+            <div class="benefit-check">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span>Beautiful sun path visualization</span>
+            </div>
+            <div class="benefit-check">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span>Smart notification scheduling</span>
             </div>
           </div>
         </div>
         <div class="feature-visual" data-animate-left>
           <div class="app-frame">
-            <img src="Screenshots/image2.jpg" alt="Prayer Times Interface" class="feature-screenshot">
+            <img src="Screenshots/image2.jpg" alt="Prayer Times Interface" class="feature-screenshot" loading="lazy">
             <div class="prayer-overlay">
               <div class="sun-path" data-sun-animate></div>
               <div class="next-prayer-pill" data-prayer-pulse>
@@ -190,7 +657,7 @@
         </div>
         <div class="feature-visual" data-animate-right>
           <div class="app-frame">
-            <img src="Screenshots/image4.jpg" alt="Ask Rowhni AI Assistant" class="feature-screenshot">
+            <img src="Screenshots/image4.jpg" alt="Ask Rowhni AI Assistant" class="feature-screenshot" loading="lazy">
             <div class="ai-overlay">
               <div class="typing-indicator" data-typing-animate>
                 <div class="dot"></div>
@@ -263,7 +730,7 @@
               <span class="design-label">Glass Design</span>
             </div>
             <div class="showcase-device">
-              <img src="Screenshots/2118C33D-97FE-4130-8CC0-968C6765DFC7.png" alt="iOS 26 Glass Design Interface" class="design-screenshot">
+              <img src="Screenshots/2118C33D-97FE-4130-8CC0-968C6765DFC7.png" alt="iOS 26 Glass Design Interface" class="design-screenshot" loading="lazy">
 
             </div>
           </div>
@@ -569,7 +1036,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand" data-animate-up>
-          <img src="rowhni_logo_day.png" alt="Rowhni" class="footer-logo">
+          <img src="rowhni_logo_day.png" alt="Rowhni" class="footer-logo" loading="lazy">
           <h3>Rowhni</h3>
           <p>Your complete Islamic companion for prayer, dhikr, and spiritual growth</p>
         </div>
@@ -612,5 +1079,65 @@
   <div class="magnetic-cursor" data-cursor>
     <div class="cursor-inner"></div>
   </div>
+
+  <!-- Exit-Intent Newsletter Popup -->
+  <div class="exit-intent-popup" id="exitPopup">
+    <div class="popup-overlay"></div>
+    <div class="popup-content">
+      <button class="popup-close" id="closePopup">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      
+      <div class="popup-header">
+        <div class="popup-icon">
+          <div class="popup-pulse"></div>
+          🕌
+        </div>
+        <h3 class="popup-title">Don't Miss Your Islamic Journey!</h3>
+        <p class="popup-subtitle">Join 2M+ Muslims who transformed their spiritual practice with Rowhni</p>
+      </div>
+      
+      <div class="popup-benefits">
+        <div class="popup-benefit">
+          <span class="benefit-check-popup">✓</span>
+          <span>Get exclusive Islamic productivity tips</span>
+        </div>
+        <div class="popup-benefit">
+          <span class="benefit-check-popup">✓</span>
+          <span>Early access to new features</span>
+        </div>
+        <div class="popup-benefit">
+          <span class="benefit-check-popup">✓</span>
+          <span>Free Islamic calendar & prayer reminders</span>
+        </div>
+      </div>
+      
+      <div class="popup-form">
+        <div class="form-group">
+          <input type="email" id="popupEmail" placeholder="Enter your email address" required>
+          <button class="popup-cta" id="subscribeBtn">
+            <span class="btn-text">Get Free Access</span>
+            <div class="btn-loading hidden">
+              <div class="loading-spinner"></div>
+            </div>
+          </button>
+        </div>
+        <p class="popup-privacy">🔒 100% Privacy Guaranteed. No spam, unsubscribe anytime.</p>
+      </div>
+      
+      <div class="popup-social-proof">
+        <div class="social-avatars">
+          <div class="avatar-popup"></div>
+          <div class="avatar-popup"></div>
+          <div class="avatar-popup"></div>
+          <span class="social-count">+2M Muslims joined</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

@@ -133,7 +133,7 @@ body {
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: auto;
+  cursor: none;
 }
 
 /* Enhanced Typography for Support and Privacy Pages */
@@ -1002,6 +1002,8 @@ a:hover {
   z-index: var(--z-toast);
   mix-blend-mode: difference;
   transition: transform 0.1s var(--ease-smooth);
+  visibility: visible;
+  opacity: 1;
 }
 
 .cursor-inner {

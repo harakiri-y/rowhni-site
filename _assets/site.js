@@ -784,7 +784,12 @@ class RowhniExperience {
 
     initializeMagneticCursor() {
         const cursor = document.querySelector('.magnetic-cursor');
-        if (!cursor) return;
+        if (!cursor) {
+            console.warn('❌ Magnetic cursor element not found');
+            return;
+        }
+        
+        console.log('✅ Initializing magnetic cursor');
 
         const cursorInner = cursor.querySelector('.cursor-inner');
 
@@ -1248,12 +1253,12 @@ class RowhniExperience {
 // Enhanced initialization with better error handling
 document.addEventListener('DOMContentLoaded', () => {
     try {
-        const app = new RowhniApp();
+        const app = new RowhniExperience();
         app.initializeThemeToggle();
         app.initializeMobileMenu();
         
         // Initialize other features as before
-        app.init();
+        // app.init() is already called in constructor
         
         console.log('🎯 Rowhni website initialized successfully with interactive features');
     } catch (error) {

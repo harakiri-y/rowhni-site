@@ -1267,3 +1267,219 @@ document.addEventListener('DOMContentLoaded', () => {
         fallbackInit();
     }
 });
+
+// Simple Islamic Chatbot Implementation
+class IslamicChatbot {
+    constructor() {
+        this.isOpen = false;
+        this.responses = {
+            'prayer-times': {
+                text: "🕌 **Prayer Times Feature:**\n\n• Automatic location-based prayer times\n• Accurate calculations using multiple methods\n• Customizable notifications and Adhan sounds\n• Qibla direction compass\n• Monthly prayer calendar\n\nDownload the app to never miss a prayer again! 📱",
+                buttons: ['Download App', 'More Features']
+            },
+            'features': {
+                text: "✨ **Rowhni App Features:**\n\n🔊 **Voice Tasbih Counter** - Count dhikr with your voice\n📿 **Digital Tasbih** - Traditional counter with beautiful designs\n📖 **Quran Progress** - Track your daily reading\n🤖 **AI Islamic Assistant** - Get answers to Islamic questions\n⏰ **Smart Prayer Reminders** - Never miss Salah\n🎨 **Beautiful Islamic Themes** - Customize your experience",
+                buttons: ['Download Now', 'Prayer Times', 'Support']
+            },
+            'download': {
+                text: "📱 **Download Rowhni:**\n\n🍎 **iOS:** Available on App Store\n🆓 **Completely Free** - No subscriptions\n⭐ **4.8/5 Stars** - Over 2M+ downloads\n🔒 **Privacy First** - Your data stays private\n\n[Download from App Store](https://apps.apple.com/app/rowhni)",
+                buttons: ['Open App Store', 'Features', 'Support']
+            },
+            'support': {
+                text: "💬 **Need Help?**\n\n📧 **Email:** Use App Store Support System\n❓ **FAQ:** Check our Help Center\n🕰️ **Response Time:** Usually within 24 hours\n🌍 **Languages:** English, Arabic, and more\n\nFor privacy requests and general support, please use the App Store support system.",
+                buttons: ['Help Center', 'Privacy Policy', 'Download App']
+            },
+            'greeting': {
+                text: "السلام عليكم وبركاته 🌙\n\nWelcome to Rowhni! I'm here to help you with:\n• App features and capabilities\n• Prayer times and Islamic practices\n• Download and technical support\n• General Islamic questions\n\nHow can I assist you today?",
+                buttons: ['App Features', 'Prayer Times', 'Download', 'Support']
+            }
+        };
+        
+        this.init();
+    }
+    
+    init() {
+        this.bindEvents();
+        this.showInitialNotification();
+    }
+    
+    bindEvents() {
+        const toggle = document.getElementById('chatbotToggle');
+        const close = document.getElementById('chatbotClose');
+        const input = document.getElementById('chatbotInput');
+        const send = document.getElementById('chatbotSend');
+        const messages = document.getElementById('chatbotMessages');
+        
+        toggle?.addEventListener('click', () => this.toggleChat());
+        close?.addEventListener('click', () => this.closeChat());
+        send?.addEventListener('click', () => this.sendMessage());
+        input?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.sendMessage();
+        });
+        
+        // Quick buttons event delegation
+        messages?.addEventListener('click', (e) => {
+            if (e.target.classList.contains('quick-btn')) {
+                const question = e.target.getAttribute('data-question');
+                this.handleQuickResponse(question);
+            }
+        });
+    }
+    
+    showInitialNotification() {
+        setTimeout(() => {
+            const notification = document.getElementById('chatbotNotification');
+            if (notification && !this.isOpen) {
+                notification.style.display = 'flex';
+            }
+        }, 3000);
+    }
+    
+    toggleChat() {
+        const window = document.getElementById('chatbotWindow');
+        const notification = document.getElementById('chatbotNotification');
+        
+        if (this.isOpen) {
+            this.closeChat();
+        } else {
+            window?.classList.add('open');
+            notification.style.display = 'none';
+            this.isOpen = true;
+        }
+    }
+    
+    closeChat() {
+        const window = document.getElementById('chatbotWindow');
+        window?.classList.remove('open');
+        this.isOpen = false;
+    }
+    
+    sendMessage() {
+        const input = document.getElementById('chatbotInput');
+        const message = input?.value.trim();
+        
+        if (!message) return;
+        
+        this.addMessage(message, 'user');
+        input.value = '';
+        
+        // Simulate typing delay
+        setTimeout(() => {
+            this.processMessage(message);
+        }, 500);
+    }
+    
+    handleQuickResponse(questionType) {
+        const response = this.responses[questionType];
+        if (response) {
+            setTimeout(() => {
+                this.addBotMessage(response.text, response.buttons);
+            }, 300);
+        }
+    }
+    
+    processMessage(message) {
+        const lowerMessage = message.toLowerCase();
+        let response;
+        
+        // Simple keyword matching
+        if (lowerMessage.includes('prayer') || lowerMessage.includes('salah') || lowerMessage.includes('salat')) {
+            response = this.responses['prayer-times'];
+        } else if (lowerMessage.includes('feature') || lowerMessage.includes('what') || lowerMessage.includes('can')) {
+            response = this.responses['features'];
+        } else if (lowerMessage.includes('download') || lowerMessage.includes('install') || lowerMessage.includes('app store')) {
+            response = this.responses['download'];
+        } else if (lowerMessage.includes('help') || lowerMessage.includes('support') || lowerMessage.includes('contact')) {
+            response = this.responses['support'];
+        } else if (lowerMessage.includes('salam') || lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+            response = this.responses['greeting'];
+        } else {
+            // Default response
+            response = {
+                text: "I'd be happy to help! Here are some topics I can assist with:",
+                buttons: ['App Features', 'Prayer Times', 'Download', 'Support']
+            };
+        }
+        
+        this.addBotMessage(response.text, response.buttons);
+    }
+    
+    addMessage(text, sender) {
+        const messagesContainer = document.getElementById('chatbotMessages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chatbot-message ${sender}`;
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        
+        const textP = document.createElement('p');
+        textP.textContent = text;
+        
+        contentDiv.appendChild(textP);
+        messageDiv.appendChild(contentDiv);
+        messagesContainer.appendChild(messageDiv);
+        
+        this.scrollToBottom();
+    }
+    
+    addBotMessage(text, buttons = []) {
+        const messagesContainer = document.getElementById('chatbotMessages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'chatbot-message bot';
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        
+        // Format text with line breaks and bold
+        const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+        contentDiv.innerHTML = `<p>${formattedText}</p>`;
+        
+        // Add buttons if provided
+        if (buttons.length > 0) {
+            const quickOptions = document.createElement('div');
+            quickOptions.className = 'quick-options';
+            
+            buttons.forEach(buttonText => {
+                const button = document.createElement('button');
+                button.className = 'quick-btn';
+                button.textContent = buttonText;
+                
+                // Map button text to question types
+                const questionMap = {
+                    'App Features': 'features',
+                    'More Features': 'features',
+                    'Prayer Times': 'prayer-times',
+                    'Download': 'download',
+                    'Download Now': 'download',
+                    'Download App': 'download',
+                    'Open App Store': 'download',
+                    'Support': 'support',
+                    'Help Center': 'support',
+                    'Privacy Policy': 'support'
+                };
+                
+                const question = questionMap[buttonText] || 'features';
+                button.setAttribute('data-question', question);
+                
+                quickOptions.appendChild(button);
+            });
+            
+            contentDiv.appendChild(quickOptions);
+        }
+        
+        messageDiv.appendChild(contentDiv);
+        messagesContainer.appendChild(messageDiv);
+        
+        this.scrollToBottom();
+    }
+    
+    scrollToBottom() {
+        const messagesContainer = document.getElementById('chatbotMessages');
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+}
+
+// Initialize the chatbot
+document.addEventListener('DOMContentLoaded', () => {
+    new IslamicChatbot();
+});

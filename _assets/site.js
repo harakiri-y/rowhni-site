@@ -29,6 +29,55 @@ class RowhniExperience {
         }
 
         try {
+            this.initializePremiumScrollAnimations();
+            console.log('✅ Premium scroll animations initialized');
+        } catch (error) {
+            console.error('❌ Premium scroll animations failed:', error);
+        }
+
+        try {
+            this.initializeAdvancedCursor();
+            console.log('✅ Advanced cursor initialized');
+        } catch (error) {
+            console.error('❌ Advanced cursor failed:', error);
+        }
+
+        try {
+            this.initializeFloatingParticles();
+            console.log('✅ Floating particles initialized');
+        } catch (error) {
+            console.error('❌ Floating particles failed:', error);
+        }
+
+        try {
+            this.initializePremiumHoverStates();
+            console.log('✅ Premium hover states initialized');
+        } catch (error) {
+            console.error('❌ Premium hover states failed:', error);
+        }
+
+        try {
+            this.initializePageTransitions();
+            console.log('✅ Page transitions initialized');
+        } catch (error) {
+            console.error('❌ Page transitions failed:', error);
+        }
+
+        try {
+            this.initializeInteractiveAppShowcase();
+            console.log('✅ Interactive app showcase initialized');
+        } catch (error) {
+            console.error('❌ Interactive app showcase failed:', error);
+        }
+
+        try {
+            this.initializeSoundDesign();
+            console.log('✅ Sound design initialized');
+        } catch (error) {
+            console.error('❌ Sound design failed:', error);
+        }
+
+        try {
             this.initializeTextAnimations();
             console.log('✅ Text animations initialized');
         } catch (error) {
@@ -1237,6 +1286,796 @@ class RowhniExperience {
                         }
                     );
                 }
+            });
+        });
+    }
+
+    initializePremiumScrollAnimations() {
+        // Advanced Split-Text Reveals
+        this.initializeSplitTextAnimations();
+        
+        // Enhanced Parallax Layers
+        this.initializeAdvancedParallax();
+        
+        // Morphing Shape Animations
+        this.initializeMorphingShapes();
+        
+        // Staggered Element Reveals
+        this.initializeStaggeredReveals();
+    }
+
+    initializeSplitTextAnimations() {
+        // Temporarily disabled split text to ensure content is visible
+        console.log('Split text animations temporarily disabled for local testing');
+    }
+
+    initializeAdvancedParallax() {
+        // Simplified parallax to reduce blur/performance issues
+        const parallaxLayers = [
+            { selector: '.hero-background', speed: 0.2 },
+            { selector: '.floating-pills', speed: 0.1 }
+        ];
+        
+        parallaxLayers.forEach(layer => {
+            gsap.utils.toArray(layer.selector).forEach(element => {
+                gsap.to(element, {
+                    y: () => -window.innerHeight * layer.speed,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 2
+                    }
+                });
+            });
+        });
+    }
+
+    initializeMorphingShapes() {
+        // Create morphing geometric shapes for Islamic patterns
+        gsap.utils.toArray('[data-morph-shape]').forEach(element => {
+            const paths = [
+                "M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z",
+                "M12,2L13.09,8.26L22,12L13.09,15.74L12,22L10.91,15.74L2,12L10.91,8.26L12,2Z",
+                "M12,2C17.52,2 22,6.48 22,12C22,17.52 17.52,22 12,22C6.48,22 2,17.52 2,12C2,6.48 6.48,2 12,2Z"
+            ];
+            
+            let currentPath = 0;
+            
+            ScrollTrigger.create({
+                trigger: element,
+                start: "top 70%",
+                end: "bottom 30%",
+                scrub: 2,
+                onUpdate: (self) => {
+                    const progress = self.progress;
+                    const targetPath = Math.floor(progress * (paths.length - 1));
+                    
+                    if (targetPath !== currentPath) {
+                        const svgPath = element.querySelector('path');
+                        if (svgPath) {
+                            gsap.to(svgPath, {
+                                attr: { d: paths[targetPath] },
+                                duration: 0.5,
+                                ease: "power2.inOut"
+                            });
+                        }
+                        currentPath = targetPath;
+                    }
+                }
+            });
+        });
+    }
+
+    initializeStaggeredReveals() {
+        // Keep elements visible by default for local testing
+        const revealSections = [
+            { selector: '.feature-card', stagger: 0.2, y: 60 },
+            { selector: '.trust-badge', stagger: 0.1, y: 30 },
+            { selector: '.nav-item', stagger: 0.05, y: 20 },
+            { selector: '.hero-badge', stagger: 0.1, scale: 0.8 }
+        ];
+        
+        revealSections.forEach(section => {
+            gsap.utils.toArray(section.selector).forEach((element, index) => {
+                // Keep elements visible by default
+                gsap.set(element, {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1
+                });
+                
+                // Optional scroll animation (now just for enhancement)
+                ScrollTrigger.create({
+                    trigger: element,
+                    start: "top 85%",
+                    onEnter: () => {
+                        gsap.fromTo(element, 
+                            { scale: 0.95 },
+                            {
+                                scale: 1,
+                                duration: 0.6,
+                                delay: index * section.stagger * 0.1,
+                                ease: "back.out(1.7)"
+                            }
+                        );
+                    }
+                });
+            });
+        });
+    }
+
+    initializeAdvancedCursor() {
+        const cursor = document.querySelector('.magnetic-cursor');
+        if (!cursor) return;
+        
+        const cursorInner = cursor.querySelector('.cursor-inner');
+        
+        // Add cursor text element
+        const cursorText = document.createElement('div');
+        cursorText.className = 'cursor-text';
+        cursor.appendChild(cursorText);
+        
+        // Define cursor states
+        const cursorStates = {
+            default: { scale: 1, text: '', background: 'var(--accent)' },
+            hover: { scale: 1.5, text: '', background: 'var(--accent)' },
+            button: { scale: 2, text: 'CLICK', background: 'var(--secondary)' },
+            text: { scale: 0.5, text: '📖', background: 'var(--primary)' },
+            image: { scale: 2.5, text: '🔍', background: 'var(--accent)' },
+            islamic: { scale: 1.8, text: '☪️', background: 'var(--secondary)' },
+            download: { scale: 2.2, text: '⬇️', background: 'var(--accent)' }
+        };
+        
+        // Apply cursor state
+        const applyCursorState = (state) => {
+            const config = cursorStates[state] || cursorStates.default;
+            
+            gsap.to(cursor, {
+                scale: config.scale,
+                duration: 0.3,
+                ease: "back.out(1.7)"
+            });
+            
+            gsap.to(cursorInner, {
+                background: config.background,
+                duration: 0.3
+            });
+            
+            cursorText.textContent = config.text;
+            cursorText.style.opacity = config.text ? '1' : '0';
+        };
+        
+        // Cursor interactions for different elements
+        const cursorInteractions = [
+            { selector: 'button, .btn, [role="button"]', state: 'button' },
+            { selector: 'p, span, h1, h2, h3, h4, h5, h6, .hero-subtitle', state: 'text' },
+            { selector: 'img, .mockup-image, .app-screenshot', state: 'image' },
+            { selector: '.trust-badge, .islamic-feature, [data-islamic]', state: 'islamic' },
+            { selector: '.btn-download, .download-btn, [data-download]', state: 'download' }
+        ];
+        
+        cursorInteractions.forEach(interaction => {
+            gsap.utils.toArray(interaction.selector).forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    applyCursorState(interaction.state);
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    applyCursorState('default');
+                });
+            });
+        });
+        
+        // Add breathing animation to default state
+        gsap.to(cursor, {
+            scale: 1.1,
+            duration: 2,
+            ease: "power2.inOut",
+            yoyo: true,
+            repeat: -1
+        });
+    }
+
+    initializeFloatingParticles() {
+        // Create particle container
+        const particleContainer = document.createElement('div');
+        particleContainer.className = 'floating-particles';
+        document.body.appendChild(particleContainer);
+        
+        // Islamic geometric patterns as particles
+        const particleShapes = [
+            '✦', '✧', '✶', '✷', '✸', '✹', '✺', '✻', // Stars
+            '◆', '◇', '◈', '◉', '◊', '○', '●', '◐', // Shapes
+            '☪', '☫', '☬', '☭', // Islamic symbols
+            '𝔞', '𝔟', '𝔠', '𝔡' // Decorative
+        ];
+        
+        const particles = [];
+        const particleCount = 25;
+        
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.textContent = particleShapes[Math.floor(Math.random() * particleShapes.length)];
+            
+            // Random positioning
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * window.innerHeight;
+            const scale = 0.3 + Math.random() * 0.7;
+            const rotation = Math.random() * 360;
+            
+            gsap.set(particle, {
+                x: startX,
+                y: startY,
+                scale: scale,
+                rotation: rotation,
+                opacity: 0.1 + Math.random() * 0.3
+            });
+            
+            particleContainer.appendChild(particle);
+            particles.push({
+                element: particle,
+                baseX: startX,
+                baseY: startY,
+                speedX: (Math.random() - 0.5) * 0.5,
+                speedY: (Math.random() - 0.5) * 0.5,
+                amplitude: 50 + Math.random() * 100
+            });
+        }
+        
+        // Animate particles
+        const animateParticles = () => {
+            particles.forEach((particle, index) => {
+                const time = Date.now() * 0.001;
+                const x = particle.baseX + Math.sin(time + index) * particle.amplitude + particle.speedX * time * 10;
+                const y = particle.baseY + Math.cos(time + index * 1.5) * particle.amplitude + particle.speedY * time * 10;
+                
+                // Wrap around screen
+                const wrappedX = ((x % window.innerWidth) + window.innerWidth) % window.innerWidth;
+                const wrappedY = ((y % window.innerHeight) + window.innerHeight) % window.innerHeight;
+                
+                gsap.set(particle.element, {
+                    x: wrappedX,
+                    y: wrappedY,
+                    rotation: time * 20 + index * 45
+                });
+            });
+            
+            requestAnimationFrame(animateParticles);
+        };
+        
+        animateParticles();
+        
+        // Mouse interaction
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            
+            particles.forEach((particle, index) => {
+                const particleX = parseFloat(particle.element.style.transform.match(/translateX\(([-\d.]+)px\)/)?.[1] || 0);
+                const particleY = parseFloat(particle.element.style.transform.match(/translateY\(([-\d.]+)px\)/)?.[1] || 0);
+                
+                const distance = Math.sqrt(
+                    Math.pow(mouseX - particleX, 2) + Math.pow(mouseY - particleY, 2)
+                );
+                
+                if (distance < 150) {
+                    const force = (150 - distance) / 150;
+                    const angle = Math.atan2(particleY - mouseY, particleX - mouseX);
+                    
+                    gsap.to(particle.element, {
+                        x: particleX + Math.cos(angle) * force * 50,
+                        y: particleY + Math.sin(angle) * force * 50,
+                        scale: 1 + force * 0.5,
+                        opacity: 0.8,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                } else {
+                    gsap.to(particle.element, {
+                        scale: 0.3 + Math.random() * 0.7,
+                        opacity: 0.1 + Math.random() * 0.3,
+                        duration: 1,
+                        ease: "power2.out"
+                    });
+                }
+            });
+        });
+        
+        // Resize handler
+        window.addEventListener('resize', () => {
+            particles.forEach(particle => {
+                particle.baseX = Math.random() * window.innerWidth;
+                particle.baseY = Math.random() * window.innerHeight;
+            });
+        });
+    }
+
+    initializePremiumHoverStates() {
+        // Premium Elastic Hover Effects
+        const hoverElements = [
+            {
+                selector: '.btn-hero-primary, .btn-download',
+                scale: 1.05,
+                y: -10,
+                glow: true,
+                bounce: true
+            },
+            {
+                selector: '.trust-badge',
+                scale: 1.1,
+                rotation: 5,
+                glow: true,
+                shake: true
+            },
+            {
+                selector: '.feature-card, .app-card',
+                scale: 1.03,
+                y: -8,
+                tilt: true
+            },
+            {
+                selector: '.nav-item, .nav-link',
+                scale: 1.1,
+                glow: true
+            },
+            {
+                selector: '.mockup-image, .app-screenshot',
+                scale: 1.08,
+                rotation: 2,
+                glow: true
+            },
+            {
+                selector: '.ios-requirement-badge',
+                scale: 1.15,
+                bounce: true,
+                pulse: true
+            }
+        ];
+
+        hoverElements.forEach(config => {
+            gsap.utils.toArray(config.selector).forEach(element => {
+                // Create hover timeline
+                const hoverTl = gsap.timeline({ paused: true });
+                
+                // Base hover animation
+                hoverTl.to(element, {
+                    scale: config.scale || 1.05,
+                    y: config.y || 0,
+                    rotation: config.rotation || 0,
+                    duration: 0.4,
+                    ease: "back.out(1.7)"
+                });
+
+                // Add glow effect
+                if (config.glow) {
+                    hoverTl.to(element, {
+                        boxShadow: "0 10px 40px rgba(244, 208, 63, 0.4), 0 0 20px rgba(244, 208, 63, 0.2)",
+                        duration: 0.4,
+                        ease: "power2.out"
+                    }, 0);
+                }
+
+                // Add bounce effect
+                if (config.bounce) {
+                    hoverTl.to(element, {
+                        scaleY: 1.1,
+                        duration: 0.15,
+                        ease: "power2.out",
+                        yoyo: true,
+                        repeat: 1
+                    }, 0.1);
+                }
+
+                // Add shake effect
+                if (config.shake) {
+                    hoverTl.to(element, {
+                        x: "+=3",
+                        duration: 0.1,
+                        ease: "power2.inOut",
+                        yoyo: true,
+                        repeat: 3
+                    }, 0.2);
+                }
+
+                // Add tilt effect
+                if (config.tilt) {
+                    hoverTl.to(element, {
+                        rotationY: 5,
+                        rotationX: 2,
+                        transformPerspective: 1000,
+                        duration: 0.4,
+                        ease: "power2.out"
+                    }, 0);
+                }
+
+                // Add pulse effect
+                if (config.pulse) {
+                    gsap.to(element, {
+                        scale: 1.02,
+                        duration: 1.5,
+                        ease: "power2.inOut",
+                        yoyo: true,
+                        repeat: -1,
+                        paused: false
+                    });
+                }
+
+                // Mouse events
+                element.addEventListener('mouseenter', () => {
+                    hoverTl.play();
+                });
+
+                element.addEventListener('mouseleave', () => {
+                    hoverTl.reverse();
+                });
+
+                // Touch events for mobile
+                element.addEventListener('touchstart', () => {
+                    hoverTl.play();
+                });
+
+                element.addEventListener('touchend', () => {
+                    setTimeout(() => hoverTl.reverse(), 150);
+                });
+            });
+        });
+
+        // Special magnetic button effects
+        gsap.utils.toArray('.magnetic-btn').forEach(btn => {
+            let magneticTl = gsap.timeline({ paused: true });
+
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                magneticTl.clear();
+                magneticTl.to(btn, {
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+                magneticTl.play();
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                magneticTl.clear();
+                magneticTl.to(btn, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.5,
+                    ease: "elastic.out(1, 0.3)"
+                });
+                magneticTl.play();
+            });
+        });
+
+        // Ripple effect for buttons
+        gsap.utils.toArray('button, .btn, [role="button"]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.className = 'ripple-effect';
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+
+                btn.appendChild(ripple);
+
+                gsap.fromTo(ripple, 
+                    { 
+                        scale: 0, 
+                        opacity: 0.6 
+                    },
+                    {
+                        scale: 4,
+                        opacity: 0,
+                        duration: 0.6,
+                        ease: "power2.out",
+                        onComplete: () => ripple.remove()
+                    }
+                );
+            });
+        });
+    }
+
+    initializePageTransitions() {
+        // Create page transition overlay
+        const transitionOverlay = document.createElement('div');
+        transitionOverlay.className = 'page-transition-overlay';
+        document.body.appendChild(transitionOverlay);
+
+        // Create Islamic pattern for transitions
+        const patternSVG = `
+            <svg class="transition-pattern" viewBox="0 0 100 100">
+                <pattern id="islamicPattern" patternUnits="userSpaceOnUse" width="20" height="20">
+                    <circle cx="10" cy="10" r="3" fill="var(--accent)" opacity="0.3"/>
+                    <path d="M10,2 L12,8 L18,8 L13,12 L15,18 L10,14 L5,18 L7,12 L2,8 L8,8 Z" 
+                          fill="var(--secondary)" opacity="0.2"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#islamicPattern)"/>
+            </svg>
+        `;
+        transitionOverlay.innerHTML = patternSVG;
+
+        // Disabled problematic section transitions - keep sections visible
+        console.log('Section transitions disabled to prevent darkening');
+
+        // Navigation link smooth transitions
+        gsap.utils.toArray('.nav-link, a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        this.smoothScrollToSection(target);
+                    }
+                }
+            });
+        });
+
+        // Page load animation
+        window.addEventListener('load', () => {
+            this.playPageLoadAnimation();
+        });
+    }
+
+    smoothScrollToSection(target) {
+        // Show transition overlay with Islamic pattern
+        const overlay = document.querySelector('.page-transition-overlay');
+        
+        gsap.timeline()
+            .to(overlay, {
+                opacity: 0.9,
+                duration: 0.3,
+                ease: "power2.inOut"
+            })
+            .call(() => {
+                // Smooth scroll to target
+                gsap.to(window, {
+                    scrollTo: { y: target, offsetY: 80 },
+                    duration: 1.2,
+                    ease: "power2.inOut"
+                });
+            })
+            .to(overlay, {
+                opacity: 0,
+                duration: 0.5,
+                delay: 0.3,
+                ease: "power2.out"
+            });
+    }
+
+    playPageLoadAnimation() {
+        // Simplified load animation - elements stay visible
+        console.log('Page loaded - all elements visible');
+        
+        // Just add body class to indicate loaded state
+        document.body.classList.add('loaded');
+        
+        // Simple entrance animation without hiding elements initially
+        gsap.fromTo('.nav', 
+            { y: -20 },
+            { y: 0, duration: 0.6, ease: "power2.out" }
+        );
+        
+        gsap.fromTo('.hero-title', 
+            { y: 20, opacity: 0.7 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", delay: 0.2 }
+        );
+        
+        gsap.fromTo('.btn-hero-primary', 
+            { scale: 0.95 },
+            { scale: 1, duration: 0.6, ease: "back.out(1.7)", delay: 0.4 }
+        );
+    }
+
+    initializeInteractiveAppShowcase() {
+        const appMockups = gsap.utils.toArray('.app-mockup');
+        if (appMockups.length === 0) return;
+
+        // Enhanced device tilt following mouse
+        appMockups.forEach((mockup, index) => {
+            const mockupImage = mockup.querySelector('.mockup-image');
+            
+            // Add device frame and screen glow
+            this.enhanceAppMockup(mockup, index);
+            
+            // Disabled 3D mouse tilt to maintain image quality
+            console.log('3D tilt disabled for image clarity');
+
+            // Floating animation with individual timing
+            gsap.to(mockup, {
+                y: index % 2 === 0 ? "+=15" : "+=10",
+                rotation: index % 2 === 0 ? "+=2" : "-=1",
+                duration: 3 + index * 0.5,
+                ease: "power1.inOut",
+                yoyo: true,
+                repeat: -1
+            });
+
+            // Simplified hover for image clarity
+            mockup.addEventListener('mouseenter', () => {
+                gsap.to(mockup, {
+                    scale: 1.02,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+
+            mockup.addEventListener('mouseleave', () => {
+                gsap.to(mockup, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+
+            // Click ripple effect
+            mockup.addEventListener('click', () => {
+                this.createDeviceRipple(mockup);
+            });
+        });
+
+        // Disabled showcase parallax for image clarity
+        console.log('Showcase parallax disabled for image quality');
+    }
+
+    enhanceAppMockup(mockup, index) {
+        // Simplified mockup enhancement for clarity
+        console.log('Mockup enhancements simplified for image quality');
+    }
+
+    createDeviceRipple(mockup) {
+        const ripple = document.createElement('div');
+        ripple.className = 'device-ripple';
+        
+        const rect = mockup.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height) * 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = (rect.width - size) / 2 + 'px';
+        ripple.style.top = (rect.height - size) / 2 + 'px';
+        
+        mockup.appendChild(ripple);
+        
+        gsap.fromTo(ripple,
+            { scale: 0, opacity: 0.6 },
+            {
+                scale: 1,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out",
+                onComplete: () => ripple.remove()
+            }
+        );
+    }
+
+    initializeSoundDesign() {
+        // Create audio context for Web Audio API
+        this.audioContext = null;
+        this.sounds = {};
+        
+        // Initialize audio context on first user interaction
+        document.addEventListener('click', () => {
+            if (!this.audioContext) {
+                this.setupAudioContext();
+            }
+        }, { once: true });
+
+        // Sound-enabled interactions
+        this.setupSoundInteractions();
+    }
+
+    setupAudioContext() {
+        try {
+            this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            this.createSynthSounds();
+        } catch (error) {
+            console.warn('Web Audio API not supported:', error);
+        }
+    }
+
+    createSynthSounds() {
+        // Islamic-inspired sound frequencies (based on traditional Islamic music scales)
+        this.sounds = {
+            hover: { frequency: 440, duration: 0.1 }, // A4 - peaceful
+            click: { frequency: 523, duration: 0.15 }, // C5 - confirmation
+            success: { frequency: 659, duration: 0.2 }, // E5 - joy
+            transition: { frequency: 349, duration: 0.3 }, // F4 - movement
+            reveal: { frequency: 293, duration: 0.25 } // D4 - discovery
+        };
+    }
+
+    playSound(soundType, volume = 0.1) {
+        if (!this.audioContext || !this.sounds[soundType]) return;
+
+        const { frequency, duration } = this.sounds[soundType];
+        
+        // Create oscillator for pure tone
+        const oscillator = this.audioContext.createOscillator();
+        const gainNode = this.audioContext.createGain();
+        
+        // Connect nodes
+        oscillator.connect(gainNode);
+        gainNode.connect(this.audioContext.destination);
+        
+        // Configure sound
+        oscillator.frequency.setValueAtTime(frequency, this.audioContext.currentTime);
+        oscillator.type = 'sine'; // Smooth, peaceful tone
+        
+        // Envelope for natural sound
+        gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+        gainNode.gain.linearRampToValueAtTime(volume, this.audioContext.currentTime + 0.01);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + duration);
+        
+        // Play sound
+        oscillator.start(this.audioContext.currentTime);
+        oscillator.stop(this.audioContext.currentTime + duration);
+    }
+
+    setupSoundInteractions() {
+        // Button hover sounds
+        gsap.utils.toArray('button, .btn, [role="button"]').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                this.playSound('hover', 0.05);
+            });
+            
+            btn.addEventListener('click', () => {
+                this.playSound('click', 0.08);
+            });
+        });
+
+        // Download button special sound
+        gsap.utils.toArray('[data-download]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.playSound('success', 0.1);
+            });
+        });
+
+        // Navigation sounds
+        gsap.utils.toArray('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                this.playSound('transition', 0.06);
+            });
+        });
+
+        // Trust badge interactions
+        gsap.utils.toArray('.trust-badge').forEach(badge => {
+            badge.addEventListener('mouseenter', () => {
+                this.playSound('hover', 0.04);
+            });
+        });
+
+        // App mockup sounds
+        gsap.utils.toArray('.app-mockup').forEach(mockup => {
+            mockup.addEventListener('click', () => {
+                this.playSound('reveal', 0.07);
+            });
+        });
+
+        // Scroll-triggered sounds for reveals
+        ScrollTrigger.batch('[data-split-text], .feature-card', {
+            onEnter: () => {
+                this.playSound('reveal', 0.03);
+            },
+            start: "top 85%"
+        });
+
+        // Special sound for Islamic elements
+        gsap.utils.toArray('[data-islamic], .ios-requirement-badge').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                this.playSound('hover', 0.06);
             });
         });
     }

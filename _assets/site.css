@@ -5148,6 +5148,16 @@ img {
   max-width: 360px;
 }
 
+/* Stats positioned below semicircle */
+.reading-stats-below {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+  width: 100%;
+  max-width: 500px;
+}
+
 .stat-item {
   text-align: center;
   padding: var(--space-md);
@@ -5219,6 +5229,12 @@ img {
   .reading-stats {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
+  }
+  
+  .reading-stats-below {
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
   }
   
   .stat-item {

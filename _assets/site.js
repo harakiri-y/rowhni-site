@@ -85,6 +85,13 @@ class RowhniExperience {
         }
 
         try {
+            this.initializeQuranProgress();
+            console.log('✅ Quran progress animation initialized');
+        } catch (error) {
+            console.error('❌ Quran progress animation failed:', error);
+        }
+
+        try {
             this.initializeScrollAnimations();
             console.log('✅ Scroll animations initialized');
         } catch (error) {
@@ -2077,6 +2084,85 @@ class RowhniExperience {
             element.addEventListener('mouseenter', () => {
                 this.playSound('hover', 0.06);
             });
+        });
+    }
+
+    initializeQuranProgress() {
+        const progressBar = document.querySelector('.semicircle-bar');
+        if (!progressBar) return;
+
+        // Get the progress percentage from data attribute
+        const targetProgress = parseInt(progressBar.dataset.progress) || 40;
+        
+        // Calculate path length for animation
+        const pathLength = progressBar.getTotalLength();
+        
+        // Set initial state
+        gsap.set(progressBar, {
+            strokeDasharray: pathLength,
+            strokeDashoffset: pathLength
+        });
+
+        // Animate progress when section comes into view
+        ScrollTrigger.create({
+            trigger: '.semicircle-progress',
+            start: "top 80%",
+            onEnter: () => {
+                // Calculate dash offset for target percentage
+                const progressOffset = pathLength - (pathLength * targetProgress / 100);
+                
+                gsap.to(progressBar, {
+                    strokeDashoffset: progressOffset,
+                    duration: 2,
+                    ease: "power2.out",
+                    delay: 0.5
+                });
+
+                // Animate numbers counting up
+                this.animateQuranStats();
+            }
+        });
+    }
+
+    animateQuranStats() {
+        // Animate the main Juz counter
+        const juzElement = document.querySelector('.current-juz');
+        if (juzElement) {
+            const targetJuz = parseInt(juzElement.textContent) || 15;
+            gsap.fromTo({ count: 0 }, 
+                { count: targetJuz },
+                {
+                    duration: 1.5,
+                    ease: "power2.out",
+                    delay: 1,
+                    onUpdate: function() {
+                        juzElement.textContent = Math.round(this.targets()[0].count);
+                    }
+                }
+            );
+        }
+
+        // Animate stats below the semicircle
+        gsap.utils.toArray('.reading-stats-below .stat-number').forEach((statElement, index) => {
+            const originalText = statElement.textContent;
+            const targetValue = parseInt(originalText.replace(/,/g, '')) || 0;
+            
+            gsap.fromTo({ count: 0 }, 
+                { count: targetValue },
+                {
+                    duration: 2,
+                    ease: "power2.out",
+                    delay: 1.2 + (index * 0.2),
+                    onUpdate: function() {
+                        const current = Math.round(this.targets()[0].count);
+                        if (current >= 1000) {
+                            statElement.textContent = current.toLocaleString();
+                        } else {
+                            statElement.textContent = current;
+                        }
+                    }
+                }
+            );
         });
     }
 

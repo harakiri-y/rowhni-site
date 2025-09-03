@@ -3215,73 +3215,93 @@ section {
 .insight-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-  margin-top: var(--space-xl);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
 }
 
 .insight-card {
   display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-lg);
-  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-elevated) 100%);
-  border: 2px solid rgba(244, 208, 63, 0.2);
-  border-radius: var(--border-radius-pill);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-soft);
-  transition: all 0.3s var(--ease-smooth);
+  align-items: flex-start;
+  gap: var(--space-lg);
+  padding: var(--space-2xl) var(--space-xl);
+  background: rgba(27, 77, 62, 0.4);
+  border: 1px solid rgba(244, 208, 63, 0.3);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s var(--ease-smooth);
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  min-height: 120px;
 }
 
 .insight-card::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(244, 208, 63, 0.1), transparent);
-  transition: left 0.5s ease;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(244, 208, 63, 0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .insight-card:hover {
-  border-color: var(--accent);
-  background: linear-gradient(135deg, var(--surface-elevated) 0%, rgba(244, 208, 63, 0.1) 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(244, 208, 63, 0.2);
+  border-color: rgba(244, 208, 63, 0.6);
+  background: rgba(27, 77, 62, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(244, 208, 63, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .insight-card:hover::before {
-  left: 100%;
+  opacity: 1;
 }
 
 .insight-icon {
-  font-size: 24px;
-  min-width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-  border-radius: 50%;
-  color: var(--background);
-  box-shadow: 0 2px 8px rgba(244, 208, 63, 0.3);
+  background: rgba(244, 208, 63, 0.2);
+  border-radius: 12px;
+  color: var(--accent);
+  margin-top: var(--space-xs);
+  flex-shrink: 0;
+}
+
+.insight-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.insight-content {
+  flex: 1;
+  padding-top: var(--space-xs);
 }
 
 .insight-content h4 {
   color: var(--accent);
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
   margin-bottom: var(--space-xs);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
 }
 
 .insight-content p {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 @media (max-width: 768px) {
@@ -3301,6 +3321,27 @@ section {
   
   .insight-cards {
     grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .insight-card {
+    padding: var(--space-xl) var(--space-lg);
+    min-height: 100px;
+    gap: var(--space-md);
+  }
+  
+  .insight-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+  
+  .insight-content h4 {
+    font-size: 16px;
+  }
+  
+  .insight-content p {
+    font-size: 13px;
   }
 }
 
@@ -3407,57 +3448,68 @@ section {
 
 .progress-pill {
   flex: 1;
-  padding: var(--space-lg) var(--space-md);
-  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-elevated) 100%);
-  border: 2px solid rgba(244, 208, 63, 0.2);
-  border-radius: var(--border-radius-pill);
-  text-align: center;
-  transition: all 0.3s var(--ease-smooth);
+  padding: var(--space-xl) var(--space-lg);
+  background: rgba(27, 77, 62, 0.4);
+  border: 1px solid rgba(244, 208, 63, 0.3);
+  border-radius: 24px;
+  text-align: left;
+  transition: all 0.4s var(--ease-smooth);
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  min-height: 120px;
+  justify-content: center;
 }
 
 .progress-pill::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(244, 208, 63, 0.1), transparent);
-  transition: left 0.5s ease;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(244, 208, 63, 0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .progress-pill:hover {
-  border-color: var(--accent);
-  background: linear-gradient(135deg, var(--surface-elevated) 0%, rgba(244, 208, 63, 0.1) 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(244, 208, 63, 0.2);
+  border-color: rgba(244, 208, 63, 0.6);
+  background: rgba(27, 77, 62, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(244, 208, 63, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .progress-pill:hover::before {
-  left: 100%;
+  opacity: 1;
 }
 
 .pill-label {
   display: block;
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
+  font-size: 18px;
+  color: var(--accent);
   margin-bottom: var(--space-xs);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .pill-value {
   display: block;
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  color: var(--accent);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
 }
 
 /* Dhikr Grid */

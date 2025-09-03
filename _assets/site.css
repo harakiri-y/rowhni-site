@@ -3272,31 +3272,31 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #4CAF50, #45a049);
+  background: linear-gradient(135deg, #666666, #555555);
   border-radius: 8px;
   color: white;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 2px 8px rgba(102, 102, 102, 0.2);
 }
 
 .insight-card:nth-child(1) .insight-icon {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+  background: linear-gradient(135deg, #666666, #555555);
+  box-shadow: 0 2px 8px rgba(102, 102, 102, 0.2);
 }
 
 .insight-card:nth-child(2) .insight-icon {
-  background: linear-gradient(135deg, #2196F3, #1976D2);
-  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+  background: linear-gradient(135deg, #777777, #666666);
+  box-shadow: 0 2px 8px rgba(119, 119, 119, 0.2);
 }
 
 .insight-card:nth-child(3) .insight-icon {
-  background: linear-gradient(135deg, #FF9800, #F57C00);
-  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
+  background: linear-gradient(135deg, #888888, #777777);
+  box-shadow: 0 2px 8px rgba(136, 136, 136, 0.2);
 }
 
 .insight-card:nth-child(4) .insight-icon {
-  background: linear-gradient(135deg, #9C27B0, #7B1FA2);
-  box-shadow: 0 2px 8px rgba(156, 39, 176, 0.3);
+  background: linear-gradient(135deg, #999999, #888888);
+  box-shadow: 0 2px 8px rgba(153, 153, 153, 0.2);
 }
 
 .insight-icon svg {

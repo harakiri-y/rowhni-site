@@ -1180,7 +1180,7 @@ a:hover {
   align-items: center;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: var(--space-3xl) var(--space-lg);
+  padding: calc(var(--space-4xl) + 40px) var(--space-lg) var(--space-3xl);
 }
 
 .hero-badge {
@@ -4077,7 +4077,7 @@ section {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
     text-align: center;
-    padding: var(--space-2xl) var(--space-lg);
+    padding: calc(var(--space-4xl) + 40px) var(--space-lg) var(--space-2xl);
     min-height: calc(100vh - 70px); /* Account for nav height */
   }
   

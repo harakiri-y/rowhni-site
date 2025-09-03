@@ -1065,7 +1065,7 @@ a:hover {
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background: radial-gradient(ellipse at center, rgba(27, 77, 62, 0.1) 0%, transparent 70%);
 }
 

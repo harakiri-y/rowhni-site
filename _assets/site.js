@@ -570,8 +570,20 @@ class RowhniExperience {
             subscribeBtn.disabled = true;
 
             try {
-                // Simulate API call (replace with actual endpoint)
-                await new Promise(resolve => setTimeout(resolve, 1500));
+                // Submit to Vercel API
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(result.error || 'Network response was not ok');
+                }
                 
                 // Success state
                 localStorage.setItem('rowhni_subscribed', 'true');
@@ -602,13 +614,14 @@ class RowhniExperience {
                 setTimeout(closePopup, 3000);
                 
             } catch (error) {
-                console.error('Subscription error:', error);
-                showToast('Something went wrong. Please try again.', 'error');
+                console.error('Netlify Forms submission error:', error);
+                showToast('Network error. Please check your connection and try again.', 'error');
                 
                 // Reset button state
                 subscribeBtn.querySelector('.btn-text').style.display = 'block';
                 subscribeBtn.querySelector('.btn-loading').classList.add('hidden');
                 subscribeBtn.disabled = false;
+                emailInput.focus();
             }
         };
 

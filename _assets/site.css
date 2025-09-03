@@ -1036,7 +1036,7 @@ a:hover {
   background: var(--accent);
   border-radius: 50%;
   pointer-events: none;
-  z-index: var(--z-toast);
+  z-index: 10001;
   mix-blend-mode: difference;
   transition: transform 0.1s var(--ease-smooth);
   visibility: visible;

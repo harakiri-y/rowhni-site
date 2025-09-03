@@ -5088,7 +5088,7 @@ img {
 
 .semicircle-content {
   position: absolute;
-  top: 42%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -5223,7 +5223,7 @@ img {
   
   .semicircle-content {
     width: 200px;
-    top: 40%;
+    top: 65%;
   }
   
   .reading-stats {

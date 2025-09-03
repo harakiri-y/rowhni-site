@@ -59,6 +59,7 @@
   <link rel="canonical" href="https://rowhni.com">
   
   <!-- Apple-specific Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Rowhni">
@@ -84,8 +85,8 @@
   <link rel="preload" href="Screenshots/image1.jpg" as="image" type="image/jpeg">
   
   <!-- Preload Critical Fonts -->
-  <link rel="preload" href="https://fonts.gstatic.com/s/spacegrotesk/v13/V8mQQoyDLAp5cP2D2lNP65C3E0-sJp4S.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v32/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDPYA.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/spacegrotesk/v21/V8mDoQDjQSkFtoMM3T6r8E7mPbF4C_k3HqU.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v39/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2" as="font" type="font/woff2" crossorigin>
   
   <!-- Prefetch Next-page Resources -->
   <link rel="prefetch" href="support/">
@@ -364,8 +365,14 @@
   </script>
 </head>
 <body>
+  <!-- Skip Links for Accessibility -->
+  <div class="skip-links">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#navigation" class="skip-link">Skip to navigation</a>
+  </div>
+
   <!-- Navigation -->
-  <nav class="nav" data-scroll>
+  <nav class="nav" data-scroll id="navigation">
     <div class="nav-container">
       <div class="nav-brand" data-animate>
         <img src="rowhni_logo_day.png" alt="Rowhni" class="nav-logo" loading="eager">
@@ -403,6 +410,7 @@
   </nav>
 
   <!-- Hero Section -->
+  <main id="main-content">
   <section class="hero" data-scroll-section>
     <div class="hero-background">
     </div>
@@ -418,14 +426,19 @@
             <div class="stars">★★★★★</div>
             <span>4.8 • App Store</span>
           </div>
+          <!-- iOS 18 Requirement Badge -->
+          <div class="ios-requirement-badge">
+            <span class="ios-icon">📱</span>
+            <span>Requires iOS 18.0 or later</span>
+          </div>
         </div>
         
         <!-- Main Hero Content -->
         <div class="hero-main" data-animate-cascade>
-          <h1 class="hero-title">
+          <h1 class="hero-title" role="heading" aria-level="1">
             <span class="title-line-primary" data-reveal-line>Where faith meets</span>
             <span class="title-line-gradient" data-reveal-line data-delay="400">innovation</span>
-            <div class="title-decoration" data-animate-draw></div>
+            <div class="title-decoration" data-animate-draw aria-hidden="true"></div>
           </h1>
           
           <div class="hero-subtitle-wrapper" data-animate-up data-delay="800">
@@ -459,12 +472,33 @@
         </div>
         
         <!-- CTA Section -->
+        <!-- Hero Actions -->
+        <div class="hero-actions" data-animate-up data-delay="1000">
+          <!-- Hero Stats -->
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">2M+</span>
+              <span class="stat-label">Users</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">4.8</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">150+</span>
+              <span class="stat-label">Countries</span>
+            </div>
+          </div>
+        </div>
+
         <div class="hero-cta-section" data-animate-up data-delay="1200">
           <div class="cta-primary">
-            <a href="https://apps.apple.com/app/rowhni" class="btn-hero-primary magnetic-btn">
+            <a href="https://apps.apple.com/app/rowhni" class="btn-hero-primary magnetic-btn" 
+               aria-label="Download Rowhni app from App Store - Start Your Spiritual Journey"
+               role="button">
               <div class="btn-content">
                 <span class="btn-text">Start Your Spiritual Journey</span>
-                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                   <path d="M7 17L17 7"/>
                   <path d="M7 7h10v10"/>
                 </svg>
@@ -496,6 +530,16 @@
           </div>
         </div>
       </div>
+      
+      <!-- Floating Pills for Animation -->
+      <div class="floating-pills">
+        <div class="pill">✨</div>
+        <div class="pill">🤲</div>
+        <div class="pill">📿</div>
+        <div class="pill">🌙</div>
+        <div class="pill">⭐</div>
+      </div>
+      
       <div class="hero-visual" data-parallax>
         <div class="app-showcase">
           <div class="app-mockup main-mockup" data-float>
@@ -1203,6 +1247,7 @@
       </div>
     </div>
   </div>
+  </main>
 
 </body>
 </html>

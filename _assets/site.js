@@ -14,26 +14,138 @@ class RowhniExperience {
     }
 
     init() {
-        this.setupGSAPDefaults();
-        this.initializeMagneticCursor();
-        this.initializeTextAnimations();
-        this.initializeScrollAnimations();
-        this.initializeParallaxEffects();
-        this.initializeCounterAnimations();
-        this.initializeVoiceDemo();
-        this.initializeQuranProgress();
-        this.initializePrayerTimes();
-        this.initializeDhikrProgress();
-        this.initializeQuranProgress();
-        this.initializeNavigation();
-        this.initializeMicroInteractions();
-        this.initializeFloatingElements();
-        this.initializeDesignShowcase();
-        this.initializePremiumHeroAnimations();
-        this.initializePremiumFeatureAnimations();
-        this.initializeExitIntentPopup();
-        this.initializeServiceWorker();
-        this.optimizePerformance();
+        try {
+            this.setupGSAPDefaults();
+            console.log('✅ GSAP defaults configured');
+        } catch (error) {
+            console.error('❌ GSAP setup failed:', error);
+        }
+
+        try {
+            this.initializeMagneticCursor();
+            console.log('✅ Magnetic cursor initialized');
+        } catch (error) {
+            console.error('❌ Magnetic cursor failed:', error);
+        }
+
+        try {
+            this.initializeTextAnimations();
+            console.log('✅ Text animations initialized');
+        } catch (error) {
+            console.error('❌ Text animations failed:', error);
+        }
+
+        try {
+            this.initializeScrollAnimations();
+            console.log('✅ Scroll animations initialized');
+        } catch (error) {
+            console.error('❌ Scroll animations failed:', error);
+        }
+
+        try {
+            this.initializeParallaxEffects();
+            console.log('✅ Parallax effects initialized');
+        } catch (error) {
+            console.error('❌ Parallax effects failed:', error);
+        }
+
+        try {
+            this.initializeCounterAnimations();
+            console.log('✅ Counter animations initialized');
+        } catch (error) {
+            console.error('❌ Counter animations failed:', error);
+        }
+
+        try {
+            this.initializeVoiceDemo();
+            console.log('✅ Voice demo initialized');
+        } catch (error) {
+            console.error('❌ Voice demo failed:', error);
+        }
+
+        try {
+            this.initializeQuranProgress();
+            console.log('✅ Quran progress initialized');
+        } catch (error) {
+            console.error('❌ Quran progress failed:', error);
+        }
+
+        try {
+            this.initializePrayerTimes();
+            console.log('✅ Prayer times initialized');
+        } catch (error) {
+            console.error('❌ Prayer times failed:', error);
+        }
+
+        try {
+            this.initializeDhikrProgress();
+            console.log('✅ Dhikr progress initialized');
+        } catch (error) {
+            console.error('❌ Dhikr progress failed:', error);
+        }
+
+        try {
+            this.initializeNavigation();
+            console.log('✅ Navigation initialized');
+        } catch (error) {
+            console.error('❌ Navigation failed:', error);
+        }
+
+        try {
+            this.initializeMicroInteractions();
+            console.log('✅ Micro interactions initialized');
+        } catch (error) {
+            console.error('❌ Micro interactions failed:', error);
+        }
+
+        try {
+            this.initializeFloatingElements();
+            console.log('✅ Floating elements initialized');
+        } catch (error) {
+            console.error('❌ Floating elements failed:', error);
+        }
+
+        try {
+            this.initializeDesignShowcase();
+            console.log('✅ Design showcase initialized');
+        } catch (error) {
+            console.error('❌ Design showcase failed:', error);
+        }
+
+        try {
+            this.initializePremiumHeroAnimations();
+            console.log('✅ Premium hero animations initialized');
+        } catch (error) {
+            console.error('❌ Premium hero animations failed:', error);
+        }
+
+        try {
+            this.initializePremiumFeatureAnimations();
+            console.log('✅ Premium feature animations initialized');
+        } catch (error) {
+            console.error('❌ Premium feature animations failed:', error);
+        }
+
+        try {
+            this.initializeExitIntentPopup();
+            console.log('✅ Exit intent popup initialized');
+        } catch (error) {
+            console.error('❌ Exit intent popup failed:', error);
+        }
+
+        try {
+            this.initializeServiceWorker();
+            console.log('✅ Service Worker initialized');
+        } catch (error) {
+            console.error('❌ Service Worker failed:', error);
+        }
+
+        try {
+            this.optimizePerformance();
+            console.log('✅ Performance optimization complete');
+        } catch (error) {
+            console.error('❌ Performance optimization failed:', error);
+        }
     }
 
     initializePremiumHoverEffects() {
@@ -232,8 +344,8 @@ class RowhniExperience {
         // Performance optimization for GSAP animations
         gsap.config({
             force3D: true,
-            nullTargetWarn: false,
-            trialWarn: false,
+            nullTargetWarn: true,
+            trialWarn: true,
             autoSleep: 60
         });
 
@@ -758,8 +870,8 @@ class RowhniExperience {
     setupGSAPDefaults() {
         gsap.config({
             force3D: true,
-            nullTargetWarn: false,
-            trialWarn: false
+            nullTargetWarn: true,
+            trialWarn: true
         });
 
         // Remove loading class and reveal page
@@ -1438,49 +1550,140 @@ class IslamicChatbot {
     }
     
     processMessage(message) {
-        // Add to conversation context
-        this.conversationContext.push({ role: 'user', message: message, timestamp: Date.now() });
-        
-        // Keep context length manageable
-        if (this.conversationContext.length > 10) {
-            this.conversationContext = this.conversationContext.slice(-8);
+        try {
+            // Input validation
+            if (!message || typeof message !== 'string') {
+                throw new Error('Invalid message input');
+            }
+            
+            // Sanitize input
+            message = message.trim();
+            if (message.length === 0) {
+                throw new Error('Empty message');
+            }
+            
+            if (message.length > 500) {
+                message = message.substring(0, 500);
+                console.warn('⚠️ Message truncated to 500 characters');
+            }
+            
+            // Add to conversation context
+            this.conversationContext.push({ role: 'user', message: message, timestamp: Date.now() });
+            
+            // Keep context length manageable
+            if (this.conversationContext.length > 10) {
+                this.conversationContext = this.conversationContext.slice(-8);
+            }
+            
+            const lowerMessage = message.toLowerCase();
+            let response;
+        } catch (error) {
+            console.error('❌ Chatbot message processing failed:', error);
+            this.handleChatbotError(error);
+            return;
         }
         
-        const lowerMessage = message.toLowerCase();
-        let response;
+        try {
+            // Advanced contextual and keyword matching
+            if (this.matchKeywords(lowerMessage, ['prayer', 'salah', 'salat', 'qibla', 'adhan', 'times', 'fajr', 'dhuhr', 'asr', 'maghrib', 'isha'])) {
+                response = this.responses['prayer-times'];
+            } else if (this.matchKeywords(lowerMessage, ['voice', 'dhikr', 'tasbih', 'count', 'subhanallah', 'alhamdulillah', 'allahu akbar', 'speech', 'recognition'])) {
+                response = this.responses['voice-features'];
+            } else if (this.matchKeywords(lowerMessage, ['quran', 'reading', 'progress', 'surah', 'ayah', 'juz', 'translation', 'tracker', 'book'])) {
+                response = this.responses['quran-tracker'];
+            } else if (this.matchKeywords(lowerMessage, ['ai', 'assistant', 'questions', 'islamic', 'scholar', 'knowledge', 'ask', 'guidance', 'fiqh'])) {
+                response = this.responses['ai-assistant'];
+            } else if (this.matchKeywords(lowerMessage, ['feature', 'what', 'can', 'do', 'capabilities', 'functions', 'about', 'app'])) {
+                response = this.responses['features'];
+            } else if (this.matchKeywords(lowerMessage, ['download', 'install', 'app store', 'get', 'free', 'ios', 'iphone'])) {
+                response = this.responses['download'];
+            } else if (this.matchKeywords(lowerMessage, ['help', 'support', 'contact', 'problem', 'bug', 'issue', 'technical'])) {
+                response = this.responses['support'];
+            } else if (this.matchKeywords(lowerMessage, ['salam', 'hello', 'hi', 'greet', 'peace', 'assalam'])) {
+                response = this.responses['greeting'];
+            } else if (this.matchKeywords(lowerMessage, ['islam', 'islamic', 'teach', 'learn', 'religion', 'faith', 'muslim', 'knowledge'])) {
+                response = this.responses['islamic-qa'];
+            } else {
+                // Intelligent fallback based on context
+                response = this.generateContextualResponse(message, lowerMessage);
+            }
+            
+            // Validate response
+            if (!response || typeof response.text !== 'string') {
+                throw new Error('Invalid response generated');
+            }
+            
+            // Add to conversation context
+            this.conversationContext.push({ role: 'assistant', message: response.text, timestamp: Date.now() });
+            
+            this.addBotMessage(response.text, response.buttons);
+            
+        } catch (error) {
+            console.error('❌ Chatbot response generation failed:', error);
+            this.handleChatbotError(error);
+        }
+    }
+    
+    handleChatbotError(error) {
+        console.error('🤖 Chatbot Error Handler:', error);
         
-        // Advanced contextual and keyword matching
-        if (this.matchKeywords(lowerMessage, ['prayer', 'salah', 'salat', 'qibla', 'adhan', 'times', 'fajr', 'dhuhr', 'asr', 'maghrib', 'isha'])) {
-            response = this.responses['prayer-times'];
-        } else if (this.matchKeywords(lowerMessage, ['voice', 'dhikr', 'tasbih', 'count', 'subhanallah', 'alhamdulillah', 'allahu akbar', 'speech', 'recognition'])) {
-            response = this.responses['voice-features'];
-        } else if (this.matchKeywords(lowerMessage, ['quran', 'reading', 'progress', 'surah', 'ayah', 'juz', 'translation', 'tracker', 'book'])) {
-            response = this.responses['quran-tracker'];
-        } else if (this.matchKeywords(lowerMessage, ['ai', 'assistant', 'questions', 'islamic', 'scholar', 'knowledge', 'ask', 'guidance', 'fiqh'])) {
-            response = this.responses['ai-assistant'];
-        } else if (this.matchKeywords(lowerMessage, ['feature', 'what', 'can', 'do', 'capabilities', 'functions', 'about', 'app'])) {
-            response = this.responses['features'];
-        } else if (this.matchKeywords(lowerMessage, ['download', 'install', 'app store', 'get', 'free', 'ios', 'iphone'])) {
-            response = this.responses['download'];
-        } else if (this.matchKeywords(lowerMessage, ['help', 'support', 'contact', 'problem', 'bug', 'issue', 'technical'])) {
-            response = this.responses['support'];
-        } else if (this.matchKeywords(lowerMessage, ['salam', 'hello', 'hi', 'greet', 'peace', 'assalam'])) {
-            response = this.responses['greeting'];
-        } else if (this.matchKeywords(lowerMessage, ['islam', 'islamic', 'teach', 'learn', 'religion', 'faith', 'muslim', 'knowledge'])) {
-            response = this.responses['islamic-qa'];
+        // Provide fallback response based on error type
+        let fallbackResponse;
+        
+        if (error.message.includes('Invalid message input') || error.message.includes('Empty message')) {
+            fallbackResponse = {
+                text: "عذراً، لم أتمكن من فهم رسالتك. يرجى المحاولة مرة أخرى بسؤال واضح.",
+                buttons: [
+                    { text: "ما هي مميزات التطبيق؟", action: "features" },
+                    { text: "كيف أحمل التطبيق؟", action: "download" }
+                ]
+            };
+        } else if (error.message.includes('Invalid response generated')) {
+            fallbackResponse = {
+                text: "أعتذر، حدث خطأ في معالجة إجابتي. كيف يمكنني مساعدتك؟",
+                buttons: [
+                    { text: "أوقات الصلاة", action: "prayer" },
+                    { text: "ميزة العد الصوتي", action: "voice" },
+                    { text: "تتبع القرآن", action: "quran" }
+                ]
+            };
         } else {
-            // Intelligent fallback based on context
-            response = this.generateContextualResponse(message, lowerMessage);
+            // Generic fallback
+            fallbackResponse = {
+                text: "أعتذر، حدث خطأ مؤقت. يمكنك المحاولة مرة أخرى أو تصفح مميزات التطبيق أدناه:",
+                buttons: [
+                    { text: "مميزات التطبيق", action: "features" },
+                    { text: "تحميل التطبيق", action: "download" },
+                    { text: "مساعدة", action: "support" }
+                ]
+            };
         }
         
-        // Add to conversation context
-        this.conversationContext.push({ role: 'assistant', message: response.text, timestamp: Date.now() });
+        // Show error recovery message
+        setTimeout(() => {
+            this.addBotMessage(fallbackResponse.text, fallbackResponse.buttons);
+        }, 500);
         
-        this.addBotMessage(response.text, response.buttons);
+        // Track error for analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'chatbot_error', {
+                event_category: 'engagement',
+                event_label: error.message,
+                value: 1
+            });
+        }
     }
     
     matchKeywords(text, keywords) {
-        return keywords.some(keyword => text.includes(keyword));
+        try {
+            if (!text || !Array.isArray(keywords)) {
+                return false;
+            }
+            return keywords.some(keyword => text.includes(keyword));
+        } catch (error) {
+            console.error('❌ Keyword matching failed:', error);
+            return false;
+        }
     }
     
     generateContextualResponse(originalMessage, lowerMessage) {

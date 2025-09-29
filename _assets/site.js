@@ -9,16 +9,37 @@ class RowhniExperience {
         this.cursor = { x: 0, y: 0 };
         this.isHovering = false;
         this.isClicking = false;
+        this.disableHeavyMotion = false;
         
         this.init();
     }
 
     init() {
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isCoarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+        const isMobile = window.innerWidth <= 768;
+        this.disableHeavyMotion = Boolean(prefersReducedMotion || isCoarsePointer || isMobile);
         try {
             this.setupGSAPDefaults();
             console.log('✅ GSAP defaults configured');
         } catch (error) {
             console.error('❌ GSAP setup failed:', error);
+        }
+
+        // If heavy motion should be disabled, apply lightweight mode and skip heavy initializers
+        if (this.disableHeavyMotion) {
+            try {
+                this.applyLightweightMode();
+                console.log('⚠️ Lightweight mode enabled (mobile/reduced-motion)');
+            } catch (error) {
+                console.error('❌ Failed to apply lightweight mode:', error);
+            }
+            // Essential non-animated initializations can remain
+            try { this.initializeNavigation(); } catch (e) { console.error('❌ Navigation failed:', e); }
+            try { this.initializeExitIntentPopup(); } catch (e) { console.error('❌ Exit intent popup failed:', e); }
+            try { this.initializeServiceWorker(); } catch (e) { console.error('❌ Service Worker failed:', e); }
+            try { this.optimizePerformance(); } catch (e) { console.error('❌ Performance optimization failed:', e); }
+            return;
         }
 
         try {
@@ -202,6 +223,31 @@ class RowhniExperience {
         } catch (error) {
             console.error('❌ Performance optimization failed:', error);
         }
+    }
+
+    applyLightweightMode() {
+        // Kill any existing animations/tweens just in case
+        try { ScrollTrigger.killAll(); } catch (_) {}
+        try { gsap.killTweensOf("*"); } catch (_) {}
+        document.body.classList.add('reduced-mobile');
+        // Ensure all reveal elements are visible statically
+        gsap.set("[data-animate-up],[data-animate-left],[data-animate-right],[data-animate-scale]", { opacity: 1, x: 0, y: 0, scale: 1, clearProps: "all" });
+        // Hide decorative elements
+        const decorativeSelectors = [
+            '.floating-pills', '.floating-elements', '.float-element',
+            '.progressive-blur-bg', '.blur-1', '.blur-2', '.blur-3',
+            '.magnetic-cursor'
+        ];
+        decorativeSelectors.forEach(sel => {
+            document.querySelectorAll(sel).forEach(el => {
+                el.style.animation = 'none';
+                el.style.transform = 'none';
+                // Keep minimal visuals but hide if purely decorative
+                if (sel === '.floating-pills' || sel === '.magnetic-cursor') {
+                    el.style.display = 'none';
+                }
+            });
+        });
     }
 
     initializePremiumHoverEffects() {

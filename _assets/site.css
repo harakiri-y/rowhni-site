@@ -433,6 +433,28 @@ body {
   cursor: none;
 }
 
+/* Ultra-lightweight mode for mobile/touch/reduced-motion */
+body.reduced-mobile .floating-pills,
+body.reduced-mobile .floating-elements,
+body.reduced-mobile [data-parallax],
+body.reduced-mobile .magnetic-cursor {
+  display: none !important;
+}
+body.reduced-mobile .blur-1,
+body.reduced-mobile .blur-2,
+body.reduced-mobile .blur-3 {
+  animation: none !important;
+  filter: blur(8px) !important;
+  opacity: 0.3 !important;
+}
+body.reduced-mobile [data-animate-up],
+body.reduced-mobile [data-animate-left],
+body.reduced-mobile [data-animate-right],
+body.reduced-mobile [data-animate-scale] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 /* Enhanced Typography for Support and Privacy Pages */
 .support-item h4,
 .category-card h3,

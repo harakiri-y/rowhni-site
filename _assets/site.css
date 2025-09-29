@@ -432,13 +432,11 @@ body {
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
+  cursor: auto;
 }
 
-/* Nur Desktop-ähnliche Geräte (feiner Pointer, keine Touch-only) erhalten den Hidden-Cursor */
-@media (pointer: coarse), (hover: none) {
-  body { cursor: auto; }
-}
+/* Custom Cursor nur aktivieren, wenn explizit gesetzt */
+body.use-custom-cursor { cursor: none; }
 
 /* Ultra-lightweight mode for mobile/touch/reduced-motion */
 body.reduced-mobile .floating-pills,

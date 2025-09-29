@@ -1032,6 +1032,7 @@ class RowhniExperience {
             if (cursorEl) {
                 cursorEl.style.display = 'none';
             }
+            document.body.classList.remove('use-custom-cursor');
             console.log('⚠️ Skipping magnetic cursor on mobile/reduced-motion environment');
             return;
         }
@@ -1041,6 +1042,7 @@ class RowhniExperience {
             console.warn('❌ Magnetic cursor element not found');
             return;
         }
+        document.body.classList.add('use-custom-cursor');
         
         console.log('✅ Initializing magnetic cursor');
 

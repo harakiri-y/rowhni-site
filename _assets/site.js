@@ -1045,6 +1045,7 @@ class RowhniExperience {
         document.body.classList.add('use-custom-cursor');
         cursor.style.display = 'block';
         cursor.style.opacity = '1';
+        cursor.style.visibility = 'visible';
         
         console.log('✅ Initializing magnetic cursor');
 
@@ -1079,6 +1080,15 @@ class RowhniExperience {
                 yPercent: -50
             });
         });
+
+        // Safety: if custom cursor is still hidden after init, re-enable native cursor
+        setTimeout(() => {
+            const styles = window.getComputedStyle(cursor);
+            const hidden = styles.visibility === 'hidden' || styles.opacity === '0' || styles.display === 'none';
+            if (hidden) {
+                document.body.classList.remove('use-custom-cursor');
+            }
+        }, 150);
 
         // Hover effects for interactive elements
         const interactiveElements = document.querySelectorAll('a, button, .app-frame, .stat-card, .dhikr-card, .progress-pill');

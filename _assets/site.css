@@ -436,7 +436,7 @@ body {
 }
 
 /* Custom Cursor nur aktivieren, wenn explizit gesetzt */
-body.use-custom-cursor { cursor: none; }
+body.use-custom-cursor { cursor: none !important; }
 
 /* Ultra-lightweight mode for mobile/touch/reduced-motion */
 body.reduced-mobile .floating-pills,

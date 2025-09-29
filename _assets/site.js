@@ -1043,16 +1043,27 @@ class RowhniExperience {
             return;
         }
         document.body.classList.add('use-custom-cursor');
+        cursor.style.display = 'block';
+        cursor.style.opacity = '1';
         
         console.log('✅ Initializing magnetic cursor');
 
         const cursorInner = cursor.querySelector('.cursor-inner');
 
         // Track mouse movement
-        document.addEventListener('mousemove', (e) => {
+        const handlePointerMove = (e) => {
             this.mouse.x = e.clientX;
             this.mouse.y = e.clientY;
-        });
+            // Fallback: set position immediately to avoid stalling at (0,0)
+            gsap.set(cursor, {
+                x: this.mouse.x,
+                y: this.mouse.y,
+                xPercent: -50,
+                yPercent: -50
+            });
+        };
+        document.addEventListener('mousemove', handlePointerMove);
+        document.addEventListener('pointermove', handlePointerMove);
 
         // Smooth cursor follow
         gsap.ticker.add(() => {

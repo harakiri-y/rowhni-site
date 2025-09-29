@@ -797,9 +797,8 @@ a:hover {
   letter-spacing: 0.08em;
   padding: var(--space-lg) var(--space-2xl);
   box-shadow: 
-    0 0 40px rgba(244, 208, 63, 0.6),
-    0 0 60px rgba(244, 208, 63, 0.4),
-    0 0 80px rgba(244, 208, 63, 0.2);
+    0 0 24px rgba(244, 208, 63, 0.45),
+    0 0 40px rgba(244, 208, 63, 0.25);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: visible;
@@ -815,14 +814,14 @@ a:hover {
 .btn-download::before {
   content: '';
   position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
   background: linear-gradient(45deg, #F4D03F, #F7DC6F, #F1C40F, #F4D03F);
   border-radius: inherit;
   z-index: -1;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .btn-primary:hover,
@@ -1334,8 +1333,8 @@ a:hover {
   z-index: 10001;
   mix-blend-mode: difference;
   transition: transform 0.1s var(--ease-smooth);
-  visibility: visible;
-  opacity: 1;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .cursor-inner {

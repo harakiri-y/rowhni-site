@@ -1062,8 +1062,8 @@ class RowhniExperience {
                 yPercent: -50
             });
         };
-        document.addEventListener('mousemove', handlePointerMove);
-        document.addEventListener('pointermove', handlePointerMove);
+        window.addEventListener('mousemove', handlePointerMove, { passive: true });
+        window.addEventListener('pointermove', handlePointerMove, { passive: true });
 
         // Smooth cursor follow
         gsap.ticker.add(() => {

@@ -966,6 +966,17 @@ class RowhniExperience {
     }
 
     initializeMagneticCursor() {
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isCoarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+        if (prefersReducedMotion || isCoarsePointer || window.innerWidth <= 768) {
+            const cursorEl = document.querySelector('.magnetic-cursor');
+            if (cursorEl) {
+                cursorEl.style.display = 'none';
+            }
+            console.log('⚠️ Skipping magnetic cursor on mobile/reduced-motion environment');
+            return;
+        }
+
         const cursor = document.querySelector('.magnetic-cursor');
         if (!cursor) {
             console.warn('❌ Magnetic cursor element not found');
@@ -1072,8 +1083,15 @@ class RowhniExperience {
     }
 
     initializeScrollAnimations() {
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isCoarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+        const isMobile = window.innerWidth <= 768;
+        const disableHeavy = prefersReducedMotion || isCoarsePointer || isMobile;
+        if (disableHeavy) {
+            console.log('⚠️ Using lightweight fade-in animations for mobile/reduced-motion');
+        }
         // Hero entrance - masterful timeline
-        const heroTl = gsap.timeline({ delay: 0.5 });
+        const heroTl = gsap.timeline({ delay: 0.1 });
         
         heroTl
             .to(".hero-badge", { 
@@ -1119,7 +1137,7 @@ class RowhniExperience {
                 duration: 1.2, 
                 ease: "power3.out" 
             }, "-=1")
-            .to(".floating-pills .pill", {
+            .to(".floating-pills .pill", disableHeavy ? { opacity: 0, duration: 0.01 } : {
                 opacity: 1,
                 scale: 1,
                 rotation: 0,
@@ -1134,15 +1152,15 @@ class RowhniExperience {
         // Advanced scroll-triggered animations
         gsap.utils.toArray("[data-animate-up]").forEach((el, index) => {
             gsap.fromTo(el, 
-                { opacity: 0, y: 60 },
+                { opacity: 0, y: disableHeavy ? 0 : 60 },
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 0.8,
-                    ease: "power3.out",
+                    duration: disableHeavy ? 0.3 : 0.8,
+                    ease: disableHeavy ? "none" : "power3.out",
                     scrollTrigger: {
                         trigger: el,
-                        start: "top 85%",
+                        start: "top 90%",
                         toggleActions: "play none none none"
                     }
                 }
@@ -1151,16 +1169,16 @@ class RowhniExperience {
 
         gsap.utils.toArray("[data-animate-left]").forEach(el => {
             gsap.fromTo(el, 
-                { opacity: 0, x: -80, rotationY: -15 },
+                { opacity: 0, x: disableHeavy ? 0 : -80, rotationY: disableHeavy ? 0 : -15 },
                 {
                     opacity: 1,
                     x: 0,
                     rotationY: 0,
-                    duration: 1,
-                    ease: "power3.out",
+                    duration: disableHeavy ? 0.3 : 1,
+                    ease: disableHeavy ? "none" : "power3.out",
                     scrollTrigger: {
                         trigger: el,
-                        start: "top 80%",
+                        start: "top 90%",
                         toggleActions: "play none none none"
                     }
                 }
@@ -1169,16 +1187,16 @@ class RowhniExperience {
 
         gsap.utils.toArray("[data-animate-right]").forEach(el => {
             gsap.fromTo(el, 
-                { opacity: 0, x: 80, rotationY: 15 },
+                { opacity: 0, x: disableHeavy ? 0 : 80, rotationY: disableHeavy ? 0 : 15 },
                 {
                     opacity: 1,
                     x: 0,
                     rotationY: 0,
-                    duration: 1,
-                    ease: "power3.out",
+                    duration: disableHeavy ? 0.3 : 1,
+                    ease: disableHeavy ? "none" : "power3.out",
                     scrollTrigger: {
                         trigger: el,
-                        start: "top 80%",
+                        start: "top 90%",
                         toggleActions: "play none none none"
                     }
                 }
@@ -1189,20 +1207,20 @@ class RowhniExperience {
             const children = container.children;
             
             gsap.fromTo(children,
-                { opacity: 0, y: 40, scale: 0.9 },
+                { opacity: 0, y: disableHeavy ? 0 : 40, scale: disableHeavy ? 1 : 0.9 },
                 {
                     opacity: 1,
                     y: 0,
                     scale: 1,
-                    duration: 0.6,
+                    duration: disableHeavy ? 0.3 : 0.6,
                     stagger: { 
-                        each: 0.1,
+                        each: 0.06,
                         from: "start"
                     },
-                    ease: "back.out(1.7)",
+                    ease: disableHeavy ? "none" : "back.out(1.7)",
                     scrollTrigger: {
                         trigger: container,
-                        start: "top 85%",
+                        start: "top 90%",
                         toggleActions: "play none none none"
                     }
                 }
@@ -1211,6 +1229,12 @@ class RowhniExperience {
     }
 
     initializeParallaxEffects() {
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isCoarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+        if (prefersReducedMotion || isCoarsePointer || window.innerWidth <= 768) {
+            console.log('⚠️ Skipping parallax effects on mobile/reduced-motion environment');
+            return;
+        }
         // Hero parallax
         gsap.to(".floating-pills .pill", {
             y: -100,

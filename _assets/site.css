@@ -626,6 +626,11 @@ body.loading {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  /* Turn off decorative motion */
+  .floating-pills, .floating-elements, [data-parallax], .magnetic-cursor, .blur-1, .blur-2, .blur-3 {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 /* Selection Styles */
@@ -4445,8 +4450,8 @@ section {
   
   /* Mobile App Showcase */
   .app-showcase {
-    height: 350px;
-    margin-top: var(--space-xl);
+    height: 320px;
+    margin-top: var(--space-lg);
   }
   
   .main-mockup {
@@ -6101,6 +6106,12 @@ img {
   [data-parallax] {
     animation: none !important;
     transform: none !important;
+  }
+  /* Reduce background blur animations further on mobile */
+  .blur-1, .blur-2, .blur-3 {
+    animation: none !important;
+    filter: blur(12px) !important;
+    opacity: 0.4 !important;
   }
   
   /* Simplified shadows for better performance */

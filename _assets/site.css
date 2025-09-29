@@ -437,6 +437,11 @@ body {
 
 /* Custom Cursor nur aktivieren, wenn explizit gesetzt */
 body.use-custom-cursor { cursor: none !important; }
+body.use-custom-cursor .magnetic-cursor {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
 
 /* Ultra-lightweight mode for mobile/touch/reduced-motion */
 body.reduced-mobile .floating-pills,

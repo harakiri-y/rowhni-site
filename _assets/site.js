@@ -1042,7 +1042,7 @@ class RowhniExperience {
             console.warn('❌ Magnetic cursor element not found');
             return;
         }
-        document.body.classList.add('use-custom-cursor');
+        // Delay hiding native cursor until we confirm movement/visibility
         cursor.style.display = 'block';
         cursor.style.opacity = '1';
         cursor.style.visibility = 'visible';
@@ -1052,6 +1052,7 @@ class RowhniExperience {
         const cursorInner = cursor.querySelector('.cursor-inner');
 
         // Track mouse movement
+        let hasPointerMoved = false;
         const handlePointerMove = (e) => {
             this.mouse.x = e.clientX;
             this.mouse.y = e.clientY;
@@ -1062,6 +1063,10 @@ class RowhniExperience {
                 xPercent: -50,
                 yPercent: -50
             });
+            if (!hasPointerMoved) {
+                hasPointerMoved = true;
+                document.body.classList.add('use-custom-cursor');
+            }
         };
         window.addEventListener('mousemove', handlePointerMove, { passive: true });
         window.addEventListener('pointermove', handlePointerMove, { passive: true });
@@ -1081,14 +1086,14 @@ class RowhniExperience {
             });
         });
 
-        // Safety: if custom cursor is still hidden after init, re-enable native cursor
+        // Safety: if custom cursor is still hidden/no pointer movement, keep native cursor
         setTimeout(() => {
             const styles = window.getComputedStyle(cursor);
             const hidden = styles.visibility === 'hidden' || styles.opacity === '0' || styles.display === 'none';
-            if (hidden) {
+            if (hidden || !hasPointerMoved) {
                 document.body.classList.remove('use-custom-cursor');
             }
-        }, 150);
+        }, 500);
 
         // Hover effects for interactive elements
         const interactiveElements = document.querySelectorAll('a, button, .app-frame, .stat-card, .dhikr-card, .progress-pill');

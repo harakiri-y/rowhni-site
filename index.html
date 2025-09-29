@@ -315,10 +315,10 @@
       }
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
   
   <!-- Structured Data for App -->
   <script type="application/ld+json">
@@ -375,7 +375,7 @@
   <nav class="nav" data-scroll id="navigation">
     <div class="nav-container">
       <div class="nav-brand" data-animate>
-        <img src="rowhni_logo_day.png" alt="Rowhni" class="nav-logo" loading="eager">
+        <img src="rowhni_logo_day.png" alt="Rowhni" class="nav-logo" loading="eager" width="40" height="40" decoding="async">
         <span class="nav-title">Rowhni</span>
       </div>
       <div class="nav-links" data-animate-stagger>
@@ -398,7 +398,7 @@
             </div>
           </div>
         </button>
-        <a href="https://apps.apple.com/app/rowhni" class="btn-download magnetic-btn" data-download>Download</a>
+          <a href="https://apps.apple.com/app/rowhni" class="btn-download magnetic-btn" data-download rel="noopener noreferrer">Download</a>
         <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -529,7 +529,7 @@
       </div>
       
       <!-- Floating Pills for Animation -->
-      <div class="floating-pills">
+      <div class="floating-pills" aria-hidden="true">
         <div class="pill">✨</div>
         <div class="pill">🤲</div>
         <div class="pill">📿</div>
@@ -540,15 +540,15 @@
       <div class="hero-visual" data-parallax>
         <div class="app-showcase">
           <div class="app-mockup main-mockup" data-float>
-            <img src="Screenshots/image1.jpg" alt="Rowhni Quran Progress" class="mockup-image" loading="lazy">
+            <img src="Screenshots/image1.jpg" alt="Rowhni Quran Progress" class="mockup-image" loading="eager" decoding="async" fetchpriority="high" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 600px" width="600" height="1067">
           </div>
           <div class="app-mockup secondary-mockup" data-float data-delay="200">
-            <img src="Screenshots/image3.jpg" alt="Rowhni Voice Tasbih" class="mockup-image" loading="lazy">
+            <img src="Screenshots/image3.jpg" alt="Rowhni Voice Tasbih" class="mockup-image" loading="lazy" decoding="async" fetchpriority="low" sizes="(max-width: 768px) 60vw, (max-width: 1200px) 30vw, 420px" width="420" height="747">
           </div>
         </div>
       </div>
     </div>
-    <div class="scroll-indicator" data-animate-bounce>
+    <div class="scroll-indicator" data-animate-bounce aria-hidden="true">
       <div class="scroll-line"></div>
     </div>
   </section>
@@ -623,7 +623,7 @@
         </div>
         <div class="feature-visual" data-animate-right>
           <div class="app-frame">
-            <img src="Screenshots/image3.jpg" alt="Voice Tasbih Interface" class="feature-screenshot" loading="lazy">
+            <img src="Screenshots/image3.jpg" alt="Voice Tasbih Interface" class="feature-screenshot" loading="lazy" decoding="async" fetchpriority="low" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 640px" width="640" height="1138">
             <div class="voice-overlay">
               <div class="voice-indicator" data-voice-pulse></div>
               <div class="dhikr-counter" data-counter-animate>33</div>
@@ -683,7 +683,7 @@
         </div>
         <div class="feature-visual" data-animate-left>
           <div class="app-frame">
-            <img src="Screenshots/image2.jpg" alt="Prayer Times Interface" class="feature-screenshot" loading="lazy">
+            <img src="Screenshots/image2.jpg" alt="Prayer Times Interface" class="feature-screenshot" loading="lazy" decoding="async" fetchpriority="low" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 640px" width="640" height="1138">
             <div class="prayer-overlay">
               <div class="sun-path" data-sun-animate></div>
               <div class="next-prayer-pill" data-prayer-pulse>
@@ -717,7 +717,7 @@
         </div>
         <div class="feature-visual" data-animate-right>
           <div class="app-frame">
-            <img src="Screenshots/image4.jpg" alt="Ask Rowhni AI Assistant" class="feature-screenshot" loading="lazy">
+            <img src="Screenshots/image4.jpg" alt="Ask Rowhni AI Assistant" class="feature-screenshot" loading="lazy" decoding="async" fetchpriority="low" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 640px" width="640" height="1138">
             <div class="ai-overlay">
               <div class="typing-indicator" data-typing-animate>
                 <div class="dot"></div>
@@ -790,7 +790,7 @@
               <span class="design-label">Glass Design</span>
             </div>
             <div class="showcase-device">
-              <img src="Screenshots/2118C33D-97FE-4130-8CC0-968C6765DFC7.png" alt="iOS 26 Glass Design Interface" class="design-screenshot" loading="lazy">
+              <img src="Screenshots/2118C33D-97FE-4130-8CC0-968C6765DFC7.png" alt="iOS 26 Glass Design Interface" class="design-screenshot" loading="lazy" decoding="async" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 800px" width="800" height="600">
 
             </div>
           </div>
@@ -1068,7 +1068,7 @@
           with Rowhni's intelligent companion features.
         </p>
         <div class="cta-actions" data-animate-up data-delay="400">
-          <a href="https://apps.apple.com/app/rowhni" class="btn-primary-large magnetic-btn">
+          <a href="https://apps.apple.com/app/rowhni" class="btn-primary-large magnetic-btn" rel="noopener noreferrer">
             <span>Download for iOS</span>
             <div class="btn-glow"></div>
           </a>
@@ -1199,7 +1199,7 @@
       <div class="chatbot-notification" id="chatbotNotification">1</div>
     </div>
     
-    <div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-window" id="chatbotWindow" role="dialog" aria-modal="true" aria-label="Islamic Assistant Chat">
       <div class="chatbot-header">
         <div class="chatbot-avatar">
           <img src="rowhni_logo_day.png" alt="Rowhni Assistant" loading="lazy">
@@ -1211,7 +1211,7 @@
         <button class="chatbot-close" id="chatbotClose">×</button>
       </div>
       
-      <div class="chatbot-messages" id="chatbotMessages">
+      <div class="chatbot-messages" id="chatbotMessages" role="log" aria-live="polite">
         <div class="chatbot-message bot">
           <div class="message-content">
             <p>السلام عليكم! Welcome to Rowhni 🌙</p>

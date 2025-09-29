@@ -3,6 +3,14 @@
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
+// Silence console logs in production unless explicitly enabled
+try {
+    const DEBUG_ENABLED = (typeof localStorage !== 'undefined' && localStorage.getItem('rowhni_debug') === '1');
+    if (!DEBUG_ENABLED) {
+        console.log = () => {};
+    }
+} catch (_) {}
+
 class RowhniExperience {
     constructor() {
         this.mouse = { x: 0, y: 0 };
@@ -18,7 +26,8 @@ class RowhniExperience {
         const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const isCoarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
         const isMobile = window.innerWidth <= 768;
-        this.disableHeavyMotion = Boolean(prefersReducedMotion || isCoarsePointer || isMobile);
+        const saveData = (navigator.connection && navigator.connection.saveData) || false;
+        this.disableHeavyMotion = Boolean(prefersReducedMotion || isCoarsePointer || isMobile || saveData);
         try {
             this.setupGSAPDefaults();
             console.log('✅ GSAP defaults configured');
@@ -105,12 +114,7 @@ class RowhniExperience {
             console.error('❌ Text animations failed:', error);
         }
 
-        try {
-            this.initializeQuranProgress();
-            console.log('✅ Quran progress animation initialized');
-        } catch (error) {
-            console.error('❌ Quran progress animation failed:', error);
-        }
+        // Removed duplicate early Quran progress init to avoid redundant setup
 
         try {
             this.initializeScrollAnimations();
@@ -527,6 +531,15 @@ class RowhniExperience {
         const subscribeBtn = document.getElementById('subscribeBtn');
         const emailInput = document.getElementById('popupEmail');
         const overlay = popup.querySelector('.popup-overlay');
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isCoarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+        const saveData = (navigator.connection && navigator.connection.saveData) || false;
+        const isMobile = window.innerWidth <= 768;
+        if (prefersReducedMotion || isCoarsePointer || saveData || isMobile) {
+            // Disable exit intent strategies on mobile/reduced-motion/save-data
+            console.log('⚠️ Exit-intent popup disabled for mobile/reduced-motion/save-data');
+            return;
+        }
         
         let hasShownPopup = false;
         let mouseLeaveCount = 0;

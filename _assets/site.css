@@ -208,6 +208,8 @@ body.loaded .trust-badge {
   image-rendering: -webkit-optimize-contrast;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
 }
 
 /* Simplified showcase for image clarity */
@@ -431,6 +433,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   cursor: none;
+}
+
+/* Nur Desktop-ähnliche Geräte (feiner Pointer, keine Touch-only) erhalten den Hidden-Cursor */
+@media (pointer: coarse), (hover: none) {
+  body { cursor: auto; }
 }
 
 /* Ultra-lightweight mode for mobile/touch/reduced-motion */
@@ -2031,6 +2038,8 @@ section {
   width: 100%;
   height: auto;
   display: block;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
 }
 
 .feature-stats {
@@ -3449,9 +3458,7 @@ section {
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-trust-signal {
-    flex-direction: column;
-    gap: var(--space-md);
-    text-align: center;
+    display: none !important;
   }
   
   .hero-benefits {
@@ -6135,6 +6142,11 @@ img {
     filter: blur(12px) !important;
     opacity: 0.4 !important;
   }
+  /* Hide decorative blur backgrounds completely on phones */
+  .progressive-blur-bg,
+  .gradient-overlay {
+    display: none !important;
+  }
   
   /* Simplified shadows for better performance */
   .btn-primary,
@@ -6296,7 +6308,7 @@ img {
   
   /* Scroll Indicator Mobile */
   .hero-scroll-indicator {
-    bottom: var(--space-lg);
+    display: none !important;
   }
   
   .scroll-text {
@@ -7592,15 +7604,7 @@ img {
         width: 100% !important;
     }
     
-    .hero-stats {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 16px !important;
-        margin: 0 !important;
-        width: 100% !important;
-        max-width: 300px !important;
-        margin: 0 auto !important;
-    }
+    .hero-stats { display: none !important; }
     
     .stat {
         display: flex !important;

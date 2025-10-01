@@ -200,17 +200,41 @@ async function cacheFirstWithFallback(request, cacheName) {
 async function networkFirst(request, cacheName) {
   try {
     const response = await fetch(request);
-    if (response.ok) {
+    // Cache only successful responses, but always return whatever the network gave us
+    if (response && response.ok) {
       const cache = await caches.open(cacheName);
       cache.put(request, response.clone());
-      return response;
     }
+    return response;
   } catch (error) {
     console.warn('Network request failed, falling back to cache:', error);
+    // Try exact match
+    let cached = await caches.match(request);
+    if (cached) return cached;
+    // For navigations like "/privacy" (no extension, no trailing slash), try directory index "/privacy/"
+    const directoryFallback = await matchDirectoryIndex(request);
+    if (directoryFallback) return directoryFallback;
+    // As a last resort, return cached root or offline response
+    return (await caches.match('/')) || new Response('Offline', { status: 503 });
   }
-  
-  const cached = await caches.match(request);
-  return cached || new Response('Resource not available', { status: 503 });
+}
+
+async function matchDirectoryIndex(request) {
+  try {
+    const acceptsHtml = (request.headers.get('accept') || '').includes('text/html');
+    if (request.mode === 'navigate' || acceptsHtml) {
+      const url = new URL(request.url);
+      const path = url.pathname;
+      const hasExtension = /\.[^\/]+$/.test(path);
+      const needsSlash = !hasExtension && !path.endsWith('/');
+      if (needsSlash) {
+        return await caches.match(path + '/');
+      }
+    }
+  } catch (_) {
+    // no-op
+  }
+  return undefined;
 }
 
 async function staleWhileRevalidate(request, cacheName) {

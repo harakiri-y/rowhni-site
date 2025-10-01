@@ -938,6 +938,11 @@ a:hover {
   transition: all 0.4s var(--ease-smooth);
 }
 
+/* Reserve header height to prevent overlap clipping */
+main#main-content { 
+  padding-top: var(--header-height);
+}
+
 .nav-background {
   position: absolute;
   top: 0;
@@ -947,7 +952,7 @@ a:hover {
   background: rgba(10, 15, 12, 0.8);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-light);
-  opacity: 0;
+  opacity: 1; /* ensure background present to avoid contrast and clipping artifacts */
   transition: opacity 0.4s var(--ease-smooth);
 }
 
@@ -1378,6 +1383,7 @@ a:hover {
 .hero {
   min-height: 100vh;
   display: flex;
+  padding-top: calc(var(--header-height) + var(--space-lg));
   align-items: center;
   position: relative;
   overflow: visible;

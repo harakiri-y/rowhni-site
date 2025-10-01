@@ -1,4 +1,7 @@
 {
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/privacy", "destination": "/privacy/", "permanent": true }
+  ]
 }
 

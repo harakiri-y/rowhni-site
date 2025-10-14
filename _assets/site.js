@@ -45,7 +45,14 @@ class RowhniExperience {
             }
             // Essential non-animated initializations can remain
             try { this.initializeNavigation(); } catch (e) { console.error('❌ Navigation failed:', e); }
-            try { this.initializeExitIntentPopup(); } catch (e) { console.error('❌ Exit intent popup failed:', e); }
+            try {
+                const newsletterEnabled = document.body.getAttribute('data-feature-newsletter') !== 'false';
+                if (newsletterEnabled) {
+                    this.initializeExitIntentPopup();
+                } else {
+                    console.log('ℹ️ Newsletter popup disabled via feature flag');
+                }
+            } catch (e) { console.error('❌ Exit intent popup failed:', e); }
             try { this.initializeServiceWorker(); } catch (e) { console.error('❌ Service Worker failed:', e); }
             try { this.optimizePerformance(); } catch (e) { console.error('❌ Performance optimization failed:', e); }
             return;
@@ -208,8 +215,13 @@ class RowhniExperience {
         }
 
         try {
-            this.initializeExitIntentPopup();
-            console.log('✅ Exit intent popup initialized');
+            const newsletterEnabled = document.body.getAttribute('data-feature-newsletter') !== 'false';
+            if (newsletterEnabled) {
+                this.initializeExitIntentPopup();
+                console.log('✅ Exit intent popup initialized');
+            } else {
+                console.log('ℹ️ Newsletter popup disabled via feature flag');
+            }
         } catch (error) {
             console.error('❌ Exit intent popup failed:', error);
         }
@@ -527,6 +539,10 @@ class RowhniExperience {
 
     initializeExitIntentPopup() {
         const popup = document.getElementById('exitPopup');
+        if (!popup) {
+            console.log('ℹ️ Exit-intent popup markup not found. Skipping initialization.');
+            return;
+        }
         const closeBtn = document.getElementById('closePopup');
         const subscribeBtn = document.getElementById('subscribeBtn');
         const emailInput = document.getElementById('popupEmail');

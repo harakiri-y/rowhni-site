@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "WG8NTUAAGL.com.yaman.rowhni",
+        "paths": [
+          "/addfriend*",
+          "/joingroup*"
+        ]
+      }
+    ]
+  }
+}

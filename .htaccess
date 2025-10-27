@@ -1,5 +1,11 @@
 RewriteEngine On
 
+# Apple App Site Association - MUST be served without compression
+<Files "apple-app-site-association">
+    Header set Content-Type "application/json"
+    SetEnv no-gzip
+</Files>
+
 # Remove .html extension from URLs
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

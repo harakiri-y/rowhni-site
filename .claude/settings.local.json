@@ -83,7 +83,8 @@
       "Read(/var/folders/y6/8t44f69n1pv3535vjjdt7rsr0000gn/T/TemporaryItems/NSIRD_screencaptureui_MkpWy7/**)",
       "Bash(mkdir:*)",
       "Bash(cat:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

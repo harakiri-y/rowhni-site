@@ -3,17 +3,19 @@
   "redirects": [
     { "source": "/privacy", "destination": "/privacy/", "permanent": true }
   ],
-  "headers": [
+  "rewrites": [
     {
       "source": "/.well-known/apple-app-site-association",
+      "destination": "/.well-known/apple-app-site-association.json"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/.well-known/(.*)",
       "headers": [
         {
           "key": "Content-Type",
           "value": "application/json"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600"
         }
       ]
     }

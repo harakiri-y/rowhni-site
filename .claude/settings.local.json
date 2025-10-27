@@ -84,7 +84,8 @@
       "Bash(mkdir:*)",
       "Bash(cat:*)",
       "Bash(python3:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

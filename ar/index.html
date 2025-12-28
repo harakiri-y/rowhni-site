@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rowhni - التطبيق الإسلامي الأول للقرآن والأذكار وأوقات الصلاة</title>
+    <meta name="description"
+        content="حمل تطبيق Rowhni: أدق تطبيق لأوقات الصلاة، اتجاه القبلة، والأذكار الصوتية. ابدأ رحلتك الروحية مع أول مسبحة صوتية ذكية وتتبع ختمة القرآن.">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../icons/apple-touch-icon-57x57.png">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="../manifest.json">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1B4D3E">
+    <meta name="msapplication-TileColor" content="#1B4D3E">
+    <meta name="msapplication-config" content="../browserconfig.xml">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rowhni - أفضل تطبيق لأوقات الصلاة والقرآن">
+    <meta property="og:description"
+        content="أوقات صلاة دقيقة، اتجاه القبلة، وأذكار صوتية. الرفيق الإسلامي المتكامل لصلاتك اليومية.">
+    <meta property="og:url" content="https://rowhni.com/ar">
+    <meta property="og:site_name" content="Rowhni">
+    <meta property="og:image" content="https://rowhni.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="تطبيق Rowhni - الصلاة، القرآن والأذكار">
+    <meta property="og:locale" content="ar_SA">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rowhni - أفضل تطبيق لأوقات الصلاة والقرآن">
+    <meta name="twitter:description"
+        content="أوقات صلاة دقيقة، اتجاه القبلة، وأذكار صوتية. الرفيق الإسلامي المتكامل لصلاتك اليومية.">
+    <meta name="twitter:image" content="https://rowhni.com/images/twitter-card.jpg">
+    <meta name="twitter:image:alt" content="تطبيق Rowhni - الصلاة، القرآن والأذكار">
+    <meta name="twitter:creator" content="@rowhniapp">
+    <meta name="twitter:site" content="@rowhniapp">
+
+    <!-- Additional Meta Tags -->
+    <meta name="keywords"
+        content="أوقات الصلاة, مواقيت الصلاة, القبلة, اتجاه القبلة, قرآن, ختمة القرآن, أذكار صوتية, تسبيح, تطبيق إسلامي, Namaz, Salah, Prayer times">
+    <meta name="author" content="Rowhni Team">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://rowhni.com/ar">
+
+    <!-- Apple-specific Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Rowhni">
+
+    <!-- Microsoft-specific Meta Tags -->
+    <meta name="msapplication-navbutton-color" content="#1B4D3E">
+    <meta name="msapplication-starturl" content="/ar/">
+    <meta name="msapplication-tooltip" content="Rowhni - رفيقك الإسلامي">
+
+    <link rel="stylesheet" href="../_assets/site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:opsz,wght@14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Resource Hints for Performance -->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//apps.apple.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="../_assets/site.css" as="style">
+    <link rel="preload" href="../_assets/site.js" as="script">
+    <link rel="preload" href="../rowhni_logo_day.png" as="image" type="image/png">
+    <link rel="preload" href="../Screenshots/image1.jpg" as="image" type="image/jpeg">
+
+    <!-- Prefetch Next-page Resources -->
+    <link rel="prefetch" href="../support/">
+    <link rel="prefetch" href="../privacy/">
+    <link rel="prefetch" href="../Screenshots/image2.jpg">
+    <link rel="prefetch" href="../Screenshots/image3.jpg">
+    <link rel="prefetch" href="../Screenshots/image4.jpg">
+
+    <!-- Critical CSS Inline -->
+    <style>
+        :root {
+            /* Override font family for Arabic */
+            --font-primary: 'IBM Plex Sans Arabic', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+        }
+
+        /* RTL Specific Fixes if needed */
+        [dir="rtl"] .nav-actions {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] .hero-trust-signal {
+            flex-direction: row;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
+
+    <!-- Localized SEO Alternatives -->
+    <link rel="alternate" href="https://rowhni.com/" hreflang="x-default" />
+    <link rel="alternate" href="https://rowhni.com/" hreflang="en" />
+    <link rel="alternate" href="https://rowhni.com/de/" hreflang="de" />
+    <link rel="alternate" href="https://rowhni.com/ar/" hreflang="ar" />
+    <link rel="alternate" href="https://rowhni.com/fr/" hreflang="fr" />
+    <link rel="alternate" href="https://rowhni.com/es/" hreflang="es" />
+    <link rel="alternate" href="https://rowhni.com/tr/" hreflang="tr" />
+    <link rel="alternate" href="https://rowhni.com/ms/" hreflang="ms" />
+    <link rel="alternate" href="https://rowhni.com/id/" hreflang="id" />
+    <link rel="alternate" href="https://rowhni.com/ja/" hreflang="ja" />
+    <link rel="alternate" href="https://rowhni.com/tr/" hreflang="tr" />
+    <link rel="alternate" href="https://rowhni.com/ms/" hreflang="ms" />
+    <link rel="alternate" href="https://rowhni.com/id/" hreflang="id" />
+    <link rel="alternate" href="https://rowhni.com/ja/" hreflang="ja" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Rowhni",
+    "headline": "تطبيق إسلامي احترافي للصلاة والقرآن",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "iOS 18.0",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "12847"
+    },
+    "featureList": "مسبحة صوتية، أوقات صلاة دقيقة، اتجاه القبلة، تتبع القرآن",
+    "description": "Rowhni هو التطبيق الإسلامي الأول المصمم للمسلم المعاصر. يتميز بالمسبحة الصوتية، أوقات صلاة دقيقة، وتتبع ذكي لختمة القرآن."
+  }
+  </script>
+</head>
+
+<body data-feature-newsletter="false" data-feature-community="false">
+    <div id="scrollProgress"></div>
+    <div class="skip-links">
+        <a href="#main-content" class="skip-link">الانتقال للمحتوى الرئيسي</a>
+        <a href="#navigation" class="skip-link">الانتقال للقائمة</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" data-scroll id="navigation">
+        <div class="nav-container">
+            <div class="nav-brand" data-animate>
+                <img src="../rowhni_logo_day.png" alt="Rowhni" class="nav-logo" loading="eager" width="40" height="40"
+                    decoding="async">
+                <span class="nav-title">Rowhni</span>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-links" data-animate-stagger>
+                    <a href="#features" class="nav-link" data-smooth-scroll>المميزات</a>
+                    <a href="#progress" class="nav-link" data-smooth-scroll>التقدم</a>
+                    <a href="../support/" class="nav-link">الدعم</a>
+                </div>
+                <div class="nav-actions" data-animate>
+
+                    <a href="https://apps.apple.com/sa/app/rowhni/id6748600035" class="btn-download magnetic-btn"
+                        data-download rel="noopener noreferrer">تحميل</a>
+                </div>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        <div class="nav-background"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="main-content">
+        <section class="hero" data-scroll-section>
+            <div class="hero-background">
+                <div id="aurora-container"></div>
+                <canvas id="spatial-particles"></canvas>
+            </div>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <!-- Trust Signal -->
+                    <div class="hero-trust-signal" data-animate-up data-delay="100">
+                        <div class="trust-badge">
+                            <span class="trust-indicator">●</span>
+                            <span>موثوق من قبل الآلاف</span>
+                        </div>
+                        <div class="trust-rating">
+                            <div class="stars">★★★★★</div>
+                            <span>4.8 • متجر التطبيقات</span>
+                        </div>
+                        <!-- iOS 18 Requirement Badge -->
+                        <div class="ios-requirement-badge">
+                            <span class="ios-icon">📱</span>
+                            <span>يتطلب iOS 18.0 أو أحدث</span>
+                        </div>
+                    </div>
+
+                    <!-- Main Hero Content -->
+                    <div class="hero-main" data-animate-cascade>
+                        <h1 class="hero-title" role="heading" aria-level="1">
+                            <span class="title-line-primary" data-split-text data-reveal-line>حيث يلتقي الإيمان</span>
+                            <span class="title-line-gradient" data-split-text data-reveal-line
+                                data-delay="400">بالابتكار</span>
+                            <div class="title-decoration" data-animate-draw aria-hidden="true"></div>
+                        </h1>
+
+                        <div class="hero-subtitle-wrapper" data-animate-up data-delay="800">
+                            <p class="hero-subtitle" data-split-text>
+                                تجربة تجمع بين أصالة التقاليد الإسلامية وأحدث التقنيات.
+                                <span class="subtitle-highlight">أذكار صوتية</span>،
+                                <span class="subtitle-highlight">أوقات صلاة دقيقة</span>، و
+                                <span class="subtitle-highlight">تتبع ذكي للقرآن</span>
+                                في تطبيق واحد مصمم بإتقان.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Key Benefits -->
+                    <div class="hero-benefits" data-animate-up data-delay="1000">
+                        <div class="benefit-item" data-animate-scale>
+                            <div class="benefit-icon voice-icon"></div>
+                            <span>99.7% دقة الصوت</span>
+                        </div>
+                        <div class="benefit-item" data-animate-scale data-delay="100">
+                            <div class="benefit-icon precision-icon"></div>
+                            <span>±1د دقة الوقت</span>
+                        </div>
+                        <div class="benefit-item" data-animate-scale data-delay="200">
+                            <div class="benefit-icon privacy-icon"></div>
+                            <span>خصوصية كاملة 100%</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Section -->
+                    <!-- Hero Actions -->
+                    <div class="hero-actions" data-animate-up data-delay="1000">
+                    </div>
+
+                    <div class="hero-cta-section" data-animate-up data-delay="1200">
+                        <div class="cta-primary">
+                            <a href="https://apps.apple.com/sa/app/rowhni/id6748600035"
+                                class="btn-hero-primary magnetic-btn" aria-label="تحميل تطبيق Rowhni من متجر التطبيقات"
+                                role="button" data-download>
+                                <div class="btn-content">
+                                    <span class="btn-text">ابدأ رحلتك الروحية</span>
+                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" aria-hidden="true">
+                                        <path d="M7 17L17 7" />
+                                        <!-- Mirrored arrow for RTL -->
+                                        <path d="M7 7h10v10" />
+                                    </svg>
+                                </div>
+                                <div class="btn-gradient-bg"></div>
+                                <div class="btn-shimmer"></div>
+                            </a>
+                            <p class="cta-subtitle">تحميل مجاني • بدون إعلانات في برو</p>
+                        </div>
+
+                        <div class="cta-secondary" data-animate-up data-delay="1400">
+                            <div class="social-proof">
+                                <div class="user-avatars">
+                                    <div class="avatar avatar-1"></div>
+                                    <div class="avatar avatar-2"></div>
+                                    <div class="avatar avatar-3"></div>
+                                    <div class="avatar-count">+مجتمع</div>
+                                </div>
+                                <p class="social-proof-text">انضم لمجتمع عالمي يبني عادات إسلامية مستمرة</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scroll Indicator -->
+                    <div class="hero-scroll-indicator" data-animate-bounce data-delay="1600">
+                        <div class="scroll-text">اكتشف المميزات</div>
+                        <div class="scroll-mouse">
+                            <div class="scroll-wheel"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Pills for Animation -->
+                <div class="floating-pills" aria-hidden="true">
+                    <div class="pill">✨</div>
+                    <div class="pill">🤲</div>
+                    <div class="pill">📿</div>
+                    <div class="pill">🌙</div>
+                    <div class="pill">⭐</div>
+                </div>
+
+                <div class="hero-visual" data-parallax>
+                    <div class="app-showcase">
+                        <div class="app-mockup main-mockup" data-float>
+                            <img src="../Screenshots/image1.jpg" alt="قرآن Rowhni" class="mockup-image" loading="eager"
+                                decoding="async" fetchpriority="high"
+                                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 600px" width="600"
+                                height="1067">
+                        </div>
+                        <div class="app-mockup secondary-mockup" data-float data-delay="200">
+                            <img src="../Screenshots/image3.jpg" alt="المسبحة الصوتية" class="mockup-image"
+                                loading="lazy" decoding="async" fetchpriority="low"
+                                sizes="(max-width: 768px) 60vw, (max-width: 1200px) 30vw, 420px" width="420"
+                                height="747">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator" data-animate-bounce aria-hidden="true">
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features" data-scroll-section>
+            <div class="section-divider"></div>
+            <div class="container">
+                <div class="section-header" data-animate-up>
+                    <div class="section-badge-premium">
+                        <span class="badge-icon">✨</span>
+                        <span>مميزات ثورية</span>
+                        <div class="badge-glow"></div>
+                    </div>
+                    <h2 class="section-title-hero" data-split-text>
+                        <span class="title-line">مستقبل</span>
+                        <span class="title-line gradient-text-premium">الممارسات الإسلامية</span>
+                    </h2>
+                    <p class="section-subtitle-premium" data-animate-up data-delay="400">
+                        تكنولوجيا متطورة تغير طريقة تفاعلك مع إيمانك.
+                        صمم كل ميزة بحب ودقة واحترام عميق للتقاليد الإسلامية.
+                    </p>
+                </div>
+
+                <!-- Voice Tasbih Feature -->
+                <div class="feature-block-premium" data-feature-parallax>
+                    <div class="feature-content-premium" data-animate-left>
+                        <div class="feature-badge-hero">
+                            <div class="badge-pulse"></div>
+                            <span class="badge-text">🎤 أول ذكر صوتي في العالم</span>
+                        </div>
+                        <h3 class="feature-title-hero">
+                            فقط تحدث، وسنحسب لك
+                            <div class="title-underline"></div>
+                        </h3>
+                        <p class="feature-description-hero">
+                            تقنية ثورية للتعرف على الصوت تفهم ذكرك في تناغم تام مع إيقاعك الروحي.
+                            <strong>سبحان الله، الحمد لله، الله أكبر</strong> — بالعربية أو الإنجليزية، تُحسب بدقة
+                            99.7%.
+                        </p>
+
+                        <div class="feature-proof" data-animate-up data-delay="200">
+                            <div class="proof-stat">
+                                <span class="proof-number">99.7%</span>
+                                <span class="proof-label">دقة التعرف</span>
+                            </div>
+
+                        </div>
+
+                        <div class="feature-benefits" data-animate-stagger data-delay="400">
+                            <div class="benefit-check">
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg>
+                                <span>يعمل بالعربية والنطق اللاتيني</span>
+                            </div>
+                            <div class="benefit-check">
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg>
+                                <span>خصوصية تامة، معالجة على الجهاز</span>
+                            </div>
+                            <div class="benefit-check">
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg>
+                                <span>مثالي للتأمل والتركيز</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual" data-animate-right>
+                        <div class="app-frame">
+                            <img src="../Screenshots/image3.jpg" alt="واجهة المسبحة الصوتية" class="feature-screenshot"
+                                loading="lazy" decoding="async" fetchpriority="low"
+                                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 640px" width="640"
+                                height="1138">
+                            <div class="voice-overlay">
+                                <div class="voice-indicator" data-voice-pulse></div>
+                                <div class="dhikr-counter" data-counter-animate>33</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prayer Times Feature -->
+                <div class="feature-block-premium reverse" data-feature-parallax>
+                    <div class="feature-content-premium" data-animate-right>
+                        <div class="feature-badge-hero">
+                            <div class="badge-pulse secondary"></div>
+                            <span class="badge-text">🕌 دقة فلكية</span>
+                        </div>
+                        <h3 class="feature-title-hero">
+                            لن تفوتك صلاة بعد الآن
+                            <div class="title-underline secondary"></div>
+                        </h3>
+                        <p class="feature-description-hero">
+                            مدعوم بحسابات فلكية متقدمة ليعطيك أوقات صلاة دقيقة بالدقيقة.
+                            <strong>أكثر من 12 طريقة حساب</strong> تضمن التوافق التام مع مسجدك المحلي،
+                            سواء كنت في <strong>مكة أو برلين</strong>.
+                        </p>
+
+                        <div class="feature-proof" data-animate-up data-delay="200">
+                            <div class="proof-stat">
+                                <span class="proof-number">±1د</span>
+                                <span class="proof-label">دقة الوقت</span>
+                            </div>
+                            <div class="proof-stat">
+                                <span class="proof-number">12+</span>
+                                <span class="proof-label">طريقة حساب</span>
+                            </div>
+                        </div>
+
+                        <div class="feature-benefits" data-animate-stagger data-delay="400">
+                            <div class="benefit-check">
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg>
+                                <span>يعمل في جميع أنحاء العالم بدقة GPS</span>
+                            </div>
+                            <div class="benefit-check">
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg>
+                                <span>تمثيل بصري جميل لمسار الشمس</span>
+                            </div>
+                            <div class="benefit-check">
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg>
+                                <span>جدولة ذكية للإشعارات</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual" data-animate-left>
+                        <div class="app-frame">
+                            <img src="../Screenshots/image2.jpg" alt="واجهة أوقات الصلاة" class="feature-screenshot"
+                                loading="lazy" decoding="async" fetchpriority="low"
+                                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 640px" width="640"
+                                height="1138">
+                            <div class="prayer-overlay">
+                                <div class="sun-path" data-sun-animate></div>
+                                <div class="next-prayer-pill" data-prayer-pulse>
+                                    <span>المغرب خلال ساعتين و15د</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Assistant Feature -->
+                <div class="feature-block" data-feature-parallax>
+                    <div class="feature-content" data-animate-left>
+                        <div class="feature-badge gradient-badge">مساعد ذكي</div>
+                        <h3 class="feature-title">اسأل Rowhni</h3>
+                        <p class="feature-description">
+                            مساعدك الإسلامي الشخصي الذكي جاهز للإجابة على أسئلتك حول الصلاة،
+                            الصيام، الحج، والتعاليم الإسلامية مع مراجع علمية موثقة.
+                        </p>
+                        <div class="feature-highlights" data-animate-stagger>
+                            <div class="highlight-pill">
+                                <span class="highlight-text">قاعدة معرفة إسلامية</span>
+                            </div>
+                            <div class="highlight-pill">
+                                <span class="highlight-text">مراجع علمية</span>
+                            </div>
+                            <div class="highlight-pill">
+                                <span class="highlight-text">متاح 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual" data-animate-right>
+                        <div class="app-frame">
+                            <img src="../Screenshots/image4.jpg" alt="مساعد Rowhni الذكي" class="feature-screenshot"
+                                loading="lazy" decoding="async" fetchpriority="low"
+                                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 640px" width="640"
+                                height="1138">
+                            <div class="ai-overlay">
+                                <div class="typing-indicator" data-typing-animate>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- iOS 26 Glass Design Section -->
+        <section class="design-showcase" data-scroll-section>
+            <div class="section-divider"></div>
+            <div class="container">
+                <div class="design-content">
+                    <div class="design-text" data-animate-left>
+                        <span class="design-label">تصميم الزجاج</span>
+                        <h2 class="design-title">جمال يريح النفس</h2>
+                        <p class="design-description">
+                            كل بكسل مصمم بعناية ليخلق جواً من السكينة. واجهة زجاجية شفافة،
+                            تفاعلات سلسة، وطباعة عصرية تجعل استخدام التطبيق متعة بحد ذاته.
+                        </p>
+                        <a href="https://apps.apple.com/sa/app/rowhni/id6748600035" class="btn-text-arrow">
+                            <span>شاهد معرض التصميم</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14" />
+                                <path d="M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="design-visual" data-animate-right>
+                        <div class="glass-card-stack">
+                            <div class="showcase-card back"></div>
+                            <div class="showcase-card middle"></div>
+                            <div class="showcase-card front">
+                                <div class="card-header">
+                                    <span class="design-label">تصميم زجاجي</span>
+                                </div>
+                                <div class="showcase-device">
+                                    <img src="../Screenshots/2118C33D-97FE-4130-8CC0-968C6765DFC7.png"
+                                        alt="واجهة تصميم زجاجي" class="design-screenshot" loading="lazy"
+                                        decoding="async"
+                                        sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 800px" width="800"
+                                        height="600">
+
+                                    <div class="reflection-overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo-wrap">
+                            <img src="../rowhni_logo_day.png" alt="Rowhni" class="footer-logo" width="48" height="48">
+                            <span class="footer-name">Rowhni</span>
+                        </div>
+                        <p class="footer-tagline">رفيقك في رحلتك الروحية.</p>
+                        <div class="app-store-badge-footer">
+                            <a href="https://apps.apple.com/sa/app/rowhni/id6748600035"
+                                aria-label="Download on the App Store">
+                                <svg viewBox="0 0 120 40" class="store-badge">
+                                    <!-- Simplified App Store Badge Path -->
+                                    <path
+                                        d="M10,0 h100 a10,10 0 0 1 10,10 v20 a10,10 0 0 1 -10,10 h-100 a10,10 0 0 1 -10,-10 v-20 a10,10 0 0 1 10,-10 z"
+                                        fill="white" fill-opacity="0.1" />
+                                    <text x="60" y="25" font-family="Arial" font-size="14" fill="white"
+                                        text-anchor="middle">تحميل من App Store</text>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-col">
+                            <h4>المنتج</h4>
+                            <ul>
+                                <li><a href="#features">المميزات</a></li>
+                                <li><a href="#pricing">الأسعار</a></li> <!-- Assuming pricing exists or keep generic -->
+                                <li><a href="../support/">تحديثات</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>الشركة</h4>
+                            <ul>
+                                <li><a href="../about/">عنا</a></li>
+                                <li><a href="../support/">الوظائف</a></li>
+                                <li><a href="../contact/">اتصل بنا</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>قانوني</h4>
+                            <ul>
+                                <li><a href="../privacy/">الخصوصية</a></li>
+                                <li><a href="../terms/">الشروط</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Rowhni. جميع الحقوق محفوظة.</p>
+                    <p class="made-with">صُنع بحب في برلين 🇩🇪</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Assistant Chatbot Overlay -->
+        <div class="assistant-overlay" id="assistantOverlay">
+            <div class="assistant-window">
+                <div class="assistant-header">
+                    <div class="assistant-identity">
+                        <img src="../rowhni_logo_day.png" alt="مساعد Rowhni" loading="lazy">
+                        <div class="assistant-info">
+                            <span class="assistant-name">مساعد Rowhni</span>
+                            <span class="assistant-status">متصل</span>
+                        </div>
+                    </div>
+                    <button class="close-assistant" aria-label="إغلاق الدردشة">×</button>
+                </div>
+                <div class="assistant-messages">
+                    <div class="message assistant">
+                        <p>السلام عليكم! كيف يمكنني مساعدتك في رحلتك الروحية اليوم؟</p>
+                    </div>
+                </div>
+                <div class="assistant-input-area">
+                    <input type="text" placeholder="اكتب رسالتك..." aria-label="اكتب رسالة">
+                    <button class="send-message" aria-label="إرسال">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13" />
+                            <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <button class="assistant-toggle" id="assistantToggle" aria-label="فتح المساعد">
+                <span class="toggle-icon">💬</span>
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Add smooth scrolling script for page links -->
+    <script src="../_assets/site.js"></script>
+</body>
+
+</html>

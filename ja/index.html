@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rowhni - 礼拝時間、コーラン、ナマズのためのNo.1アプリ</title>
+    <meta name="description" content="Rowhniをダウンロード：最も正確な礼拝時間、キブラの方向、音声ディクル。世界初の音声タスビーで精神的な旅を始めましょう。">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="../manifest.json">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1B4D3E">
+    <meta name="msapplication-TileColor" content="#1B4D3E">
+    <meta name="msapplication-config" content="../browserconfig.xml">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rowhni - 礼拝とコーランのための最高のアプリ">
+    <meta property="og:description" content="正確な礼拝時間、キブラの方向、音声ディクル。あなたの毎日の崇拝のための完全なイスラムのコンパニオン。">
+    <meta property="og:url" content="https://rowhni.com/ja">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Additional Meta Tags -->
+    <meta name="keywords" content="礼拝, ナマズ, 礼拝時間, キブラ, コーラン, 音声ディクル, タスビー, イスラムアプリ, イスラム教">
+    <meta name="author" content="Rowhni Team">
+    <link rel="canonical" href="https://rowhni.com/ja">
+
+    <link rel="stylesheet" href="../_assets/site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Resource Hints for Performance -->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="../_assets/site.css" as="style">
+    <link rel="preload" href="../_assets/site.js" as="script">
+    <link rel="preload" href="../rowhni_logo_day.png" as="image" type="image/png">
+    <link rel="preload" href="../Screenshots/image1.jpg" as="image" type="image/jpeg">
+
+    <!-- Prefetch Next-page Resources -->
+    <link rel="prefetch" href="../support/">
+    <link rel="prefetch" href="../privacy/">
+    <link rel="prefetch" href="../Screenshots/image2.jpg">
+    <link rel="prefetch" href="../Screenshots/image3.jpg">
+    <link rel="prefetch" href="../Screenshots/image4.jpg">
+
+    <!-- Critical CSS Inline -->
+    <style>
+        :root {
+            --font-primary: 'Noto Sans JP', 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Noto Sans JP', sans-serif;
+        }
+
+        /* Japanese Typography Adjustments */
+        body {
+            font-family: var(--font-primary);
+            letter-spacing: 0.02em;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .hero-title,
+        .section-title-hero {
+            font-family: var(--font-display);
+            font-weight: 700;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
+
+    <!-- Localized SEO Alternatives -->
+    <link rel="alternate" href="https://rowhni.com/" hreflang="x-default" />
+    <link rel="alternate" href="https://rowhni.com/" hreflang="en" />
+    <link rel="alternate" href="https://rowhni.com/de/" hreflang="de" />
+    <link rel="alternate" href="https://rowhni.com/ar/" hreflang="ar" />
+    <link rel="alternate" href="https://rowhni.com/fr/" hreflang="fr" />
+    <link rel="alternate" href="https://rowhni.com/es/" hreflang="es" />
+    <link rel="alternate" href="https://rowhni.com/tr/" hreflang="tr" />
+    <link rel="alternate" href="https://rowhni.com/ms/" hreflang="ms" />
+    <link rel="alternate" href="https://rowhni.com/id/" hreflang="id" />
+    <link rel="alternate" href="https://rowhni.com/ja/" hreflang="ja" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Rowhni",
+    "headline": "プロフェッショナルなイスラムアプリ",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "iOS 18.0",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "12847"
+    },
+    "featureList": "音声ディクル, 正確な礼拝時間, キブラの方向, コーラントラッカー",
+    "description": "Rowhniは現代のイスラム教徒のために設計されたNo.1のイスラムアプリです。音声ベースのタスビー、正確な礼拝時間、スマートなコーラントラッカーを備えています。"
+  }
+  </script>
+</head>
+
+<body data-feature-newsletter="false" data-feature-community="false">
+    <div id="scrollProgress"></div>
+    <div class="skip-links">
+        <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+        <a href="#navigation" class="skip-link">ナビゲーションへスキップ</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" data-scroll id="navigation">
+        <div class="nav-container">
+            <div class="nav-brand" data-animate>
+                <img src="../rowhni_logo_day.png" alt="Rowhni" class="nav-logo" loading="eager" width="40" height="40"
+                    decoding="async">
+                <span class="nav-title">Rowhni</span>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-links" data-animate-stagger>
+                    <a href="#features" class="nav-link" data-smooth-scroll>機能</a>
+                    <a href="#progress" class="nav-link" data-smooth-scroll>進捗</a>
+                    <a href="../support/" class="nav-link">サポート</a>
+                </div>
+                <div class="nav-actions" data-animate>
+                    <a href="https://apps.apple.com/jp/app/rowhni/id6748600035" class="btn-download magnetic-btn"
+                        data-download rel="noopener noreferrer">ダウンロード</a>
+                </div>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="メニュー">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        <div class="nav-background"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="main-content">
+        <section class="hero" data-scroll-section>
+            <div class="hero-background">
+                <div id="aurora-container"></div>
+                <canvas id="spatial-particles"></canvas>
+            </div>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <!-- Trust Signal -->
+                    <div class="hero-trust-signal" data-animate-up data-delay="100">
+                        <div class="trust-badge">
+                            <span class="trust-indicator">●</span>
+                            <span>数千人からの信頼</span>
+                        </div>
+                        <div class="trust-rating">
+                            <div class="stars">★★★★★</div>
+                            <span>4.8 • App Store</span>
+                        </div>
+                        <div class="ios-requirement-badge">
+                            <span class="ios-icon">📱</span>
+                            <span>iOS 18.0+ 必要</span>
+                        </div>
+                    </div>
+
+                    <!-- Main Hero Content -->
+                    <div class="hero-main" data-animate-cascade>
+                        <h1 class="hero-title" role="heading" aria-level="1">
+                            <span class="title-line-primary" data-split-text data-reveal-line>信仰が出会う場所</span>
+                            <span class="title-line-gradient" data-split-text data-reveal-line
+                                data-delay="400">イノベーション</span>
+                            <div class="title-decoration" data-animate-draw aria-hidden="true"></div>
+                        </h1>
+
+                        <div class="hero-subtitle-wrapper" data-animate-up data-delay="800">
+                            <p class="hero-subtitle" data-split-text>
+                                イスラムの伝統と最先端技術の完璧な融合を体験してください。
+                                <span class="subtitle-highlight">音声ディクル</span>、
+                                <span class="subtitle-highlight">正確な礼拝時間</span>、そして
+                                <span class="subtitle-highlight">スマートなコーラン追跡</span>
+                                を美しくデザインされた1つのアプリで。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Key Benefits -->
+                    <div class="hero-benefits" data-animate-up data-delay="1000">
+                        <div class="benefit-item" data-animate-scale>
+                            <div class="benefit-icon voice-icon"></div>
+                            <span>99.7% 音声認識精度</span>
+                        </div>
+                        <div class="benefit-item" data-animate-scale data-delay="100">
+                            <div class="benefit-icon precision-icon"></div>
+                            <span>±1分 礼拝時間精度</span>
+                        </div>
+                        <div class="benefit-item" data-animate-scale data-delay="200">
+                            <div class="benefit-icon privacy-icon"></div>
+                            <span>100% プライバシー</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Section -->
+                    <div class="hero-actions" data-animate-up data-delay="1000">
+                    </div>
+
+                    <div class="hero-cta-section" data-animate-up data-delay="1200">
+                        <div class="cta-primary">
+                            <a href="https://apps.apple.com/jp/app/rowhni/id6748600035"
+                                class="btn-hero-primary magnetic-btn" aria-label="Rowhniをダウンロード" role="button"
+                                data-download>
+                                <div class="btn-content">
+                                    <span class="btn-text">旅を始める</span>
+                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M7 17L17 7" />
+                                        <path d="M7 7h10v10" />
+                                    </svg>
+                                </div>
+                                <div class="btn-gradient-bg"></div>
+                                <div class="btn-shimmer"></div>
+                            </a>
+                            <p class="cta-subtitle">無料 • Proで広告なし • iOS 17+</p>
+                        </div>
+
+                        <div class="cta-secondary" data-animate-up data-delay="1400">
+                            <div class="social-proof">
+                                <div class="user-avatars">
+                                    <div class="avatar avatar-1"></div>
+                                    <div class="avatar avatar-2"></div>
+                                    <div class="avatar avatar-3"></div>
+                                    <div class="avatar-count">+コミュニティ</div>
+                                </div>
+                                <p class="social-proof-text">グローバルコミュニティに参加しよう</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scroll Indicator -->
+                    <div class="hero-scroll-indicator" data-animate-bounce data-delay="1600">
+                        <div class="scroll-text">機能を見る</div>
+                        <div class="scroll-mouse">
+                            <div class="scroll-wheel"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Pills -->
+                <div class="floating-pills" aria-hidden="true">
+                    <div class="pill">✨</div>
+                    <div class="pill">🤲</div>
+                    <div class="pill">📿</div>
+                    <div class="pill">🌙</div>
+                    <div class="pill">⭐</div>
+                </div>
+
+                <div class="hero-visual" data-parallax>
+                    <div class="app-showcase">
+                        <div class="app-mockup main-mockup" data-float>
+                            <img src="../Screenshots/image1.jpg" alt="Rowhni コーラン" class="mockup-image" loading="eager"
+                                decoding="async" fetchpriority="high"
+                                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 600px" width="600"
+                                height="1067">
+                        </div>
+                        <div class="app-mockup secondary-mockup" data-float data-delay="200">
+                            <img src="../Screenshots/image3.jpg" alt="Rowhni 音声ディクル" class="mockup-image" loading="lazy"
+                                decoding="async" fetchpriority="low"
+                                sizes="(max-width: 768px) 60vw, (max-width: 1200px) 30vw, 420px" width="420"
+                                height="747">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator" data-animate-bounce aria-hidden="true">
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features" data-scroll-section>
+            <div class="section-divider"></div>
+            <div class="container">
+                <div class="section-header" data-animate-up>
+                    <div class="section-badge-premium">
+                        <span class="badge-icon">✨</span>
+                        <span>画期的な機能</span>
+                        <div class="badge-glow"></div>
+                    </div>
+                    <h2 class="section-title-hero" data-split-text>
+                        <span class="title-line">イスラムライフの</span>
+                        <span class="title-line gradient-text-premium">未来</span>
+                    </h2>
+                    <p class="section-subtitle-premium" data-animate-up data-delay="400">
+                        信仰とのつながりを深める最先端技術。
+                    </p>
+                </div>
+
+                <!-- Voice Tasbih Feature -->
+                <div class="feature-block-premium" data-feature-parallax>
+                    <div class="feature-content-premium" data-animate-left>
+                        <div class="feature-badge-hero">
+                            <div class="badge-pulse"></div>
+                            <span class="badge-text">🎤 世界初の音声ディクル</span>
+                        </div>
+                        <h3 class="feature-title-hero">
+                            話すだけで、カウントします
+                            <div class="title-underline"></div>
+                        </h3>
+                        <p class="feature-description-hero">
+                            革命的な音声認識技術。
+                            <strong>スブハーン・アッラー、アルハムドゥリッラー、アッラーフ・アクバル</strong> — 99.7%の精度でカウントします。
+                        </p>
+                        <div class="feature-proof" data-animate-up data-delay="200">
+                            <div class="proof-stat">
+                                <span class="proof-number">99.7%</span>
+                                <span class="proof-label">精度</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual" data-animate-right>
+                        <div class="app-frame">
+                            <img src="../Screenshots/image3.jpg" alt="音声タスビー UI" class="feature-screenshot"
+                                loading="lazy" decoding="async" fetchpriority="low"
+                                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 640px" width="640"
+                                height="1138">
+                            <div class="voice-overlay">
+                                <div class="voice-indicator" data-voice-pulse></div>
+                                <div class="dhikr-counter" data-counter-animate>33</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prayer Times Feature -->
+                <div class="feature-block-premium reverse" data-feature-parallax>
+                    <div class="feature-content-premium" data-animate-right>
+                        <div class="feature-badge-hero">
+                            <div class="badge-pulse secondary"></div>
+                            <span class="badge-text">🕌 天文学的精度</span>
+                        </div>
+                        <h3 class="feature-title-hero">
+                            もう礼拝を逃さない
+                            <div class="title-underline secondary"></div>
+                        </h3>
+                        <p class="feature-description-hero">
+                            分単位で正確な礼拝時間。
+                            <strong>12以上の計算方法</strong> で、地元のモスクと完全に同期します。
+                        </p>
+                        <div class="feature-proof" data-animate-up data-delay="200">
+                            <div class="proof-stat">
+                                <span class="proof-number">±1分</span>
+                                <span class="proof-label">精度</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-visual" data-animate-left>
+                        <div class="app-frame">
+                            <img src="../Screenshots/image2.jpg" alt="礼拝時間 UI" class="feature-screenshot" loading="lazy"
+                                decoding="async" fetchpriority="low"
+                                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 640px" width="640"
+                                height="1138">
+                            <div class="prayer-overlay">
+                                <div class="sun-path" data-sun-animate></div>
+                                <div class="next-prayer-pill" data-prayer-pulse>
+                                    <span>マグリブまで 2時間 15分</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Assistant Feature -->
+                <div class="feature-block" data-feature-parallax>
+                    <div class="feature-content" data-animate-left>
+                        <div class="feature-badge gradient-badge">AIアシスタント</div>
+                        <h3 class="feature-title">Rowhniに聞く</h3>
+                        <p class="feature-description">
+                            礼拝、断食などに関するあなたの質問にいつでも答える、個人のイスラムアシスタント。
+                        </p>
+                    </div>
+                    <div class="feature-visual" data-animate-right>
+                        <div class="app-frame">
+                            <img src="../Screenshots/image4.jpg" alt="Rowhni AIアシスタント" class="feature-screenshot"
+                                loading="lazy" decoding="async" fetchpriority="low"
+                                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 640px" width="640"
+                                height="1138">
+                            <div class="ai-overlay">
+                                <div class="typing-indicator" data-typing-animate>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Design Section -->
+        <section class="design-showcase" data-scroll-section>
+            <div class="section-divider"></div>
+            <div class="container">
+                <div class="design-content">
+                    <div class="design-text" data-animate-left>
+                        <span class="design-label">グラスデザイン</span>
+                        <h2 class="design-title">安らぎを与える美しさ</h2>
+                        <p class="design-description">
+                            すべてのピクセルが、平穏な雰囲気を作り出すためにデザインされています。
+                        </p>
+                    </div>
+                    <div class="design-visual" data-animate-right>
+                        <div class="glass-card-stack">
+                            <div class="showcase-card back"></div>
+                            <div class="showcase-card middle"></div>
+                            <div class="showcase-card front">
+                                <div class="showcase-device">
+                                    <img src="../Screenshots/2118C33D-97FE-4130-8CC0-968C6765DFC7.png" alt="グラスデザイン UI"
+                                        class="design-screenshot" loading="lazy" decoding="async" width="800"
+                                        height="600">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo-wrap">
+                            <img src="../rowhni_logo_day.png" alt="Rowhni" class="footer-logo" width="48" height="48">
+                            <span class="footer-name">Rowhni</span>
+                        </div>
+                        <p class="footer-tagline">あなたの精神的なパートナー。</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-col">
+                            <h4>製品</h4>
+                            <ul>
+                                <li><a href="#features">機能</a></li>
+                                <li><a href="../support/">アップデート</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>会社</h4>
+                            <ul>
+                                <li><a href="../about/">概要</a></li>
+                                <li><a href="../contact/">お問い合わせ</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>法務</h4>
+                            <ul>
+                                <li><a href="../privacy/">プライバシー</a></li>
+                                <li><a href="../terms/">利用規約</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Rowhni. All rights reserved.</p>
+                    <p class="made-with">ベルリンで愛を込めて作られました 🇩🇪</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Assistant Overlay -->
+        <div class="assistant-overlay" id="assistantOverlay">
+            <div class="assistant-window">
+                <div class="assistant-header">
+                    <div class="assistant-identity">
+                        <img src="../rowhni_logo_day.png" alt="Rowhni" loading="lazy">
+                        <div class="assistant-info">
+                            <span class="assistant-name">Rowhniアシスタント</span>
+                            <span class="assistant-status">オンライン</span>
+                        </div>
+                    </div>
+                    <button class="close-assistant">×</button>
+                </div>
+            </div>
+            <button class="assistant-toggle" id="assistantToggle">
+                <span class="toggle-icon">💬</span>
+            </button>
+        </div>
+    </main>
+    <script src="../_assets/site.js"></script>
+</body>
+
+</html>

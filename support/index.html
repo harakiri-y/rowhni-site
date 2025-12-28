@@ -1,363 +1,266 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Support - Rowhni Islamic Companion</title>
-  <meta name="description" content="Get help and support for Rowhni, your complete Islamic companion app.">
+  <title>Rowhni Support - Your Islamic Companion Help Center</title>
+  <meta name="description"
+    content="Get comprehensive support for Rowhni. App setup, troubleshooting, and feature guides for the best Islamic app experience.">
+
+  <!-- Favicon and Icons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#1B4D3E">
+  <meta name="msapplication-TileColor" content="#1B4D3E">
+  <meta name="msapplication-config" content="../browserconfig.xml">
+
   <link rel="stylesheet" href="../_assets/site.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
+
+  <!-- Critical CSS Inline -->
+  <style>
+    :root {
+      --font-primary: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+    }
+  </style>
 </head>
-<body>
+
+<body data-page="support" class="support-page">
+  <div id="scrollProgress"></div>
+  <div class="skip-links">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#navigation" class="skip-link">Skip to navigation</a>
+  </div>
+
   <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-background"></div>
-    <div class="container">
-      <div class="nav-content">
-        <div class="nav-brand">
-          <img src="../rowhni_logo_day.png" alt="Rowhni" class="nav-logo">
+  <nav class="nav" data-scroll id="navigation">
+    <div class="nav-container">
+      <div class="nav-brand" data-animate>
+        <a href="../" class="nav-brand-link">
+          <img src="../rowhni_logo_day.png" alt="Rowhni" class="nav-logo" loading="eager" width="40" height="40">
           <span class="nav-title">Rowhni</span>
-        </div>
-        
-        <div class="nav-links">
-          <a href="../" class="nav-link">Home</a>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <div class="nav-links" data-animate-stagger>
           <a href="../#features" class="nav-link">Features</a>
           <a href="../#progress" class="nav-link">Progress</a>
-          <a href="../support/" class="nav-link active">Support</a>
-          <a href="../privacy/" class="nav-link">Privacy</a>
+          <a href="./" class="nav-link active">Support</a>
         </div>
-        
-        <div class="nav-cta">
-          <a href="https://apps.apple.com/de/app/rowhni/id6748600035" class="btn btn-download">
-            Download iOS
-          </a>
+        <div class="nav-actions" data-animate>
+          <a href="https://apps.apple.com/us/app/rowhni/id6748600035" class="btn-download magnetic-btn" data-download
+            rel="noopener noreferrer">Download</a>
         </div>
       </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
+    <div class="nav-background"></div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="support-hero">
-    <div class="container">
-      <div class="section-header">
-        <h1 class="section-title">
-          <span class="title-line">How can we</span>
-          <span class="title-line gradient-text">help you?</span>
-        </h1>
-        <p class="section-subtitle">
-          Get comprehensive support for Rowhni through Apple's App Store system. Find answers, troubleshoot issues, and maximize your Islamic practice experience.
-        </p>
-        <div class="important-notice">
-          <p><strong>Support Notice:</strong> All technical support, feature requests, and account issues must be handled through Apple's App Store support system. We do not maintain direct email or phone support.</p>
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="support-hero">
+      <div class="hero-background">
+        <div id="aurora-container"></div>
+      </div>
+      <div class="container">
+        <div class="support-header" data-animate-up>
+          <div class="section-badge-premium center-badge">
+            <span class="badge-icon">🤝</span>
+            <span>Help Center</span>
+            <div class="badge-glow"></div>
+          </div>
+          <h1 class="hero-title support-title">
+            <span class="title-line">How can we</span>
+            <span class="title-line gradient-text-premium secondary">help you?</span>
+          </h1>
+          <p class="section-subtitle-premium center-text">
+            Comprehensive support for Rowhni. Troubleshooting, guides, and community help.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Support Categories -->
-  <section class="support-categories">
-    <div class="container">
-      <div class="categories-grid">
-        
-        <!-- Getting Started -->
-        <div class="category-card">
-          <h3>Getting Started</h3>
-          <p class="category-description">Essential setup guide for first-time users and app configuration.</p>
-          <div class="support-items">
-            <div class="support-item">
-              <h4>Initial Setup Process</h4>
-              <p><strong>Step 1:</strong> Download from App Store (iOS 14.0+ required)</p>
-              <p><strong>Step 2:</strong> Grant location permission for prayer time accuracy</p>
-              <p><strong>Step 3:</strong> Select your preferred calculation method and madhab</p>
-              <p><strong>Step 4:</strong> Configure notification preferences and privacy settings</p>
+    <!-- Support Categories -->
+    <section class="support-content">
+      <div class="container">
+        <div class="support-grid">
+          <!-- Setup Guide -->
+          <div class="support-card glass-card" data-animate-up data-delay="100">
+            <div class="card-gradient"></div>
+            <div class="card-icon">🚀</div>
+            <h3>Getting Started</h3>
+            <p>Essential setup guide for first-time users.</p>
+            <ul class="support-list">
+              <li>
+                <strong>Initial Setup:</strong> Download from App Store (iOS 18.0+ required).
+              </li>
+              <li>
+                <strong>Permissions:</strong> Grant location for accurate prayer times.
+              </li>
+              <li>
+                <strong>Privacy:</strong> Location data stays on your device.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Prayer Times -->
+          <div class="support-card glass-card" data-animate-up data-delay="200">
+            <div class="card-gradient"></div>
+            <div class="card-icon">🕌</div>
+            <h3>Prayer Times</h3>
+            <p>Accuracy standards and troubleshooting.</p>
+            <ul class="support-list">
+              <li>
+                <strong>Accuracy:</strong> ±1 minute with astronomical calculations.
+              </li>
+              <li>
+                <strong>Methods:</strong> Supports ISNA, MWL, Umm al-Qura, and more.
+              </li>
+              <li>
+                <strong>Fix:</strong> Check location settings if times are incorrect.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Voice Tasbih -->
+          <div class="support-card glass-card" data-animate-up data-delay="300">
+            <div class="card-gradient"></div>
+            <div class="card-icon">🎤</div>
+            <h3>Voice Tasbih</h3>
+            <p>Voice recognition tips and privacy.</p>
+            <ul class="support-list">
+              <li>
+                <strong>Phrases:</strong> SubhanAllah, Alhamdulillah, Allahu Akbar.
+              </li>
+              <li>
+                <strong>Privacy:</strong> 100% on-device processing. No recording.
+              </li>
+              <li>
+                <strong>Tip:</strong> Speak clearly in a quiet environment.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Quran Tracking -->
+          <div class="support-card glass-card" data-animate-up data-delay="400">
+            <div class="card-gradient"></div>
+            <div class="card-icon">📖</div>
+            <h3>Quran Tracker</h3>
+            <p>Progress monitoring and reading features.</p>
+            <ul class="support-list">
+              <li>
+                <strong>Tracking:</strong> Auto-tracks progress by Juz and Surah.
+              </li>
+              <li>
+                <strong>Sync:</strong> iCloud sync keeps progress across devices.
+              </li>
+              <li>
+                <strong>Audio:</strong> Download recitations for offline use.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+          <div class="section-divider"></div>
+          <h2 class="section-title-hero center-text mb-large">FAQ</h2>
+
+          <div class="faq-grid">
+            <div class="faq-item glass-card" data-animate-up>
+              <h4>Is Rowhni free?</h4>
+              <p>Core features are free. Rowhni Pro unlocks advanced analytics and removes ads.</p>
             </div>
-            <div class="support-item">
-              <h4>Location & Privacy Settings</h4>
-              <p><strong>Precise Location:</strong> Required for accurate prayer times and Qibla direction</p>
-              <p><strong>Data Processing:</strong> Location data processed locally on device only</p>
-              <p><strong>Manual Override:</strong> Set location manually if automatic detection fails</p>
-              <p><strong>Privacy Controls:</strong> Manage all permissions in iOS Settings > Privacy</p>
+            <div class="faq-item glass-card" data-animate-up>
+              <h4>Does it work offline?</h4>
+              <p>Yes, prayer times, Qibla, and Voice Tasbih work completely offline.</p>
             </div>
-            <div class="support-item">
-              <h4>Troubleshooting Setup Issues</h4>
-              <p>If you experience setup problems, restart the app and ensure iOS is updated. For persistent issues, contact support through the App Store "Report a Problem" feature with your device model and iOS version.</p>
+            <div class="faq-item glass-card" data-animate-up>
+              <h4>How do I report a bug?</h4>
+              <p>Please use the button below to report technical issues via the App Store.</p>
             </div>
           </div>
         </div>
 
-        <!-- Prayer Times -->
-        <div class="category-card">
-          <h3>Prayer Times & Accuracy</h3>
-          <p class="category-description">Comprehensive guide to prayer time calculations, accuracy standards, and customization options.</p>
-          <div class="support-items">
-            <div class="support-item">
-              <h4>Supported Calculation Methods</h4>
-              <p><strong>Major Methods:</strong> Muslim World League, ISNA, Egyptian Authority, Umm al-Qura (Makkah), University of Islamic Sciences Karachi</p>
-              <p><strong>Regional Methods:</strong> Tehran, Jafari, Singapore, France, Turkey, Russia, Morocco</p>
-              <p><strong>Recommendation:</strong> Use the method officially adopted by your local Islamic authority or mosque</p>
-              <p><strong>Custom Angles:</strong> Advanced users can set custom Fajr and Isha angles if required</p>
+        <!-- Contact Actions -->
+        <div class="contact-actions center-text" data-animate-up>
+          <a href="https://apps.apple.com/us/app/rowhni/id6748600035" class="btn-hero-primary magnetic-btn">
+            <div class="btn-content">
+              <span>Report Issue on App Store</span>
             </div>
-            <div class="support-item">
-              <h4>Accuracy Standards & Verification</h4>
-              <p><strong>Precision:</strong> ±1 minute accuracy using astronomical calculations based on GPS coordinates</p>
-              <p><strong>Altitude Correction:</strong> Automatic adjustment for elevation above sea level</p>
-              <p><strong>Verification:</strong> Cross-check with local mosque times during first week of use</p>
-              <p><strong>Updates:</strong> Times automatically adjust for location changes and daylight saving</p>
-            </div>
-            <div class="support-item">
-              <h4>Common Issues & Solutions</h4>
-              <p><strong>Times seem incorrect:</strong> Verify calculation method matches local standard and location is accurate</p>
-              <p><strong>No prayer times showing:</strong> Check location permissions and internet connectivity</p>
-              <p><strong>Wrong timezone:</strong> Ensure iPhone time zone is set correctly in Settings</p>
-            </div>
-          </div>
+          </a>
+          <p class="mt-small text-muted">Feature requests? We'd love to hear them too!</p>
         </div>
 
-        <!-- Voice Tasbih -->
-        <div class="category-card">
-          <h3>Voice-Powered Dhikr Counter</h3>
-          <p class="category-description">Revolutionary voice recognition technology for accurate dhikr counting with complete privacy protection.</p>
-          <div class="support-items">
-            <div class="support-item">
-              <h4>Supported Dhikr & Recognition Accuracy</h4>
-              <p><strong>Recognized Phrases:</strong></p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo-wrap">
+              <img src="../rowhni_logo_day.png" alt="Rowhni" class="footer-logo" width="48" height="48">
+              <span class="footer-name">Rowhni</span>
+            </div>
+            <p class="footer-tagline">Your spiritual companion.</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-col">
+              <h4>Product</h4>
               <ul>
-                <li>SubhanAllah (سبحان الله) - 99.8% accuracy</li>
-                <li>Alhamdulillahi Rabbil Alameen (الحمد لله رب العالمين) - 99.5% accuracy</li>
-                <li>Allahu Akbar (الله أكبر) - 99.7% accuracy</li>
-                <li>La ilaha illa Allah (لا إله إلا الله) - 99.6% accuracy</li>
+                <li><a href="../#features">Features</a></li>
+                <li><a href="./">Support</a></li>
               </ul>
-              <p><strong>Languages:</strong> Arabic, English transliteration, and mixed pronunciation supported</p>
             </div>
-            <div class="support-item">
-              <h4>Privacy & Technical Implementation</h4>
-              <p><strong>On-Device Processing:</strong> Voice data never leaves your iPhone - processed using Apple's Core ML framework</p>
-              <p><strong>No Recording:</strong> Audio is analyzed in real-time and immediately discarded</p>
-              <p><strong>No Internet Required:</strong> Voice recognition works completely offline</p>
-              <p><strong>Battery Optimization:</strong> Advanced algorithms minimize battery drain during extended sessions</p>
+            <div class="footer-col">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../contact/">Contact</a></li>
+              </ul>
             </div>
-            <div class="support-item">
-              <h4>Usage Tips & Troubleshooting</h4>
-              <p><strong>Optimal Performance:</strong> Speak clearly in quiet environment, hold device 6-12 inches away</p>
-              <p><strong>Microphone Issues:</strong> Ensure microphone permissions enabled in Settings > Privacy & Security</p>
-              <p><strong>Recognition Problems:</strong> Try different pronunciations or speak slower/faster</p>
-              <p><strong>Reset Counter:</strong> Long-press counter to reset or access session history</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Quran Progress -->
-        <div class="category-card">
-          <h3>Quran Reading & Progress Tracking</h3>
-          <p class="category-description">Comprehensive Quran study features with intelligent progress monitoring and multi-language support.</p>
-          <div class="support-items">
-            <div class="support-item">
-              <h4>Smart Progress Tracking System</h4>
-              <p><strong>Automatic Detection:</strong> Progress tracked automatically as you read through verses</p>
-              <p><strong>Multiple Views:</strong> Monitor progress by Juz (Para), Surah, or individual Ayah completion</p>
-              <p><strong>Reading Goals:</strong> Set daily/weekly reading targets with reminder notifications</p>
-              <p><strong>Statistics:</strong> Detailed analytics on reading time, favorite Surahs, and consistency</p>
-              <p><strong>Sync Across Devices:</strong> Progress synced via iCloud for seamless experience</p>
-            </div>
-            <div class="support-item">
-              <h4>Translation & Audio Features</h4>
-              <p><strong>40+ Languages:</strong> Word-by-word translations in major world languages</p>
-              <p><strong>Renowned Qaris:</strong> Audio recitations by Sheikh Abdul Rahman Al-Sudais, Mishary Al-Afasy, and others</p>
-              <p><strong>Offline Access:</strong> Download translations and audio for offline reading</p>
-              <p><strong>Search Function:</strong> Find verses by keyword in Arabic or translation</p>
-              <p><strong>Bookmarks:</strong> Save favorite verses and create personal collections</p>
-            </div>
-            <div class="support-item">
-              <h4>Reading Issues & Solutions</h4>
-              <p><strong>Progress Not Saving:</strong> Ensure iCloud is enabled and app has sufficient storage</p>
-              <p><strong>Audio Not Playing:</strong> Check device volume, cellular/WiFi connection for streaming</p>
-              <p><strong>Translation Missing:</strong> Download language packs in Settings > Languages</p>
-              <p><strong>Sync Problems:</strong> Sign out and back into iCloud, restart app</p>
+            <div class="footer-col">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="../privacy/">Privacy</a></li>
+                <li><a href="../terms/">Terms</a></li>
+              </ul>
             </div>
           </div>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="faq-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">
-          <span class="title-line">Frequently Asked</span>
-          <span class="title-line gradient-text">Questions</span>
-        </h2>
-      </div>
-      
-      <div class="faq-grid">
-        <div class="faq-item">
-          <div class="faq-question">
-            <h4>Is Rowhni completely free? Are there any hidden costs?</h4>
-            <div class="faq-toggle">+</div>
-          </div>
-          <div class="faq-answer">
-            <p><strong>Core Features Free:</strong> Essential Islamic features including prayer times, Qibla compass, basic dhikr counter, and Quran reading are completely free.</p>
-            <p><strong>Premium Features:</strong> Rowhni Pro subscription unlocks advanced features like voice-powered dhikr counting, additional adhan voices, premium themes, and detailed analytics.</p>
-            <p><strong>Advertisement Support:</strong> The free version is supported by privacy-respecting advertisements. No personal data is collected for ad targeting - ads are contextual only.</p>
-            <p><strong>No Hidden Costs:</strong> Clear pricing for premium features with no surprise charges or mandatory subscriptions.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <h4>How can I verify prayer time accuracy and what if times seem wrong?</h4>
-            <div class="faq-toggle">+</div>
-          </div>
-          <div class="faq-answer">
-            <p><strong>Accuracy Standard:</strong> ±1 minute precision using astronomical calculations based on exact GPS coordinates.</p>
-            <p><strong>Verification Method:</strong> Compare with your local mosque times for the first week, adjusting calculation method if needed.</p>
-            <p><strong>Common Issues:</strong> Wrong calculation method selected, inaccurate location detection, or timezone problems.</p>
-            <p><strong>Troubleshooting:</strong> Verify location permissions, check calculation method matches local standard, ensure device timezone is correct.</p>
-            <p><strong>Professional Validation:</strong> Our algorithms are validated against official Islamic calendar calculations used by major Islamic institutions.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <h4>What features work offline and what requires internet?</h4>
-            <div class="faq-toggle">+</div>
-          </div>
-          <div class="faq-answer">
-            <p><strong>Fully Offline Features:</strong></p>
-            <ul>
-              <li>Prayer time calculations (once location is set)</li>
-              <li>Qibla direction using device compass</li>
-              <li>Voice Tasbih recognition and counting</li>
-              <li>Quran reading with downloaded translations</li>
-              <li>Progress tracking and statistics</li>
-            </ul>
-            <p><strong>Internet Required For:</strong></p>
-            <ul>
-              <li>Initial location detection and setup</li>
-              <li>Downloading new translation languages</li>
-              <li>Streaming audio recitations (if not downloaded)</li>
-              <li>App updates and new feature releases</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <h4>How is my privacy protected, especially for voice data?</h4>
-            <div class="faq-toggle">+</div>
-          </div>
-          <div class="faq-answer">
-            <p><strong>Voice Data Privacy:</strong></p>
-            <ul>
-              <li>Processing happens entirely on your device using Apple's Core ML</li>
-              <li>No audio data transmitted to servers or stored permanently</li>
-              <li>Voice analysis occurs in real-time and data is immediately discarded</li>
-              <li>No recording, no storage, no cloud processing of voice data</li>
-            </ul>
-            <p><strong>General Privacy:</strong></p>
-            <ul>
-              <li>Location data stays on your device for prayer time calculations</li>
-              <li>No personal data shared with third parties</li>
-              <li>No behavioral tracking or advertising profiles created</li>
-              <li>Full privacy policy available with detailed legal protections</li>
-            </ul>
-          </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Rowhni. All rights reserved.</p>
+          <p class="made-with">Made with love in Berlin 🇩🇪</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Contact Support -->
-  <section class="contact-support">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">
-          <span class="title-line">Still need help?</span>
-        </h2>
-        <p class="section-subtitle">
-          Can't find what you're looking for? We're here to help you get the most out of Rowhni.
-        </p>
-      </div>
-      
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Technical Support & Bug Reports</h3>
-          <p><strong>For:</strong> App crashes, feature malfunctions, installation issues, performance problems</p>
-          <p><strong>Include:</strong> Device model, iOS version, specific error description, steps to reproduce</p>
-          <p><strong>Response Time:</strong> 24-48 hours through App Store support system</p>
-          <a href="https://apps.apple.com/de/app/rowhni/id6748600035" class="btn btn-primary">Report Technical Issues</a>
-        </div>
-        
-        <div class="contact-card">
-          <h3>Feature Requests & Feedback</h3>
-          <p><strong>For:</strong> New feature suggestions, Islamic content requests, UI/UX improvements</p>
-          <p><strong>Community-Driven:</strong> Feature priority based on community demand and Islamic scholarship consultation</p>
-          <p><strong>Development:</strong> Updates released regularly based on user feedback and religious accuracy</p>
-          <a href="https://apps.apple.com/de/app/rowhni/id6748600035" class="btn btn-primary">Submit Feature Requests</a>
-        </div>
-        
-        <div class="contact-card">
-          <h3>Islamic Content & Accuracy</h3>
-          <p><strong>For:</strong> Religious content questions, calculation method accuracy, Islamic compliance concerns</p>
-          <p><strong>Scholarly Review:</strong> All Islamic content reviewed by qualified scholars before implementation</p>
-          <p><strong>Disclaimer:</strong> App provides general Islamic information - consult local scholars for specific rulings</p>
-          <a href="https://apps.apple.com/de/app/rowhni/id6748600035" class="btn btn-primary">Report Content Issues</a>
-        </div>
-        
-        <div class="contact-card">
-          <h3>Privacy & Data Protection</h3>
-          <p><strong>For:</strong> Privacy concerns, data deletion requests, GDPR/CCPA compliance questions</p>
-          <p><strong>Legal Compliance:</strong> Full GDPR, CCPA, and international privacy law compliance</p>
-          <p><strong>Data Rights:</strong> Access, rectification, erasure, and portability rights fully supported</p>
-          <a href="https://apps.apple.com/de/app/rowhni/id6748600035" class="btn btn-primary">Privacy Requests</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <img src="../rowhni_logo_day.png" alt="Rowhni" class="footer-logo">
-          <h3>Rowhni</h3>
-          <p>Your complete Islamic companion</p>
-        </div>
-        
-        <div class="footer-links">
-          <div class="link-column">
-            <h4>Features</h4>
-            <a href="../#features">Voice Tasbih</a>
-            <a href="../#features">Prayer Times</a>
-            <a href="../#features">Quran Reader</a>
-          </div>
-          <div class="link-column">
-            <h4>Support</h4>
-            <a href="../support/">Help Center</a>
-            <a href="../privacy/">Privacy Policy</a>
-            <a href="../support/">Contact</a>
-          </div>
-          <div class="link-column">
-            <h4>Community</h4>
-            <a href="https://apps.apple.com/de/app/rowhni/id6748600035">Download</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <div class="gradient-line"></div>
-        <p>&copy; 2024 Rowhni. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </main>
 
   <script src="../_assets/site.js"></script>
 </body>
+
 </html>

@@ -7,9 +7,9 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 try {
     const DEBUG_ENABLED = (typeof localStorage !== 'undefined' && localStorage.getItem('rowhni_debug') === '1');
     if (!DEBUG_ENABLED) {
-        console.log = () => {};
+        console.log = () => { };
     }
-} catch (_) {}
+} catch (_) { }
 
 class RowhniExperience {
     constructor() {
@@ -18,7 +18,7 @@ class RowhniExperience {
         this.isHovering = false;
         this.isClicking = false;
         this.disableHeavyMotion = false;
-        
+
         this.init();
     }
 
@@ -26,6 +26,7 @@ class RowhniExperience {
         const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const isCoarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
         const isMobile = window.innerWidth <= 768;
+        this.isMobile = isMobile;
         const saveData = (navigator.connection && navigator.connection.saveData) || false;
         this.disableHeavyMotion = Boolean(prefersReducedMotion || isCoarsePointer || isMobile || saveData);
         try {
@@ -209,9 +210,17 @@ class RowhniExperience {
 
         try {
             this.initializePremiumFeatureAnimations();
+            this.initializePremiumFeatureAnimations();
             console.log('✅ Premium feature animations initialized');
         } catch (error) {
             console.error('❌ Premium feature animations failed:', error);
+        }
+
+        try {
+            this.initializeDeepSpatialParticles();
+            console.log('✅ Deep Spatial particles initialized (Phase 3)');
+        } catch (error) {
+            console.error('❌ Deep Spatial particles failed:', error);
         }
 
         try {
@@ -243,8 +252,8 @@ class RowhniExperience {
 
     applyLightweightMode() {
         // Kill any existing animations/tweens just in case
-        try { ScrollTrigger.killAll(); } catch (_) {}
-        try { gsap.killTweensOf("*"); } catch (_) {}
+        try { ScrollTrigger.killAll(); } catch (_) { }
+        try { gsap.killTweensOf("*"); } catch (_) { }
         document.body.classList.add('reduced-mobile');
         // Ensure all reveal elements are visible statically
         gsap.set("[data-animate-up],[data-animate-left],[data-animate-right],[data-animate-scale]", { opacity: 1, x: 0, y: 0, scale: 1, clearProps: "all" });
@@ -270,18 +279,18 @@ class RowhniExperience {
         // Premium card hover animations
         gsap.utils.toArray('.feature-block-premium, .stat-card, .insight-card').forEach(card => {
             const tl = gsap.timeline({ paused: true });
-            
+
             tl.to(card, {
                 y: -8,
                 scale: 1.02,
                 duration: 0.6,
                 ease: "power3.out"
             })
-            .to(card.querySelector('*'), {
-                filter: "brightness(1.1)",
-                duration: 0.6,
-                ease: "power3.out"
-            }, 0);
+                .to(card.querySelector('*'), {
+                    filter: "brightness(1.1)",
+                    duration: 0.6,
+                    ease: "power3.out"
+                }, 0);
 
             card.addEventListener('mouseenter', () => tl.play());
             card.addEventListener('mouseleave', () => tl.reverse());
@@ -289,11 +298,11 @@ class RowhniExperience {
 
         // Enhanced text reveal on scroll
         gsap.utils.toArray('.section-title, .feature-title-hero').forEach(title => {
-            gsap.fromTo(title, 
-                { 
-                    opacity: 0, 
+            gsap.fromTo(title,
+                {
+                    opacity: 0,
                     y: 50,
-                    filter: "blur(10px)" 
+                    filter: "blur(10px)"
                 },
                 {
                     opacity: 1,
@@ -315,12 +324,12 @@ class RowhniExperience {
         // Progressive reveal system
         gsap.utils.toArray('[data-animate-up]').forEach((element, index) => {
             const delay = element.dataset.delay || 0;
-            
+
             gsap.fromTo(element,
-                { 
-                    opacity: 0, 
-                    y: 60,
-                    scale: 0.95 
+                {
+                    opacity: 0,
+                    y: this.isMobile ? 30 : 60,
+                    scale: 0.95
                 },
                 {
                     opacity: 1,
@@ -356,12 +365,12 @@ class RowhniExperience {
         gsap.utils.toArray('[data-animate-stagger]').forEach(container => {
             const children = container.children;
             const delay = container.dataset.delay || 0;
-            
+
             gsap.fromTo(children,
-                { 
-                    opacity: 0, 
+                {
+                    opacity: 0,
                     x: -30,
-                    rotationY: 15 
+                    rotationY: 15
                 },
                 {
                     opacity: 1,
@@ -390,7 +399,7 @@ class RowhniExperience {
         if (!cursor) return;
 
         const magneticElements = gsap.utils.toArray('.magnetic-btn, .btn-hero-primary, .trust-badge');
-        
+
         magneticElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
                 gsap.to(cursor, {
@@ -435,7 +444,7 @@ class RowhniExperience {
     initializePremiumLoadingSequence() {
         // Page entrance sequence
         const entranceTL = gsap.timeline();
-        
+
         entranceTL
             .from('body', {
                 opacity: 0,
@@ -483,7 +492,7 @@ class RowhniExperience {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const element = entry.target;
-                    
+
                     // Initialize animations only when element is visible
                     if (element.dataset.lazyAnimation) {
                         const animationType = element.dataset.lazyAnimation;
@@ -512,7 +521,7 @@ class RowhniExperience {
         let cursorFrame;
         document.addEventListener('mousemove', (e) => {
             if (cursorFrame) return;
-            
+
             cursorFrame = requestAnimationFrame(() => {
                 this.updateCursorPosition(e.clientX, e.clientY);
                 cursorFrame = null;
@@ -556,7 +565,7 @@ class RowhniExperience {
             console.log('⚠️ Exit-intent popup disabled for mobile/reduced-motion/save-data');
             return;
         }
-        
+
         let hasShownPopup = false;
         let mouseLeaveCount = 0;
         let isPopupOpen = false;
@@ -569,11 +578,11 @@ class RowhniExperience {
         // Exit intent detection
         const handleMouseLeave = (e) => {
             if (isPopupOpen || hasShownPopup) return;
-            
+
             // Check if mouse is leaving from top of viewport
             if (e.clientY <= 10 && e.relatedTarget === null) {
                 mouseLeaveCount++;
-                
+
                 // Show popup after 2nd attempt to leave (less aggressive)
                 if (mouseLeaveCount >= 2) {
                     showPopup();
@@ -598,14 +607,14 @@ class RowhniExperience {
 
         const showPopup = () => {
             if (hasShownPopup) return;
-            
+
             hasShownPopup = true;
             isPopupOpen = true;
             clearTimeout(timeBasedTrigger);
-            
+
             popup.classList.add('show');
             document.body.style.overflow = 'hidden';
-            
+
             // Focus email input after animation
             setTimeout(() => {
                 emailInput.focus();
@@ -624,14 +633,14 @@ class RowhniExperience {
             popup.classList.remove('show');
             document.body.style.overflow = '';
             isPopupOpen = false;
-            
+
             // Mark as seen to prevent re-showing in this session
             sessionStorage.setItem('rowhni_popup_seen', 'true');
         };
 
         const handleSubscribe = async (e) => {
             e.preventDefault();
-            
+
             const email = emailInput.value.trim();
             if (!email || !isValidEmail(email)) {
                 showToast('Please enter a valid email address', 'error');
@@ -648,7 +657,7 @@ class RowhniExperience {
                 // Submit to Vercel API
                 const response = await fetch('/api/subscribe', {
                     method: 'POST',
-                    headers: { 
+                    headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({ email: email })
@@ -659,11 +668,11 @@ class RowhniExperience {
                 if (!response.ok) {
                     throw new Error(result.error || 'Network response was not ok');
                 }
-                
+
                 // Success state
                 localStorage.setItem('rowhni_subscribed', 'true');
                 localStorage.setItem('rowhni_email', email);
-                
+
                 // Show success message
                 popup.querySelector('.popup-header').innerHTML = `
                     <div class="popup-icon">
@@ -672,11 +681,11 @@ class RowhniExperience {
                     <h3 class="popup-title">Welcome to the Family!</h3>
                     <p class="popup-subtitle">Check your email for exclusive Islamic productivity tips and early access to new features.</p>
                 `;
-                
+
                 popup.querySelector('.popup-benefits').style.display = 'none';
                 popup.querySelector('.popup-form').style.display = 'none';
                 popup.querySelector('.popup-social-proof').style.display = 'none';
-                
+
                 // Analytics tracking
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'newsletter_signup', {
@@ -684,14 +693,14 @@ class RowhniExperience {
                         event_label: 'exit_intent_popup'
                     });
                 }
-                
+
                 // Auto-close after 3 seconds
                 setTimeout(closePopup, 3000);
-                
+
             } catch (error) {
                 console.error('Netlify Forms submission error:', error);
                 showToast('Network error. Please check your connection and try again.', 'error');
-                
+
                 // Reset button state
                 subscribeBtn.querySelector('.btn-text').style.display = 'block';
                 subscribeBtn.querySelector('.btn-loading').classList.add('hidden');
@@ -723,13 +732,13 @@ class RowhniExperience {
                 transform: translateX(100%);
                 transition: transform 0.3s ease;
             `;
-            
+
             document.body.appendChild(toast);
-            
+
             setTimeout(() => {
                 toast.style.transform = 'translateX(0)';
             }, 100);
-            
+
             setTimeout(() => {
                 toast.style.transform = 'translateX(100%)';
                 setTimeout(() => toast.remove(), 300);
@@ -739,11 +748,11 @@ class RowhniExperience {
         // Event listeners
         document.addEventListener('mouseleave', handleMouseLeave);
         window.addEventListener('scroll', scrollTrigger, { passive: true });
-        
+
         closeBtn.addEventListener('click', closePopup);
         overlay.addEventListener('click', closePopup);
         subscribeBtn.addEventListener('click', handleSubscribe);
-        
+
         // Enter key in email field
         emailInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
@@ -780,7 +789,7 @@ class RowhniExperience {
                     // Listen for updates
                     registration.addEventListener('updatefound', () => {
                         const newWorker = registration.installing;
-                        
+
                         newWorker.addEventListener('statechange', () => {
                             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
                                 // New version available
@@ -807,12 +816,12 @@ class RowhniExperience {
 
         // PWA Install Prompt
         let deferredPrompt;
-        
+
         window.addEventListener('beforeinstallprompt', (e) => {
             console.log('📱 PWA install prompt available');
             e.preventDefault();
             deferredPrompt = e;
-            
+
             // Show custom install button after some interaction
             setTimeout(() => {
                 this.showPWAInstallPrompt(deferredPrompt);
@@ -822,7 +831,7 @@ class RowhniExperience {
         // Track PWA installation
         window.addEventListener('appinstalled', () => {
             console.log('🎉 PWA was installed');
-            
+
             // Analytics tracking
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'pwa_installed', {
@@ -830,7 +839,7 @@ class RowhniExperience {
                     event_label: 'app_install'
                 });
             }
-            
+
             deferredPrompt = null;
         });
     }
@@ -850,7 +859,7 @@ class RowhniExperience {
                 <button class="update-close" id="updateClose">×</button>
             </div>
         `;
-        
+
         notification.style.cssText = `
             position: fixed;
             top: 20px;
@@ -933,7 +942,7 @@ class RowhniExperience {
         installPrompt.querySelector('#installBtn').addEventListener('click', async () => {
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
-            
+
             if (outcome === 'accepted') {
                 console.log('✅ User accepted PWA install');
             } else {
@@ -948,7 +957,7 @@ class RowhniExperience {
         installPrompt.querySelector('#installLater').addEventListener('click', () => {
             installPrompt.style.transform = 'translateY(100%)';
             setTimeout(() => installPrompt.remove(), 400);
-            
+
             // Don't show again for 7 days
             localStorage.setItem('pwa_prompt_dismissed', Date.now() + (7 * 24 * 60 * 60 * 1000));
         });
@@ -965,12 +974,12 @@ class RowhniExperience {
     initializeLazyAnimation(element, type) {
         switch (type) {
             case 'fadeUp':
-                gsap.fromTo(element, 
+                gsap.fromTo(element,
                     { opacity: 0, y: 30 },
-                    { 
-                        opacity: 1, 
-                        y: 0, 
-                        duration: 0.8, 
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
                         ease: "power3.out",
                         scrollTrigger: {
                             trigger: element,
@@ -1030,7 +1039,7 @@ class RowhniExperience {
         // gsap.set(".hero-stats .stat", { opacity: 0, y: 30, scale: 0.8 });
         // gsap.set(".app-showcase", { opacity: 0, x: 100, rotationY: 15 });
         // gsap.set(".floating-pills .pill", { opacity: 0, scale: 0, rotation: "random(-15, 15)" });
-        
+
         console.log('🚫 GSAP initial states disabled - text should be visible now');
 
         // Set initial states for sections
@@ -1062,7 +1071,7 @@ class RowhniExperience {
         cursor.style.display = 'block';
         cursor.style.opacity = '1';
         cursor.style.visibility = 'visible';
-        
+
         console.log('✅ Initializing magnetic cursor');
 
         const cursorInner = cursor.querySelector('.cursor-inner');
@@ -1090,10 +1099,10 @@ class RowhniExperience {
         // Smooth cursor follow
         gsap.ticker.add(() => {
             const speed = 0.15;
-            
+
             this.cursor.x += (this.mouse.x - this.cursor.x) * speed;
             this.cursor.y += (this.mouse.y - this.cursor.y) * speed;
-            
+
             gsap.set(cursor, {
                 x: this.cursor.x,
                 y: this.cursor.y,
@@ -1113,20 +1122,20 @@ class RowhniExperience {
 
         // Hover effects for interactive elements
         const interactiveElements = document.querySelectorAll('a, button, .app-frame, .stat-card, .dhikr-card, .progress-pill');
-        
+
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 this.isHovering = true;
                 cursor.classList.add('hovering');
-                
+
                 // Magnetic effect
                 const rect = el.getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
                 const centerY = rect.top + rect.height / 2;
-                
+
                 const moveX = (this.mouse.x - centerX) * 0.3;
                 const moveY = (this.mouse.y - centerY) * 0.3;
-                
+
                 gsap.to(el, {
                     x: moveX,
                     y: moveY,
@@ -1138,7 +1147,7 @@ class RowhniExperience {
             el.addEventListener('mouseleave', () => {
                 this.isHovering = false;
                 cursor.classList.remove('hovering');
-                
+
                 gsap.to(el, {
                     x: 0,
                     y: 0,
@@ -1163,7 +1172,7 @@ class RowhniExperience {
     initializeTextAnimations() {
         // DISABLED - Text animations were breaking the display
         console.log('📝 Text animations disabled to prevent text destruction');
-        
+
         // Ensure all text elements are immediately visible
         const textElements = document.querySelectorAll('.hero-title, .hero-subtitle, .title-line-primary, .title-line-gradient, .subtitle-highlight');
         textElements.forEach(el => {
@@ -1173,7 +1182,7 @@ class RowhniExperience {
             el.style.display = 'inline !important';
             console.log('🔍 Fixed element:', el.className, el.textContent);
         });
-        
+
         // Also fix the hero subtitle paragraph specifically
         const heroSubtitle = document.querySelector('.hero-subtitle');
         if (heroSubtitle) {
@@ -1181,7 +1190,7 @@ class RowhniExperience {
             heroSubtitle.style.visibility = 'visible !important';
             console.log('🔍 Hero subtitle content:', heroSubtitle.innerHTML);
         }
-        
+
         console.log('✅ All text elements are now visible without destructive animations');
     }
 
@@ -1195,57 +1204,57 @@ class RowhniExperience {
         }
         // Hero entrance - masterful timeline
         const heroTl = gsap.timeline({ delay: 0.1 });
-        
+
         heroTl
-            .to(".hero-badge", { 
-                opacity: 1, 
-                y: 0, 
-                duration: 0.8, 
-                ease: "power3.out" 
+            .to(".hero-badge", {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out"
             })
-            .to(".hero-title .title-line span", { 
-                opacity: 1, 
-                y: 0, 
-                duration: 0.8, 
-                stagger: { 
+            .to(".hero-title .title-line span", {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: {
                     each: 0.02,
                     from: "start"
                 },
-                ease: "back.out(1.7)" 
+                ease: "back.out(1.7)"
             }, "-=0.4")
-            .to(".hero-subtitle", { 
-                opacity: 1, 
-                y: 0, 
-                duration: 1, 
-                ease: "power3.out" 
+            .to(".hero-subtitle", {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power3.out"
             }, "-=0.6")
-            .to(".hero-actions", { 
-                opacity: 1, 
-                y: 0, 
-                duration: 0.8, 
-                ease: "power3.out" 
+            .to(".hero-actions", {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out"
             }, "-=0.6")
-            .to(".hero-stats .stat", { 
-                opacity: 1, 
-                y: 0, 
+            .to(".hero-stats .stat", {
+                opacity: 1,
+                y: 0,
                 scale: 1,
-                duration: 0.6, 
+                duration: 0.6,
                 stagger: 0.15,
-                ease: "back.out(1.7)" 
+                ease: "back.out(1.7)"
             }, "-=0.4")
-            .to(".app-showcase", { 
-                opacity: 1, 
-                x: 0, 
+            .to(".app-showcase", {
+                opacity: 1,
+                x: 0,
                 rotationY: 0,
-                duration: 1.2, 
-                ease: "power3.out" 
+                duration: 1.2,
+                ease: "power3.out"
             }, "-=1")
             .to(".floating-pills .pill", disableHeavy ? { opacity: 0, duration: 0.01 } : {
                 opacity: 1,
                 scale: 1,
                 rotation: 0,
                 duration: 0.6,
-                stagger: { 
+                stagger: {
                     each: 0.2,
                     from: "random"
                 },
@@ -1254,7 +1263,7 @@ class RowhniExperience {
 
         // Advanced scroll-triggered animations
         gsap.utils.toArray("[data-animate-up]").forEach((el, index) => {
-            gsap.fromTo(el, 
+            gsap.fromTo(el,
                 { opacity: 0, y: disableHeavy ? 0 : 60 },
                 {
                     opacity: 1,
@@ -1271,7 +1280,7 @@ class RowhniExperience {
         });
 
         gsap.utils.toArray("[data-animate-left]").forEach(el => {
-            gsap.fromTo(el, 
+            gsap.fromTo(el,
                 { opacity: 0, x: disableHeavy ? 0 : -80, rotationY: disableHeavy ? 0 : -15 },
                 {
                     opacity: 1,
@@ -1289,7 +1298,7 @@ class RowhniExperience {
         });
 
         gsap.utils.toArray("[data-animate-right]").forEach(el => {
-            gsap.fromTo(el, 
+            gsap.fromTo(el,
                 { opacity: 0, x: disableHeavy ? 0 : 80, rotationY: disableHeavy ? 0 : 15 },
                 {
                     opacity: 1,
@@ -1308,7 +1317,7 @@ class RowhniExperience {
 
         gsap.utils.toArray("[data-animate-stagger]").forEach(container => {
             const children = container.children;
-            
+
             gsap.fromTo(children,
                 { opacity: 0, y: disableHeavy ? 0 : 40, scale: disableHeavy ? 1 : 0.9 },
                 {
@@ -1316,7 +1325,7 @@ class RowhniExperience {
                     y: 0,
                     scale: 1,
                     duration: disableHeavy ? 0.3 : 0.6,
-                    stagger: { 
+                    stagger: {
                         each: 0.06,
                         from: "start"
                     },
@@ -1406,20 +1415,20 @@ class RowhniExperience {
         // Enhanced counter animations with custom easing
         gsap.utils.toArray('[data-counter]').forEach(counter => {
             const targetValue = parseInt(counter.dataset.counter) || parseInt(counter.textContent.replace(/[^\d]/g, ''));
-            
+
             ScrollTrigger.create({
                 trigger: counter,
                 start: "top 80%",
                 onEnter: () => {
-                    gsap.fromTo({ count: 0 }, 
+                    gsap.fromTo({ count: 0 },
                         { count: targetValue },
                         {
                             duration: 2.5,
                             ease: "power2.out",
-                            onUpdate: function() {
+                            onUpdate: function () {
                                 const current = Math.round(this.targets()[0].count);
                                 const originalText = counter.textContent;
-                                
+
                                 if (originalText.includes('M+')) {
                                     counter.textContent = current + 'M+';
                                 } else if (originalText.includes('K+')) {
@@ -1437,16 +1446,215 @@ class RowhniExperience {
         });
     }
 
+    initializePremiumRefinements() {
+        // 1. Scroll Progress Bar
+        const progressBar = document.getElementById('scrollProgress');
+        if (progressBar) {
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.body.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.width = scrollPercent + '%';
+            }, { passive: true });
+        }
+
+        // 2. 3D Tilt Effect for Hero
+        const heroSection = document.querySelector('.hero');
+        const heroContent = document.querySelector('.hero-content');
+        const heroVisual = document.querySelector('.hero-visual');
+
+        if (heroSection && heroContent && heroVisual && !this.isMobile && !this.disableHeavyMotion) {
+            heroSection.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                const { innerWidth, innerHeight } = window;
+
+                const xPos = (clientX / innerWidth - 0.5);
+                const yPos = (clientY / innerHeight - 0.5);
+
+                gsap.to(heroContent, {
+                    rotationY: xPos * 10,
+                    rotationX: -yPos * 10,
+                    ease: "power2.out",
+                    duration: 1
+                });
+
+                gsap.to(heroVisual, {
+                    rotationY: xPos * 20, // Visual moves more
+                    rotationX: -yPos * 20,
+                    ease: "power2.out",
+                    duration: 1
+                });
+            });
+
+            heroSection.addEventListener('mouseleave', () => {
+                gsap.to([heroContent, heroVisual], {
+                    rotationY: 0,
+                    rotationX: 0,
+                    ease: "power2.out",
+                    duration: 1
+                });
+            });
+        }
+
+        // 3. Magnetic Glow Buttons
+        const magneticBtns = document.querySelectorAll('.magnetic-btn');
+        magneticBtns.forEach(btn => {
+            const glow = btn.querySelector('.btn-glow') || document.createElement('div');
+            if (!btn.querySelector('.btn-glow')) {
+                glow.className = 'btn-glow';
+                btn.prepend(glow); // Ensure it's behind content if z-index is set
+            }
+
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                gsap.to(glow, {
+                    x: x - (rect.width * 0.5), // Center highlight on cursor
+                    y: y - (rect.height * 0.5),
+                    opacity: 0.8,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(glow, {
+                    opacity: 0,
+                    duration: 0.5
+                });
+            });
+        });
+    }
+
+    initializeDeepSpatialParticles() {
+        const canvas = document.getElementById('spatial-particles');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        // Configuration
+        const particleCount = this.isMobile ? 30 : 60;
+        const connectionDistance = 150;
+        const mouseDistance = 200;
+
+        const resize = () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        };
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+                this.color = Math.random() > 0.8 ? 'rgba(255, 215, 0, ' : 'rgba(27, 77, 62, '; // Gold or Green
+                this.alpha = Math.random() * 0.5 + 0.1;
+            }
+
+            update(mouse) {
+                // Movement
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off edges
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                // Mouse interaction (repel)
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < mouseDistance) {
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    const force = (mouseDistance - distance) / mouseDistance;
+                    const directionX = forceDirectionX * force * 3; // Push strength
+                    const directionY = forceDirectionY * force * 3;
+
+                    this.x -= directionX;
+                    this.y -= directionY;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color + this.alpha + ')';
+                ctx.fill();
+            }
+        }
+
+        // Init
+        resize();
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        // Mouse tracking
+        const mouse = { x: null, y: null };
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        window.addEventListener('resize', resize);
+
+        // Animation Loop
+        const animate = () => {
+            ctx.clearRect(0, 0, width, height);
+
+            particles.forEach(particle => {
+                particle.update(mouse);
+                particle.draw();
+            });
+
+            // Draw connections (Constellations)
+            particles.forEach((a, index) => {
+                for (let j = index + 1; j < particles.length; j++) {
+                    const b = particles[j];
+                    const dx = a.x - b.x;
+                    const dy = a.y - b.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(255, 215, 0, ${0.1 * (1 - distance / connectionDistance)})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            requestAnimationFrame(animate);
+        };
+
+        animate();
+    }
+
     initializePremiumScrollAnimations() {
         // Advanced Split-Text Reveals
         this.initializeSplitTextAnimations();
-        
+
         // Enhanced Parallax Layers
         this.initializeAdvancedParallax();
-        
+
         // Morphing Shape Animations
         this.initializeMorphingShapes();
-        
+
         // Staggered Element Reveals
         this.initializeStaggeredReveals();
     }
@@ -1462,7 +1670,7 @@ class RowhniExperience {
             { selector: '.hero-background', speed: 0.2 },
             { selector: '.floating-pills', speed: 0.1 }
         ];
-        
+
         parallaxLayers.forEach(layer => {
             gsap.utils.toArray(layer.selector).forEach(element => {
                 gsap.to(element, {
@@ -1487,9 +1695,9 @@ class RowhniExperience {
                 "M12,2L13.09,8.26L22,12L13.09,15.74L12,22L10.91,15.74L2,12L10.91,8.26L12,2Z",
                 "M12,2C17.52,2 22,6.48 22,12C22,17.52 17.52,22 12,22C6.48,22 2,17.52 2,12C2,6.48 6.48,2 12,2Z"
             ];
-            
+
             let currentPath = 0;
-            
+
             ScrollTrigger.create({
                 trigger: element,
                 start: "top 70%",
@@ -1498,7 +1706,7 @@ class RowhniExperience {
                 onUpdate: (self) => {
                     const progress = self.progress;
                     const targetPath = Math.floor(progress * (paths.length - 1));
-                    
+
                     if (targetPath !== currentPath) {
                         const svgPath = element.querySelector('path');
                         if (svgPath) {
@@ -1523,7 +1731,7 @@ class RowhniExperience {
             { selector: '.nav-item', stagger: 0.05, y: 20 },
             { selector: '.hero-badge', stagger: 0.1, scale: 0.8 }
         ];
-        
+
         revealSections.forEach(section => {
             gsap.utils.toArray(section.selector).forEach((element, index) => {
                 // Keep elements visible by default
@@ -1532,13 +1740,13 @@ class RowhniExperience {
                     y: 0,
                     scale: 1
                 });
-                
+
                 // Optional scroll animation (now just for enhancement)
                 ScrollTrigger.create({
                     trigger: element,
                     start: "top 85%",
                     onEnter: () => {
-                        gsap.fromTo(element, 
+                        gsap.fromTo(element,
                             { scale: 0.95 },
                             {
                                 scale: 1,
@@ -1556,14 +1764,14 @@ class RowhniExperience {
     initializeAdvancedCursor() {
         const cursor = document.querySelector('.magnetic-cursor');
         if (!cursor) return;
-        
+
         const cursorInner = cursor.querySelector('.cursor-inner');
-        
+
         // Add cursor text element
         const cursorText = document.createElement('div');
         cursorText.className = 'cursor-text';
         cursor.appendChild(cursorText);
-        
+
         // Define cursor states
         const cursorStates = {
             default: { scale: 1, text: '', background: 'var(--accent)' },
@@ -1574,26 +1782,26 @@ class RowhniExperience {
             islamic: { scale: 1.8, text: '☪️', background: 'var(--secondary)' },
             download: { scale: 2.2, text: '⬇️', background: 'var(--accent)' }
         };
-        
+
         // Apply cursor state
         const applyCursorState = (state) => {
             const config = cursorStates[state] || cursorStates.default;
-            
+
             gsap.to(cursor, {
                 scale: config.scale,
                 duration: 0.3,
                 ease: "back.out(1.7)"
             });
-            
+
             gsap.to(cursorInner, {
                 background: config.background,
                 duration: 0.3
             });
-            
+
             cursorText.textContent = config.text;
             cursorText.style.opacity = config.text ? '1' : '0';
         };
-        
+
         // Cursor interactions for different elements
         const cursorInteractions = [
             { selector: 'button, .btn, [role="button"]', state: 'button' },
@@ -1602,19 +1810,19 @@ class RowhniExperience {
             { selector: '.trust-badge, .islamic-feature, [data-islamic]', state: 'islamic' },
             { selector: '.btn-download, .download-btn, [data-download]', state: 'download' }
         ];
-        
+
         cursorInteractions.forEach(interaction => {
             gsap.utils.toArray(interaction.selector).forEach(element => {
                 element.addEventListener('mouseenter', () => {
                     applyCursorState(interaction.state);
                 });
-                
+
                 element.addEventListener('mouseleave', () => {
                     applyCursorState('default');
                 });
             });
         });
-        
+
         // Add breathing animation to default state
         gsap.to(cursor, {
             scale: 1.1,
@@ -1630,7 +1838,7 @@ class RowhniExperience {
         const particleContainer = document.createElement('div');
         particleContainer.className = 'floating-particles';
         document.body.appendChild(particleContainer);
-        
+
         // Islamic geometric patterns as particles
         const particleShapes = [
             '✦', '✧', '✶', '✷', '✸', '✹', '✺', '✻', // Stars
@@ -1638,22 +1846,22 @@ class RowhniExperience {
             '☪', '☫', '☬', '☭', // Islamic symbols
             '𝔞', '𝔟', '𝔠', '𝔡' // Decorative
         ];
-        
+
         const particles = [];
         const particleCount = 25;
-        
+
         // Create particles
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
             particle.textContent = particleShapes[Math.floor(Math.random() * particleShapes.length)];
-            
+
             // Random positioning
             const startX = Math.random() * window.innerWidth;
             const startY = Math.random() * window.innerHeight;
             const scale = 0.3 + Math.random() * 0.7;
             const rotation = Math.random() * 360;
-            
+
             gsap.set(particle, {
                 x: startX,
                 y: startY,
@@ -1661,7 +1869,7 @@ class RowhniExperience {
                 rotation: rotation,
                 opacity: 0.1 + Math.random() * 0.3
             });
-            
+
             particleContainer.appendChild(particle);
             particles.push({
                 element: particle,
@@ -1672,47 +1880,47 @@ class RowhniExperience {
                 amplitude: 50 + Math.random() * 100
             });
         }
-        
+
         // Animate particles
         const animateParticles = () => {
             particles.forEach((particle, index) => {
                 const time = Date.now() * 0.001;
                 const x = particle.baseX + Math.sin(time + index) * particle.amplitude + particle.speedX * time * 10;
                 const y = particle.baseY + Math.cos(time + index * 1.5) * particle.amplitude + particle.speedY * time * 10;
-                
+
                 // Wrap around screen
                 const wrappedX = ((x % window.innerWidth) + window.innerWidth) % window.innerWidth;
                 const wrappedY = ((y % window.innerHeight) + window.innerHeight) % window.innerHeight;
-                
+
                 gsap.set(particle.element, {
                     x: wrappedX,
                     y: wrappedY,
                     rotation: time * 20 + index * 45
                 });
             });
-            
+
             requestAnimationFrame(animateParticles);
         };
-        
+
         animateParticles();
-        
+
         // Mouse interaction
         document.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX;
             const mouseY = e.clientY;
-            
+
             particles.forEach((particle, index) => {
                 const particleX = parseFloat(particle.element.style.transform.match(/translateX\(([-\d.]+)px\)/)?.[1] || 0);
                 const particleY = parseFloat(particle.element.style.transform.match(/translateY\(([-\d.]+)px\)/)?.[1] || 0);
-                
+
                 const distance = Math.sqrt(
                     Math.pow(mouseX - particleX, 2) + Math.pow(mouseY - particleY, 2)
                 );
-                
+
                 if (distance < 150) {
                     const force = (150 - distance) / 150;
                     const angle = Math.atan2(particleY - mouseY, particleX - mouseX);
-                    
+
                     gsap.to(particle.element, {
                         x: particleX + Math.cos(angle) * force * 50,
                         y: particleY + Math.sin(angle) * force * 50,
@@ -1731,7 +1939,7 @@ class RowhniExperience {
                 }
             });
         });
-        
+
         // Resize handler
         window.addEventListener('resize', () => {
             particles.forEach(particle => {
@@ -1787,7 +1995,7 @@ class RowhniExperience {
             gsap.utils.toArray(config.selector).forEach(element => {
                 // Create hover timeline
                 const hoverTl = gsap.timeline({ paused: true });
-                
+
                 // Base hover animation
                 hoverTl.to(element, {
                     scale: config.scale || 1.05,
@@ -1918,10 +2126,10 @@ class RowhniExperience {
 
                 btn.appendChild(ripple);
 
-                gsap.fromTo(ripple, 
-                    { 
-                        scale: 0, 
-                        opacity: 0.6 
+                gsap.fromTo(ripple,
+                    {
+                        scale: 0,
+                        opacity: 0.6
                     },
                     {
                         scale: 4,
@@ -1980,7 +2188,7 @@ class RowhniExperience {
     smoothScrollToSection(target) {
         // Show transition overlay with Islamic pattern
         const overlay = document.querySelector('.page-transition-overlay');
-        
+
         gsap.timeline()
             .to(overlay, {
                 opacity: 0.9,
@@ -2006,22 +2214,22 @@ class RowhniExperience {
     playPageLoadAnimation() {
         // Simplified load animation - elements stay visible
         console.log('Page loaded - all elements visible');
-        
+
         // Just add body class to indicate loaded state
         document.body.classList.add('loaded');
-        
+
         // Simple entrance animation without hiding elements initially
-        gsap.fromTo('.nav', 
+        gsap.fromTo('.nav',
             { y: -20 },
             { y: 0, duration: 0.6, ease: "power2.out" }
         );
-        
-        gsap.fromTo('.hero-title', 
+
+        gsap.fromTo('.hero-title',
             { y: 20, opacity: 0.7 },
             { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", delay: 0.2 }
         );
-        
-        gsap.fromTo('.btn-hero-primary', 
+
+        gsap.fromTo('.btn-hero-primary',
             { scale: 0.95 },
             { scale: 1, duration: 0.6, ease: "back.out(1.7)", delay: 0.4 }
         );
@@ -2034,10 +2242,10 @@ class RowhniExperience {
         // Enhanced device tilt following mouse
         appMockups.forEach((mockup, index) => {
             const mockupImage = mockup.querySelector('.mockup-image');
-            
+
             // Add device frame and screen glow
             this.enhanceAppMockup(mockup, index);
-            
+
             // Disabled 3D mouse tilt to maintain image quality
             console.log('3D tilt disabled for image clarity');
 
@@ -2086,16 +2294,16 @@ class RowhniExperience {
     createDeviceRipple(mockup) {
         const ripple = document.createElement('div');
         ripple.className = 'device-ripple';
-        
+
         const rect = mockup.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height) * 2;
-        
+
         ripple.style.width = ripple.style.height = size + 'px';
         ripple.style.left = (rect.width - size) / 2 + 'px';
         ripple.style.top = (rect.height - size) / 2 + 'px';
-        
+
         mockup.appendChild(ripple);
-        
+
         gsap.fromTo(ripple,
             { scale: 0, opacity: 0.6 },
             {
@@ -2112,7 +2320,7 @@ class RowhniExperience {
         // Create audio context for Web Audio API
         this.audioContext = null;
         this.sounds = {};
-        
+
         // Initialize audio context on first user interaction
         document.addEventListener('click', () => {
             if (!this.audioContext) {
@@ -2148,24 +2356,24 @@ class RowhniExperience {
         if (!this.audioContext || !this.sounds[soundType]) return;
 
         const { frequency, duration } = this.sounds[soundType];
-        
+
         // Create oscillator for pure tone
         const oscillator = this.audioContext.createOscillator();
         const gainNode = this.audioContext.createGain();
-        
+
         // Connect nodes
         oscillator.connect(gainNode);
         gainNode.connect(this.audioContext.destination);
-        
+
         // Configure sound
         oscillator.frequency.setValueAtTime(frequency, this.audioContext.currentTime);
         oscillator.type = 'sine'; // Smooth, peaceful tone
-        
+
         // Envelope for natural sound
         gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
         gainNode.gain.linearRampToValueAtTime(volume, this.audioContext.currentTime + 0.01);
         gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + duration);
-        
+
         // Play sound
         oscillator.start(this.audioContext.currentTime);
         oscillator.stop(this.audioContext.currentTime + duration);
@@ -2177,7 +2385,7 @@ class RowhniExperience {
             btn.addEventListener('mouseenter', () => {
                 this.playSound('hover', 0.05);
             });
-            
+
             btn.addEventListener('click', () => {
                 this.playSound('click', 0.08);
             });
@@ -2233,10 +2441,10 @@ class RowhniExperience {
 
         // Get the progress percentage from data attribute
         const targetProgress = parseInt(progressBar.dataset.progress) || 40;
-        
+
         // Calculate path length for animation
         const pathLength = progressBar.getTotalLength();
-        
+
         // Set initial state
         gsap.set(progressBar, {
             strokeDasharray: pathLength,
@@ -2250,7 +2458,7 @@ class RowhniExperience {
             onEnter: () => {
                 // Calculate dash offset for target percentage
                 const progressOffset = pathLength - (pathLength * targetProgress / 100);
-                
+
                 gsap.to(progressBar, {
                     strokeDashoffset: progressOffset,
                     duration: 2,
@@ -2269,13 +2477,13 @@ class RowhniExperience {
         const juzElement = document.querySelector('.current-juz');
         if (juzElement) {
             const targetJuz = parseInt(juzElement.textContent) || 15;
-            gsap.fromTo({ count: 0 }, 
+            gsap.fromTo({ count: 0 },
                 { count: targetJuz },
                 {
                     duration: 1.5,
                     ease: "power2.out",
                     delay: 1,
-                    onUpdate: function() {
+                    onUpdate: function () {
                         juzElement.textContent = Math.round(this.targets()[0].count);
                     }
                 }
@@ -2286,14 +2494,14 @@ class RowhniExperience {
         gsap.utils.toArray('.reading-stats-below .stat-number').forEach((statElement, index) => {
             const originalText = statElement.textContent;
             const targetValue = parseInt(originalText.replace(/,/g, '')) || 0;
-            
-            gsap.fromTo({ count: 0 }, 
+
+            gsap.fromTo({ count: 0 },
                 { count: targetValue },
                 {
                     duration: 2,
                     ease: "power2.out",
                     delay: 1.2 + (index * 0.2),
-                    onUpdate: function() {
+                    onUpdate: function () {
                         const current = Math.round(this.targets()[0].count);
                         if (current >= 1000) {
                             statElement.textContent = current.toLocaleString();
@@ -2311,21 +2519,21 @@ class RowhniExperience {
 // Standalone Theme Toggle Implementation
 function initializeThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
-    
+
     // Get saved theme or default to dark
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
-    
+
     // Update toggle state based on current theme
     updateThemeToggle(savedTheme);
-    
+
     themeToggle?.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
+
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        
+
         updateThemeToggle(newTheme);
     });
 }
@@ -2333,10 +2541,10 @@ function initializeThemeToggle() {
 function updateThemeToggle(theme) {
     const themeToggle = document.getElementById('themeToggle');
     if (!themeToggle) return;
-    
+
     const sunIcon = themeToggle.querySelector('.sun');
     const moonIcon = themeToggle.querySelector('.moon');
-    
+
     if (theme === 'light') {
         sunIcon?.style.setProperty('opacity', '1');
         sunIcon?.style.setProperty('transform', 'rotate(0deg)');
@@ -2354,11 +2562,11 @@ function updateThemeToggle(theme) {
 function initializeMobileMenu() {
     const mobileToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     mobileToggle?.addEventListener('click', () => {
         mobileToggle.classList.toggle('active');
         navMenu?.classList.toggle('mobile-open');
-        
+
         // Prevent body scroll when menu is open
         if (navMenu?.classList.contains('mobile-open')) {
             document.body.style.overflow = 'hidden';
@@ -2366,7 +2574,7 @@ function initializeMobileMenu() {
             document.body.style.overflow = '';
         }
     });
-    
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!mobileToggle?.contains(e.target) && !navMenu?.contains(e.target)) {
@@ -2375,7 +2583,7 @@ function initializeMobileMenu() {
             document.body.style.overflow = '';
         }
     });
-    
+
     // Close menu when clicking nav links
     navMenu?.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
@@ -2384,7 +2592,7 @@ function initializeMobileMenu() {
             document.body.style.overflow = '';
         });
     });
-    
+
     // Handle window resize
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768) {
@@ -2401,22 +2609,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize main experience
         const experience = new RowhniExperience();
         console.log('✅ RowhniExperience initialized');
-        
+
         // Initialize additional features
         initializeThemeToggle();
         console.log('✅ Theme toggle initialized');
-        
+
         initializeMobileMenu();
         console.log('✅ Mobile menu initialized');
-        
+
         console.log('🎯 Rowhni website initialized successfully with all features');
     } catch (error) {
         console.error('❌ Failed to initialize Rowhni app:', error);
-        
+
         // Fallback initialization for critical features
         const fallbackInit = () => {
             console.log('🔄 Running fallback initialization...');
-            
+
             // Basic theme toggle fallback
             const themeToggle = document.getElementById('themeToggle');
             if (themeToggle) {
@@ -2428,7 +2636,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 console.log('✅ Fallback theme toggle active');
             }
-            
+
             // Basic mobile menu fallback
             const mobileToggle = document.getElementById('mobileMenuToggle');
             const navMenu = document.querySelector('.nav-menu');
@@ -2440,7 +2648,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('✅ Fallback mobile menu active');
             }
         };
-        
+
         fallbackInit();
     }
 });
@@ -2490,29 +2698,29 @@ class IslamicChatbot {
                 buttons: ['Prayer Questions', 'Quran Guidance', 'Daily Islam', 'Back to Features']
             }
         };
-        
+
         this.init();
     }
-    
+
     init() {
         this.bindEvents();
         this.showInitialNotification();
     }
-    
+
     bindEvents() {
         const toggle = document.getElementById('chatbotToggle');
         const close = document.getElementById('chatbotClose');
         const input = document.getElementById('chatbotInput');
         const send = document.getElementById('chatbotSend');
         const messages = document.getElementById('chatbotMessages');
-        
+
         toggle?.addEventListener('click', () => this.toggleChat());
         close?.addEventListener('click', () => this.closeChat());
         send?.addEventListener('click', () => this.sendMessage());
         input?.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') this.sendMessage();
         });
-        
+
         // Quick buttons event delegation
         messages?.addEventListener('click', (e) => {
             if (e.target.classList.contains('quick-btn')) {
@@ -2521,7 +2729,7 @@ class IslamicChatbot {
             }
         });
     }
-    
+
     showInitialNotification() {
         setTimeout(() => {
             const notification = document.getElementById('chatbotNotification');
@@ -2530,11 +2738,11 @@ class IslamicChatbot {
             }
         }, 3000);
     }
-    
+
     toggleChat() {
         const window = document.getElementById('chatbotWindow');
         const notification = document.getElementById('chatbotNotification');
-        
+
         if (this.isOpen) {
             this.closeChat();
         } else {
@@ -2543,30 +2751,30 @@ class IslamicChatbot {
             this.isOpen = true;
         }
     }
-    
+
     closeChat() {
         const window = document.getElementById('chatbotWindow');
         window?.classList.remove('open');
         this.isOpen = false;
     }
-    
+
     sendMessage() {
         const input = document.getElementById('chatbotInput');
         const message = input?.value.trim();
-        
+
         if (!message || this.typing) return;
-        
+
         this.addMessage(message, 'user');
         input.value = '';
         input.disabled = true;
-        
+
         // Show typing indicator
         this.showTypingIndicator();
-        
+
         // Simulate realistic typing delay based on response length
         const baseDelay = 800;
         const typingDelay = Math.min(baseDelay + (message.length * 30), 3000);
-        
+
         setTimeout(() => {
             this.hideTypingIndicator();
             this.processMessage(message);
@@ -2574,14 +2782,14 @@ class IslamicChatbot {
             input.focus();
         }, typingDelay);
     }
-    
+
     showTypingIndicator() {
         this.typing = true;
         const messagesContainer = document.getElementById('chatbotMessages');
         const typingDiv = document.createElement('div');
         typingDiv.className = 'chatbot-message bot typing-message';
         typingDiv.id = 'typingIndicator';
-        
+
         typingDiv.innerHTML = `
             <div class="message-content">
                 <div class="typing-indicator-advanced">
@@ -2592,11 +2800,11 @@ class IslamicChatbot {
                 <span class="typing-text">AI Assistant is thinking...</span>
             </div>
         `;
-        
+
         messagesContainer.appendChild(typingDiv);
         this.scrollToBottom();
     }
-    
+
     hideTypingIndicator() {
         this.typing = false;
         const typingIndicator = document.getElementById('typingIndicator');
@@ -2604,7 +2812,7 @@ class IslamicChatbot {
             typingIndicator.remove();
         }
     }
-    
+
     handleQuickResponse(questionType) {
         const response = this.responses[questionType];
         if (response) {
@@ -2613,33 +2821,33 @@ class IslamicChatbot {
             }, 300);
         }
     }
-    
+
     processMessage(message) {
         try {
             // Input validation
             if (!message || typeof message !== 'string') {
                 throw new Error('Invalid message input');
             }
-            
+
             // Sanitize input
             message = message.trim();
             if (message.length === 0) {
                 throw new Error('Empty message');
             }
-            
+
             if (message.length > 500) {
                 message = message.substring(0, 500);
                 console.warn('⚠️ Message truncated to 500 characters');
             }
-            
+
             // Add to conversation context
             this.conversationContext.push({ role: 'user', message: message, timestamp: Date.now() });
-            
+
             // Keep context length manageable
             if (this.conversationContext.length > 10) {
                 this.conversationContext = this.conversationContext.slice(-8);
             }
-            
+
             const lowerMessage = message.toLowerCase();
             let response;
         } catch (error) {
@@ -2647,7 +2855,7 @@ class IslamicChatbot {
             this.handleChatbotError(error);
             return;
         }
-        
+
         try {
             // Advanced contextual and keyword matching
             if (this.matchKeywords(lowerMessage, ['prayer', 'salah', 'salat', 'qibla', 'adhan', 'times', 'fajr', 'dhuhr', 'asr', 'maghrib', 'isha'])) {
@@ -2672,29 +2880,29 @@ class IslamicChatbot {
                 // Intelligent fallback based on context
                 response = this.generateContextualResponse(message, lowerMessage);
             }
-            
+
             // Validate response
             if (!response || typeof response.text !== 'string') {
                 throw new Error('Invalid response generated');
             }
-            
+
             // Add to conversation context
             this.conversationContext.push({ role: 'assistant', message: response.text, timestamp: Date.now() });
-            
+
             this.addBotMessage(response.text, response.buttons);
-            
+
         } catch (error) {
             console.error('❌ Chatbot response generation failed:', error);
             this.handleChatbotError(error);
         }
     }
-    
+
     handleChatbotError(error) {
         console.error('🤖 Chatbot Error Handler:', error);
-        
+
         // Provide fallback response based on error type
         let fallbackResponse;
-        
+
         if (error.message.includes('Invalid message input') || error.message.includes('Empty message')) {
             fallbackResponse = {
                 text: "عذراً، لم أتمكن من فهم رسالتك. يرجى المحاولة مرة أخرى بسؤال واضح.",
@@ -2723,12 +2931,12 @@ class IslamicChatbot {
                 ]
             };
         }
-        
+
         // Show error recovery message
         setTimeout(() => {
             this.addBotMessage(fallbackResponse.text, fallbackResponse.buttons);
         }, 500);
-        
+
         // Track error for analytics
         if (typeof gtag !== 'undefined') {
             gtag('event', 'chatbot_error', {
@@ -2738,7 +2946,7 @@ class IslamicChatbot {
             });
         }
     }
-    
+
     matchKeywords(text, keywords) {
         try {
             if (!text || !Array.isArray(keywords)) {
@@ -2750,14 +2958,14 @@ class IslamicChatbot {
             return false;
         }
     }
-    
+
     generateContextualResponse(originalMessage, lowerMessage) {
         // Check recent conversation context for better responses
         const recentContext = this.conversationContext.slice(-4);
-        const hasDiscussedFeatures = recentContext.some(ctx => 
+        const hasDiscussedFeatures = recentContext.some(ctx =>
             ctx.message && ctx.message.includes('features') || ctx.message.includes('capabilities')
         );
-        
+
         // More sophisticated fallback responses
         if (lowerMessage.length < 3) {
             return {
@@ -2765,82 +2973,82 @@ class IslamicChatbot {
                 buttons: ['App Features', 'Prayer Times', 'Voice Demo', 'Islamic Q&A']
             };
         }
-        
+
         if (this.matchKeywords(lowerMessage, ['why', 'how', 'when', 'where', 'which'])) {
             return {
                 text: "Great question! I'm here to provide detailed information about Rowhni and Islamic practices. Let me know which specific topic interests you most:",
                 buttons: ['Voice Features', 'Prayer Times', 'Quran Tracker', 'Islamic Guidance']
             };
         }
-        
+
         if (this.matchKeywords(lowerMessage, ['price', 'cost', 'pay', 'subscription', 'money', 'free'])) {
             return {
                 text: "💰 **Rowhni is 100% FREE!**\n\n✅ No subscriptions required\n✅ No hidden costs or fees\n✅ All features included at no cost\n✅ No ads in the core experience\n\n⚠️ **System Requirement:** iOS 18.0 or later required\n\nWe believe Islamic tools should be accessible to all Muslims worldwide. Download now and enjoy the complete experience!",
                 buttons: ['Download Now', 'See All Features', 'Voice Demo']
             };
         }
-        
+
         if (this.matchKeywords(lowerMessage, ['ios', 'iphone', 'ipad', 'compatibility', 'version', 'system', 'requirements', 'support'])) {
             return {
                 text: "📱 **iOS Compatibility & Requirements**\n\n⚠️ **Minimum System Requirements:**\n• iPhone: iOS 18.0 or later\n• iPad: iOS 18.0 or later\n• Storage: 50MB free space\n\n🎨 **Why iOS 18+?**\n• Advanced Glass Design features\n• Enhanced voice recognition capabilities\n• Improved privacy and security\n• Better performance optimizations\n• Latest Islamic calendar integrations\n\n📋 **Supported Devices:**\n• iPhone 12 and newer (recommended)\n• iPhone XR, XS, XS Max, 11 series\n• iPad Air (4th gen) and newer\n• iPad Pro (all sizes)\n• iPad mini (6th gen)\n\n**Note:** Older devices may not support all features due to hardware limitations.",
                 buttons: ['Download App', 'See Features', 'Technical Support']
             };
         }
-        
+
         if (hasDiscussedFeatures) {
             return {
                 text: "Based on our conversation, you might be interested in exploring specific features in more detail. Which aspect of Rowhni would you like to dive deeper into?",
                 buttons: ['Voice Demo', 'Prayer Precision', 'Quran Study', 'AI Assistant']
             };
         }
-        
+
         // Default intelligent response
         return {
             text: `I understand you're asking about "${originalMessage.substring(0, 50)}${originalMessage.length > 50 ? '...' : ''}"\n\nI'm designed to help with Rowhni app features and Islamic guidance. Here are the main areas I can assist with:`,
             buttons: ['App Features', 'Voice Features', 'Prayer Times', 'Islamic Q&A', 'Support']
         };
     }
-    
+
     addMessage(text, sender) {
         const messagesContainer = document.getElementById('chatbotMessages');
         const messageDiv = document.createElement('div');
         messageDiv.className = `chatbot-message ${sender}`;
-        
+
         const contentDiv = document.createElement('div');
         contentDiv.className = 'message-content';
-        
+
         const textP = document.createElement('p');
         textP.textContent = text;
-        
+
         contentDiv.appendChild(textP);
         messageDiv.appendChild(contentDiv);
         messagesContainer.appendChild(messageDiv);
-        
+
         this.scrollToBottom();
     }
-    
+
     addBotMessage(text, buttons = []) {
         const messagesContainer = document.getElementById('chatbotMessages');
         const messageDiv = document.createElement('div');
         messageDiv.className = 'chatbot-message bot';
-        
+
         const contentDiv = document.createElement('div');
         contentDiv.className = 'message-content';
-        
+
         // Format text with line breaks and bold
         const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
         contentDiv.innerHTML = `<p>${formattedText}</p>`;
-        
+
         // Add buttons if provided
         if (buttons.length > 0) {
             const quickOptions = document.createElement('div');
             quickOptions.className = 'quick-options';
-            
+
             buttons.forEach(buttonText => {
                 const button = document.createElement('button');
                 button.className = 'quick-btn';
                 button.textContent = buttonText;
-                
+
                 // Enhanced button mapping with new features
                 const questionMap = {
                     'App Features': 'features',
@@ -2873,22 +3081,22 @@ class IslamicChatbot {
                     'FAQ': 'support',
                     'Privacy Policy': 'support'
                 };
-                
+
                 const question = questionMap[buttonText] || 'features';
                 button.setAttribute('data-question', question);
-                
+
                 quickOptions.appendChild(button);
             });
-            
+
             contentDiv.appendChild(quickOptions);
         }
-        
+
         messageDiv.appendChild(contentDiv);
         messagesContainer.appendChild(messageDiv);
-        
+
         this.scrollToBottom();
     }
-    
+
     scrollToBottom() {
         const messagesContainer = document.getElementById('chatbotMessages');
         messagesContainer.scrollTop = messagesContainer.scrollHeight;

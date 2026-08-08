@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Invite - Rowhni Islamic Companion</title>
+  <meta name="description" content="Join a group on the Rowhni Islamic companion app.">
+  <link rel="stylesheet" href="../_assets/site.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-background"></div>
+    <div class="container">
+      <div class="nav-content">
+        <div class="nav-brand">
+          <img src="../rowhni_logo_day.png" alt="Rowhni" class="nav-logo">
+          <span class="nav-title">Rowhni</span>
+        </div>
+        <div class="nav-links">
+          <a href="../" class="nav-link">Home</a>
+          <a href="../#features" class="nav-link">Features</a>
+          <a href="../support/" class="nav-link">Support</a>
+          <a href="../privacy/" class="nav-link">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="privacy-hero">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">
+          <span class="title-line">You are invited</span>
+          <span class="title-line gradient-text">to a Rowhni group</span>
+        </h1>
+        <p class="section-subtitle">Dhikr goals, challenges and progress you share — open the invite to join the group.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy-principles">
+    <div class="container">
+      <div class="principles-grid">
+
+        <div class="principle-card">
+          <h3>Already have Rowhni?</h3>
+          <p class="principle-description">Open this invite in the app — the code from your link is carried over automatically.</p>
+          <div class="principle-details">
+            <a id="open-app" href="https://play.google.com/store/apps/details?id=com.rowhni.android" class="btn btn-primary">Open in the app</a>
+            <p style="margin-top:0.8rem"><small>If the app does not open, install it below and tap your invite link again.</small></p>
+          </div>
+        </div>
+
+        <div class="principle-card">
+          <h3>New to Rowhni?</h3>
+          <p class="principle-description">Get the app first, then tap your invite link again to accept it.</p>
+          <div class="principle-details">
+            <p><a href="https://play.google.com/store/apps/details?id=com.rowhni.android" class="btn btn-primary">Get it on Google Play</a></p>
+            <p style="margin-top:0.7rem"><a href="https://apps.apple.com/de/app/rowhni/id6748600035" class="btn btn-primary">Download on the App Store</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="../rowhni_logo_day.png" alt="Rowhni" class="footer-logo">
+          <h3>Rowhni</h3>
+          <p>Your complete Islamic companion</p>
+        </div>
+        <div class="footer-links">
+          <div class="link-column">
+            <h4>Support</h4>
+            <a href="../support/">Help Center</a>
+            <a href="../privacy/">Privacy Policy</a>
+            <a href="../terms/">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="gradient-line"></div>
+        <p>&copy; 2026 Rowhni. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Android-Chrome: intent-URL oeffnet die App direkt; ist sie nicht installiert,
+    // leitet browser_fallback_url in den Play Store. Der Einladungscode aus dem
+    // Query-String bleibt dabei erhalten. Auf iOS haette der Universal Link die
+    // App bereits geoeffnet — diese Seite sehen dort nur Besucher ohne App.
+    (function () {
+      var query = window.location.search || '';
+      var fallback = encodeURIComponent('https://play.google.com/store/apps/details?id=com.rowhni.android');
+      document.getElementById('open-app').href =
+        'intent://rowhni.com/join' + query +
+        '#Intent;scheme=https;package=com.rowhni.android;S.browser_fallback_url=' + fallback + ';end';
+    })();
+  </script>
+</body>
+</html>

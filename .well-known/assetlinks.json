@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rowhni.android",
+      "sha256_cert_fingerprints": [
+        "C5:D3:E1:59:5A:8B:1F:21:1B:AC:87:78:B7:B6:A7:F1:90:25:D7:AC:19:AF:37:5C:56:54:B4:B3:20:C1:2B:C7"
+      ]
+    }
+  }
+]

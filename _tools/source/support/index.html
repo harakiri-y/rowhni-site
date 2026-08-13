@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rowhni Support - Your Islamic Companion Help Center</title>
+  <meta name="description"
+    content="Get comprehensive support for Rowhni. App setup, troubleshooting, and feature guides for the best Islamic app experience.">
+
+  <!-- Favicon and Icons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#1B4D3E">
+  <meta name="msapplication-TileColor" content="#1B4D3E">
+  <meta name="msapplication-config" content="../browserconfig.xml">
+
+  <link rel="stylesheet" href="../_assets/site.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
+
+  <!-- Critical CSS Inline -->
+  <style>
+    :root {
+      --font-primary: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+    }
+  </style>
+</head>
+
+<body data-page="support" class="support-page">
+  <div id="scrollProgress"></div>
+  <div class="skip-links">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#navigation" class="skip-link">Skip to navigation</a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" data-scroll id="navigation">
+    <div class="nav-container">
+      <div class="nav-brand" data-animate>
+        <a href="../" class="nav-brand-link">
+          <img src="../rowhni_logo_day.png" alt="Rowhni" class="nav-logo" loading="eager" width="40" height="40">
+          <span class="nav-title">Rowhni</span>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <div class="nav-links" data-animate-stagger>
+          <a href="../#features" class="nav-link">Features</a>
+          <a href="../#progress" class="nav-link">Progress</a>
+          <a href="./" class="nav-link active">Support</a>
+        </div>
+        <div class="nav-actions" data-animate>
+          <a href="https://apps.apple.com/us/app/rowhni/id6748600035" class="btn-download magnetic-btn" data-download
+            rel="noopener noreferrer">Download</a>
+        </div>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+    <div class="nav-background"></div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="support-hero">
+      <div class="hero-background">
+        <div id="aurora-container"></div>
+      </div>
+      <div class="container">
+        <div class="support-header" data-animate-up>
+          <div class="section-badge-premium center-badge">
+            <span class="badge-icon">🤝</span>
+            <span>Help Center</span>
+            <div class="badge-glow"></div>
+          </div>
+          <h1 class="hero-title support-title">
+            <span class="title-line">How can we</span>
+            <span class="title-line gradient-text-premium secondary">help you?</span>
+          </h1>
+          <p class="section-subtitle-premium center-text">
+            Comprehensive support for Rowhni. Troubleshooting, guides, and community help.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Categories -->
+    <section class="support-content">
+      <div class="container">
+        <div class="support-grid">
+          <!-- Setup Guide -->
+          <div class="support-card glass-card" data-animate-up data-delay="100">
+            <div class="card-gradient"></div>
+            <div class="card-icon">🚀</div>
+            <h3>Getting Started</h3>
+            <p>Essential setup guide for first-time users.</p>
+            <ul class="support-list">
+              <li>
+                <strong>Initial Setup:</strong> Download from App Store (iOS 18.0+ required).
+              </li>
+              <li>
+                <strong>Permissions:</strong> Grant location for accurate prayer times.
+              </li>
+              <li>
+                <strong>Privacy:</strong> Location data stays on your device.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Prayer Times -->
+          <div class="support-card glass-card" data-animate-up data-delay="200">
+            <div class="card-gradient"></div>
+            <div class="card-icon">🕌</div>
+            <h3>Prayer Times</h3>
+            <p>Accuracy standards and troubleshooting.</p>
+            <ul class="support-list">
+              <li>
+                <strong>Accuracy:</strong> ±1 minute with astronomical calculations.
+              </li>
+              <li>
+                <strong>Methods:</strong> Supports ISNA, MWL, Umm al-Qura, and more.
+              </li>
+              <li>
+                <strong>Fix:</strong> Check location settings if times are incorrect.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Voice Tasbih -->
+          <div class="support-card glass-card" data-animate-up data-delay="300">
+            <div class="card-gradient"></div>
+            <div class="card-icon">🎤</div>
+            <h3>Voice Tasbih</h3>
+            <p>Voice recognition tips and privacy.</p>
+            <ul class="support-list">
+              <li>
+                <strong>Phrases:</strong> SubhanAllah, Alhamdulillah, Allahu Akbar.
+              </li>
+              <li>
+                <strong>Privacy:</strong> 100% on-device processing. No recording.
+              </li>
+              <li>
+                <strong>Tip:</strong> Speak clearly in a quiet environment.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Quran Tracking -->
+          <div class="support-card glass-card" data-animate-up data-delay="400">
+            <div class="card-gradient"></div>
+            <div class="card-icon">📖</div>
+            <h3>Quran Tracker</h3>
+            <p>Progress monitoring and reading features.</p>
+            <ul class="support-list">
+              <li>
+                <strong>Tracking:</strong> Auto-tracks progress by Juz and Surah.
+              </li>
+              <li>
+                <strong>Sync:</strong> iCloud sync keeps progress across devices.
+              </li>
+              <li>
+                <strong>Audio:</strong> Download recitations for offline use.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+          <div class="section-divider"></div>
+          <h2 class="section-title-hero center-text mb-large">FAQ</h2>
+
+          <div class="faq-grid">
+            <div class="faq-item glass-card" data-animate-up>
+              <h4>Is Rowhni free?</h4>
+              <p>Core features are free. Rowhni Pro unlocks advanced analytics and removes ads.</p>
+            </div>
+            <div class="faq-item glass-card" data-animate-up>
+              <h4>Does it work offline?</h4>
+              <p>Yes, prayer times, Qibla, and Voice Tasbih work completely offline.</p>
+            </div>
+            <div class="faq-item glass-card" data-animate-up>
+              <h4>How do I report a bug?</h4>
+              <p>Please use the button below to report technical issues via the App Store.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Actions -->
+        <div class="contact-actions center-text" data-animate-up>
+          <a href="https://apps.apple.com/us/app/rowhni/id6748600035" class="btn-hero-primary magnetic-btn">
+            <div class="btn-content">
+              <span>Report Issue on App Store</span>
+            </div>
+          </a>
+          <p class="mt-small text-muted">Feature requests? We'd love to hear them too!</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo-wrap">
+              <img src="../rowhni_logo_day.png" alt="Rowhni" class="footer-logo" width="48" height="48">
+              <span class="footer-name">Rowhni</span>
+            </div>
+            <p class="footer-tagline">Your spiritual companion.</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-col">
+              <h4>Product</h4>
+              <ul>
+                <li><a href="../#features">Features</a></li>
+                <li><a href="./">Support</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../contact/">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="../privacy/">Privacy</a></li>
+                <li><a href="../terms/">Terms</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Rowhni. All rights reserved.</p>
+          <p class="made-with">Made with love in Berlin 🇩🇪</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="../_assets/site.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Invite landing pages are per-link and carry no content worth indexing.
+Disallow: /join/
+Disallow: /addfriend/
+
+Sitemap: https://rowhni.com/sitemap.xml

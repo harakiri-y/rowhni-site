@@ -1,0 +1,1499 @@
+/* Rowhni design system
+   Tokens, layout and components for every page on the site.
+   Cascade order is declared once, here, and never fought with !important. */
+
+@layer reset, tokens, base, layout, components, utilities;
+
+/* ---------------------------------------------------------------- fonts --
+   Self-hosted. The privacy policy promises no third-party requests, and a
+   Google Fonts stylesheet hands the visitor's IP address to Google. */
+
+@font-face {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/archivo-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/archivo-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: Literata;
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/literata-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Literata;
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/literata-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: Literata;
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("fonts/literata-latin-italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Literata;
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("fonts/literata-latin-ext-italic.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Noto Naskh Arabic";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/naskh-arabic.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1,
+    U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF,
+    U+FE70-FE74, U+FE76-FEFC;
+}
+
+/* --------------------------------------------------------------- tokens -- */
+
+@layer tokens {
+  :root {
+    color-scheme: light dark;
+
+    /* Dark is the signature theme; light is the second, equally built one.
+       Every colour pair goes through light-dark() so a single token works in
+       both, and the two are switched by color-scheme alone. */
+    --bg: light-dark(oklch(0.985 0.004 150), oklch(0.27 0.05 164));
+    --bg-deep: light-dark(oklch(0.958 0.008 160), oklch(0.205 0.038 164));
+    --surface: light-dark(oklch(0.958 0.008 160), oklch(0.325 0.052 164));
+    --raised: light-dark(oklch(1 0 0), oklch(0.375 0.054 164));
+
+    --ink: light-dark(oklch(0.235 0.03 166), oklch(0.97 0.012 150));
+    --ink-2: light-dark(oklch(0.43 0.03 166), oklch(0.85 0.03 150));
+    --ink-3: light-dark(oklch(0.53 0.028 166), oklch(0.74 0.038 150));
+
+    /* Gold is darkened in light mode. The dark-mode value is a 1.9:1 fail on
+       white, so the same value cannot serve both themes. */
+    --gold: light-dark(oklch(0.56 0.115 84), oklch(0.84 0.145 92));
+    --gold-flat: light-dark(oklch(0.78 0.13 88), oklch(0.84 0.145 92));
+
+    --brand: light-dark(oklch(0.363 0.056 164), oklch(0.84 0.145 92));
+    --on-brand: light-dark(oklch(0.985 0.004 150), oklch(0.2 0.05 150));
+
+    --line: light-dark(oklch(0.88 0.012 160), oklch(0.42 0.04 164));
+    --line-soft: light-dark(oklch(0.93 0.008 160), oklch(0.35 0.035 164));
+
+    --focus: light-dark(oklch(0.45 0.14 250), oklch(0.84 0.145 92));
+
+    /* Fluid type on a 1.25 ratio, 320px to 1440px. */
+    --step--1: clamp(0.833rem, 0.81rem + 0.11vw, 0.9rem);
+    --step-0: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+    --step-1: clamp(1.2rem, 1.13rem + 0.35vw, 1.44rem);
+    --step-2: clamp(1.44rem, 1.32rem + 0.6vw, 1.85rem);
+    --step-3: clamp(1.73rem, 1.53rem + 0.98vw, 2.37rem);
+    --step-4: clamp(2.07rem, 1.75rem + 1.6vw, 3.03rem);
+    --step-5: clamp(2.49rem, 1.98rem + 2.55vw, 3.88rem);
+    --step-6: clamp(2.99rem, 2.2rem + 3.94vw, 4.97rem);
+
+    --font-ui: Archivo, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+      sans-serif;
+    --font-read: Literata, ui-serif, Georgia, "Times New Roman", serif;
+    --font-arabic: "Noto Naskh Arabic", "Geeza Pro", "Segoe UI", serif;
+
+    /* Space on a 4px base, fluid where it carries rhythm. */
+    --sp-1: 0.25rem;
+    --sp-2: 0.5rem;
+    --sp-3: 0.75rem;
+    --sp-4: 1rem;
+    --sp-5: 1.5rem;
+    --sp-6: 2rem;
+    --sp-7: 3rem;
+    --sp-8: clamp(3rem, 2rem + 5vw, 5rem);
+    --sp-9: clamp(4rem, 2.5rem + 7.5vw, 7.5rem);
+
+    --measure: 68ch;
+    --content: min(100% - 2rem, 68rem);
+    --content-wide: min(100% - 2rem, 84rem);
+
+    --radius-1: 6px;
+    --radius-2: 10px;
+    --radius-3: 16px;
+    --radius-pill: 999px;
+
+    /* Semantic stacking order. Nothing on this site needs a fourth digit. */
+    --z-sticky: 100;
+    --z-menu: 200;
+    --z-dialog: 300;
+    --z-toast: 400;
+
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-state: 150ms;
+    --dur-arrive: 400ms;
+  }
+
+  /* An explicit choice beats the system preference in both directions. */
+  :root[data-theme="light"] {
+    color-scheme: light;
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+  }
+}
+
+/* ---------------------------------------------------------------- reset -- */
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    /* Sticky header height, so in-page anchors do not land under it. */
+    scroll-padding-block-start: 5.5rem;
+  }
+
+  body {
+    min-block-size: 100svb;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img,
+  picture,
+  svg,
+  video,
+  canvas {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  li {
+    overflow-wrap: break-word;
+  }
+
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+    padding: 0;
+  }
+
+  :target {
+    scroll-margin-block-start: 6rem;
+  }
+
+  /* [hidden] comes from the UA stylesheet, so any author `display` beats it.
+     Without this, hiding an element from JavaScript silently does nothing. */
+  [hidden] {
+    display: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 1ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ----------------------------------------------------------------- base -- */
+
+@layer base {
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    font-size: var(--step-0);
+    /* Light type on dark ground reads thinner and needs more room. */
+    line-height: 1.65;
+    font-synthesis-weight: none;
+  }
+
+  :root:not([data-theme="light"]) body {
+    @media (prefers-color-scheme: dark) {
+      line-height: 1.7;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-read);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--step-6);
+  }
+
+  h2 {
+    font-size: var(--step-4);
+  }
+
+  h3 {
+    font-size: var(--step-2);
+  }
+
+  h4 {
+    font-size: var(--step-1);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration-color: color-mix(in oklch, currentColor 40%, transparent);
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color var(--dur-state) var(--ease);
+
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: light-dark(oklch(0.985 0.004 150), oklch(0.2 0.05 150));
+  }
+
+  ::placeholder {
+    /* 4.5:1 against the field, same as body text. Placeholder grey is the
+       most common contrast failure on a form. */
+    color: var(--ink-3);
+    opacity: 1;
+  }
+
+  /* Numerals are the load-bearing content on this site. They line up. */
+  time,
+  .tabular,
+  td,
+  th {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  :lang(ar) {
+    font-family: var(--font-arabic);
+  }
+
+  /* A CJK webfont would cost megabytes to serve one locale. The system
+     stack on macOS, iOS, Windows and Android is excellent. */
+  :lang(ja) {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+      Meiryo, var(--font-ui);
+  }
+
+  :lang(ja) h1,
+  :lang(ja) h2,
+  :lang(ja) h3,
+  :lang(ja) h4 {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+    letter-spacing: 0;
+  }
+
+  :lang(ar) h1,
+  :lang(ar) h2,
+  :lang(ar) h3,
+  :lang(ar) h4 {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+}
+
+/* --------------------------------------------------------------- layout -- */
+
+@layer layout {
+  .wrap {
+    inline-size: var(--content);
+    margin-inline: auto;
+  }
+
+  .wrap-wide {
+    inline-size: var(--content-wide);
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: var(--sp-9);
+    border-block-start: 1px solid var(--line-soft);
+  }
+
+  .section:first-of-type {
+    border-block-start: none;
+  }
+
+  /* `content-visibility: auto` used to sit here. It was removed on purpose:
+     when the browser skips a section, a scroll-driven animation inside it is
+     never evaluated, so `.arrive` elements can stay stuck at opacity 0, and
+     the intrinsic-size estimate also makes the scroll position jump. The
+     page is small enough that the saving was not worth a blank section. */
+  .section--deferred {
+    /* deliberately empty */
+  }
+
+  .stack > * + * {
+    margin-block-start: var(--flow, var(--sp-4));
+  }
+
+  .prose {
+    max-inline-size: var(--measure);
+
+    & p,
+    & ul,
+    & ol {
+      margin-block: var(--sp-4);
+    }
+
+    & h2 {
+      margin-block: var(--sp-8) var(--sp-4);
+      font-size: var(--step-3);
+    }
+
+    & h3 {
+      margin-block: var(--sp-6) var(--sp-3);
+      font-size: var(--step-1);
+    }
+
+    & li {
+      margin-block: var(--sp-2);
+    }
+
+    & a {
+      color: var(--brand);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+  }
+
+  .skip-link {
+    position: absolute;
+    inset-block-start: var(--sp-2);
+    inset-inline-start: var(--sp-2);
+    z-index: var(--z-toast);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--gold);
+    color: light-dark(oklch(0.985 0.004 150), oklch(0.2 0.05 150));
+    border-radius: var(--radius-1);
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateY(-150%);
+
+    &:focus-visible {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ----------------------------------------------------------- components -- */
+
+@layer components {
+  /* ---- buttons ---- */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    /* 44px minimum touch target on every button, at every size. */
+    min-block-size: 44px;
+    padding: var(--sp-3) var(--sp-5);
+    border-radius: var(--radius-2);
+    font-weight: 600;
+    font-size: var(--step-0);
+    line-height: 1.2;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color var(--dur-state) var(--ease),
+      border-color var(--dur-state) var(--ease),
+      transform var(--dur-state) var(--ease);
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  .btn--primary {
+    background: var(--brand);
+    color: var(--on-brand);
+
+    &:hover {
+      background: color-mix(in oklch, var(--brand) 88%, var(--ink));
+    }
+  }
+
+  .btn--ghost {
+    border: 1px solid var(--line);
+    color: var(--ink);
+
+    &:hover {
+      background: var(--surface);
+      border-color: var(--ink-3);
+    }
+  }
+
+  /* ---- store buttons ----
+     App Store and Play Store are always adjacent and always the same weight.
+     Platform detection reorders them; it never removes one. */
+
+  .stores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+  }
+
+  .store {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-3);
+    min-block-size: 56px;
+    padding: var(--sp-3) var(--sp-5);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-2);
+    background: var(--surface);
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color var(--dur-state) var(--ease),
+      background-color var(--dur-state) var(--ease);
+
+    & svg {
+      flex: none;
+      inline-size: 26px;
+      block-size: 26px;
+      fill: currentColor;
+    }
+
+    &:hover {
+      background: var(--raised);
+      border-color: var(--ink-3);
+    }
+  }
+
+  .store__label {
+    display: grid;
+    text-align: start;
+    line-height: 1.25;
+  }
+
+  .store__pre {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+
+  .store__name {
+    font-weight: 600;
+    font-size: var(--step-0);
+  }
+
+  /* The platform the visitor is on comes first, marked for screen readers
+     as well as by position. */
+  .store[data-primary="true"] {
+    background: var(--brand);
+    color: var(--on-brand);
+    border-color: transparent;
+
+    & .store__pre {
+      color: color-mix(in oklch, var(--on-brand) 78%, transparent);
+    }
+
+    &:hover {
+      background: color-mix(in oklch, var(--brand) 88%, var(--ink));
+      border-color: transparent;
+    }
+  }
+
+  /* ---- header ---- */
+
+  .header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: var(--z-sticky);
+    background: color-mix(in oklch, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-5);
+    min-block-size: 4.5rem;
+    inline-size: var(--content-wide);
+    margin-inline: auto;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-3);
+    font-family: var(--font-read);
+    font-size: var(--step-1);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--ink);
+
+    & img {
+      inline-size: 34px;
+      block-size: 34px;
+      border-radius: 8px;
+    }
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-5);
+    margin-inline-start: auto;
+  }
+
+  .nav__links {
+    display: flex;
+    gap: var(--sp-5);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    & a {
+      color: var(--ink-2);
+      text-decoration: none;
+      font-size: var(--step-0);
+      padding-block: var(--sp-2);
+
+      &:hover {
+        color: var(--ink);
+      }
+    }
+  }
+
+  .header__tools {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+  }
+
+  @media (width < 60rem) {
+    .nav__links,
+    .header .btn--primary {
+      display: none;
+    }
+  }
+
+  /* ---- mobile menu: native popover, no JavaScript state machine ---- */
+
+  .menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    inline-size: 44px;
+    block-size: 44px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-1);
+    color: var(--ink);
+
+    @media (width < 60rem) {
+      display: inline-flex;
+    }
+  }
+
+  .menu {
+    position: fixed;
+    inset: auto 0 0 0;
+    inline-size: 100%;
+    max-inline-size: none;
+    margin: 0;
+    padding: var(--sp-5) var(--sp-5) calc(var(--sp-6) + env(safe-area-inset-bottom));
+    border: none;
+    border-start-start-radius: var(--radius-3);
+    border-start-end-radius: var(--radius-3);
+    background: var(--surface);
+    color: var(--ink);
+    z-index: var(--z-menu);
+
+    &::backdrop {
+      background: oklch(0 0 0 / 0.5);
+      backdrop-filter: blur(2px);
+    }
+
+    & ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--sp-5);
+      display: grid;
+      gap: var(--sp-1);
+    }
+
+    & li a {
+      display: block;
+      padding: var(--sp-3) var(--sp-2);
+      min-block-size: 44px;
+      font-size: var(--step-1);
+      text-decoration: none;
+      border-block-end: 1px solid var(--line-soft);
+    }
+  }
+
+  /* The open menu is fully visible by default. The slide-up lives only in
+     @starting-style, so it describes where the entrance begins rather than
+     gating whether the menu can be seen at all.
+
+     Setting opacity: 0 on the closed state would buy an exit animation, and
+     cost the guarantee: transitions do not advance in a background tab or a
+     headless renderer, and the menu would open invisible. That is the same
+     failure that left the old site's headline stranded off-screen. */
+  .menu {
+    transition: opacity var(--dur-arrive) var(--ease),
+      translate var(--dur-arrive) var(--ease), overlay var(--dur-arrive) allow-discrete,
+      display var(--dur-arrive) allow-discrete;
+  }
+
+  .menu:popover-open {
+    opacity: 1;
+    translate: 0 0;
+
+    @starting-style {
+      opacity: 0;
+      translate: 0 100%;
+    }
+  }
+
+  .menu__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 44px;
+    inline-size: 100%;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-2);
+    color: var(--ink);
+  }
+
+  /* ---- theme toggle ---- */
+
+  .theme {
+    display: inline-flex;
+    padding: 3px;
+    gap: 2px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    background: var(--surface);
+  }
+
+  .theme__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 34px;
+    block-size: 34px;
+    border-radius: 50%;
+    color: var(--ink-3);
+    transition: background-color var(--dur-state) var(--ease),
+      color var(--dur-state) var(--ease);
+
+    & svg {
+      inline-size: 17px;
+      block-size: 17px;
+    }
+
+    &:hover {
+      color: var(--ink);
+    }
+
+    &[aria-pressed="true"] {
+      background: var(--raised);
+      color: var(--ink);
+    }
+  }
+
+  /* The toggle is useless without scripting, so it stays hidden until the
+     script that runs it declares itself ready. */
+  .theme:not([data-ready]) {
+    display: none;
+  }
+
+  /* ---- hero ---- */
+
+  .hero {
+    padding-block: var(--sp-9) var(--sp-8);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--sp-8);
+    align-items: start;
+
+    @media (width >= 62rem) {
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: var(--sp-7);
+      align-items: center;
+    }
+  }
+
+  .hero h1 {
+    /* -0.04em is the floor; below that the letters touch. */
+    letter-spacing: -0.035em;
+  }
+
+  .hero__lede {
+    max-inline-size: 46ch;
+    margin-block-start: var(--sp-5);
+    font-size: var(--step-1);
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  .hero__note {
+    margin-block-start: var(--sp-4);
+    font-size: var(--step--1);
+    color: var(--ink-3);
+  }
+
+  .hero__actions {
+    margin-block-start: var(--sp-6);
+  }
+
+  /* ---- prayer table: the signature element ---- */
+
+  .times {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-3);
+    background: var(--surface);
+    overflow: clip;
+  }
+
+  .times__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--sp-2) var(--sp-4);
+    padding: var(--sp-5) var(--sp-5) var(--sp-4);
+    border-block-end: 1px solid var(--line);
+  }
+
+  .times__place {
+    font-family: var(--font-read);
+    font-size: var(--step-1);
+    font-weight: 600;
+  }
+
+  .times__date {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    margin-inline-start: auto;
+  }
+
+  .times__table {
+    inline-size: 100%;
+    border-collapse: collapse;
+  }
+
+  .times__table th {
+    text-align: start;
+    font-weight: 400;
+    font-size: var(--step--1);
+    color: var(--ink-3);
+    padding: var(--sp-3) var(--sp-5);
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .times__table td {
+    padding: var(--sp-3) var(--sp-5);
+    border-block-end: 1px solid var(--line-soft);
+    font-size: var(--step-0);
+  }
+
+  .times__table tr:last-child td {
+    border-block-end: none;
+  }
+
+  .times__name {
+    font-weight: 500;
+  }
+
+  .times__arabic {
+    color: var(--ink-3);
+    font-family: var(--font-arabic);
+    font-size: var(--step-0);
+  }
+
+  .times__value {
+    text-align: end;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* The next prayer carries three cues, not one: colour, weight, and the
+     word "Next". Colour alone would fail for a colour-blind reader. */
+  .times__table tr[data-next] {
+    background: var(--raised);
+
+    & .times__name {
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    & .times__value {
+      color: var(--gold);
+    }
+
+    /* The highlighted row sits on --raised, where --ink-3 measures 4.39:1.
+       One step up clears 4.5:1. */
+    & .times__arabic {
+      color: var(--ink-2);
+    }
+  }
+
+  .times__badge {
+    display: inline-block;
+    margin-inline-start: var(--sp-2);
+    padding: 2px var(--sp-2);
+    border-radius: var(--radius-pill);
+    background: var(--gold);
+    color: light-dark(oklch(0.985 0.004 150), oklch(0.2 0.05 150));
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    vertical-align: 0.1em;
+  }
+
+  .times__foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sp-4) var(--sp-5);
+    border-block-start: 1px solid var(--line);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+
+  .times__foot select {
+    padding: var(--sp-2) var(--sp-3);
+    min-block-size: 40px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-1);
+    background: var(--bg);
+    color: var(--ink);
+  }
+
+  .times__proof {
+    padding: var(--sp-4) var(--sp-5);
+    border-block-start: 1px solid var(--line);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    background: color-mix(in oklch, var(--gold) 8%, transparent);
+  }
+
+  /* ---- feature rows ---- */
+
+  .feature {
+    display: grid;
+    gap: var(--sp-6);
+    align-items: center;
+    padding-block: var(--sp-8);
+    border-block-start: 1px solid var(--line-soft);
+
+    @media (width >= 54rem) {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-8);
+    }
+  }
+
+  .feature:first-of-type {
+    border-block-start: none;
+    padding-block-start: var(--sp-6);
+  }
+
+  /* Alternating sides, without reordering the DOM. Counted inside .features
+     so a heading or any other sibling cannot flip the whole rhythm. */
+  @media (width >= 54rem) {
+    .features > .feature:nth-child(even) .feature__media {
+      order: -1;
+    }
+  }
+
+  /* A row with no screenshot: centred and a size up, so the gap in the
+     rhythm reads as a pause rather than a missing image. */
+  .feature--plain {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-block: var(--sp-9);
+  }
+
+  .feature--plain .feature__body {
+    max-inline-size: 34ch;
+    margin-inline: auto;
+  }
+
+  .feature--plain h3 {
+    font-size: var(--step-4);
+  }
+
+  .feature--plain p {
+    margin-inline: auto;
+    font-size: var(--step-1);
+  }
+
+  .feature__body h3 {
+    font-size: var(--step-3);
+  }
+
+  .feature__body p {
+    margin-block-start: var(--sp-4);
+    color: var(--ink-2);
+    max-inline-size: 48ch;
+  }
+
+  .feature__list {
+    margin-block-start: var(--sp-5);
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: var(--sp-3);
+
+    & li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--sp-3);
+      align-items: start;
+      color: var(--ink-2);
+      font-size: var(--step-0);
+    }
+
+    & svg {
+      inline-size: 20px;
+      block-size: 20px;
+      margin-block-start: 0.2em;
+      color: var(--gold);
+      flex: none;
+    }
+  }
+
+  .feature__media {
+    display: flex;
+    justify-content: center;
+  }
+
+  .shot {
+    inline-size: min(100%, 20rem);
+    border-radius: var(--radius-3);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    overflow: clip;
+
+    & img {
+      inline-size: 100%;
+      block-size: auto;
+    }
+  }
+
+  /* ---- facts list (replaces the metric-card row) ---- */
+
+  .facts {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+
+    @container (width >= 40rem) {
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
+  }
+
+  .fact {
+    padding: var(--sp-5) 0;
+    border-block-start: 1px solid var(--line-soft);
+
+    & dt {
+      font-size: var(--step--1);
+      color: var(--ink-3);
+      letter-spacing: 0.01em;
+    }
+
+    & dd {
+      margin: var(--sp-2) 0 0;
+      font-family: var(--font-read);
+      font-size: var(--step-1);
+      line-height: 1.3;
+    }
+  }
+
+  /* ---- quote ---- */
+
+  .quote {
+    max-inline-size: 40ch;
+    margin-inline: auto;
+    text-align: center;
+    font-family: var(--font-read);
+    font-size: var(--step-2);
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  .quote cite {
+    display: block;
+    margin-block-start: var(--sp-4);
+    font-family: var(--font-ui);
+    font-style: normal;
+    font-size: var(--step--1);
+    color: var(--ink-3);
+  }
+
+  /* ---- call to action band ---- */
+
+  .cta {
+    padding-block: var(--sp-9);
+    background: var(--bg-deep);
+    border-block: 1px solid var(--line-soft);
+    text-align: center;
+  }
+
+  .cta h2 {
+    max-inline-size: 18ch;
+    margin-inline: auto;
+  }
+
+  .cta p {
+    max-inline-size: 52ch;
+    margin: var(--sp-4) auto 0;
+    color: var(--ink-2);
+  }
+
+  .cta .stores {
+    justify-content: center;
+    margin-block-start: var(--sp-6);
+  }
+
+  /* ---- footer ---- */
+
+  .footer {
+    padding-block: var(--sp-8) var(--sp-6);
+    background: var(--bg-deep);
+    border-block-start: 1px solid var(--line-soft);
+    font-size: var(--step--1);
+  }
+
+  .footer__grid {
+    display: grid;
+    gap: var(--sp-6);
+
+    @media (width >= 48rem) {
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: var(--sp-7);
+    }
+  }
+
+  .footer h2 {
+    font-family: var(--font-ui);
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-block-end: var(--sp-3);
+  }
+
+  .footer ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--sp-2);
+  }
+
+  .footer a {
+    color: var(--ink-2);
+    text-decoration: none;
+    display: inline-block;
+    padding-block: 2px;
+
+    &:hover {
+      color: var(--ink);
+      text-decoration: underline;
+    }
+  }
+
+  .footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    align-items: center;
+    justify-content: space-between;
+    margin-block-start: var(--sp-7);
+    padding-block-start: var(--sp-5);
+    border-block-start: 1px solid var(--line-soft);
+    color: var(--ink-3);
+  }
+
+  .langs ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2) var(--sp-4);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .langs a {
+    padding-block: var(--sp-1);
+  }
+
+  .langs a[aria-current="page"] {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  /* ---- page header for inner pages ---- */
+
+  .page-head {
+    padding-block: var(--sp-8) var(--sp-6);
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .page-head h1 {
+    font-size: var(--step-5);
+  }
+
+  .page-head p {
+    margin-block-start: var(--sp-4);
+    max-inline-size: 60ch;
+    color: var(--ink-2);
+    font-size: var(--step-1);
+  }
+
+  .updated {
+    display: inline-block;
+    margin-block-start: var(--sp-4);
+    font-size: var(--step--1);
+    color: var(--ink-3);
+  }
+
+  /* ---- table of contents for legal pages ---- */
+
+  .toc {
+    padding: var(--sp-5);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-2);
+    background: var(--surface);
+    margin-block: var(--sp-6);
+
+    & h2 {
+      font-family: var(--font-ui);
+      font-size: var(--step-0);
+      margin: 0 0 var(--sp-3);
+    }
+
+    & ol {
+      margin: 0;
+      padding-inline-start: var(--sp-5);
+      display: grid;
+      gap: var(--sp-2);
+      color: var(--ink-2);
+    }
+  }
+
+  /* ---- FAQ with native disclosure ---- */
+
+  .faq {
+    border-block-start: 1px solid var(--line-soft);
+  }
+
+  .faq details {
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .faq summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    padding: var(--sp-5) 0;
+    min-block-size: 44px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--step-1);
+    font-family: var(--font-read);
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "+";
+      font-family: var(--font-ui);
+      font-size: var(--step-2);
+      font-weight: 400;
+      color: var(--gold);
+      transition: rotate var(--dur-state) var(--ease);
+    }
+  }
+
+  .faq details[open] summary::after {
+    content: "−";
+  }
+
+  .faq details > :not(summary) {
+    padding-block-end: var(--sp-5);
+    max-inline-size: var(--measure);
+    color: var(--ink-2);
+  }
+
+  /* ---- forms ---- */
+
+  .field {
+    display: grid;
+    gap: var(--sp-2);
+    margin-block-end: var(--sp-5);
+  }
+
+  .field label {
+    font-weight: 600;
+    font-size: var(--step-0);
+  }
+
+  .field input,
+  .field textarea,
+  .field select {
+    padding: var(--sp-3) var(--sp-4);
+    min-block-size: 44px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-2);
+    background: var(--bg);
+    color: var(--ink);
+    field-sizing: content;
+
+    &:focus-visible {
+      border-color: var(--focus);
+    }
+  }
+
+  .field textarea {
+    min-block-size: 8rem;
+    resize: vertical;
+  }
+
+  .field__hint {
+    font-size: var(--step--1);
+    color: var(--ink-3);
+  }
+
+  /* ---- notices ----
+     Full border and a background tint. Never a fat side stripe. */
+
+  .notice {
+    padding: var(--sp-4) var(--sp-5);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-2);
+    background: var(--surface);
+    margin-block: var(--sp-5);
+
+    & p {
+      color: var(--ink-2);
+    }
+
+    & > :first-child {
+      margin-block-start: 0;
+    }
+  }
+
+  .notice--warn {
+    border-color: color-mix(in oklch, var(--gold) 55%, var(--line));
+    background: color-mix(in oklch, var(--gold) 10%, var(--surface));
+  }
+
+  /* ---- app-link landing pages (join, addfriend) ---- */
+
+  .invite {
+    display: grid;
+    place-items: center;
+    min-block-size: 70svb;
+    text-align: center;
+    padding-block: var(--sp-8);
+  }
+
+  .invite__card {
+    max-inline-size: 34rem;
+  }
+
+  .invite__icon {
+    inline-size: 72px;
+    block-size: 72px;
+    margin-inline: auto;
+    border-radius: var(--radius-3);
+  }
+}
+
+/* ------------------------------------------------------------ utilities -- */
+
+@layer utilities {
+  .visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .muted {
+    color: var(--ink-2);
+  }
+
+  .lead {
+    font-size: var(--step-1);
+    color: var(--ink-2);
+  }
+
+  .mbs-0 {
+    margin-block-start: 0;
+  }
+
+  /* These replace the handful of inline style attributes the pages used to
+     carry. Style attributes cannot be hashed in a Content-Security-Policy,
+     so keeping them would have forced 'unsafe-inline' on style-src. */
+  .cq {
+    container-type: inline-size;
+  }
+
+  .footer__blurb {
+    margin-block-start: var(--sp-3);
+    max-inline-size: 30ch;
+  }
+
+  .priv-lead {
+    max-inline-size: 54ch;
+    margin-block-start: var(--sp-4);
+  }
+
+  .facts {
+    margin-block-start: var(--sp-6);
+  }
+
+  /* Arrival animation, driven by scroll position rather than an observer.
+     The element is fully visible by default; the animation only shortens
+     its entrance. A browser without support, a crawler, or a hidden tab
+     shows the finished state, never a blank one. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .arrive {
+        animation: arrive linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 22%;
+      }
+    }
+  }
+
+  @keyframes arrive {
+    from {
+      opacity: 0;
+      translate: 0 1.5rem;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+}
+
+/* --------------------------------------------------- cross-document view --
+   Native MPA view transitions. Degrades to an ordinary navigation where the
+   browser does not support it. */
+
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}

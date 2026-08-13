@@ -1,227 +1,219 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Terms of Service - Rowhni Islamic Companion</title>
-  <meta name="description" content="The terms that govern your use of the Rowhni Islamic companion app and its subscriptions.">
-  <link rel="stylesheet" href="../_assets/site.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Terms of use · Rowhni</title>
+  <meta name="description" content="The terms that apply when you use the Rowhni app and this website.">
+
+  <script>
+    try {
+      var t = localStorage.getItem("rowhni-theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) { }
+  </script>
+
+  <link rel="stylesheet" href="../_assets/rowhni.css">
+  <link rel="preload" href="../_assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../_assets/fonts/literata-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#082E20" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F8FBF9" media="(prefers-color-scheme: light)">
+  <link rel="canonical" href="https://rowhni.com/terms/">
 </head>
+
 <body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-background"></div>
-    <div class="container">
-      <div class="nav-content">
-        <div class="nav-brand">
-          <img src="../rowhni_logo_day.png" alt="Rowhni" class="nav-logo">
-          <span class="nav-title">Rowhni</span>
-        </div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-        <div class="nav-links">
-          <a href="../" class="nav-link">Home</a>
-          <a href="../#features" class="nav-link">Features</a>
-          <a href="../#progress" class="nav-link">Progress</a>
-          <a href="../support/" class="nav-link">Support</a>
-          <a href="../privacy/" class="nav-link">Privacy</a>
-        </div>
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="../">
+        <img src="../_assets/logo.png" alt="" width="34" height="34">
+        Rowhni
+      </a>
 
-        <div class="nav-cta">
-          <a href="https://apps.apple.com/de/app/rowhni/id6748600035" class="btn btn-download">
-            Download iOS
-          </a>
+      <nav class="nav" aria-label="Main">
+        <ul class="nav__links">
+          <li><a href="../#features">Features</a></li>
+          <li><a href="../support/">Support</a></li>
+          <li><a href="../privacy/">Privacy</a></li>
+        </ul>
+
+        <div class="header__tools">
+          <div class="theme" data-theme-toggle role="group" aria-label="Colour theme">
+            <button class="theme__btn" type="button" data-theme-set="system" aria-pressed="true"
+              title="Match system theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="14" rx="2" />
+                <path d="M8 21h8" />
+              </svg>
+              <span class="visually-hidden">Match system theme</span>
+            </button>
+            <button class="theme__btn" type="button" data-theme-set="light" aria-pressed="false" title="Light theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <circle cx="12" cy="12" r="4.5" />
+                <path
+                  d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" />
+              </svg>
+              <span class="visually-hidden">Light theme</span>
+            </button>
+            <button class="theme__btn" type="button" data-theme-set="dark" aria-pressed="false" title="Dark theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M21 13.2A9 9 0 1 1 10.8 3a7 7 0 0 0 10.2 10.2Z" />
+              </svg>
+              <span class="visually-hidden">Dark theme</span>
+            </button>
+          </div>
+
+          <a class="btn btn--primary" href="../#get">Get the app</a>
+
+          <button class="menu-btn" popovertarget="menu" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
         </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" popover>
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../support/">Support</a></li>
+      <li><a href="../contact/">Contact</a></li>
+      <li><a href="../privacy/">Privacy policy</a></li>
+      <li><a href="../terms/">Terms</a></li>
+    </ul>
+    <button class="menu__close" popovertarget="menu" popovertargetaction="hide">Close</button>
+  </div>
+
+  <main id="main">
+    <div class="page-head wrap">
+      <h1>Terms of Service</h1>
+      <p>The terms that apply when you use the app and this website.</p>
+    </div>
+
+    <div class="wrap">
+      <div class="prose">
+<p>
+ These terms govern your use of the Rowhni app, its content and its subscriptions.
+ Please read them before using the app.
+</p>
+<h3>1. Agreement</h3>
+<p>By downloading, installing or using Rowhni you agree to these Terms of Service. If you do not agree, please do not use the app.</p>
+<p>These terms apply to the Rowhni app on all platforms on which it is distributed, including the Apple App Store and Google Play.</p>
+<h3>2. Licence to Use the App</h3>
+<p>We grant you a personal, non-exclusive, non-transferable and revocable licence to use Rowhni on devices you own or control, for your own religious practice and study.</p>
+<p>You may not copy, sell, sublicense, rent out, reverse engineer or redistribute the app or its content, except where such restrictions are prohibited by applicable law.</p>
+<h3>3. Religious Content</h3>
+<p>Rowhni presents Qur'an text, hadith, supplications and educational material with their sources. It is a study aid, not a religious authority.</p>
+<p>Translations and explanatory notes may contain errors or reflect a particular scholarly reading. For rulings that affect your worship, please consult a qualified scholar or your local mosque. We correct reported errors as quickly as we can.</p>
+<h3>4. Prayer Times, Qibla and Calendar</h3>
+<p>Prayer times, the Qibla direction and Hijri dates are calculated from your location using established astronomical methods and the calculation method you select.</p>
+<p>These are calculated approximations. Local sighting, local authority announcements and mosque timetables take precedence. Device sensors, location accuracy and time-zone settings all affect the result. Please verify against your local mosque, particularly for Ramadan and Eid.</p>
+<h3>5. AI-Assisted Features</h3>
+<p>Features such as recitation feedback and ingredient analysis use automated models. Their output is assistive and can be wrong.</p>
+<p>Recitation feedback does not replace a teacher. Ingredient and halal analysis does not replace the product label, the manufacturer's information or a certification body. Do not rely on these features for dietary, medical or legal decisions.</p>
+<h3>6. Subscriptions and Billing</h3>
+<p>Rowhni offers optional paid subscriptions. Purchases are processed by the app store you bought them from, not by us.</p>
+<p><strong>Auto-renewal:</strong> subscriptions renew automatically at the end of each period unless cancelled at least 24 hours before the period ends. The price and period are shown before purchase.</p>
+<p><strong>Cancellation:</strong> manage or cancel your subscription in your Google Play or Apple App Store account settings. Cancelling stops future renewals; it does not shorten the period you have already paid for.</p>
+<p><strong>Refunds:</strong> refunds are handled by the store under its own policy — Google Play or Apple, depending on where you purchased.</p>
+<p><strong>Free trials:</strong> where a trial is offered, it converts into a paid subscription unless you cancel before it ends.</p>
+<h3>7. Acceptable Use</h3>
+<p>Use Rowhni lawfully and respectfully.</p>
+<p>Do not attempt to disrupt the service, gain unauthorised access to it, scrape its content at scale, or use it to harass others. Where community features let you share content, you are responsible for what you share and must not post unlawful or abusive material.</p>
+<h3>8. Your Data</h3>
+<p>How we handle personal data is described in our Privacy Policy, which forms part of these terms.</p>
+<p>Worship data stays on your device by default. Optional account sync stores data in our cloud provider so it can reach your other devices.</p> <a href="../privacy/">Read the Privacy Policy</a>
+<h3>9. Third-Party Services and Content</h3>
+<p>Rowhni uses third-party services and open-source components, and links to third-party content.</p>
+<p>These include map and location services, audio and text sources for Qur'an and hadith, and cloud infrastructure for optional sync. Their own terms apply to their services. Open-source components and their licences are listed on our licences page.</p> <a href="../licenses/">Open-source licences</a>
+<h3>10. Intellectual Property</h3>
+<p>The Rowhni name, logo, design and software are ours. Scriptural texts are not.</p>
+<p>The Qur'an and the hadith corpus are not subject to our copyright. Individual translations, tafsir and recitations may be licensed from their respective rights holders and are used under those terms.</p>
+<h3>11. Availability and Changes</h3>
+<p>We may change, suspend or discontinue parts of the app.</p>
+<p>Features that depend on the internet may be unavailable at times. We may update these terms; material changes will be announced in the app or on this page, with the effective date below. Continuing to use Rowhni after a change means you accept the updated terms.</p>
+<h3>12. Disclaimer and Liability</h3>
+<p>Rowhni is provided "as is", without warranty of uninterrupted or error-free operation.</p>
+<p>To the extent permitted by applicable law, we are not liable for indirect or consequential loss arising from your use of the app. Nothing in these terms limits liability that cannot be limited by law, including liability for intent, gross negligence, or injury to life, body or health. Your statutory consumer rights are unaffected.</p>
+<h3>13. Termination</h3>
+<p>You may stop using Rowhni at any time by deleting the app.</p>
+<p>We may suspend access if these terms are seriously or repeatedly breached. Deleting the app does not by itself cancel a subscription — cancel it in your store account.</p>
+<h3>14. Governing Law and Contact</h3>
+<p>These terms are governed by the law of the developer's country of residence, without prejudice to mandatory consumer protection law in your country of residence.</p>
+<p><strong>Contact:</strong> questions about these terms can be sent through our contact form.</p> <a href="../contact/">Contact us</a>
       </div>
     </div>
-  </nav>
+  </main>
 
-  <!-- Hero Section -->
-  <section class="privacy-hero">
-    <div class="container">
-      <div class="section-header">
-        <h1 class="section-title">
-          <span class="title-line">Terms of</span>
-          <span class="title-line gradient-text">Service</span>
-        </h1>
-        <p class="section-subtitle">
-          These terms govern your use of the Rowhni app, its content and its subscriptions.
-          Please read them before using the app.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Terms -->
-  <section class="privacy-principles">
-    <div class="container">
-      <div class="principles-grid">
-
-        <div class="principle-card">
-          <h3>1. Agreement</h3>
-          <p class="principle-description">By downloading, installing or using Rowhni you agree to these Terms of Service. If you do not agree, please do not use the app.</p>
-          <div class="principle-details">
-            <div class="legal-notice">
-              <p>These terms apply to the Rowhni app on all platforms on which it is distributed, including the Apple App Store and Google Play.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>2. Licence to Use the App</h3>
-          <p class="principle-description">We grant you a personal, non-exclusive, non-transferable and revocable licence to use Rowhni on devices you own or control, for your own religious practice and study.</p>
-          <div class="principle-details">
-            <p>You may not copy, sell, sublicense, rent out, reverse engineer or redistribute the app or its content, except where such restrictions are prohibited by applicable law.</p>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>3. Religious Content</h3>
-          <p class="principle-description">Rowhni presents Qur'an text, hadith, supplications and educational material with their sources. It is a study aid, not a religious authority.</p>
-          <div class="principle-details">
-            <p>Translations and explanatory notes may contain errors or reflect a particular scholarly reading. For rulings that affect your worship, please consult a qualified scholar or your local mosque. We correct reported errors as quickly as we can.</p>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>4. Prayer Times, Qibla and Calendar</h3>
-          <p class="principle-description">Prayer times, the Qibla direction and Hijri dates are calculated from your location using established astronomical methods and the calculation method you select.</p>
-          <div class="principle-details">
-            <p>These are calculated approximations. Local sighting, local authority announcements and mosque timetables take precedence. Device sensors, location accuracy and time-zone settings all affect the result. Please verify against your local mosque, particularly for Ramadan and Eid.</p>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>5. AI-Assisted Features</h3>
-          <p class="principle-description">Features such as recitation feedback and ingredient analysis use automated models. Their output is assistive and can be wrong.</p>
-          <div class="principle-details">
-            <p>Recitation feedback does not replace a teacher. Ingredient and halal analysis does not replace the product label, the manufacturer's information or a certification body. Do not rely on these features for dietary, medical or legal decisions.</p>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>6. Subscriptions and Billing</h3>
-          <p class="principle-description">Rowhni offers optional paid subscriptions. Purchases are processed by the app store you bought them from, not by us.</p>
-          <div class="principle-details">
-            <p><strong>Auto-renewal:</strong> subscriptions renew automatically at the end of each period unless cancelled at least 24 hours before the period ends. The price and period are shown before purchase.</p>
-            <p><strong>Cancellation:</strong> manage or cancel your subscription in your Google Play or Apple App Store account settings. Cancelling stops future renewals; it does not shorten the period you have already paid for.</p>
-            <p><strong>Refunds:</strong> refunds are handled by the store under its own policy — Google Play or Apple, depending on where you purchased.</p>
-            <p><strong>Free trials:</strong> where a trial is offered, it converts into a paid subscription unless you cancel before it ends.</p>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>7. Acceptable Use</h3>
-          <p class="principle-description">Use Rowhni lawfully and respectfully.</p>
-          <div class="principle-details">
-            <p>Do not attempt to disrupt the service, gain unauthorised access to it, scrape its content at scale, or use it to harass others. Where community features let you share content, you are responsible for what you share and must not post unlawful or abusive material.</p>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>8. Your Data</h3>
-          <p class="principle-description">How we handle personal data is described in our Privacy Policy, which forms part of these terms.</p>
-          <div class="principle-details">
-            <p>Worship data stays on your device by default. Optional account sync stores data in our cloud provider so it can reach your other devices.</p>
-            <a href="../privacy/" class="btn btn-primary">Read the Privacy Policy</a>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>9. Third-Party Services and Content</h3>
-          <p class="principle-description">Rowhni uses third-party services and open-source components, and links to third-party content.</p>
-          <div class="principle-details">
-            <p>These include map and location services, audio and text sources for Qur'an and hadith, and cloud infrastructure for optional sync. Their own terms apply to their services. Open-source components and their licences are listed on our licences page.</p>
-            <a href="../licenses/" class="btn btn-primary">Open-source licences</a>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>10. Intellectual Property</h3>
-          <p class="principle-description">The Rowhni name, logo, design and software are ours. Scriptural texts are not.</p>
-          <div class="principle-details">
-            <p>The Qur'an and the hadith corpus are not subject to our copyright. Individual translations, tafsir and recitations may be licensed from their respective rights holders and are used under those terms.</p>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>11. Availability and Changes</h3>
-          <p class="principle-description">We may change, suspend or discontinue parts of the app.</p>
-          <div class="principle-details">
-            <p>Features that depend on the internet may be unavailable at times. We may update these terms; material changes will be announced in the app or on this page, with the effective date below. Continuing to use Rowhni after a change means you accept the updated terms.</p>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>12. Disclaimer and Liability</h3>
-          <p class="principle-description">Rowhni is provided "as is", without warranty of uninterrupted or error-free operation.</p>
-          <div class="principle-details">
-            <p>To the extent permitted by applicable law, we are not liable for indirect or consequential loss arising from your use of the app. Nothing in these terms limits liability that cannot be limited by law, including liability for intent, gross negligence, or injury to life, body or health. Your statutory consumer rights are unaffected.</p>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>13. Termination</h3>
-          <p class="principle-description">You may stop using Rowhni at any time by deleting the app.</p>
-          <div class="principle-details">
-            <p>We may suspend access if these terms are seriously or repeatedly breached. Deleting the app does not by itself cancel a subscription — cancel it in your store account.</p>
-          </div>
-        </div>
-
-        <div class="principle-card">
-          <h3>14. Governing Law and Contact</h3>
-          <p class="principle-description">These terms are governed by the law of the developer's country of residence, without prejudice to mandatory consumer protection law in your country of residence.</p>
-          <div class="principle-details">
-            <p><strong>Contact:</strong> questions about these terms can be sent through our contact form.</p>
-            <a href="../contact/" class="btn btn-primary">Contact us</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <img src="../rowhni_logo_day.png" alt="Rowhni" class="footer-logo">
-          <h3>Rowhni</h3>
-          <p>Your complete Islamic companion</p>
+    <div class="wrap-wide">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="../">
+            <img src="../_assets/logo.png" alt="" width="34" height="34" loading="lazy">
+            Rowhni
+          </a>
+          <p class="muted footer__blurb">
+            An Islamic companion app for iOS and Android, made by Harun Yaman.
+          </p>
         </div>
-
-        <div class="footer-links">
-          <div class="link-column">
-            <h4>Features</h4>
-            <a href="../#features">Voice Tasbih</a>
-            <a href="../#features">Prayer Times</a>
-            <a href="../#features">Quran Reader</a>
-          </div>
-          <div class="link-column">
-            <h4>Support</h4>
-            <a href="../support/">Help Center</a>
-            <a href="../privacy/">Privacy Policy</a>
-            <a href="../terms/">Terms of Service</a>
-          </div>
-          <div class="link-column">
-            <h4>Community</h4>
-            <a href="https://apps.apple.com/de/app/rowhni/id6748600035">Download</a>
-          </div>
+        <div>
+          <h2>App</h2>
+          <ul role="list">
+            <li><a href="../#features">Features</a></li>
+            <li><a href="https://apps.apple.com/app/id6748600035" rel="noopener">App Store</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.rowhni.android" rel="noopener">Google
+                Play</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Help</h2>
+          <ul role="list">
+            <li><a href="../support/">Support</a></li>
+            <li><a href="../contact/">Contact</a></li>
+            <li><a href="../delete-account/">Delete account</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Legal</h2>
+          <ul role="list">
+            <li><a href="../privacy/">Privacy policy</a></li>
+            <li><a href="../privacy/options/">Privacy choices</a></li>
+            <li><a href="../terms/">Terms</a></li>
+            <li><a href="../licenses/">Open-source licences</a></li>
+          </ul>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <div class="gradient-line"></div>
-        <p>&copy; 2026 Rowhni. All rights reserved. &middot; Effective 8 August 2026</p>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Rowhni</span>
+        <nav class="langs" aria-label="Language">
+          <ul role="list">
+            <li><a href="/" hreflang="en" lang="en">English</a></li>
+            <li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="/es/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li>
+            <li><a href="/ar/" hreflang="ar" lang="ar">العربية</a></li>
+            <li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="/id/" hreflang="id" lang="id">Indonesia</a></li>
+            <li><a href="/ms/" hreflang="ms" lang="ms">Melayu</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </footer>
 
-  <script src="../_assets/site.js"></script>
+  <script src="../_assets/rowhni.js" defer></script>
 </body>
+
 </html>

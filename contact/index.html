@@ -1,214 +1,217 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact - Rowhni Islamic Companion</title>
-  <meta name="description" content="Contact the Rowhni team for support, feedback, or privacy and data protection requests.">
-  <link rel="stylesheet" href="../_assets/site.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <style>
-    .contact-form-wrap { max-width: 640px; margin: 0 auto; }
-    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
-    .form-row { display: flex; flex-direction: column; gap: 0.5rem; }
-    .form-row label { font-weight: 600; font-size: 0.95rem; opacity: 0.9; }
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.9rem 1rem;
-      border-radius: 14px;
-      border: 1px solid rgba(128, 128, 128, 0.35);
-      background: rgba(128, 128, 128, 0.08);
-      color: inherit;
-      font-family: inherit;
-      font-size: 1rem;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: rgba(120, 160, 255, 0.8);
-      box-shadow: 0 0 0 3px rgba(120, 160, 255, 0.18);
-    }
-    .contact-form textarea { min-height: 160px; resize: vertical; }
-    .contact-form .btn-primary { align-self: flex-start; border: none; cursor: pointer; }
-    .contact-form .btn-primary[disabled] { opacity: 0.6; cursor: not-allowed; }
-    /* Honeypot — hidden from humans, catches bots */
-    .contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-    .form-feedback { margin-top: 1.25rem; padding: 1rem 1.25rem; border-radius: 14px; font-weight: 500; display: none; }
-    .form-feedback.show { display: block; }
-    .form-feedback.success { background: rgba(60, 200, 130, 0.14); border: 1px solid rgba(60, 200, 130, 0.5); }
-    .form-feedback.error { background: rgba(230, 90, 90, 0.14); border: 1px solid rgba(230, 90, 90, 0.5); }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Contact · Rowhni</title>
+  <meta name="description" content="Get in touch about Rowhni: support, privacy requests, or anything else.">
+
+  <script>
+    try {
+      var t = localStorage.getItem("rowhni-theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) { }
+  </script>
+
+  <link rel="stylesheet" href="../_assets/rowhni.css">
+  <link rel="preload" href="../_assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../_assets/fonts/literata-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#082E20" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F8FBF9" media="(prefers-color-scheme: light)">
+  <link rel="canonical" href="https://rowhni.com/contact/">
 </head>
+
 <body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-background"></div>
-    <div class="container">
-      <div class="nav-content">
-        <div class="nav-brand">
-          <img src="../rowhni_logo_day.png" alt="Rowhni" class="nav-logo">
-          <span class="nav-title">Rowhni</span>
-        </div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-        <div class="nav-links">
-          <a href="../" class="nav-link">Home</a>
-          <a href="../#features" class="nav-link">Features</a>
-          <a href="../support/" class="nav-link">Support</a>
-          <a href="../privacy/" class="nav-link">Privacy</a>
-          <a href="../contact/" class="nav-link active">Contact</a>
-        </div>
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="../">
+        <img src="../_assets/logo.png" alt="" width="34" height="34">
+        Rowhni
+      </a>
 
-        <div class="nav-cta">
-          <a href="https://apps.apple.com/de/app/rowhni/id6748600035" class="btn btn-download">
-            Download iOS
-          </a>
+      <nav class="nav" aria-label="Main">
+        <ul class="nav__links">
+          <li><a href="../#features">Features</a></li>
+          <li><a href="../support/">Support</a></li>
+          <li><a href="../privacy/">Privacy</a></li>
+        </ul>
+
+        <div class="header__tools">
+          <div class="theme" data-theme-toggle role="group" aria-label="Colour theme">
+            <button class="theme__btn" type="button" data-theme-set="system" aria-pressed="true"
+              title="Match system theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="14" rx="2" />
+                <path d="M8 21h8" />
+              </svg>
+              <span class="visually-hidden">Match system theme</span>
+            </button>
+            <button class="theme__btn" type="button" data-theme-set="light" aria-pressed="false" title="Light theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <circle cx="12" cy="12" r="4.5" />
+                <path
+                  d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" />
+              </svg>
+              <span class="visually-hidden">Light theme</span>
+            </button>
+            <button class="theme__btn" type="button" data-theme-set="dark" aria-pressed="false" title="Dark theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M21 13.2A9 9 0 1 1 10.8 3a7 7 0 0 0 10.2 10.2Z" />
+              </svg>
+              <span class="visually-hidden">Dark theme</span>
+            </button>
+          </div>
+
+          <a class="btn btn--primary" href="../#get">Get the app</a>
+
+          <button class="menu-btn" popovertarget="menu" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
         </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" popover>
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../support/">Support</a></li>
+      <li><a href="../contact/">Contact</a></li>
+      <li><a href="../privacy/">Privacy policy</a></li>
+      <li><a href="../terms/">Terms</a></li>
+    </ul>
+    <button class="menu__close" popovertarget="menu" popovertargetaction="hide">Close</button>
+  </div>
+
+  <main id="main">
+    <div class="page-head wrap">
+      <h1>Get in Touch</h1>
+      <p>For support, privacy requests, or anything the other pages do not answer.</p>
+    </div>
+
+    <div class="wrap">
+      <div class="prose">
+<p>
+ Questions, feedback, or a privacy request? Send us a message and we'll get back to you. Privacy and data-protection requests are answered within 30 days as required by GDPR.
+</p>
+<form action="https://formspree.io/f/mvzjydyy" method="POST" data-contact-form>
+  <div class="field">
+    <label for="cf-name">Name</label>
+    <input type="text" id="cf-name" name="name" autocomplete="name" required>
+  </div>
+
+  <div class="field">
+    <label for="cf-email">Email</label>
+    <input type="email" id="cf-email" name="email" autocomplete="email" required>
+    <span class="field__hint">So a reply can reach you.</span>
+  </div>
+
+  <div class="field">
+    <label for="cf-subject">Topic</label>
+    <select id="cf-subject" name="subject" required>
+      <option value="General question">General question</option>
+      <option value="Support / Help">Support and help</option>
+      <option value="Privacy / Data request">Privacy or data request</option>
+      <option value="Bug report">Bug report</option>
+      <option value="Feature request">Feature request</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="cf-message">Message</label>
+    <textarea id="cf-message" name="message" rows="6" required></textarea>
+  </div>
+
+  <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+    class="visually-hidden">
+
+  <p role="status" data-form-status hidden></p>
+
+  <button class="btn btn--primary" type="submit">Send message</button>
+</form>
+
+<div class="notice">
+  <p>
+    The rest of this site makes no third-party requests. This form is the exception: submitting it
+    sends your name, email address and message to Formspree, which forwards them by email. Nothing
+    is sent until you press the button. If you would rather not use it, the app's own support
+    screen and the store listings both reach the same person.
+  </p>
+</div>
       </div>
     </div>
-  </nav>
+  </main>
 
-  <!-- Hero Section -->
-  <section class="privacy-hero">
-    <div class="container">
-      <div class="section-header">
-        <h1 class="section-title">
-          <span class="title-line">Get in</span>
-          <span class="title-line gradient-text">Touch</span>
-        </h1>
-        <p class="section-subtitle">
-          Questions, feedback, or a privacy request? Send us a message and we'll get back to you. Privacy and data-protection requests are answered within 30 days as required by GDPR.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Form -->
-  <section class="contact-support">
-    <div class="container">
-      <div class="contact-form-wrap">
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/mvzjydyy" method="POST">
-          <div class="form-row">
-            <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="name" autocomplete="name" required>
-          </div>
-          <div class="form-row">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" autocomplete="email" required>
-          </div>
-          <div class="form-row">
-            <label for="cf-subject">Topic</label>
-            <select id="cf-subject" name="subject" required>
-              <option value="General question">General question</option>
-              <option value="Support / Help">Support / Help</option>
-              <option value="Privacy / Data request">Privacy / Data request</option>
-              <option value="Bug report">Bug report</option>
-              <option value="Feature request">Feature request</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" required></textarea>
-          </div>
-          <!-- Honeypot anti-spam field -->
-          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button type="submit" class="btn btn-primary" data-submit>Send message</button>
-        </form>
-        <div id="form-success" class="form-feedback success" role="status">
-          ✅ Thank you — your message has been sent. We'll get back to you soon.
-        </div>
-        <div id="form-error" class="form-feedback error" role="alert">
-          ⚠️ Something went wrong. Please try again, or email us if the problem persists.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <img src="../rowhni_logo_day.png" alt="Rowhni" class="footer-logo">
-          <h3>Rowhni</h3>
-          <p>Your complete Islamic companion</p>
+    <div class="wrap-wide">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="../">
+            <img src="../_assets/logo.png" alt="" width="34" height="34" loading="lazy">
+            Rowhni
+          </a>
+          <p class="muted footer__blurb">
+            An Islamic companion app for iOS and Android, made by Harun Yaman.
+          </p>
         </div>
-
-        <div class="footer-links">
-          <div class="link-column">
-            <h4>Features</h4>
-            <a href="../#features">Voice Tasbih</a>
-            <a href="../#features">Prayer Times</a>
-            <a href="../#features">Quran Reader</a>
-          </div>
-          <div class="link-column">
-            <h4>Support</h4>
-            <a href="../support/">Help Center</a>
-            <a href="../privacy/">Privacy Policy</a>
-            <a href="../contact/">Contact</a>
-          </div>
-          <div class="link-column">
-            <h4>Community</h4>
-            <a href="https://apps.apple.com/de/app/rowhni/id6748600035">Download</a>
-          </div>
+        <div>
+          <h2>App</h2>
+          <ul role="list">
+            <li><a href="../#features">Features</a></li>
+            <li><a href="https://apps.apple.com/app/id6748600035" rel="noopener">App Store</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.rowhni.android" rel="noopener">Google
+                Play</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Help</h2>
+          <ul role="list">
+            <li><a href="../support/">Support</a></li>
+            <li><a href="../contact/">Contact</a></li>
+            <li><a href="../delete-account/">Delete account</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Legal</h2>
+          <ul role="list">
+            <li><a href="../privacy/">Privacy policy</a></li>
+            <li><a href="../privacy/options/">Privacy choices</a></li>
+            <li><a href="../terms/">Terms</a></li>
+            <li><a href="../licenses/">Open-source licences</a></li>
+          </ul>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <div class="gradient-line"></div>
-        <p>&copy; 2024 Rowhni. All rights reserved.</p>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Rowhni</span>
+        <nav class="langs" aria-label="Language">
+          <ul role="list">
+            <li><a href="/" hreflang="en" lang="en">English</a></li>
+            <li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="/es/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li>
+            <li><a href="/ar/" hreflang="ar" lang="ar">العربية</a></li>
+            <li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="/id/" hreflang="id" lang="id">Indonesia</a></li>
+            <li><a href="/ms/" hreflang="ms" lang="ms">Melayu</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Progressive enhancement: submit via AJAX so the user stays on the page.
-    // Falls back to a normal POST redirect if JavaScript is unavailable.
-    (function () {
-      var form = document.getElementById('contact-form');
-      if (!form) return;
-      var successBox = document.getElementById('form-success');
-      var errorBox = document.getElementById('form-error');
-      var submitBtn = form.querySelector('[data-submit]');
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        successBox.classList.remove('show');
-        errorBox.classList.remove('show');
-        submitBtn.disabled = true;
-        var original = submitBtn.textContent;
-        submitBtn.textContent = 'Sending…';
-
-        fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        }).then(function (response) {
-          if (response.ok) {
-            form.reset();
-            successBox.classList.add('show');
-            successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-            return response.json().then(function (data) {
-              throw new Error((data && data.errors && data.errors.map(function (x) { return x.message; }).join(', ')) || 'submit failed');
-            });
-          }
-        }).catch(function () {
-          errorBox.classList.add('show');
-        }).finally(function () {
-          submitBtn.disabled = false;
-          submitBtn.textContent = original;
-        });
-      });
-    })();
-  </script>
-  <script src="../_assets/site.js"></script>
+  <script src="../_assets/rowhni.js" defer></script>
 </body>
+
 </html>

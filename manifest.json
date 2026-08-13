@@ -1,92 +1,43 @@
 {
-  "name": "Rowhni - Islamic Companion",
+  "name": "Rowhni",
   "short_name": "Rowhni",
-  "description": "Voice-powered Tasbih counting, precise prayer times, Quran progress tracking, and comprehensive Islamic guidance.",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#0A0F0C",
-  "theme_color": "#1B4D3E",
-  "orientation": "portrait-primary",
-  "scope": "/",
+  "description": "Prayer times calculated on your device, a tasbih that counts by listening, Quran progress, nearby mosques and a zakat calculator.",
   "lang": "en",
-  "categories": ["lifestyle", "religion", "productivity"],
+  "dir": "auto",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#082E20",
+  "theme_color": "#082E20",
+  "categories": ["lifestyle", "education"],
   "icons": [
     {
-      "src": "icons/icon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "icons/icon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "icons/icon-128x128.png",
-      "sizes": "128x128",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "icons/icon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "icons/icon-152x152.png",
-      "sizes": "152x152",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "icons/icon-192x192.png",
+      "src": "/icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "type": "image/png"
     },
     {
-      "src": "icons/icon-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "icons/icon-512x512.png",
+      "src": "/icons/icon-512.png",
       "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png",
-      "purpose": "maskable any"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Voice Tasbih",
-      "short_name": "Tasbih",
-      "description": "Start voice-powered dhikr counting",
-      "url": "/#voice-tasbih",
-      "icons": [{"src": "icons/shortcut-tasbih.png", "sizes": "192x192"}]
-    },
-    {
-      "name": "Prayer Times",
-      "short_name": "Prayer",
-      "description": "View precise prayer times",
-      "url": "/#prayer-times", 
-      "icons": [{"src": "icons/shortcut-prayer.png", "sizes": "192x192"}]
-    },
-    {
-      "name": "Quran Progress",
-      "short_name": "Quran",
-      "description": "Track Quran reading progress",
-      "url": "/#quran-progress",
-      "icons": [{"src": "icons/shortcut-quran.png", "sizes": "192x192"}]
+      "purpose": "maskable"
     }
   ],
   "related_applications": [
     {
       "platform": "itunes",
-      "url": "https://apps.apple.com/de/app/rowhni/id6748600035"
+      "url": "https://apps.apple.com/app/id6748600035",
+      "id": "6748600035"
+    },
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.rowhni.android",
+      "id": "com.rowhni.android"
     }
   ],
   "prefer_related_applications": true

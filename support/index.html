@@ -3,264 +3,220 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rowhni Support - Your Islamic Companion Help Center</title>
-  <meta name="description"
-    content="Get comprehensive support for Rowhni. App setup, troubleshooting, and feature guides for the best Islamic app experience.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <!-- Favicon and Icons -->
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+  <title>Support · Rowhni</title>
+  <meta name="description" content="Help with prayer times, notifications, voice tasbih, purchases and account questions in Rowhni.">
 
-  <!-- Apple Touch Icons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
+  <script>
+    try {
+      var t = localStorage.getItem("rowhni-theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) { }
+  </script>
 
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#1B4D3E">
-  <meta name="msapplication-TileColor" content="#1B4D3E">
-  <meta name="msapplication-config" content="../browserconfig.xml">
+  <link rel="stylesheet" href="../_assets/rowhni.css">
+  <link rel="preload" href="../_assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../_assets/fonts/literata-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="stylesheet" href="../_assets/site.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
-
-  <!-- Critical CSS Inline -->
-  <style>
-    :root {
-      --font-primary: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-display: 'Playfair Display', Georgia, serif;
-    }
-  </style>
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#082E20" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F8FBF9" media="(prefers-color-scheme: light)">
+  <link rel="canonical" href="https://rowhni.com/support/">
 </head>
 
-<body data-page="support" class="support-page">
-  <div id="scrollProgress"></div>
-  <div class="skip-links">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <a href="#navigation" class="skip-link">Skip to navigation</a>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="../">
+        <img src="../_assets/logo.png" alt="" width="34" height="34">
+        Rowhni
+      </a>
+
+      <nav class="nav" aria-label="Main">
+        <ul class="nav__links">
+          <li><a href="../#features">Features</a></li>
+          <li><a href="../support/">Support</a></li>
+          <li><a href="../privacy/">Privacy</a></li>
+        </ul>
+
+        <div class="header__tools">
+          <div class="theme" data-theme-toggle role="group" aria-label="Colour theme">
+            <button class="theme__btn" type="button" data-theme-set="system" aria-pressed="true"
+              title="Match system theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="14" rx="2" />
+                <path d="M8 21h8" />
+              </svg>
+              <span class="visually-hidden">Match system theme</span>
+            </button>
+            <button class="theme__btn" type="button" data-theme-set="light" aria-pressed="false" title="Light theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <circle cx="12" cy="12" r="4.5" />
+                <path
+                  d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" />
+              </svg>
+              <span class="visually-hidden">Light theme</span>
+            </button>
+            <button class="theme__btn" type="button" data-theme-set="dark" aria-pressed="false" title="Dark theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M21 13.2A9 9 0 1 1 10.8 3a7 7 0 0 0 10.2 10.2Z" />
+              </svg>
+              <span class="visually-hidden">Dark theme</span>
+            </button>
+          </div>
+
+          <a class="btn btn--primary" href="../#get">Get the app</a>
+
+          <button class="menu-btn" popovertarget="menu" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" popover>
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../support/">Support</a></li>
+      <li><a href="../contact/">Contact</a></li>
+      <li><a href="../privacy/">Privacy policy</a></li>
+      <li><a href="../terms/">Terms</a></li>
+    </ul>
+    <button class="menu__close" popovertarget="menu" popovertargetaction="hide">Close</button>
   </div>
 
-  <!-- Navigation -->
-  <nav class="nav" data-scroll id="navigation">
-    <div class="nav-container">
-      <div class="nav-brand" data-animate>
-        <a href="../" class="nav-brand-link">
-          <img src="../rowhni_logo_day.png" alt="Rowhni" class="nav-logo" loading="eager" width="40" height="40">
-          <span class="nav-title">Rowhni</span>
-        </a>
-      </div>
-      <div class="nav-menu">
-        <div class="nav-links" data-animate-stagger>
-          <a href="../#features" class="nav-link">Features</a>
-          <a href="../#progress" class="nav-link">Progress</a>
-          <a href="./" class="nav-link active">Support</a>
-        </div>
-        <div class="nav-actions" data-animate>
-          <a href="https://apps.apple.com/us/app/rowhni/id6748600035" class="btn-download magnetic-btn" data-download
-            rel="noopener noreferrer">Download</a>
-        </div>
-      </div>
-      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
+  <main id="main">
+    <div class="page-head wrap">
+      <h1>How can we help you?</h1>
+      <p>Answers to the questions that come up most, and a way to reach a person when they do not cover it.</p>
     </div>
-    <div class="nav-background"></div>
-  </nav>
 
-  <!-- Main Content -->
-  <main id="main-content">
-    <!-- Hero Section -->
-    <section class="support-hero">
-      <div class="hero-background">
-        <div id="aurora-container"></div>
+    <div class="wrap">
+      <div class="prose">
+🤝 Help Center
+<p>
+ Comprehensive support for Rowhni. Troubleshooting, guides, and community help.
+</p> 🚀
+<h3>Getting Started</h3>
+<p>Essential setup guide for first-time users.</p>
+<ul>
+<li> <strong>Initial Setup:</strong> Download from App Store (iOS 18.0+ required).
+</li>
+<li> <strong>Permissions:</strong> Grant location for accurate prayer times.
+</li>
+<li> <strong>Privacy:</strong> Location data stays on your device.
+</li>
+</ul> 🕌
+<h3>Prayer Times</h3>
+<p>Accuracy standards and troubleshooting.</p>
+<ul>
+<li> <strong>Accuracy:</strong> ±1 minute with astronomical calculations.
+</li>
+<li> <strong>Methods:</strong> Supports ISNA, MWL, Umm al-Qura, and more.
+</li>
+<li> <strong>Fix:</strong> Check location settings if times are incorrect.
+</li>
+</ul> 🎤
+<h3>Voice Tasbih</h3>
+<p>Voice recognition tips and privacy.</p>
+<ul>
+<li> <strong>Phrases:</strong> SubhanAllah, Alhamdulillah, Allahu Akbar.
+</li>
+<li> <strong>Privacy:</strong> 100% on-device processing. No recording.
+</li>
+<li> <strong>Tip:</strong> Speak clearly in a quiet environment.
+</li>
+</ul> 📖
+<h3>Quran Tracker</h3>
+<p>Progress monitoring and reading features.</p>
+<ul>
+<li> <strong>Tracking:</strong> Auto-tracks progress by Juz and Surah.
+</li>
+<li> <strong>Sync:</strong> iCloud sync keeps progress across devices.
+</li>
+<li> <strong>Audio:</strong> Download recitations for offline use.
+</li>
+</ul>
+<h2>FAQ</h2>
+<h4>Is Rowhni free?</h4>
+<p>Core features are free. Rowhni Pro unlocks advanced analytics and removes ads.</p>
+<h4>Does it work offline?</h4>
+<p>Yes, prayer times, Qibla, and Voice Tasbih work completely offline.</p>
+<h4>How do I report a bug?</h4>
+<p>Please use the button below to report technical issues via the App Store.</p> <a href="https://apps.apple.com/us/app/rowhni/id6748600035"> Report Issue on App Store </a>
+<p>Feature requests? We'd love to hear them too!</p>
       </div>
-      <div class="container">
-        <div class="support-header" data-animate-up>
-          <div class="section-badge-premium center-badge">
-            <span class="badge-icon">🤝</span>
-            <span>Help Center</span>
-            <div class="badge-glow"></div>
-          </div>
-          <h1 class="hero-title support-title">
-            <span class="title-line">How can we</span>
-            <span class="title-line gradient-text-premium secondary">help you?</span>
-          </h1>
-          <p class="section-subtitle-premium center-text">
-            Comprehensive support for Rowhni. Troubleshooting, guides, and community help.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Support Categories -->
-    <section class="support-content">
-      <div class="container">
-        <div class="support-grid">
-          <!-- Setup Guide -->
-          <div class="support-card glass-card" data-animate-up data-delay="100">
-            <div class="card-gradient"></div>
-            <div class="card-icon">🚀</div>
-            <h3>Getting Started</h3>
-            <p>Essential setup guide for first-time users.</p>
-            <ul class="support-list">
-              <li>
-                <strong>Initial Setup:</strong> Download from App Store (iOS 18.0+ required).
-              </li>
-              <li>
-                <strong>Permissions:</strong> Grant location for accurate prayer times.
-              </li>
-              <li>
-                <strong>Privacy:</strong> Location data stays on your device.
-              </li>
-            </ul>
-          </div>
-
-          <!-- Prayer Times -->
-          <div class="support-card glass-card" data-animate-up data-delay="200">
-            <div class="card-gradient"></div>
-            <div class="card-icon">🕌</div>
-            <h3>Prayer Times</h3>
-            <p>Accuracy standards and troubleshooting.</p>
-            <ul class="support-list">
-              <li>
-                <strong>Accuracy:</strong> ±1 minute with astronomical calculations.
-              </li>
-              <li>
-                <strong>Methods:</strong> Supports ISNA, MWL, Umm al-Qura, and more.
-              </li>
-              <li>
-                <strong>Fix:</strong> Check location settings if times are incorrect.
-              </li>
-            </ul>
-          </div>
-
-          <!-- Voice Tasbih -->
-          <div class="support-card glass-card" data-animate-up data-delay="300">
-            <div class="card-gradient"></div>
-            <div class="card-icon">🎤</div>
-            <h3>Voice Tasbih</h3>
-            <p>Voice recognition tips and privacy.</p>
-            <ul class="support-list">
-              <li>
-                <strong>Phrases:</strong> SubhanAllah, Alhamdulillah, Allahu Akbar.
-              </li>
-              <li>
-                <strong>Privacy:</strong> 100% on-device processing. No recording.
-              </li>
-              <li>
-                <strong>Tip:</strong> Speak clearly in a quiet environment.
-              </li>
-            </ul>
-          </div>
-
-          <!-- Quran Tracking -->
-          <div class="support-card glass-card" data-animate-up data-delay="400">
-            <div class="card-gradient"></div>
-            <div class="card-icon">📖</div>
-            <h3>Quran Tracker</h3>
-            <p>Progress monitoring and reading features.</p>
-            <ul class="support-list">
-              <li>
-                <strong>Tracking:</strong> Auto-tracks progress by Juz and Surah.
-              </li>
-              <li>
-                <strong>Sync:</strong> iCloud sync keeps progress across devices.
-              </li>
-              <li>
-                <strong>Audio:</strong> Download recitations for offline use.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- FAQ Section -->
-        <div class="faq-section">
-          <div class="section-divider"></div>
-          <h2 class="section-title-hero center-text mb-large">FAQ</h2>
-
-          <div class="faq-grid">
-            <div class="faq-item glass-card" data-animate-up>
-              <h4>Is Rowhni free?</h4>
-              <p>Core features are free. Rowhni Pro unlocks advanced analytics and removes ads.</p>
-            </div>
-            <div class="faq-item glass-card" data-animate-up>
-              <h4>Does it work offline?</h4>
-              <p>Yes, prayer times, Qibla, and Voice Tasbih work completely offline.</p>
-            </div>
-            <div class="faq-item glass-card" data-animate-up>
-              <h4>How do I report a bug?</h4>
-              <p>Please use the button below to report technical issues via the App Store.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact Actions -->
-        <div class="contact-actions center-text" data-animate-up>
-          <a href="https://apps.apple.com/us/app/rowhni/id6748600035" class="btn-hero-primary magnetic-btn">
-            <div class="btn-content">
-              <span>Report Issue on App Store</span>
-            </div>
-          </a>
-          <p class="mt-small text-muted">Feature requests? We'd love to hear them too!</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <div class="footer-logo-wrap">
-              <img src="../rowhni_logo_day.png" alt="Rowhni" class="footer-logo" width="48" height="48">
-              <span class="footer-name">Rowhni</span>
-            </div>
-            <p class="footer-tagline">Your spiritual companion.</p>
-          </div>
-          <div class="footer-links">
-            <div class="footer-col">
-              <h4>Product</h4>
-              <ul>
-                <li><a href="../#features">Features</a></li>
-                <li><a href="./">Support</a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Company</h4>
-              <ul>
-                <li><a href="../about/">About</a></li>
-                <li><a href="../contact/">Contact</a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Legal</h4>
-              <ul>
-                <li><a href="../privacy/">Privacy</a></li>
-                <li><a href="../terms/">Terms</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2024 Rowhni. All rights reserved.</p>
-          <p class="made-with">Made with love in Berlin 🇩🇪</p>
-        </div>
-      </div>
-    </footer>
+    </div>
   </main>
 
-  <script src="../_assets/site.js"></script>
+  <footer class="footer">
+    <div class="wrap-wide">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="../">
+            <img src="../_assets/logo.png" alt="" width="34" height="34" loading="lazy">
+            Rowhni
+          </a>
+          <p class="muted footer__blurb">
+            An Islamic companion app for iOS and Android, made by Harun Yaman.
+          </p>
+        </div>
+        <div>
+          <h2>App</h2>
+          <ul role="list">
+            <li><a href="../#features">Features</a></li>
+            <li><a href="https://apps.apple.com/app/id6748600035" rel="noopener">App Store</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.rowhni.android" rel="noopener">Google
+                Play</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Help</h2>
+          <ul role="list">
+            <li><a href="../support/">Support</a></li>
+            <li><a href="../contact/">Contact</a></li>
+            <li><a href="../delete-account/">Delete account</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Legal</h2>
+          <ul role="list">
+            <li><a href="../privacy/">Privacy policy</a></li>
+            <li><a href="../privacy/options/">Privacy choices</a></li>
+            <li><a href="../terms/">Terms</a></li>
+            <li><a href="../licenses/">Open-source licences</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 Rowhni</span>
+        <nav class="langs" aria-label="Language">
+          <ul role="list">
+            <li><a href="/" hreflang="en" lang="en">English</a></li>
+            <li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="/es/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li>
+            <li><a href="/ar/" hreflang="ar" lang="ar">العربية</a></li>
+            <li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="/id/" hreflang="id" lang="id">Indonesia</a></li>
+            <li><a href="/ms/" hreflang="ms" lang="ms">Melayu</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../_assets/rowhni.js" defer></script>
 </body>
 
 </html>

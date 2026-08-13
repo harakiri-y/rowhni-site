@@ -1,0 +1,13 @@
+# Generators and their sources: they produce the HTML in this folder, they
+# are not part of what gets served.
+_tools/
+
+# Original App Store marketing assets. The cropped, converted versions the
+# site actually uses live in _assets/shots/.
+Screenshots/
+
+# Project documentation.
+PRODUCT.md
+DESIGN.md
+README.md
+Universal_Links_App_Configuration_Prompt.md

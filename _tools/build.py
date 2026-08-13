@@ -19,6 +19,21 @@ from strings import S, LOCALES, LANG_NAMES, RTL  # noqa: E402
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TEMPLATE = (ROOT / "_tools" / "template.html").read_text(encoding="utf-8")
 
+def asset_version() -> str:
+    """Short content hash over the stylesheet and script.
+
+    Without it, a deploy is invisible for as long as the cache lasts: the
+    filenames never change, so a browser holding rowhni.css has no reason to
+    ask for it again. Appending the hash makes each build a distinct URL,
+    which is what lets the cache headers be aggressive and correct at once.
+    """
+    import hashlib
+    h = hashlib.sha256()
+    for name in ("_assets/rowhni.css", "_assets/rowhni.js"):
+        h.update((ROOT / name).read_bytes())
+    return h.hexdigest()[:8]
+
+
 APPLE_PATH = (
     "M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35"
     "C2.79 14.25 3.51 5.31 9.05 5.03c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 "
@@ -110,6 +125,7 @@ def render(loc):
         )
 
     values = {
+        "v": asset_version(),
         "lang": loc,
         "dir_attr": ' dir="rtl"' if loc in RTL else "",
         "root": root,

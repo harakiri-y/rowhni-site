@@ -21,6 +21,21 @@ from strings import S, LOCALES, LANG_NAMES  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
+def asset_version() -> str:
+    """Short content hash over the stylesheet and script.
+
+    Without it, a deploy is invisible for as long as the cache lasts: the
+    filenames never change, so a browser holding rowhni.css has no reason to
+    ask for it again. Appending the hash makes each build a distinct URL,
+    which is what lets the cache headers be aggressive and correct at once.
+    """
+    import hashlib
+    h = hashlib.sha256()
+    for name in ("_assets/rowhni.css", "_assets/rowhni.js"):
+        h.update((ROOT / name).read_bytes())
+    return h.hexdigest()[:8]
+
+
 # Elements worth keeping. Everything else is unwrapped: the tag goes, the
 # text inside it stays.
 KEEP = {
@@ -148,7 +163,7 @@ SHELL = """<!doctype html>
     }} catch (e) {{ }}
   </script>
 
-  <link rel="stylesheet" href="{root}_assets/rowhni.css">
+  <link rel="stylesheet" href="{root}_assets/rowhni.css?v={v}">
   <link rel="preload" href="{root}_assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{root}_assets/fonts/literata-latin.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -290,7 +305,7 @@ SHELL = """<!doctype html>
     </div>
   </footer>
 
-  <script src="{root}_assets/rowhni.js" defer></script>
+  <script src="{root}_assets/rowhni.js?v={v}" defer></script>
 </body>
 
 </html>
@@ -435,6 +450,7 @@ def convert(slug, meta):
         standfirst=html.escape(standfirst),
         content=content,
         langs=lang_links(root),
+        v=asset_version(),
     )
     out_path.write_text(body, encoding="utf-8")
     words = len(re.sub(r"<[^>]+>", " ", content).split())

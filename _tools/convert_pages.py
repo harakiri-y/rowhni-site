@@ -33,6 +33,13 @@ def asset_version() -> str:
     h = hashlib.sha256()
     for name in ("_assets/rowhni.css", "_assets/rowhni.js"):
         h.update((ROOT / name).read_bytes())
+    # Screenshots are replaced in place under the same filenames, and they are
+    # served immutable for a year. Without them in the hash, a returning
+    # visitor keeps the old pictures until that year is up.
+    for shot in sorted((ROOT / "_assets" / "shots").glob("*")):
+        h.update(shot.name.encode())
+        h.update(shot.read_bytes())
+    h.update((ROOT / "_assets" / "logo.svg").read_bytes())
     return h.hexdigest()[:8]
 
 

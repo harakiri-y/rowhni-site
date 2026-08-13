@@ -96,7 +96,7 @@ headers and cache policy, so the site behaves the same on Vercel or Apache.
 
 Three things to know:
 
-- **The stylesheet and script are requested with a content hash** (`rowhni.css?v=66009238`), written by the generators. That is why they can be cached for a year: a new build produces a new URL. If you ever edit `_assets/rowhni.css` by hand, re-run `python3 _tools/build.py` and `python3 _tools/convert_pages.py` afterwards, or visitors will keep the old file until their cache expires.
+- **Every asset is requested with a content hash** (`rowhni.css?v=f202c593`), written by the generators. The hash covers the stylesheet, the script, the logo and every screenshot, which is why they can all be cached for a year: a new build produces new URLs. If you edit any of them by hand, re-run `python3 _tools/build.py` and `python3 _tools/convert_pages.py` afterwards, or visitors keep the old files until their cache expires. Screenshots are the easy one to forget, because they are replaced under the same filenames.
 
 - `sw.js` is a **retired** service worker. It deliberately still exists so
   browsers that registered the old caching worker fetch it, clear their

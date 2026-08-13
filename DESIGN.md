@@ -4,7 +4,9 @@
 
 Dark is the signature. The app is opened before dawn and after dark, and the site carries that room with it. Light is a fully built second theme, not a fallback: legal and support pages are long reading, and long reading is better on paper. `color-scheme` follows the system; a header control overrides it and persists.
 
-The surface is green, not black. `oklch(0.27 0.05 164)` reads as a colour at a glance, which a tinted near-black does not. Colour strategy is **committed**: the green carries roughly half the page as actual ground. Gold is an accent under 10%, reserved for the next prayer, the primary action, and focus rings. It never glows.
+The surface is green, not black. `oklch(0.27 0.055 167)` reads as a colour at a glance, which a tinted near-black does not. Colour strategy is **committed**: the green carries roughly half the page as actual ground. Gold is an accent under 10%, reserved for the next prayer, the primary action, and focus rings. It never glows.
+
+Every green on the site is derived from the logo mark, `#1A5C46` = `oklch(0.427 0.076 167)`, held in the `--logo` token. Its hue (167) sets the whole ramp and its chroma sets the ceiling on saturation. In light mode `--brand` *is* that value; in dark mode the same green measures 1.9:1 against the ground, so gold takes the brand role there instead.
 
 ## Palette
 
@@ -14,17 +16,17 @@ OKLCH throughout, defined once per theme on `:root` and switched with `light-dar
 
 | Token | Value | Hex | Role |
 |---|---|---|---|
-| `--bg` | `oklch(0.27 0.05 164)` | `#082E20` | page ground |
-| `--bg-deep` | `oklch(0.205 0.038 164)` | `#04200F` | footer, contrast bands |
-| `--surface` | `oklch(0.325 0.052 164)` | `#0C3626` | tables, panels |
-| `--raised` | `oklch(0.375 0.054 164)` | `#134130` | hover, active row |
+| `--bg` | `oklch(0.27 0.055 167)` | `#002F21` | page ground |
+| `--bg-deep` | `oklch(0.205 0.042 167)` | `#001D13` | footer, contrast bands |
+| `--surface` | `oklch(0.325 0.058 167)` | `#0E3D2E` | tables, panels |
+| `--raised` | `oklch(0.375 0.062 167)` | `#194B3A` | hover, active row |
 | `--ink` | `oklch(0.97 0.012 150)` | | headings, body |
 | `--ink-2` | `oklch(0.85 0.030 150)` | | secondary text |
-| `--ink-3` | `oklch(0.74 0.038 150)` | | labels, captions |
-| `--gold` | `oklch(0.84 0.145 92)` | `#ECC74A` | accent, next prayer, focus |
-| `--line` | `oklch(0.42 0.04 164)` | | rules, borders |
+| `--ink-3` | `oklch(0.755 0.038 150)` | | labels, captions |
+| `--gold` | `oklch(0.84 0.145 92)` | `#ECC74A` | accent, next prayer, brand role |
+| `--line` | `oklch(0.42 0.045 167)` | | rules, borders |
 
-Measured against `--bg`: ink 13.6:1, ink-2 9.5:1, ink-3 6.5:1, gold 9.0:1. Dark ink on gold 9.0:1.
+Measured against `--bg`: ink 13.6:1, ink-2 9.4:1, ink-3 6.5:1, gold 9.0:1. `--ink-3` is 0.755 rather than 0.74 because the lower value measured 4.36:1 on `--raised`, just under the floor.
 
 ### Light
 
@@ -34,10 +36,10 @@ Measured against `--bg`: ink 13.6:1, ink-2 9.5:1, ink-3 6.5:1, gold 9.0:1. Dark 
 | `--surface` | `oklch(0.958 0.008 160)` | `#EDF3EF` | tables, panels |
 | `--ink` | `oklch(0.235 0.03 166)` | `#0F231B` | headings, body |
 | `--ink-2` | `oklch(0.43 0.03 166)` | `#40554C` | secondary text |
-| `--brand` | `oklch(0.363 0.056 164)` | `#1E4736` | primary action, links |
+| `--brand` | `oklch(0.427 0.076 167)` | `#195C46` | primary action, links (the logo green) |
 | `--gold` | `oklch(0.56 0.115 84)` | `#946D00` | accent (darkened for contrast) |
 
-Measured against `--bg`: ink 15.8:1, ink-2 7.7:1, brand 10.0:1, gold 4.5:1. Light bg on brand 10.0:1.
+Measured against `--bg`: ink 15.8:1, ink-2 7.6:1, brand 7.6:1, gold 4.5:1. White text on brand 7.6:1.
 
 Gold shifts to `oklch(0.56 …)` in light mode. The dark-mode gold is a 1.9:1 fail on white; the same token cannot serve both themes.
 
@@ -71,6 +73,16 @@ Rules and columns, not cards. The organising object is a **timetable**: a prayer
 - **Feature row** — screenshot against text, alternating sides. The screenshot is the imagery; there are no decorative panels.
 - **Language switcher** — a native `<select>` in a form, working without JavaScript through `hreflang`-linked URLs.
 - **Theme toggle** — three states (system, light, dark), persisted in `localStorage`, set before first paint to avoid a flash.
+
+## The mark
+
+`_assets/logo.svg`: a figure in sujud, two paths, one colour. Three things were changed from the supplied file, none of them to the drawing itself:
+
+- **The viewBox was tightened** to the artwork's real bounding box plus a tenth of its size as margin. As supplied, the shape occupied 14.8% of a 1024 square, so at a 32px display size it rendered about 12px of actual mark. It now fills 66%.
+- **`fill` became `currentColor`**, and the mark is drawn as a CSS mask rather than an `<img>`. It therefore takes the colour of the text beside it and is legible in both themes, where a fixed `#1A5C46` would have sat at 1.9:1 on the dark ground.
+- **App icons are generated from it** rather than from the old raster: gold shape on `--surface` green, with a 20% safe margin so a maskable circle crop keeps the whole figure.
+
+It appears twice: at 32px beside the wordmark, and once at up to 88px in the closing band, in gold. That second outing is the only decorative use; the mark is not repeated as a bullet, a divider or a watermark.
 
 ## Motion
 

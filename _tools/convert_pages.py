@@ -155,7 +155,7 @@ SHELL = """<!doctype html>
   <link rel="icon" href="{root}favicon.ico" sizes="32x32">
   <link rel="apple-touch-icon" href="{root}icons/apple-touch-icon.png">
   <link rel="manifest" href="{root}manifest.json">
-  <meta name="theme-color" content="#082E20" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#002F21" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#F8FBF9" media="(prefers-color-scheme: light)">
   <link rel="canonical" href="https://rowhni.com/{slug}">
 </head>
@@ -166,7 +166,7 @@ SHELL = """<!doctype html>
   <header class="header">
     <div class="header__inner">
       <a class="brand" href="{root}">
-        <img src="{root}_assets/logo.png" alt="" width="34" height="34">
+        <span class="brand__mark" aria-hidden="true"></span>
         Rowhni
       </a>
 
@@ -244,7 +244,7 @@ SHELL = """<!doctype html>
       <div class="footer__grid">
         <div>
           <a class="brand" href="{root}">
-            <img src="{root}_assets/logo.png" alt="" width="34" height="34" loading="lazy">
+            <span class="brand__mark" aria-hidden="true"></span>
             Rowhni
           </a>
           <p class="muted footer__blurb">

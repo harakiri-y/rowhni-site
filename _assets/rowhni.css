@@ -91,28 +91,40 @@
   :root {
     color-scheme: light dark;
 
-    /* Dark is the signature theme; light is the second, equally built one.
+    /* The whole ramp is tuned to the logo mark, oklch(0.427 0.076 167),
+       which is #1A5C46. Its hue sets every green on the site and its chroma
+       sets how saturated they are allowed to be.
+
+       Dark is the signature theme; light is the second, equally built one.
        Every colour pair goes through light-dark() so a single token works in
        both, and the two are switched by color-scheme alone. */
-    --bg: light-dark(oklch(0.985 0.004 150), oklch(0.27 0.05 164));
-    --bg-deep: light-dark(oklch(0.958 0.008 160), oklch(0.205 0.038 164));
-    --surface: light-dark(oklch(0.958 0.008 160), oklch(0.325 0.052 164));
-    --raised: light-dark(oklch(1 0 0), oklch(0.375 0.054 164));
+    --logo: oklch(0.427 0.076 167);
 
-    --ink: light-dark(oklch(0.235 0.03 166), oklch(0.97 0.012 150));
-    --ink-2: light-dark(oklch(0.43 0.03 166), oklch(0.85 0.03 150));
-    --ink-3: light-dark(oklch(0.53 0.028 166), oklch(0.74 0.038 150));
+    --bg: light-dark(oklch(0.985 0.004 150), oklch(0.27 0.055 167));
+    --bg-deep: light-dark(oklch(0.958 0.009 167), oklch(0.205 0.042 167));
+    --surface: light-dark(oklch(0.958 0.009 167), oklch(0.325 0.058 167));
+    --raised: light-dark(oklch(1 0 0), oklch(0.375 0.062 167));
+
+    --ink: light-dark(oklch(0.235 0.032 167), oklch(0.97 0.012 150));
+    --ink-2: light-dark(oklch(0.43 0.032 167), oklch(0.85 0.03 150));
+    /* 0.755 rather than 0.74: on --raised the lower value measured 4.36:1,
+       just under the 4.5:1 floor. */
+    --ink-3: light-dark(oklch(0.53 0.03 167), oklch(0.755 0.038 150));
 
     /* Gold is darkened in light mode. The dark-mode value is a 1.9:1 fail on
        white, so the same value cannot serve both themes. */
     --gold: light-dark(oklch(0.56 0.115 84), oklch(0.84 0.145 92));
     --gold-flat: light-dark(oklch(0.78 0.13 88), oklch(0.84 0.145 92));
 
-    --brand: light-dark(oklch(0.363 0.056 164), oklch(0.84 0.145 92));
+    /* In light mode the brand colour is the logo green exactly (7.6:1 on the
+       page ground, and the same for white text on top of it). In dark mode
+       that green sits at 1.9:1 against the ground, so gold carries the role
+       instead. */
+    --brand: light-dark(var(--logo), oklch(0.84 0.145 92));
     --on-brand: light-dark(oklch(0.985 0.004 150), oklch(0.2 0.05 150));
 
-    --line: light-dark(oklch(0.88 0.012 160), oklch(0.42 0.04 164));
-    --line-soft: light-dark(oklch(0.93 0.008 160), oklch(0.35 0.035 164));
+    --line: light-dark(oklch(0.88 0.013 167), oklch(0.42 0.045 167));
+    --line-soft: light-dark(oklch(0.93 0.009 167), oklch(0.35 0.04 167));
 
     --focus: light-dark(oklch(0.45 0.14 250), oklch(0.84 0.145 92));
 
@@ -612,12 +624,37 @@
     letter-spacing: -0.01em;
     text-decoration: none;
     color: var(--ink);
+  }
 
-    & img {
-      inline-size: 34px;
-      block-size: 34px;
-      border-radius: 8px;
-    }
+  /* The mark is drawn as a mask rather than an <img>, so it takes its colour
+     from the text beside it. The logo green is 1.9:1 on the dark ground and
+     would be all but invisible there; this way the mark is ink in both
+     themes and always legible. */
+  .brand__mark {
+    /* Set explicitly: as a flex child it would be blockified anyway, but in
+       the footer `.footer a` overrides .brand's inline-flex, and an inline
+       box ignores width and height entirely. */
+    display: block;
+    inline-size: 32px;
+    block-size: 32px;
+    flex: none;
+    background: currentColor;
+    mask: url("logo.svg") center / contain no-repeat;
+    -webkit-mask: url("logo.svg") center / contain no-repeat;
+  }
+
+  /* One deliberate large outing for the mark, in the closing band, where
+     there is room for it and the logo green has enough contrast to be
+     itself. */
+  .cta__mark {
+    display: block;
+    inline-size: clamp(3.5rem, 8vw, 5.5rem);
+    block-size: clamp(3.5rem, 8vw, 5.5rem);
+    margin-inline: auto;
+    margin-block-end: var(--sp-5);
+    background: var(--gold);
+    mask: url("logo.svg") center / contain no-repeat;
+    -webkit-mask: url("logo.svg") center / contain no-repeat;
   }
 
   .nav {
@@ -1190,6 +1227,17 @@
     &:hover {
       color: var(--ink);
       text-decoration: underline;
+    }
+  }
+
+  /* The rule above would turn the footer's brand link into an inline-block,
+     which drops the flex context and pushes the mark onto its own line. */
+  .footer .brand {
+    display: inline-flex;
+    color: var(--ink);
+
+    &:hover {
+      text-decoration: none;
     }
   }
 

@@ -17,7 +17,7 @@
     } catch (e) { }
   </script>
 
-  <link rel="stylesheet" href="../_assets/rowhni.css?v=66009238">
+  <link rel="stylesheet" href="../_assets/rowhni.css?v=dd5144ed">
 
   <link rel="preload" href="../_assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../_assets/fonts/literata-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -151,7 +151,7 @@
         <div>
           <h1>礼拝時刻を、端末で計算する。</h1>
 
-          <p class="hero__lede">Rowhniは現在地から1日5回の礼拝時刻を割り出します。位置情報がどこかへ送られることはありません。音声でズィクルを数え、クルアーンの読書位置を保ち、近くのモスクを探し、ザカートも計算します。</p>
+          <p class="hero__lede">Rowhniは現在地から1日5回の礼拝時刻を割り出し、計算は端末上で行います。音声でズィクルを数え、クルアーンの読書位置を保ち、近くのモスクを探し、ザカートも計算します。</p>
 
           <div class="hero__actions">
             <div class="stores" data-stores><a class="store" data-platform="ios" href="https://apps.apple.com/app/id6748600035" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 14.25 3.51 5.31 9.05 5.03c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.36ZM12.03 4.97C11.88 2.72 13.7.87 15.8.73c.29 2.6-2.36 4.53-3.77 4.24Z" /></svg><span class="store__label"><span class="store__pre">ダウンロード</span><span class="store__name">App Store</span></span></a><a class="store" data-platform="android" href="https://play.google.com/store/apps/details?id=com.rowhni.android" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.2 2.3a1 1 0 0 0-.5.9v17.6a1 1 0 0 0 .5.9l.1.1 9.9-9.8v-.2L4.3 2.2l-.1.1Z" /><path d="m17.6 15.2-3.4-3.3v-.2l3.4-3.3.1.1 4 2.3c1.1.6 1.1 1.7 0 2.3l-4 2.2-.1-.1Z" /><path d="m17.7 15.3-3.5-3.4-10 10c.4.4 1 .4 1.6.1l11.9-6.7" /><path d="M17.7 8.6 5.8 1.9c-.6-.3-1.2-.3-1.6.1l10 10 3.5-3.4Z" /></svg><span class="store__label"><span class="store__pre">入手先</span><span class="store__name">Google Play</span></span></a></div>
@@ -244,12 +244,14 @@
           </div>
           <div class="feature__media arrive">
             <figure class="shot">
-              <picture>
+              <div class="shot__screen">
+                <picture>
                 <source srcset="../_assets/shots/prayer-times.avif" type="image/avif">
                 <source srcset="../_assets/shots/prayer-times.webp" type="image/webp">
-                <img src="../_assets/shots/prayer-times.jpg" width="640" height="1289" loading="lazy"
-                  decoding="async" alt="礼拝時刻の画面。1日の太陽の軌道を描いた曲線上にズフル、アスル、マグリブが記され、次の礼拝までの残り時間が表示されている。">
+                <img src="../_assets/shots/prayer-times.jpg" width="640" height="1391" loading="lazy"
+                  decoding="async" alt="マッカの礼拝時刻画面。次の礼拝はファジュルで、そこまでの残り時間と本日の各時刻が並ぶ。">
               </picture>
+            </div>
             </figure>
           </div>
         </div>
@@ -259,26 +261,40 @@
             <h3>耳を傾けるタスビーフ</h3>
             <p>ズィクルを唱えると、カウンターがついてきます。アラビア語でもラテン文字表記でも認識するため、手も目も画面から離せます。声を出しにくい場所では、タップで数えることもできます。</p>
             <ul class="feature__list" role="list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12.5 9 17.5 20 6.5" /></svg><span>音声認識は端末上で動作します</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12.5 9 17.5 20 6.5" /></svg><span>音声カウントは任意で、タップはいつでも使えます</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12.5 9 17.5 20 6.5" /></svg><span>ズィクルごとの目標と、その日の記録</span></li>
             </ul>
           </div>
           <div class="feature__media arrive">
             <figure class="shot">
-              <picture>
+              <div class="shot__screen">
+                <picture>
                 <source srcset="../_assets/shots/tasbih.avif" type="image/avif">
                 <source srcset="../_assets/shots/tasbih.webp" type="image/webp">
-                <img src="../_assets/shots/tasbih.jpg" width="640" height="1187" loading="lazy" decoding="async"
-                  alt="デジタルタスビーフの画面。スブハーナッラーがアラビア語と訳で表示され、目標33、音声・カウント・リセットのボタンが並ぶ。">
+                <img src="../_assets/shots/tasbih.jpg" width="640" height="1391" loading="lazy" decoding="async"
+                  alt="タスビーフの画面。スブハーナッラーがアラビア語と訳で表示され、目標33のカウンターを数珠が囲む。">
               </picture>
+            </div>
             </figure>
           </div>
         </div>
 
-        <div class="feature feature--plain">
+        <div class="feature">
           <div class="feature__body arrive">
             <h3>クルアーンの読書位置を保つ</h3>
             <p>進捗はジュズウ、スーラ、アーヤ単位で記録されるため、続きから読むのに記憶は要りません。訳と朗誦は本文のそばに置かれています。</p>
+          </div>
+          <div class="feature__media arrive">
+            <figure class="shot">
+              <div class="shot__screen">
+                <picture>
+                  <source srcset="../_assets/shots/quran.avif" type="image/avif">
+                  <source srcset="../_assets/shots/quran.webp" type="image/webp">
+                  <img src="../_assets/shots/quran.jpg" width="640" height="1391" loading="lazy"
+                    decoding="async" alt="開端章。アラビア語本文はタジュウィードに従って色分けされ、各節の下に英訳と音写が置かれている。">
+                </picture>
+              </div>
+            </figure>
           </div>
         </div>
 
@@ -289,30 +305,22 @@
           </div>
           <div class="feature__media arrive">
             <figure class="shot">
-              <picture>
+              <div class="shot__screen">
+                <picture>
                 <source srcset="../_assets/shots/mosques.avif" type="image/avif">
                 <source srcset="../_assets/shots/mosques.webp" type="image/webp">
-                <img src="../_assets/shots/mosques.jpg" width="640" height="1183" loading="lazy" decoding="async"
-                  alt="利用者の現在地の周囲にモスクのマーカーが集まった地図と、その上の検索欄。">
+                <img src="../_assets/shots/mosques.jpg" width="640" height="1391" loading="lazy" decoding="async"
+                  alt="マッカの地図。近隣のモスク30件が印で示され、上に検索欄がある。">
               </picture>
+            </div>
             </figure>
           </div>
         </div>
 
-        <div class="feature">
+        <div class="feature feature--plain">
           <div class="feature__body arrive">
             <h3>ザカートを順を追って計算</h3>
             <p>金と銀によるニサーブの基準額を、現在の地金価格で更新。現金、金、銀、事業資産、家畜をそれぞれ分けて入力できます。</p>
-          </div>
-          <div class="feature__media arrive">
-            <figure class="shot">
-              <picture>
-                <source srcset="../_assets/shots/zakat.avif" type="image/avif">
-                <source srcset="../_assets/shots/zakat.webp" type="image/webp">
-                <img src="../_assets/shots/zakat.jpg" width="640" height="1159" loading="lazy" decoding="async"
-                  alt="ザカート計算画面。金と銀のニサーブ基準額と、現金・貯蓄、金、銀、事業資産の各項目が並ぶ。">
-              </picture>
-            </figure>
           </div>
         </div>
 
@@ -323,12 +331,14 @@
           </div>
           <div class="feature__media arrive">
             <figure class="shot">
-              <picture>
+              <div class="shot__screen">
+                <picture>
                 <source srcset="../_assets/shots/encyclopedia.avif" type="image/avif">
                 <source srcset="../_assets/shots/encyclopedia.webp" type="image/webp">
-                <img src="../_assets/shots/encyclopedia.jpg" width="640" height="1183" loading="lazy"
-                  decoding="async" alt="預言者の一覧。アラビア語の名前と、それぞれに関連する地域が示されている。">
+                <img src="../_assets/shots/encyclopedia.jpg" width="640" height="1391" loading="lazy"
+                  decoding="async" alt="百科の目次。五行、アキーダ、フィクフ、導き、預言者たち、シーラが並ぶ。">
               </picture>
+            </div>
             </figure>
           </div>
         </div>
@@ -343,11 +353,11 @@
         <dl class="facts arrive">
           <div class="fact">
             <dt>位置情報</dt>
-            <dd>時刻とキブラの計算のため端末上で使います。送信もサーバー保存もしません。</dd>
+            <dd>時刻とキブラの計算のため端末上で使います。月に一度、地域の慣行に合わせるため座標を公式の礼拝時刻サービスと照合し、都市名をAppleに問い合わせます。</dd>
           </div>
           <div class="fact">
             <dt>音声</dt>
-            <dd>ズィクルの認識は端末上で行います。音声がアップロードされることはありません。</dd>
+            <dd>ズィクルの認識にはAppleの音声認識を使うため、文字起こしのために音声がAppleへ送信されます。音声ボタンを押している間だけ動作します。</dd>
           </div>
           <div class="fact">
             <dt>このサイト</dt>
@@ -431,7 +441,7 @@
     </div>
   </footer>
 
-  <script src="../_assets/rowhni.js?v=66009238" defer></script>
+  <script src="../_assets/rowhni.js?v=dd5144ed" defer></script>
 </body>
 
 </html>

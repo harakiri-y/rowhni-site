@@ -1092,16 +1092,66 @@
     justify-content: center;
   }
 
+  /* Device mockup.
+     Drawn in CSS rather than baked into the image: it stays sharp at every
+     density, costs no bytes, and the screenshots stay plain captures that can
+     be replaced without re-editing artwork.
+
+     Proportions are the iPhone 17 Pro's own: a 402x874pt display, a corner
+     radius of ~55pt, and a 125x37pt Dynamic Island. Everything is expressed
+     as a percentage of the frame so it holds at any size. */
   .shot {
-    inline-size: min(100%, 20rem);
-    border-radius: var(--radius-3);
-    border: 1px solid var(--line);
-    background: var(--surface);
+    position: relative;
+    inline-size: min(100%, 19rem);
+    padding: 1.6%;
+    border-radius: 14.5%;
+    /* The rail catches light on its edges and goes dark where it turns away.
+       Three stops, no more: a metal object, not a chrome effect. */
+    background: linear-gradient(
+      145deg,
+      oklch(0.62 0.006 250),
+      oklch(0.38 0.005 250) 28%,
+      oklch(0.52 0.006 250) 62%,
+      oklch(0.33 0.004 250)
+    );
+    box-shadow: 0 1px 0 oklch(1 0 0 / 0.28) inset, 0 0 0 1px oklch(0 0 0 / 0.35),
+      0 22px 48px -18px oklch(0 0 0 / 0.55);
+    margin: 0;
+  }
+
+  .shot__screen {
+    position: relative;
+    /* The glass carries the aspect ratio, not the outer frame: with the
+       ratio on the frame, its padding squeezed the inner box and cover-fit
+       cropped the bottom of every screenshot, including the tab bar. */
+    aspect-ratio: 402 / 874;
+    inline-size: 100%;
+
+    /* <picture> is inline by default and would add a baseline gap under the
+       screen; contents makes the <img> the direct flow child. */
+    & picture {
+      display: contents;
+    }
+    border-radius: 13%;
     overflow: clip;
+    background: oklch(0 0 0);
+    display: block;
 
     & img {
+      display: block;
       inline-size: 100%;
-      block-size: auto;
+      block-size: 100%;
+      object-fit: cover;
+    }
+  }
+
+  /* No Dynamic Island is drawn here: the screenshots are real captures and
+     already contain it. Drawing a second one on top only risks a seam if a
+     future capture is framed differently. */
+
+  @media (prefers-reduced-transparency: reduce) {
+    .shot {
+      background: oklch(0.45 0.005 250);
     }
   }
 

@@ -70,7 +70,8 @@ Rules and columns, not cards. The organising object is a **timetable**: a prayer
 
 - **Prayer table** — the signature element. Real times, computed client-side from the visitor's coordinates or a chosen city. The next prayer is marked with gold, a bold weight, and the word "next"; three cues, so colour never carries the meaning alone.
 - **Store buttons** — App Store and Play Store, always adjacent and equal in weight. Platform detection reorders them; it never hides one.
-- **Feature row** — screenshot against text, alternating sides. The screenshot is the imagery; there are no decorative panels.
+- **Feature row** — screenshot against text, alternating sides. The screenshot is the imagery; there are no decorative panels. One row carries no screenshot and is set centred and a size up, so the gap reads as a pause rather than a missing image.
+- **Device mockup** (`.shot`) — the phone frame is drawn in CSS, not baked into the image: it stays sharp at every density, costs no bytes, and lets the screenshots stay plain captures that can be replaced without re-editing artwork. Proportions are the iPhone 17 Pro's own (402x874pt glass, ~55pt corner radius), expressed as percentages so they hold at any size. The aspect ratio sits on the glass rather than the outer frame; on the frame, its padding squeezes the inner box and cover-fit crops the bottom off every capture. No Dynamic Island is drawn, because real captures already contain one.
 - **Language switcher** — a native `<select>` in a form, working without JavaScript through `hreflang`-linked URLs.
 - **Theme toggle** — three states (system, light, dark), persisted in `localStorage`, set before first paint to avoid a flash.
 
@@ -83,6 +84,12 @@ Rules and columns, not cards. The organising object is a **timetable**: a prayer
 - **App icons are generated from it** rather than from the old raster: gold shape on `--surface` green, with a 20% safe margin so a maskable circle crop keeps the whole figure.
 
 It appears twice: at 32px beside the wordmark, and once at up to 88px in the closing band, in gold. That second outing is the only decorative use; the mark is not repeated as a bullet, a divider or a watermark.
+
+## Screenshots
+
+Captured from the running app in the simulator (iPhone 17 Pro, 1206x2622), not from App Store marketing artwork. The previous set was marketing renders with headlines burned into the image, which could not be translated, could not be read by a screen reader, and repeated the headings next to them.
+
+The app is set to English and to its **Modern** theme for capture, whose sage green sits closest to this site's palette. Location is set to Mecca, so the times shown are real and the calculation method the app picks (Umm al-Qura) is the one that region actually uses.
 
 ## Motion
 
